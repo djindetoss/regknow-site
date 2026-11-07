@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Deep Learning-driven research for drug discovery: Tackling Malaria · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Deep Learning-driven research for drug discovery: Tackling Malaria</h1>
+<p class="authors">Bruno J Neves, Rodolpho C Braga, Vinicius M Alves, Marília N N Lima, Gustavo C Cassiano, Eugene N Muratov, Fabio T M Costa, Carolina Horta Andrade</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>PLoS computational biology</dd>
+<dt>Published</dt><dd>2020-02-18</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Virtual screening and binding prediction</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1371/journal.pcbi.1007025">10.1371/journal.pcbi.1007025</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/32069285/">32069285</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/32069285/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/32069285/</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>f9c3d3b304904c5b</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Malaria is an infectious disease that affects over 216 million people worldwide, killing over 445,000 patients annually. Due to the constant emergence of parasitic resistance to the current antimalarial drugs, the discovery of new drug candidates is a major global health priority. Aiming to make the drug discovery processes faster and less expensive, we developed binary and continuous Quantitative Structure-Activity Relationships (QSAR) models implementing deep learning for predicting antiplasmodial activity and cytotoxicity of untested compounds. Then, we applied the best models for a virtual screening of a large database of chemical compounds. The top computational predictions were evaluated experimentally against asexual blood stages of both sensitive and multi-drug-resistant Plasmodium falciparum strains. Among them, two compounds, LabMol-149 and LabMol-152, showed potent antiplasmodial activity at low nanomolar concentrations (EC50 &lt;500 nM) and low cytotoxicity in mammalian cells. Therefore, the computational approach employing deep learning developed here allowed us to discover two new families of potential next generation antimalarial agents, which are in compliance with the guidelines and criteria for antimalarial target candidates.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractMalaria is an infectious disease that affects over 216 million people worldwide, killing over 445,000 patients annually. Due to the constant emergence of parasitic resistance to the current antimalarial drugs, the discovery of new drug candidates is a major global health priority. Aiming to make the drug discovery processes faster and less expensive, we developed binary and continuous Quantitative Structure-Activity Relationships (QSAR) models implementing deep learning for predicting antiplasmodial activity and cytotoxicity of untested compounds. Then, we applied the best models for a virtual screening of a large database of chemical compounds. The top computational predictions were evaluated experimentally against asexual blood stages of both sensitive and multi-drug-resistant Plasmodium falciparum strains. Among them, two compounds, LabMol-149 and LabMol-152, showed potent antiplasmodial activity at low nanomolar concentrations (EC50 &lt;500 nM) and low cytotoxicity in mammalian cells. Therefore, the computational approach employing deep learning developed here allowed us to discover two new families of potential next generation antimalarial agents, which are in compliance with the guidelines and criteria for antimalarial target candidates.</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Malaria is a serious worldwide health problem that affects 216 million people, killing over 445,000 patients annually, especially children younger than five-years-old and pregnant women in Sub-Saharan Africa [1]. The disease is transmitted to humans through the bites of infected female Anopheles mosquitoes and caused by parasites of the genus Plasmodium [2,3]. Among them, P. falciparum is the most prevalent and dangerous species, causing the severe form of the disease, i.e., cerebral malaria [3,4].
+
+Current control and eradication of malaria demands a multifaceted approach. The World Health Organization recommends a combination of at least two drugs with different mechanism of action. However, the efficacy of antimalarial drugs is threatened by the emergence and spread of resistant strains to all major antimalarial drugs, such as chloroquine [5], atovaquone [6], pyrimethamine [7], and sulfadoxine [8]. More recently, drug resistance has also been reported to front-line artemisinin-based combination therapies (ACTs) in the Greater Mekong Subregion and southeast Asia [9–11]. All these aspects highlight the compelling need for the development of new therapies to solve the challenges of drug resistance and treatment adherence by identifying molecules with novel mechanisms of action and activity against all known resistant parasite strains [12].
+
+In this context, computational approaches, especially quantitative structure-activity relationships (QSAR) modeling, have had a profound impact in drug discovery [13]. Methodologically, QSAR modeling can be presented as a three-part process. Initially, a set of chemicals with experimentally-determined biological properties is converted into molecular descriptors (independent variables). Then, statistical methods are employed to establish relationships between descriptors and the biological properties (dependent variable) [14,15]. Early statistical methods used in QSAR applications were linear regression models [16–18], but these were quickly supplanted by Bayesian neural networks [19,20], followed by Support Vector Machines [21] and Random Forests [22–24]. Once statistically validated using appropriate metrics, the generated model represents a helpful tool for the virtual screening (VS) of new chemicals with desired biological properties.
+
+The availability of large datasets of chemical compounds with at least one biological property measured [25,26], associated with thousands of molecular descriptors paired with the popularization of in silico approaches resulted in the widespread use of QSAR for a diverse array of biological properties relevant to drug discovery [27–32]. However, dealing with big datasets has posed a challenge to model biological properties using classical machine learning algorithms [33,34]. To address this issue, deep learning methods (deep neural networks) have been presented as a practical solution [35,36]. Deep learning is particularly well-suited for QSAR modeling because it possesses multiple hidden layers capable of computing adaptive non-linear features that increasingly capture complex data patterns with each iterative additional layer, which makes this approach useful for tackling more complex chemical data [37,38].
+
+Recently, there have been some exciting studies implementing deep learning for de novo design of molecules [39–41] compounds with desired activity. Here, we developed a modeling protocol employing deep learning to build binary and continuous QSAR models based on large datasets and applied them for predicting the antiplasmodial activity and cytotoxicity of untested compounds. Then, the prioritized compounds were experimentally evaluated against asexual blood stages P. falciparum and mammalian cells. The general study design is presented in Fig 1. Briefly, we followed the following successive steps: (i) dataset collection, curation, and integration of molecules with activity against P. falciparum and cytotoxicity in fibroblasts; (ii) chemical space analysis of curated datasets; (iii) development of both binary and continuous QSAR models using deep learning; (iv) mechanistic interpretation of continuous models to provide structural and biological insights useful for design of new antiplasmodial compounds; (v) VS of ChemBridge chemical database (∼500,000 compounds); (vi) experimental validation of prioritized compounds on asexual blood stages of P. falciparum (sensitive and multi-drug resistant strains) and mammalian cells; and (vii) identification of novel antiplasmodial compounds.
+
+(i) dataset collection, curation, and integration of molecules with activity against P. falciparum and cytotoxicity in fibroblasts; (ii) chemical space analysis; (iii) development of QSAR models using deep learning; (iv) mechanistic interpretation of models; (v) VS of ChemBridge chemical database; (vi) experimental validation of prioritized compounds; and (vii) identification of novel antiplasmodial compounds.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Results</h3>    <p>Cluster analysis of A) 1,162 compounds from P. falciparum dataset and B) 1,270 compounds from cytotoxicity dataset. Dendrogram and heatmap of the distance matrix are both colored according to structural similarity (orange/red = similar; blue/violet = dissimilar). The x- and y-axis labels of the heatmap represent compounds.
+
+The plot was obtained using barycentric coordinates from 2D RDKit descriptors showing active (blue dots) and inactive (black diamonds) compounds of P. falciparum dataset and toxic (red stars) and nontoxic (green triangles) from cytotoxicity dataset.
+
+Compounds experimentally tested in P. falciparum assay, extracted from the literature and used to build/validate our models. Fragments increasing the activity are colored in red; structural moieties decreasing the activity are highlighted in green; indifferent fragments are not highlighted. pEC50 exp = pEC50 experimental; pEC50 pred = pEC50 predicted.
+
+Veber and Lipinski rules were used to prioritize candidate compounds with good oral bioavailability, to ensure that the compound has basic properties of active drugs; colloidal aggregation tool was used to filter out molecules that are known to aggregate in experimental assays; chemical similarity analysis and visual inspection were performed to select a subset of structurally diverse candidate compounds.
+
+Atoms or fragments promoting positive contribution for the antiplasmodial activity are highlighted in red.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Results › Chemical space analysis</h3>    <p>Initially, an activity threshold of 1 μM based on half maximal effective concentration (EC50) against P. falciparum was defined for discrimination between active and inactive compounds previously tested against asexual blood stages of P. falciparum. In addition, a threshold of 10 μM based on half-maximal cytotoxic concentration (CC50) for the NIH/3T3 cells was defined for discrimination between toxic and nontoxic compounds [42]. The analysis of chemical space was performed by using the curated datasets (see Materials and Methods) for erythrocytic stages of P. falciparum 3D7 strain (chloroquine sensitive) dataset containing 1,162 compounds (P. falciparum dataset) and cytotoxicity dataset tested against mouse embryonic fibroblasts (NIH/3T3 cell line) containing 1,270 compounds (cytotoxicity dataset). This analysis has been performed by clustering both datasets separately, which revealed that both are very structurally dissimilar, containing smaller clusters of similar compounds (Fig 2).
+
+Although the datasets are structurally diverse, they share the same regions of chemical space. When analyzing the chemical space of both datasets together, by protting the two-dimensional barcentric coordinates [43] (Fig 3, see Materials and Methods for details), one can see that most of the active and inactive compounds from P. falciparum dataset overlap within the same regions of chemical space of toxic and nontoxic compounds from the cytotoxicity dataset. This analysis reveals that multiple compounds active against P. falciparum in the erythrocytic stage are potentially toxic in mouse embryonic fibroblasts. For this reason, we developed predictive computational models for both biological properties in order to select only compounds predicted as active for P. falciparum and nontoxic for mammalian cells.
+
+Cluster analysis of A) 1,162 compounds from P. falciparum dataset and B) 1,270 compounds from cytotoxicity dataset. Dendrogram and heatmap of the distance matrix are both colored according to structural similarity (orange/red = similar; blue/violet = dissimilar). The x- and y-axis labels of the heatmap represent compounds.
+
+The plot was obtained using barycentric coordinates from 2D RDKit descriptors showing active (blue dots) and inactive (black diamonds) compounds of P. falciparum dataset and toxic (red stars) and nontoxic (green triangles) from cytotoxicity dataset.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Results › Performance of binary QSAR models</h3>    <p>Binary QSAR models were built to distinguish active vs. inactive compounds for P. falciparum and toxic vs. nontoxic compounds for NIH/3T3 cells. According to the statistical results of a 5-fold external cross-validation procedure (see Materials and Methods), the combination of Morgan and FeatMorgan fingerprints (radius 2: FeatMorgan_2, Morgan_2; radius 4: FeatMorgan_4, Morgan_4) with deep learning (see Materials and Methods for details) led to predictive binary QSAR models. Statistical characteristics of developed QSAR models estimated by 5-fold external cross-validation are reported in Table 1. Briefly, correct classification rate (CCR) values were ranging between 0.82–0.87; sensitivity (SE)– 0.82–0.87; specificity (SP)– 0.82–0.87, and a coverage– 0.77–0.87. Table 1 shows the detailed performances of the binary QSAR models. The model built using Morgan_2 demonstrated the best performance among all other models developed for P. falciparum (CCR = 0.84; SE = 0.82; SP = 0.86; and PPV = 0.86). On the other hand, the best model developed for prediction of cytotoxicity for mammalian fibroblasts was built using FeatMorgan_4 (CCR = 0.87; SE = 0.87; and SP = 0.87).</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Results › Performance of continuous QSAR models</h3>    <p>We have developed continuous QSAR models aiming to predict negative logarithmic units of EC50 values (pEC50) against P. falciparum and CC50 values (pCC50) against NIH/3T3 cell line. According to the statistical results of a 5-fold external cross-validation procedure, the combination of Morgan and FeatMorgan fingerprints (radius 2: FeatMorgan_2, Morgan_2) with deep learning led to statistically predictive models (Table 2), with predictive squared correlation coefficient for the test set (Qext2) values ranging between 0.70–0.88, root mean square error of cross-validation (RMSECV) of 0.44–0.55, mean absolute error (MAE) of 0.31–0.43, and coverage of 0.79–0.81. The model built using Morgan_2 demonstrated the best performance among all other models developed for P. falciparum (Qext2 = 0.88, RMSECV = 0.49, and MAE = 0.43). On the other hand, the best model developed for prediction of cytotoxicity for mammalian fibroblasts was built using FeatMorgan_2 (Rext2 = 0.74, RMSECV = 0.44, and MAE = 0.31).</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Results › Model interpretation</h3>    <p>To provide a mechanistic interpretation and shed some light from the structural and biological data used to build the continuous QSAR models, we plotted the predicted feature (fingerprint) importance to visualize how the fragments contributed for the antiplasmodial activity and the cytotoxicity (Fig 4 and S1 Fig). According to our results, atoms or fragments promoting positive contribution for the antiplasmodial activity are highlighted in red, while structural moieties decreasing the activity are highlighted in green.
+
+By analyzing the contribution maps generated for the P. falciparum dataset, we identified six major fragments with favorable contribution for antiplasmodial activity. Examples of favorable fragments are as follows: 1,2,4,5-tetraoxaspiro[5.5]undecane; 7-chloroquinoline; 2,5-dimethylhexa-1,5-diene; pyridin-2-amine; 1,4-dihydroquinolin-4-one; and 1,3,5-triazine-2,4,6-triamine. We also identified six fragments with unfavorable contribution for antiplasmodial activity, such as: 1,2-dimethyl-1,4-dihydropyridin-4-one; 2-methylfuran; 5-guanidine; N-ethylpropanamide; 2,6-dimethylhepta-1,5-diene; and 4H-pyrido[1,2-a]pyrimidin-4-one. Moreover, we also calculated the predicted influence of structural fragments on the cytotoxicity. A summarized list of atoms or fragments with favorable and unfavorable contribution for cytotoxicity on mammalian fibroblasts is available in S1 Fig. The structural and biological information provided by the QSAR models developed using deep learning could be useful for designing or optimizing potent and selective antiplasmodial compounds by replacing unfavorable fragments by favorable fragments, assuming true independence of physicochemical effects.
+
+Compounds experimentally tested in P. falciparum assay, extracted from the literature and used to build/validate our models. Fragments increasing the activity are colored in red; structural moieties decreasing the activity are highlighted in green; indifferent fragments are not highlighted. pEC50 exp = pEC50 experimental; pEC50 pred = pEC50 predicted.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Results › Virtual screening</h3>    <p>The virtual screening (VS) was carried out following the workflow presented in Fig 5. Initially, 486,115 compounds available on EXPRESS-Pick collection of ChemBridge were downloaded and standardized for VS. Then, drug-likeness filters (Veber [44] and Lipinski’s rules [45]) were applied to prioritize molecules with good oral bioavailability, to ensure that the compound has basic properties of active drugs. In parallel, colloidal aggregation tool was used to filter out molecules that are known to aggregate in experimental assays [46,47] After these steps, 72,260 compounds were excluded. Afterwards, the remaining compounds were submitted to conservative binary and continuous QSAR models for prediction of the activity against blood stages of P. falciparum and cytotoxicity against mammalian cells. The final selection of candidate compounds can be summarized as follows: (i) the compounds predicted as active and non-cytotoxic by the binary QSAR models; (ii) compounds with pEC50 ≥6.00 (i.e., EC50 ≤1 μM for P. falciparum) and pCC50 &lt;5.00 (i.e., CC50 &gt;10 μM for mammalian cells) predicted by the continuous QSAR models; (iii) and compounds inside the applicability domain (AD) of the QSAR models. The combination of binary and continuous QSAR models was implemented to increase success rates in virtual screening campaign. In addition, the AD was determined in order to set “reliable” and “unreliable” predictions [48,49]. The predictions were considered reliable when they were within the chemical space used for training the models. Finally, we performed a chemical similarity analysis to select a subset of structurally diverse compounds. At the end of this process, five candidate compounds were selected for biological evaluation (Fig 6).
+
+Veber and Lipinski rules were used to prioritize candidate compounds with good oral bioavailability, to ensure that the compound has basic properties of active drugs; colloidal aggregation tool was used to filter out molecules that are known to aggregate in experimental assays; chemical similarity analysis and visual inspection were performed to select a subset of structurally diverse candidate compounds.
+
+Atoms or fragments promoting positive contribution for the antiplasmodial activity are highlighted in red.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Results › Experimental validation</h3>    <p>The five candidate compounds were evaluated in vitro against asexual blood stages of P. falciparum sensitive (3D7), and multi-drug-resistant (W2) strains. The EC50 for each compound (Table 3) indicate that two compounds, 2-(4,6-diphenyl-1,2-dihydro-1,3,5-triazin-2-yl)phenol (LabMol-149), 4-{N-[3-(morpholin-4-yl)-1,4-dioxo-1,4-dihydronaphthalen-2-yl]acetamido}benzoic acid (LabMol-151) and N2-(3-fluorophenyl)-N4-[(oxolan-2-yl)methyl]quinazoline-2,4-diamine (LabMol-152), were potent at inhibiting the parasite growth, showing activities in submicromolar and low nanomolar range against both 3D7 and W2 strains. Moreover, the compound LabMol-152 (EC50 = 0.049 μM and 0.078 μM for 3D7 and W2, respectively) showed efficacy in the same range of activity of the reference drugs, chloroquine (EC50 = 0.011 μM) and pyrimethamine (EC50 = 0.037 μM). The candidate compounds were also evaluated for their cytotoxicity against fibroblast-like cell lines derived from monkey kidney (COS-7 cells). With respect to selectivity, LabMol-149 and LabMol-152 showed the most promising results (selectivity index, SI, ranging between 71.4–340.8, Table 3).</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Discussion</h3>    <p>In this work, we used a deep learning technique to obtain both binary and continuous QSAR models to predict the antiplasmodial activity and cytotoxicity of untested compounds. Models were developed following the best practices of QSAR modeling [14,15], which are fully compliant to Organization for Economic Co-operation and Development (OECD) guidance [50], such as (i) a defined endpoint (biological properties in our case), (ii) an unambiguous algorithm, (iii) a defined applicability domain (AD), (iv) appropriate measures of goodness-of-fit, robustness, and predictivity, and (v) mechanistic interpretation, if possible [50].
+
+Our study follows the most recent tendencies in the usage of deep learning to probe chemical space of drug-like molecules [38,51]. As a result, we have obtained predictive QSAR models, with CCR values ranging between 0.82–0.87 (binary models) and Qext2 values ranging between 0.70–0.88 (continuous models). These results suggest that deep learning can be efficiently used to rationalize the identification of potent and selective antiplasmodial compounds in early stages of drug discovery. In addition, analysis of chemical space of P. falciparum and cytotoxicity dataset revealed that the compounds active against P. falciparum share the same chemical space of many compounds that are toxic in mouse embryonic fibroblasts.
+
+By applying the workflow presented on Fig 5, we were able prioritize five new compounds for further experimental testing in vitro against sensitive (3D7) and multidrug-resistant (W2) strains of P. falciparum. Two compounds (LabMol-149 and LabMol-151) showed activity at submicromolar concentrations against asexual blood stages and low cytotoxicity in mammalian cells. More remarkable, the compound LabMol-152 showed efficacy in the same range of activity as the reference drug pyrimethamine against 3D7 strain (EC50 = 0.049 and 0.037 μM, respectively). Drug resistance in Plasmodium spp. is a complex daunting issue, and there is an opinion that resistant parasite strains will always emerge [12]. Although not fully understood, clinical resistance is probably due to high parasite genetic diversity and the misuse of therapeutics. The compounds tested here present chemical scaffolds dissimilar from current antimalarial drugs, according to the Tanimoto coefficient calculated using MACCS structural keys descriptors (Fig 7, S2 and S3 Figs, Supporting Information). Furthermore, no compound showed cross-resistance with a P. falciparum multidrug-resistant strain, thus indicating new mechanisms of action and potentially representing new weapons in our arsenal of antimalarials. However, parasite resistance to new compounds seems more likely to be a problem by de novo acquisition than pre-existing resistance [52]. Thus, how quickly resistance against our compounds would occur is an interesting question and needs to be better elucidated in future studies.
+
+To summarize, the approach developed in this study allowed us to discover three new chemicals belonging to three different structural families (triazines, naphtoquinones, and quinazolines), which are promising starting points for developing of potential next generation antimalarial agents. Moreover, two of these compounds (LabMol-149 and LabMol-152) completely satisfy the guidelines and criteria for discovery of new antimalarial drugs, i.e., activity at low nanomolar concentrations (EC50 &lt;500nM) against sensitive and multiple resistant strains of Plasmodium spp. and SI greater than 10 folds [12,42]. Future directions include structural optimization of potency and selectivity, determination of the stage in the asexual life cycle of P. falciparum where these compounds seem to act, as well as in vivo assays.
+
+The similarity was accessed by the Tanimoto coefficient (Tc) and MACCS structural key fingerprints.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Materials and methods › Computational › Datasets</h3>    <p>In this study, deep learning algorithms were explored to build binary and continuous QSAR models using two datasets extracted from the ChEMBL database (https://www.ebi.ac.uk/chembl/) [25]. A brief description of the datasets is presented below.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Materials and methods › Computational › Data curation</h3>    <p>All chemical structures and correspondent biological information were carefully standardized using Standardizer v.16.9.5.0 (ChemAxon, Budapest, Hungary, http://www.chemaxon.com) according to the protocols proposed by Fourches and colleagues [53–55]. Briefly, explicit hydrogens were added, whereas polymers, salts, metals, organometallic compounds, and mixtures were removed. In addition, specific chemotypes such as aromatic rings and nitro groups were normalized. Furthermore, we performed the analysis and exclusion of duplicates. Different criteria were adopted, as follows:</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Materials and methods › Computational › Chemical space analysis</h3>    <p>Chemical space formed by P. falciparum and cytotoxicity datasets was analyzed by plotting the barycentric coordinates of all the structures encountered in both datasets, which were defined by the 2D RDKit descriptors. Barycentric coordinates correspond to the location of the points of a simplex (a triangle, tetrahedron, etc.) in the space, defined by the vertices [43]. In other words, the location of a chemical in a multidimensional space of 2D RDKit descriptors has been scaled to two dimensions. In this case, a simplex is defined by all the RDKit descriptors of a particular chemical substance. Barycentric coordinates were determined using Methods of Data Analysis module of HiT QSAR software [57]. In addition, both datasets were independently clustered using the Sequential Agglomerative Hierarchical Non-overlapping method [58] implemented in Python v.3.6. Briefly, a dendrogram of the parent-child relationships between clusters and a heatmap of the proximity matrix colored according to the pairwise chemical similarity between compounds. To better visualize the clusters, the distance matrix of the compounds from the two datasets were independently calculated and the compounds were clustered.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Materials and methods › Computational › Molecular fingerprints</h3>    <p>Morgan and FeatMorgan fingerprints were calculated in the open-source cheminformatics software RDKit (http://www.rdkit.org, [59]) executed on Python v.3.6 (https://www.python.org). Both fingerprints were generated with radius 2−4 and bit vector of 2,048 bits. Morgan is a type circular fingerprint built by applying the Morgan algorithm to a set of user-supplied 2D chemical structures [60,61]. The fingerprint generation process systematically records the neighborhood of each non-hydrogen atom into multiple circular layers up to a stablished radius. The radius is a dominant parameter which controls the number and the maximum size of considered atom neighborhoods, thus it controls the complexity of fragment representation. These atom-centered substructural features are interpreted as indexes of bits in a huge virtual bit string. Each position in this bit string accounts for the presence or absence of a specific fragment feature [60,61]. The Morgan captures highly specific atomic information enabling the representation of a large set of precisely defined structural features [60]. Additionally, invariants of Morgan called as FeatMorgan fingerprints can also be calculated by including functional features (i.e., hydrogen-bond donor and acceptors, aromatic, halogen, basic and acid groups) [62].</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Materials and methods › Computational › Deep learning</h3>    <p>The binary and continuous QSAR models were developed using Keras (https://keras.io/), a deep learning library, and Tensorflow (www.tensorflow.org), a GPU training and CPU for prediction), as backend. Binary models were trained using previously established activity/toxicity thresholds, while continuous models were developed using pEC50 (P. falciparum) and pCC50 (cytotoxicity). The following parameters of the deep learning method were optimized prior to model training: layer type (dense), hidden layers (8), activation function (ReLU), output layer function (sigmoid), model optimizer (Adam). The “binary cross-entropy” and “mean squared error” were used as loss functions in binary and continuous QSAR modeling, respectively. The “accuracy” and “mean absolute error” were used as parameters to judge the performance of binary and continuous models, respectively. The following hyperparameters were used for further deep learning training: epochs (5, 10, 50, 100), and batch size (10, 20, 40, 60, 80, 100).</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Materials and methods › Computational › 5-fold external cross-validation (5FECV)</h3>    <p>According to the best practices of QSAR modeling [15], we chose five-fold external cross-validation for the estimation of predictivity of developed models. The procedure can be described as follows: the entire dataset of compounds was randomly divided into five subsets of equal size; then one of these subsets (20% of all compounds) is set aside as an external validation set and the remaining four sets together form the modeling set (80% of the full set). This procedure was repeated five times, allowing each of the five subsets to be used as an external validation set. Models were built using the modeling set while the compounds in momentary external set (fold) were employed to evaluation of predictive performance.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Materials and methods › Computational › Performance of QSAR models</h3>    <p>The predictive performance of binary QSAR models was evaluated using sensitivity (SE), specificity (SP), correct classification rate (CCR), positive predictive value (PPV), and negative predictive value (NPV). These metrics were calculated as follows:
+
+Here, TP and TN represent the number of true positives and true negatives, respectively, while FP and FN represent the number of false positives and false negatives, respectively.
+
+The predictive performance of continuous QSAR models was evaluated using correlation coefficient (R2), root mean square error of cross validation (RMSECV), mean absolute error (MAE), and predictive squared correlation coefficient for the test set (Qext2) [63]. These metrics were calculated as follows:
+
+In the above equations, Yobs represents experimental pEC50 or pCC50 value, Ypred represents the predicted pEC50 or pCC50 value, ntrain and ntest are the number of compounds in training and test set, respectively, and Y¯train is the average of experimental values of the training set.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Materials and methods › Computational › Applicability domain</h3>    <p>The AD was estimated based on the Euclidean distances among the training set of each QSAR model generated in the 5-fold external cross-validation procedure. The distance of a test set compound to its nearest neighbor in the training set was compared to the predefined AD threshold level. The prediction was considered to be less reliable if the distance was greater than the threshold level. In our study, the AD was defined as a distance threshold (DT) between a compound under prediction and the closest nearest neighbors in training set. The following equation was used for calculation of distance threshold [64]:
+
+In which ӯ is the average Euclidean distance of the k nearest neighbors within the modeling set, σ is the standard deviation of these Euclidean distances, and Z is an arbitrary parameter to control the significance level. We set the default value of this parameter Z at 0.5. If the compound distance exceeded the threshold, the prediction was considered to be less trustworthy [65].</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Materials and methods › Computational › Mechanistic interpretation</h3>    <p>Contribution maps were generated from continuous QSAR models to visualize the atomic and fragment contributions for antimalarial activity and cytotoxicity. Here, the &#34;weight&#34; of an atom was considered as predicted-potency difference obtained when the bits in the fingerprint corresponding to the atom are removed. Then, the normalized weights were used to color the atoms in a topography-like map in which green indicating a negative difference (i.e., potency increases when the bits are removed), and red indicating a positive difference in biological property.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Materials and methods › Computational › Virtual screening (VS)</h3>    <p>Developed QSAR models were used for VS of EXPRESS-Pick collection of ChemBridge Corporation (http://www.chembridge.com/) aiming to identify new potential antiplasmodial compounds, which could be potentially selective against the parasite (i.e. non-toxic to mammalian cells). Prior to screening, the database was filtered using a aggregator advisor tool to identify molecules that are known-to aggregate in experimental assays [46,47]. Subsequently, Veber [44] and Lipinski’s rules [45] were employed in screening to prioritize drug-like compounds. Then, the remaining compounds had their antiplasmodial activity and cytotoxicity against mammalian cells predicted by binary and continuous QSAR models. In addition, the structural diversity of candidate compounds was investigated using pairwise Tanimoto coefficients between compounds. Finally, the selected candidate compounds were purchased and submitted to in vitro experimental evaluation.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Materials and methods › Experimental › Materials</h3>    <p>Candidate compounds were purchased from ChemBridge (San Diego-CA, USA) and resuspended in 100% DMSO. It is important to mention that all compounds had a minimum purity of 95%. The DMEM and RPMI 1640 media were purchased from Vitrocell Embriolife (Campinas-SP, Brazil). All other reagents were purchased from Sigma-Aldrich (St. Louis-MO, USA).</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Materials and methods › Experimental › Parasite culture</h3>    <p>The 3D7 and W2 strains were cultured in RPMI 1640 medium supplemented with 0.05 mg/mL gentamycin, 38.4 mM HEPES, 0.2% sodium bicarbonate, and 10% O+ human serum, as previously described in standardized protocol [66]. Then, erythrocytes were added to the culture to obtain a 5% of hematocrit, and incubated at 37°C under 5% CO2 atmosphere, with daily exchange of medium. The parasitemia was monitored daily in smears, stained with Giemsa. Synchronic cultures in ring stage were obtained by two consecutive treatments, at 48h intervals with a 5% solution of D-sorbitol [67].</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Materials and methods › Experimental › Antiplasmodial assay</h3>    <p>Parasites synchronized at the ring stage, with 0.5% parasitemia and 2% hematocrit, were distributed in the wells of a 96-well plate. The compounds were tested in triplicates using 12-point dilution series (0.019 μM– 40 μM) over 72h. Chloroquine and pyrimethamine were used as positive controls. The in vitro susceptibility of parasite to tested drugs was measured by SYBR Green according to Hartwig and colleagues [68]. Briefly, 100 μL of lysis buffer (20 mM Tris, 5 mM EDTA, 0,008% wt/vol saponin, 0,08% vol/vol Triton X-100 and 0.4 μL/mL of SYBR Green) were added in each well of a new black 96-well plate and 100 μL of parasite culture incubated with drugs were transferred. After homogenization, the plates were incubated for 1h in the dark. Fluorescence was measured at 490 nm excitation and 540 nm emission (CLARIOstar, Labtech BMG).</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Materials and methods › Experimental › Cytotoxicity assay</h3>    <p>Cytotoxicity assays used fibroblast-like cell lines derived from monkey kidney tissue (COS7 cells), grown in DMEM medium supplemented with 10% fetal bovine serum and 0.05 mg/mL gentamicin in atmosphere containing 5% CO2 at 37°C. Drug cytotoxicity in COS-7 cells was determined in duplicate, using 12 dilution series (0.097 μM– 200 μM). After an incubation period (72 hours), cell viability analysis was performed via the MMT reduction method (3- [4,5- dimethyl-thiazol-2-yl] -2,5-diphenyltetrazolium chloride) [69]. The optical density was determined at 570 nm (CLARIOstar, Labtech BMG) and the 50% cytotoxicity concentrations (CC50) was expressed as the percent viability relative to the control.</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Materials and methods › Experimental › Statistics</h3>    <p>The EC50 and CC50 values were calculated by plotting the Log doses vs. inhibition (expressed as a percentage relative to the control) in GraphPad Prism v.6 (GraphPad Software, La Jolla California USA, www.graphpad.com).</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>Supporting information</h3>    <p>(XLSX)
+
+Click here for additional data file.
+
+(XLSX)
+
+Click here for additional data file.
+
+(XLSX)
+
+Click here for additional data file.
+
+(XLSX)
+
+Click here for additional data file.
+
+Fragments contributing for the cytotoxicity are colored in red, atoms or fragments decreasing the cytotoxicity are highlighted in green, and no highlighting means no influence to cytotoxicity.
+
+(TIF)
+
+Click here for additional data file.
+
+The similarity was calculated using Tanimoto coefficient (Tc) and MACCS structural keys descriptors.
+
+(TIF)
+
+Click here for additional data file.
+
+The similarity was calculated using Tanimoto coefficient (Tc) and MACCS structural keys descriptors.
+
+(TIF)
+
+Click here for additional data file.</p>
+  </section>
+  <section id="s26" class="text-unit">
+<h3>Acknowledgments</h3>    <p>We are thankful for Kirsten Overdahl for her kind help with editing the manuscript. We gratefully acknowledge the support of NVIDIA Corporation with the donation of the Titan Xp GPU used for this research and ChemAxon for providing us with academic license for their software.</p>
+  </section>
+  <section id="s27" class="text-unit">
+<h3>Data Availability</h3>    <p>All relevant data are within the paper and its Supporting Information files.</p>
+  </section>
+  <section id="s28" class="text-unit">
+<h3>Funding Statement</h3>    <p>The authors would like to thank Brazilian funding agencies, CNPq, FAPEG, FAPESP, and CAPES for financial support and fellowships. FTMC, GCC, and CHA were supported by FAPESP (grants #2012/16525-2, #2015/20774-6, 2017/18611-7 and #2017/02353-9). ENM appreciate financial support of NIH (grant 1U01CA207160). CHA and FTMC are CNPq research fellows. CHA also thanks the “L&#39;Oréal-UNESCO-ABC Para Mulheres na Ciência” and “L’Oréal-UNESCO International Rising Talents” for the awards and fellowships received, which partially funded this work. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</p>
+  </section>
+  <section id="s29" class="text-unit">
+<h3>Associated Data</h3>    <p>(XLSX)
+
+Click here for additional data file.
+
+(XLSX)
+
+Click here for additional data file.
+
+(XLSX)
+
+Click here for additional data file.
+
+(XLSX)
+
+Click here for additional data file.
+
+Fragments contributing for the cytotoxicity are colored in red, atoms or fragments decreasing the cytotoxicity are highlighted in green, and no highlighting means no influence to cytotoxicity.
+
+(TIF)
+
+Click here for additional data file.
+
+The similarity was calculated using Tanimoto coefficient (Tc) and MACCS structural keys descriptors.
+
+(TIF)
+
+Click here for additional data file.
+
+The similarity was calculated using Tanimoto coefficient (Tc) and MACCS structural keys descriptors.
+
+(TIF)
+
+Click here for additional data file.</p>
+  </section>
+  <section id="s30" class="text-unit">
+<h3>Associated Data › Supplementary Materials</h3>    <p>(XLSX)
+
+Click here for additional data file.
+
+(XLSX)
+
+Click here for additional data file.
+
+(XLSX)
+
+Click here for additional data file.
+
+(XLSX)
+
+Click here for additional data file.
+
+Fragments contributing for the cytotoxicity are colored in red, atoms or fragments decreasing the cytotoxicity are highlighted in green, and no highlighting means no influence to cytotoxicity.
+
+(TIF)
+
+Click here for additional data file.
+
+The similarity was calculated using Tanimoto coefficient (Tc) and MACCS structural keys descriptors.
+
+(TIF)
+
+Click here for additional data file.
+
+The similarity was calculated using Tanimoto coefficient (Tc) and MACCS structural keys descriptors.
+
+(TIF)
+
+Click here for additional data file.</p>
+  </section>
+  <section id="s31" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>All relevant data are within the paper and its Supporting Information files.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

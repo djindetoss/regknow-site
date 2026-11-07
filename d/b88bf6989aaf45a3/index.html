@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Hybrid quantum-classical machine learning for generative chemistry and drug design · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Hybrid quantum-classical machine learning for generative chemistry and drug design</h1>
+<p class="authors">A I Gircha, A S Boev, K Avchaciov, P O Fedichev, A K Fedorov</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Scientific reports</dd>
+<dt>Published</dt><dd>2023-05-22</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Molecular design and generation</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1038/s41598-023-32703-4">10.1038/s41598-023-32703-4</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/37217521/">37217521</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/37217521/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/37217521/</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>b88bf6989aaf45a3</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Deep generative chemistry models emerge as powerful tools to expedite drug discovery. However, the immense size and complexity of the structural space of all possible drug-like molecules pose significant obstacles, which could be overcome with hybrid architectures combining quantum computers with deep classical networks. As the first step toward this goal, we built a compact discrete variational autoencoder (DVAE) with a Restricted Boltzmann Machine (RBM) of reduced size in its latent layer. The size of the proposed model was small enough to fit on a state-of-the-art D-Wave quantum annealer and allowed training on a subset of the ChEMBL dataset of biologically active compounds. Finally, we generated 2331 novel chemical structures with medicinal chemistry and synthetic accessibility properties in the ranges typical for molecules from ChEMBL. The presented results demonstrate the feasibility of using already existing or soon-to-be-available quantum computing devices as testbeds for future drug discovery applications.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractDeep generative chemistry models emerge as powerful tools to expedite drug discovery. However, the immense size and complexity of the structural space of all possible drug-like molecules pose significant obstacles, which could be overcome with hybrid architectures combining quantum computers with deep classical networks. As the first step toward this goal, we built a compact discrete variational autoencoder (DVAE) with a Restricted Boltzmann Machine (RBM) of reduced size in its latent layer. The size of the proposed model was small enough to fit on a state-of-the-art D-Wave quantum annealer and allowed training on a subset of the ChEMBL dataset of biologically active compounds. Finally, we generated 2331 novel chemical structures with medicinal chemistry and synthetic accessibility properties in the ranges typical for molecules from ChEMBL. The presented results demonstrate the feasibility of using already existing or soon-to-be-available quantum computing devices as testbeds for future drug discovery applications.Subject terms: Quantum information, Quantum simulation, Computational biophysics, Medicinal chemistry</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Drug design is the process of identifying biologically active compounds and relies on the efficient generation of novel, drug-like, and yet synthetically accessible compounds. So far, only about 108 substances have ever been synthesized1, whereas the total number of realistic drug-like molecules is estimated to be in the range between 1023 and 10602. This is why deep learning3 and particularly deep generative models4–7 are believed to be helpful in generative chemistry and computational drug discovery applications involving sampling and scoring novel chemical structures from the very large and hitherto unknown distributions of possible drug-like molecules (see examples and benchmarks in Refs.8–10).
+
+A fully developed generative model should implicitly estimate the fundamental molecular properties, such as stability and synthetic accessibility for each generated compound and its intermediate products. All those features depend on the ability of the network architecture to approximate the solutions of the underlying quantum mechanical problems, which is computationally hard for molecules of realistic size. Quantum computers are naturally good for solving complex quantum many-body problems11 and thus may be instrumental in applications involving quantum chemistry12–15. Moreover, quantum algorithms can speed up machine learning14,16. Therefore, one can expect that quantum-enhanced generative models17, including quantum GANs18, may eventually be developed into ultimate generative chemistry algorithms.
+
+Exploring the full potential of quantum machine-learning algorithms requires the development of fault-tolerant hardware16, which is not yet accessible. Meanwhile, readily available noisy intermediate-scale quantum (NISQ) devices19 provide a test-bed for the development and testing of quantum machine-learning algorithms for practical problems of modest size. For example, quantum annealing processors20 could potentially enable more efficient solving quadratic unconstrained binary optimization problems and approximating sampling from the thermal distributions of transverse Ising systems. These applications are attractive in the context of machine learning as tools both for solving optimization problems21–24 and sampling25–28. Gate-based architectures are also of interest for machine learning16, in particular, in the context of quantum GANs, which are a subject of intensive research29–33 including recent demonstration of learning and generation of hand-written digit images on a quantum processor33.
+
+In this work, we prototyped a discrete variational autoencoder (DVAE, see Ref.34), whose latent generative process is implemented in the form of a Restricted Boltzmann Machine (RBM) of a small enough size to fit readily available annealers. We trained the network on D-Wave annealer and generated 2331 novel chemical structures with medicinal chemistry and synthetic accessibility properties in the ranges typical for molecules from ChEMBL. Hence, we demonstrated that the hybrid architecture might allow practical machine-learning applications for generative chemistry and drug design. Once the hardware matures, the RBM could be turned into Quantum Boltzmann Machine (QBM), and the whole system might be transformed into a Quantum VAE (QVAE34) and sample from richer non-classical distributions.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Results</h3>    <p>We proposed and characterized a generative model (see Fig. 1) in the form of a combination of a Discrete Variational Autoencoder (DVAE) model with a Restricted Boltzmann Machine (RBM) in the latent space34,35 and the Transformer model36. The model learns good representations of chemical structures from ChEMBL, which is the manually curated database of biologically active molecules with drug-like properties37.
+
+Following Ref.4, we used common SMILES38 encoding for organic molecules and trained the system to encode and subsequently decode molecular representations via optimizing evidence lower bound (ELBO) for DVAE log-likelihood34:
+
+Here, E denotes the expectation value, DKL is the Kullback–Leibler (KL) divergence, and pθ(z) is the prior distribution in the latent variable space and is encoded by RBM as in Ref.34 (see MM). The two layers of RBM contain 128 units each. An RBM of this size can be sampled on readily available quantum annealers. We used the spike-and-exponential transformation34 as a smoothing probability distribution between the discrete z and continuous ζ variables and employed the standard reparameterization trick to avoid calculating derivatives over random variables.
+
+The respective encoder and decoder functions, qϕ(z|x) and pθ(x|ζ), are approximated by the deep neural networks with Transformer layers each depending on its own set of adjustable parameters ϕ and θ. We modified the KL divergence term with β=0.1 to avoid posterior collapse39.
+
+We trained the network for 300 epochs until apparent convergence using Gibbs sampling (see the red and yellow lines in Fig. 2 representing the total loss over the validation and train sets, respectively). In what follows, we discuss the two checkpoints: the fully trained (Gibbs-300) and, for reference purposes, the intermediate model (Gibbs-75) appearing by the end of the 75th epoch. We expect that with improvements in quantum hardware (in particular, coherence times of qubits), training the DVAE with quantum annealing technique could be comparable to or overcome existing techniques.
+
+VAE is a probabilistic model. In particular, this means that each of the discrete states in the latent variables is decoded into a probability distribution of SMILES-encoded molecules. On top of Fig. 1 we provide an example of encoding a particular molecule (diaveridine) and its reconstruction by the Gibbs-300 network (see the structures at the bottom). In this case, the target molecule was reconstructed exactly in 46% runs (see the reconstruction probabilities and Tanimoto similarities to the target molecule next to the reported structures).
+
+DVAE is a generative model that can produce novel molecules with properties that presumably match those in the training set. In Fig. 3 and Table 1, we compare the distributions of the basic biochemical properties of the molecules in the training set and among molecules generated by each of the models with discrete latent variables trained and discussed in this work. The novel molecules were mainly valid (55% and 69% in Gibbs-75 (10k molecules) and Gibbs-300 (50k molecules) models, respectively). We kept track of molecular weight (MW), the water-octanol partition coefficient (logP), the synthetic accessibility (SA40) score, and the quantitative estimation of drug-likeness (QED41) score, which are common physico-chemical properties for benchmarking molecular generative models9.
+
+Aside from the biochemical and drug-likeness properties, we also measured the novelty of generated molecules. Less than 1% of the generated molecules (0.36% and 0.22% in Gibbs-75 and Gibbs-300 models, respectively) had Tanimoto similarity larger than 0.9 to any molecule in the training set , and less than 10% of the generated molecules are similar to any molecule in the training set with T&gt;0.7 in both models. Extra training time improved both the validity of the generated molecules and brought the molecular properties closer to those found in the training set (see the relevant Gibbs-75 and Gibbs-300 columns in Table 1).
+
+The proposed network architecture is sufficiently compact to fit the D-Wave hardware. Hence, we were able to train the network using the annealer instead of Gibbs sampling. The learning of the hybrid model on D-Wave progressed slower than that on a classical computer using Gibbs sampling (see the blue solid and cyan dashed lines in Fig. 2 corresponding to the total loss of the model on the validation and the training sets). We had, however, to stop the training before reaching convergence at the 75th epoch due to the limited performance of the available quantum hardware. With its further improvements, we expect to have the ability to prolong the training. Eventually, we used D-Wave to generate 4290 molecular structures (2331 of which are grammatically correct, see Fig. 3 and the corresponding column in Table 1). As expected, the distributions of basic properties of the generated molecules were close to those obtained from the Gibbs-75 model and could be improved if more training time were available.
+
+Scheme of the DVAE learning a joint probability distribution over the molecular structural features x and their latent variable-representations (discrete z and continuous ζ). Here, qϕ(z|x) and pθ(x|ζ) are the encoder and decoder distributions, respectively, whereas pθ(z) is the prior distribution in the latent variable space and is encoded by RBM. We provide an example of the reconstruction of a target molecule (diaveridine) using the Gibbs-300 model saved after 300 epochs of training (here t∈[0,1] is the Tanimoto similarity between the initial molecule and its reconstruction, t=1.0 corresponds to perfect reconstruction, p is the output probability).
+
+Learning curves of DVAE trained with classical Gibbs sampling (red, yellow) and samples from D-Wave annealer (blue, cyan). Training on D-Wave was suspended before reaching convergence due to resource limitations. Also, the learning curve of a simpler model with continuous latent variables is shown (magenta, green).
+
+Distributions of physico-chemical properties of the molecules produced by the proposed generative models (same as in Table 1).
+
+The parameters of distributions of physico-chemical properties of the molecules produced by the generative models discussed in this work.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Discussion and outlook</h3>    <p>VAEs are powerful generative machine learning models capable of learning and sampling from the unknown distribution of input data43,44. As a first step towards building a hybrid quantum generative model, we prototyped the DVAE (along the lines of Ref.34) with the RBM in its latent space34,35. If provided with a large dataset of drug-like molecules, such a system should learn implicit rules governing the stability and synthetic accessibility of small molecules and produce useful representations of molecular structure, which could be used to generate novel and still drug-like molecules for drug design applications such as virtual screening.
+
+As a proof of concept, we built a DVAE involving transformer layers36 in the encoder and decoder components along with additional preprocessing layers that allowed our model to operate at the character-level (rather than on the word-level) to parse SMILES, the textual representations of the input molecules. Using SMILES is not necessarily the best option since these strings are not 100% valid. The only property of SMILES that is essential in our approach is that it is a representation of molecules in terms of character strings and hence we believe that DVAEs can be built to operate with alternative character string representations of molecules, such as SELFIES45.
+
+We trained a compact DVAE with the RBM consisting of two layers of just 128 units each on a small subset containing almost 200,000-random molecules from the ChEMBL database of manually curated and biologically active molecules as the training set. On classical hardware, the system could be trained with Gibbs sampling. We were able to show that the training converged and used the network to generate molecules with the distribution of the basic properties, such as logP, and QED, closely matching those in the training set. Simultaneously, the average size of the molecules increased as the training of the network was progressing. There are relatively harder-to-synthesize compounds among the molecules generated by the network4.
+
+Our generative model outputs drug-like molecules and may be deployed on already existing quantum annealing devices (such as D-Wave Advantage processor). Training of the same architecture network on the quantum annealer proceeded slower per epoch than on the classical computer, most probably due to noise. Nevertheless, the distributions of the molecular properties of generated molecules were sufficiently close to those in the training set or among the molecules generated by classical counterparts Gibbs-75 and 300. While certain discrepancies between distributions were present, these results have been computed only after a limited number of training epochs due to the restrictions on public access to the quantum computer.
+
+Computational drug design applications depend on but are not limited to the generation of novel and synthetically accessible molecules, which is the focus of this work. The authors of the original paper4 have already proposed training additional properties, such as the prediction of the binding constant to a particular target on top of the autoencoder loss. Although a direct extension of VAE for these tasks may be challenging and require further refinements6, in such a form, the network could be used in problems involving actual drug design, i.e., for generating of novel compounds binding specific medically relevant targets. We did not attempt to demonstrate such a capability. However, we have no doubts that DVAE and, eventually, its hybrid implementations, such as QVAE, can be appropriately refitted by adding the extra loss.
+
+The RBM could be turned into Quantum Boltzmann Machine (QBM) so that the whole system might be transformed into a Quantum VAE (QVAE,34) and sample from potentially richer non-classical distributions. Using genuine QBMs should speed up the training of the system (O(logN) vs. O(N) with N being the size of the network16). There was a demonstration in Ref.34, where “quantum” samplers with the non-vanishing transverse fields outperformed DVAE if assessed by metrics achieved at the same number of training cycles (epochs). Construction of QVAE with the controllable non-zero transverse field can, in principle, be performed on the existing generation of D-Wave chips. However, it would require additional hardware tuning and applying a combination of extra tricks such as reverse anneal schedule, pause-and-quench, etc46.
+
+We demonstrated that a useful VAE can be built and trained to generate drug-like molecules while keeping the size of latent representation small and hence practically attainable on already existing quantum annealing devices. We expect that with further developments in the engineering of quantum computing devices, hybrid architectures similar to QVAE would surpass their classical counterparts. More specifically, the network architecture proposed in this work may provide the baseline for further refinements required for running genuinely quantum generative models. The benefit may be especially large in problems potentially involving rules of quantum chemistry, such as learning efficient representations of molecular structures for applications related to generative chemistry and drug design.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Methods</h3>    <p>We proposed and characterized classical and quantum annealer models, which are a combination of Discrete Variational Autoencoder (DVAE) with Restricted Boltzmann Machine (RBM) in the latent space34,35 and the Transformer model36. Original Transformer model was proposed for word-level natural language processing tasks and has encoder-decoder architecture. We used original Transformer layers and developed additional preprocessing layers that allowed us to process character-level SMILES descriptions of molecules. We trained the proposed models on a subset of the ChEMBL dataset by optimizing evidence lower bound (ELBO) for DVAE log-likelihood34, modified with additional coefficient β that multiplies KL divergence term39, see Eq. (1). The sketch of the architecture of our models is illustrated in Fig. 1.
+
+Below we describe in details the dataset, the network architecture, the training parameters, and the training schedule of the classical and quantum annealer models. Also, we describe a simpler classical model with continuous latent variables, which we used in the experiment shown in Fig. 2.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Methods › Dataset</h3>    <p>We used a subset of molecules from the ChEMBL (release 26) database47,48. Our dataset consisted of the 192,000 structures encoded by SMILES strings of the maximum length of 200 symbols and containing the atoms from the organic subset only (B, C, N, O, P, S, F, Cl, Br, I). To focus on the relevant biologically active compounds, we removed salt residuals. Finally, we converted all SMILES into the canonical format with the help of RDKit42.
+
+The processed molecules were randomly assigned into train and validation sets each containing 80% and 20% of all samples (153,600 and 38,400 molecules), respectively.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Methods › Training DVAE using Gibbs-sampling</h3>    <p>Molecular SMILES strings are tokenized with the regular expression from Ref.49, which produced 42 unique tokens. Standard trainable embedding layer and positional encoding from Ref.36 are used. Our implementation utilized a combination of embedding and positional encoding, in which positional encoding is multiplied by an additional correction factor:
+
+where xemb is embedding tensor, pe is positional encoding tensor and demb is the dimensionality of the embedding. This factor is required to make the proportion between embedding tensor and positional encoding closer to that in the original model36. The dimension of embeddings is a model hyperparameter which was set to 32.
+
+We employed a layer of one-dimensional convolutions and a highway layer50 as additional preprocessing layers between the embedding layer and the encoder component. The convolution layer with 160 filters and the kernel size equal to 5 was developed based on Ref.51. We used highway layers since such layers have been shown to improve the quality of character-level models51,52.
+
+The preprocessed 160-dimensional tensor is passed from the highway layer to the encoder, consisting of the stack of 5 Transformer encoder layers. The width of the feed-forward part of the layers is equal to 320. The number of heads in Multi-Head attention is 10. We used GeLU activation53 functions and Dropout with the rate of 0.1.
+
+Original Transformer encoder layers produce output tensor of variable length. The length of the tensor is equal to the size of the input string. In order to further reduce the dimensionality of the latent space layer in the model, we construct a fixed-length tensor from the Transformer encoder output tensor u by calculating the fixed number of vectors from u, which we then concatenate in one tensor. The first two of these vectors are the vector with index 0 from Transformer layers output u and the vector equal to the arithmetic mean of all vectors along the length of the tensor u. Next, we consider the subsets Snm, each consisting of vectors with indices that have the same remainder after division by n for n=2,3,4,5:
+
+For each Snm, we compute the arithmetic mean and concatenate all calculated vectors into the fixed-length output tensor.
+
+Restricted Boltzmann machine (RBM) is implemented in the latent space as presented in papers34,35. The probability distribution of RBM is
+
+where hl are bias weights for units zl and each Wlm is the weight associated with the connection between units zl and zm. The effective temperature is supposed to be equal to 1.0 and is not presented in the formulas. RBM in the proposed model consists of two layers of 128 units each. RBM of this size can be sampled using existing quantum annealing devices. It is worth noting that all the units of RBM in DVAE are latent variables and connected to the rest of the model. Hence, there is no distinction between “hidden” and “visible” units as for standalone RBM34,35.
+
+An informal description of the internal working of the model in the latent space is as follows. The output of the encoder is the vector of probabilities of the discrete latent variables zi being equal to 1, which are conditioned on the input x of the model. These probabilities are sampled to obtain latent binary vector z. Continuous variables ζ are sampled using spike-and-exponential smoothing probability distribution r(ζ|z)34. Vector ζ is used as an input to the decoder module. During training, the parameters of the RBM are adjusted in order to memorize the statistics of the binary vectors z that appear in the latent space. The calculation of the gradient of the parameters of the RBM consists of two parts: the so-called “positive” and “negative” phases. The “positive” phase is calculated using the backpropagation algorithm after the application of the reparameterization trick, which is used to avoid calculating of derivatives over random variables. The “negative” phase of the gradient is estimated using sampling from the RBM distribution.
+
+For molecule reconstruction or generation of similar molecules to a given molecule, the preprocessed SMILES description of the given molecule is passed to the input of the encoder and the whole model is executed. An example of molecule reconstruction and generation of similar molecules is depicted in Fig. 1. For generation of an entirely new molecule the encoder is not used, the trained RBM is sampled to obtain latent binary vector z. This vector is then used to calculate the latent vector of continuous variables ζ, which is given as an input to the decoder. Table 1 and Fig. 3 show results for newly generated molecules.
+
+RBM is sampled by performing 30 steps of Gibbs updates using persistent contrastive divergence (PCD)54.
+
+The decoder works in two modes: training and inference (generation). In the inference mode, decoder uses preprocessing layers. The main part of data processing in both training and inference modes of the decoder consists of Transformer decoder layers. Altogether, we used 5 Transformer decoder layers of the size dmodel=160 (GeLU activation, dropout = 0.1). The width of the feed-forward part of the layers was equal to 320, and the number of heads in Multi-Head attention was 10.
+
+To train the model, we used the rebalanced objective function, in which the KL divergence term is multiplied by the additional coefficient β=0.139 to avoid the posterior collapse problem, and employed the Adam optimizer.
+
+In contrast to the original Transformer model, we used a different learning rate schedule: we trained the model for 300 epochs using the MultiStep learning rate schedule with the initial learning rate equal to 6×10-5. The learning rate was subsequently reduced by the factor of 0.5 at points corresponding to 50%, 75%, and 95% of the length of the training process.
+
+For estimation of the logarithm of the partition function of Boltzmann distribution, we used annealed importance sampling (AIS) algorithm55 during the evaluation of the model at the end of each epoch using 10 intermediate distributions and 500 samples.
+
+Due to resource constraints, we did not have a chance to optimize the hyperparameters or too many architectural variants of the model. The presented variant of the network just worked and can be considered the first step toward a real and effective solution.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Methods › Training DVAE on a quantum annealer</h3>    <p>We used exactly the same network architecture on the quantum annealer with the only difference from the classical case being that the RBM in the latent space was sampled using D-Wave Advantage processor. Also, the quantum model was trained during 75 epochs with constant learning rate equal to 6×10-5.
+
+For estimating the logarithm of the partition function of the Boltzmann distribution during the evaluation of the model, we used a different version of annealed importance sampling (AIS; see Ref.56) with the same parameters as in the classical case.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Methods › Training model with continuous latent variables</h3>    <p>The model with continuous variables in the latent space has similar architecture to the discrete one but is smaller in size. The latent space contains 32+32 normally distributed continuous random variables.
+
+The preprocessing convolution layer consists of 100 filters with kernel size equal to 5. The encoder/decoder consists of 2 Transformer encoder/decoder layers with the width of feed-forward part equal to 200.
+
+The fixed length tensor is calculated in the similar way as in the discrete model. The model is trained using the same initial learning rate and learning rate schedule as in the discrete case.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Methods › Calculation of molecular similarity with fingerprint</h3>    <p>Fingerprints for each molecule are generated using a default function RDKFingerprint in RDKit42. This algorithm produces a topological fingerprint represented by a bit vector with the size of 2048 bits. The Tanimoto similarity is known as a reasonable metric for matching molecules sharing similar fragments57 and is defined for two fingerprints a, b as:
+
+where C is a number of common non-zero bits in a and b; A and B are numbers of non-zero bits that are present in a and b, respectively. The Tanimoto distance could be defined as D(a,b)=1-T(a,b). From the definition, it follows that completely similar molecules (shared identical set of fragments) have Tanimoto similarity equal to 1, while dissimilar molecules (no common fragments) have T=0.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Acknowledgements</h3>    <p>We thank S. Usmanov for help in performing the experiment. P.O.F and A. K. would like to thank Dr. A. Tarkhov from Gero and Daria Orhunova for fruitful discussion and help with the data analysis. We acknowledge online cloud access to the quantum annealing device produced by D-Wave Systems (all experiments with D-wave hardware were performed within the program of global response to COVID-19 and completed in 2021). A.K.F. thanks Russian Science Foundation grant (19-71-10092). P.O.F. and K. A. are supported by Gero PTE. LTD. (Singapore).</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Author contributions</h3>    <p>All the authors jointly developed the problem statement and analyzed existing state-of-the-art techniques. A.I.G. and A.S.B. implemented the considered methods and performed the simulation of molecules. All the authors contributed to discussions of the results and writing the manuscript. P.O.F. and A.K.F. supervised the project.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Code availability</h3>    <p>The code that is deemed central to the conclusions is available from the corresponding author upon reasonable request. The data that supports the findings of this study (generated molecules) are available at 10.5281/zenodo.7827952</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Competing interests</h3>    <p>Owing to the employments and consulting activities of A.I.G., A.S.B., and A.K.F., they have financial interests in the commercial applications of quantum computing. P.O.F. and K.A. are employees of (P.O.F. is a stake holder in) Gero PTE. LTD. and hence may have financial interests in commercial applications of quantum or hybrid AI/ML systems for drug discovery.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Contributor Information</h3>    <p>P. O. Fedichev, Email: peter.fedichev@gero.ai
+
+A. K. Fedorov, Email: akf@rqc.ru</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>The code that is deemed central to the conclusions is available from the corresponding author upon reasonable request. The data that supports the findings of this study (generated molecules) are available at 10.5281/zenodo.7827952</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

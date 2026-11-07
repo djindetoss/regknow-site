@@ -1,0 +1,529 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//RegKnow//Key dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:RegKnow key dates
+X-WR-CALDESC:Dates on which EU texts in the RegKnow library enter into forc
+ e or apply
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:e708013fb5a94fee-20260421@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20260421
+DTEND;VALUE=DATE:20260422
+SUMMARY:Council Decision (EU) 2026/1080: enters into force
+DESCRIPTION:Council Decision (EU) 2026/1080 of 21 April 2026 on the conclus
+ ion\, on behalf of the European Union\, of the Council of Europe Framework
+  Convention on Artificial Intelligence and Human Rights\, Democracy and th
+ e Rule of Law\nEnters into force\nhttps://djindetoss.github.io/regknow-sit
+ e/d/e708013fb5a94fee/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/e708013fb5a94fee/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Council Decision (EU) 2026/1080: enters into force
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Council Decision (EU) 2026/1080: enters into force
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:de218e4773594b3b-20260428@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20260428
+DTEND;VALUE=DATE:20260429
+SUMMARY:Commission Implementing Regulation (EU) 2026/771: enters into force
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/771 of 7 April 20
+ 26 laying down the necessary measures for the establishment and operation 
+ of the European Health Data Space Board\nEnters into force\nhttps://djinde
+ toss.github.io/regknow-site/d/de218e4773594b3b/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/de218e4773594b3b/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/771: enters into f
+ orce
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/771: enters into f
+ orce
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ca6befd5c8034ab5-20260611@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20260611
+DTEND;VALUE=DATE:20260612
+SUMMARY:Regulation (EU) 2024/2847: applies from
+DESCRIPTION:Regulation (EU) 2024/2847 of the European Parliament and of the
+  Council of 23 October 2024 on horizontal cybersecurity requirements for p
+ roducts with digital elements and amending Regulations (EU) No 168/2013 an
+ d (EU) 2019/1020 and Directive (EU) 2020/1828 (Cyber Resilience Act) (Text
+  with EEA relevance)\nApplies from\nhttps://djindetoss.github.io/regknow-s
+ ite/d/ca6befd5c8034ab5/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ca6befd5c8034ab5/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:08b0391691d441ca-20260727@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20260727
+DTEND;VALUE=DATE:20260728
+SUMMARY:Regulation (EU) 2026/1744: enters into force
+DESCRIPTION:Regulation (EU) 2026/1744 of the European Parliament and of the
+  Council of 8 July 2026 amending Regulations (EU) 2024/1689\, (EU) 2018/11
+ 39 and (EU) 2023/1230 as regards the simplification of the implementation 
+ of harmonised rules on artificial intelligence (Digital Omnibus on AI) (Te
+ xt with EEA relevance)\nEnters into force\nhttps://djindetoss.github.io/re
+ gknow-site/d/08b0391691d441ca/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/08b0391691d441ca/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2026/1744: enters into force
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2026/1744: enters into force
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:7ff9af29673e4021-20260802@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20260802
+DTEND;VALUE=DATE:20260803
+SUMMARY:Regulation (EU) 2024/1689: applies from
+DESCRIPTION:Regulation (EU) 2024/1689 of the European Parliament and of the
+  Council of 13 June 2024 laying down harmonised rules on artificial intell
+ igence and amending Regulations (EC) No 300/2008\, (EU) No 167/2013\, (EU)
+  No 168/2013\, (EU) 2018/858\, (EU) 2018/1139 and (EU) 2019/2144 and Direc
+ tives 2014/90/EU\, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligen
+ ce Act) (Text with EEA relevance)\nApplies from\nhttps://djindetoss.github
+ .io/regknow-site/d/7ff9af29673e4021/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/7ff9af29673e4021/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ca6befd5c8034ab5-20260911@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20260911
+DTEND;VALUE=DATE:20260912
+SUMMARY:Regulation (EU) 2024/2847: applies from
+DESCRIPTION:Regulation (EU) 2024/2847 of the European Parliament and of the
+  Council of 23 October 2024 on horizontal cybersecurity requirements for p
+ roducts with digital elements and amending Regulations (EU) No 168/2013 an
+ d (EU) 2019/1020 and Directive (EU) 2020/1828 (Cyber Resilience Act) (Text
+  with EEA relevance)\nApplies from\nhttps://djindetoss.github.io/regknow-s
+ ite/d/ca6befd5c8034ab5/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ca6befd5c8034ab5/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:a033e589c8f84967-20260912@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20260912
+DTEND;VALUE=DATE:20260913
+SUMMARY:Regulation (EU) 2023/2854: applies from
+DESCRIPTION:Regulation (EU) 2023/2854 of the European Parliament and of the
+  Council of 13 December 2023 on harmonised rules on fair access to and us
+ e of data and amending Regulation (EU) 2017/2394 and Directive (EU) 2020
+ /1828 (Data Act) (Text with EEA relevance)\nApplies from\nhttps://djindeto
+ ss.github.io/regknow-site/d/a033e589c8f84967/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/a033e589c8f84967/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2023/2854: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2023/2854: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:44c549a0a51d4c3a-20261011@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Commission Implementing Regulation (EU) 2026/2083: enters into forc
+ e
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083 of 18 Septem
+ ber 2026 on MyHealth@EU\nEnters into force\nhttps://djindetoss.github.io/r
+ egknow-site/d/44c549a0a51d4c3a/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/44c549a0a51d4c3a/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083: enters into 
+ force
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083: enters into 
+ force
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:900179c099e04b1e-20261011@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Commission Implementing Regulation (EU) 2026/2098: enters into forc
+ e
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098 of 18 Septem
+ ber 2026 laying down the minimum metadata elements and their characteristi
+ cs to be provided by health data holders for dataset descriptions for the 
+ secondary use of electronic health data under Article 77(4) of Regulation
+  (EU) 2025/327 establishing the European Health Data Space\nEnters into f
+ orce\nhttps://djindetoss.github.io/regknow-site/d/900179c099e04b1e/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/900179c099e04b1e/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098: enters into 
+ force
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098: enters into 
+ force
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:44c549a0a51d4c3a-20270326@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:Commission Implementing Regulation (EU) 2026/2083: applies from
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083 of 18 Septem
+ ber 2026 on MyHealth@EU\nApplies from\nhttps://djindetoss.github.io/regkno
+ w-site/d/44c549a0a51d4c3a/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/44c549a0a51d4c3a/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ab518eedffca457d-20270326@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:Regulation (EU) 2025/327: applies from
+DESCRIPTION:Regulation (EU) 2025/327 of the European Parliament and of the 
+ Council of 11 February 2025 on the European Health Data Space and amending
+  Directive 2011/24/EU and Regulation (EU) 2024/2847 (Text with EEA relevan
+ ce)\nApplies from\nhttps://djindetoss.github.io/regknow-site/d/ab518eedffc
+ a457d/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ab518eedffca457d/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:52c18e446f334955-20270526@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20270526
+DTEND;VALUE=DATE:20270527
+SUMMARY:Regulation (EU) 2017/745: applies from
+DESCRIPTION:Regulation (EU) 2017/745 of the European Parliament and of the 
+ Council of 5 April 2017 on medical devices\, amending Directive 2001/83/EC
+ \, Regulation (EC) No 178/2002 and Regulation (EC) No 1223/2009 and repeal
+ ing Council Directives 90/385/EEC and 93/42/EEC (Text with EEA relevance. 
+ )\nApplies from\nhttps://djindetoss.github.io/regknow-site/d/52c18e446f334
+ 955/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/52c18e446f334955/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/745: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/745: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:94b605074b33404e-20270526@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20270526
+DTEND;VALUE=DATE:20270527
+SUMMARY:Regulation (EU) 2017/746: applies from
+DESCRIPTION:Regulation (EU) 2017/746 of the European Parliament and of the 
+ Council of 5 April 2017 on in vitro diagnostic medical devices and repeali
+ ng Directive 98/79/EC and Commission Decision 2010/227/EU (Text with EEA r
+ elevance. )\nApplies from\nhttps://djindetoss.github.io/regknow-site/d/94b
+ 605074b33404e/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/94b605074b33404e/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/746: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/746: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:7ff9af29673e4021-20270802@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20270802
+DTEND;VALUE=DATE:20270803
+SUMMARY:Regulation (EU) 2024/1689: applies from
+DESCRIPTION:Regulation (EU) 2024/1689 of the European Parliament and of the
+  Council of 13 June 2024 laying down harmonised rules on artificial intell
+ igence and amending Regulations (EC) No 300/2008\, (EU) No 167/2013\, (EU)
+  No 168/2013\, (EU) 2018/858\, (EU) 2018/1139 and (EU) 2019/2144 and Direc
+ tives 2014/90/EU\, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligen
+ ce Act) (Text with EEA relevance)\nApplies from\nhttps://djindetoss.github
+ .io/regknow-site/d/7ff9af29673e4021/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/7ff9af29673e4021/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:a033e589c8f84967-20270912@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Regulation (EU) 2023/2854: applies from
+DESCRIPTION:Regulation (EU) 2023/2854 of the European Parliament and of the
+  Council of 13 December 2023 on harmonised rules on fair access to and us
+ e of data and amending Regulation (EU) 2017/2394 and Directive (EU) 2020
+ /1828 (Data Act) (Text with EEA relevance)\nApplies from\nhttps://djindeto
+ ss.github.io/regknow-site/d/a033e589c8f84967/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/a033e589c8f84967/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2023/2854: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2023/2854: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ca6befd5c8034ab5-20271211@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20271211
+DTEND;VALUE=DATE:20271212
+SUMMARY:Regulation (EU) 2024/2847: applies from
+DESCRIPTION:Regulation (EU) 2024/2847 of the European Parliament and of the
+  Council of 23 October 2024 on horizontal cybersecurity requirements for p
+ roducts with digital elements and amending Regulations (EU) No 168/2013 an
+ d (EU) 2019/1020 and Directive (EU) 2020/1828 (Cyber Resilience Act) (Text
+  with EEA relevance)\nApplies from\nhttps://djindetoss.github.io/regknow-s
+ ite/d/ca6befd5c8034ab5/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ca6befd5c8034ab5/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:900179c099e04b1e-20290326@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20290326
+DTEND;VALUE=DATE:20290327
+SUMMARY:Commission Implementing Regulation (EU) 2026/2098: applies from
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098 of 18 Septem
+ ber 2026 laying down the minimum metadata elements and their characteristi
+ cs to be provided by health data holders for dataset descriptions for the 
+ secondary use of electronic health data under Article 77(4) of Regulation
+  (EU) 2025/327 establishing the European Health Data Space\nApplies from\
+ nhttps://djindetoss.github.io/regknow-site/d/900179c099e04b1e/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/900179c099e04b1e/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ab518eedffca457d-20290326@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20290326
+DTEND;VALUE=DATE:20290327
+SUMMARY:Regulation (EU) 2025/327: applies from
+DESCRIPTION:Regulation (EU) 2025/327 of the European Parliament and of the 
+ Council of 11 February 2025 on the European Health Data Space and amending
+  Directive 2011/24/EU and Regulation (EU) 2024/2847 (Text with EEA relevan
+ ce)\nApplies from\nhttps://djindetoss.github.io/regknow-site/d/ab518eedffc
+ a457d/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ab518eedffca457d/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:94b605074b33404e-20301231@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:Regulation (EU) 2017/746: applies from
+DESCRIPTION:Regulation (EU) 2017/746 of the European Parliament and of the 
+ Council of 5 April 2017 on in vitro diagnostic medical devices and repeali
+ ng Directive 98/79/EC and Commission Decision 2010/227/EU (Text with EEA r
+ elevance. )\nApplies from\nhttps://djindetoss.github.io/regknow-site/d/94b
+ 605074b33404e/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/94b605074b33404e/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/746: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/746: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ab518eedffca457d-20310326@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20310326
+DTEND;VALUE=DATE:20310327
+SUMMARY:Regulation (EU) 2025/327: applies from
+DESCRIPTION:Regulation (EU) 2025/327 of the European Parliament and of the 
+ Council of 11 February 2025 on the European Health Data Space and amending
+  Directive 2011/24/EU and Regulation (EU) 2024/2847 (Text with EEA relevan
+ ce)\nApplies from\nhttps://djindetoss.github.io/regknow-site/d/ab518eedffc
+ a457d/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ab518eedffca457d/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ab518eedffca457d-20350326@regknow
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20350326
+DTEND;VALUE=DATE:20350327
+SUMMARY:Regulation (EU) 2025/327: applies from
+DESCRIPTION:Regulation (EU) 2025/327 of the European Parliament and of the 
+ Council of 11 February 2025 on the European Health Data Space and amending
+  Directive 2011/24/EU and Regulation (EU) 2024/2847 (Text with EEA relevan
+ ce)\nApplies from\nhttps://djindetoss.github.io/regknow-site/d/ab518eedffc
+ a457d/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ab518eedffca457d/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: applies from
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: applies from
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>3DProtDTA: a deep learning model for drug-target affinity prediction based on residue-level protein graphs · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>3DProtDTA: a deep learning model for drug-target affinity prediction based on residue-level protein graphs</h1>
+<p class="authors">Taras Voitsitskyi, Roman Stratiichuk, Ihor Koleiev, Leonid Popryho, Zakhar Ostrovsky, Pavlo Henitsoi, Ivan Khropachov, Volodymyr Vozniak, Roman Zhytar, Diana Nechepurenko, Semen Yesylevskyy, Alan Nafiiev, Serhii Starosyla</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>RSC advances</dd>
+<dt>Published</dt><dd>2023-03-31</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Virtual screening and binding prediction</span><span class="chip">Evaluation of AI in drug discovery (benchmarks, validation, reproducibility)</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1039/d3ra00281k">10.1039/d3ra00281k</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/37006369/">37006369</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/37006369/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/37006369/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC</dd>
+    <dt>RegKnow ID</dt><dd><code>b46a41db16db4acb</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Accurate prediction of the drug-target affinity (DTA) in silico is of critical importance for modern drug discovery. Computational methods of DTA prediction, applied in the early stages of drug development, are able to speed it up and cut its cost significantly. A wide range of approaches based on machine learning were recently proposed for DTA assessment. The most promising of them are based on deep learning techniques and graph neural networks to encode molecular structures. The recent breakthrough in protein structure prediction made by AlphaFold made an unprecedented amount of proteins without experimentally defined structures accessible for computational DTA prediction. In this work, we propose a new deep learning DTA model 3DProtDTA, which utilises AlphaFold structure predictions in conjunction with the graph representation of proteins. The model is superior to its rivals on common benchmarking datasets and has potential for further improvement.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractAccurate prediction of the drug-target affinity (DTA) in silico is of critical importance for modern drug discovery. Computational methods of DTA prediction, applied in the early stages of drug development, are able to speed it up and cut its cost significantly. A wide range of approaches based on machine learning were recently proposed for DTA assessment. The most promising of them are based on deep learning techniques and graph neural networks to encode molecular structures. The recent breakthrough in protein structure prediction made by AlphaFold made an unprecedented amount of proteins without experimentally defined structures accessible for computational DTA prediction. In this work, we propose a new deep learning DTA model 3DProtDTA, which utilises AlphaFold structure predictions in conjunction with the graph representation of proteins. The model is superior to its rivals on common benchmarking datasets and has potential for further improvement.</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Modern drug discovery remains a painfully slow and expensive process despite all the recent scientific and technological advancements. It usually takes several years and the estimated cost of developing a new drug may run over a billion US dollars.1 More than 30% of all drugs entering phase II of clinical trials and above 58% of drugs entering phase III fail.2 It was reported that among 108 new and repurposed drugs, reported as phase II failures between 2008 and 2010, 51% were due to insufficient efficacy.3 This observation highlighted the need for novel in silico techniques that can decrease the failure rate by filtering out compounds with low predicted efficacy in the early stages of the drug discovery pipeline. In this regard, the computational methods that assess drug-target binding affinities (DTA) are of great interest4 because DTA is generally considered one of the best predictors of resulting drug efficacy. Accurate prediction of the DTA is of critical importance for filtering out inefficient molecules and preventing them from reaching clinical trials, thus a multitude of computational DTA techniques have been developed in recent years.
+
+The most accurate computational estimate of DTA could be obtained from atomistic molecular dynamics simulations (either classical, quantum or hybrid) combined with one of the modern techniques of computing the free energy of ligand binding.5 However, accuracy comes at the cost of very high computational demands, which makes these methods generally impractical for large-scale virtual screening.
+
+That is why the common method of choice for estimating DTA in modern drug discovery is molecular docking, which provides a reasonable compromise between accuracy and computational efficiency.6 However, it is generally believed that empirical scoring functions used in molecular docking have already approached the practical limit of accuracy, which is unlikely to be improved without introducing an additional computational burden.
+
+In order to address these drawbacks the classical machine learning (ML) methods for determining DTA were developed. These methods do not depend on computing physical interactions between the target protein and the ligand. They are purely knowledge-based and rely on the idea that similar ligands tend to interact with similar protein targets, which are encoded into the pre-trained neural networks. Applying such models to any given ligand is blazingly fast, which allows using them for screening the numbers of compounds, which are unreachable for molecular docking or MD simulations. However, even the most successful methods from this category, such as KronRLS7 and SimBoost,8 were recently outperformed by more modern deep learning (DL) techniques.
+
+Seminal DL methods of assessing DTA used string representation of the target&#39;s amino acid sequence and a simplified linear representation of the ligands using SMILES (molecular-input line-entry system), which were subsequently encoded by 1D convolutional neural networks (CNNs) and/or long-short-term memory (LSTM) blocks.9,10 The same linear representations were shown to be efficient for DTA prediction in combination with generative adversarial networks (GANs).11 However, it is obvious that linear representations lead to a huge loss of information and keeping the knowledge about connectivity and 3D arrangements of both the target protein and the ligands could improve the results. Indeed, the introduction of graph neural networks (GNNs), which preserve information about connectivity and the 3D arrangement of atoms, improved the scores of the models on most of the benchmarking DTA datasets.12
+
+In contrast to the sequence-based techniques, the performance of the GNNs depends strongly on the availability and accuracy of 3D structures of target proteins. The scarcity of such structures limited the size of the training datasets and hampered the progress of GNN-based DTA models. The huge success of AlphaFold13 in protein structure prediction opens new opportunities for developing better DTA prediction models. Accurately predicted 3D structure of druggable protein domains that don&#39;t have experimentally resolved structures, adds unprecedented amounts of data for training ML models and improving their performance.
+
+In this article, we proposed a new method of constructing efficient residue-level protein graphs based on the target&#39;s 3D structure predicted by AlphaFold and selected the best GNN architectures for this kind of data. This resulted in a new deep-learning model for predicting drug-target affinities: 3DProtDTA. When applied to common benchmark datasets our model is superior to its rivals on all evaluated metrics. The perspectives of applications and further improvements of our model are discussed.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Materials and methods › Datasets</h3>    <p>We evaluated our approach on two widespread benchmark datasets for DTA prediction: Davis14 and KIBA.15
+
+The Davis dataset contains the pairs of kinase proteins and their respective inhibitors with experimentally determined dissociation constant (Kd) values. Kd values were transformed by eqn (1) and transformed scores were used as labels for benchmarking in the same way as in the baseline approaches. There are 442 proteins and 68 ligands in this dataset.
+
+The KIBA dataset comprises scores originating from an approach called KIBA, in which inhibitor bioactivities from different sources such as Ki, Kd and IC50 are combined. The KIBA scores were pre-processed by the SimBoost algorithm8 and the final values were used as labels for model training. Initially, the KIBA dataset contained 467 proteins and 52 498 ligands. For benchmarking purposes, the same authors8 filtered the dataset to keep only the drugs and targets with at least 10 samples resulting in 229 unique proteins and 2111 unique ligands.
+
+The numbers of affinity scores and unique entries in the datasets are summarised in Table 1.
+
+We used isomorphic SMILES strings for both datasets and UniProt16 accession codes for the KIBA dataset, provided by DeepDTA,10 as initial entries representation. For the Davis dataset, proteins with the same UniProt accession codes may represent different entries. Therefore, unique identifiers were assigned to each target entry annotated by UniProt accession code, mutation type, phosphorylation status, proteins in a complex, and protein domains. Fig. 1 shows distributions of labels for Davis (a) and KIBA (b) datasets.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Materials and methods › Ligand representation</h3>    <p>We utilised modified molecular graphs, initially proposed in the approach for drug property prediction Chemi-Net17 along with the standard Morgan fingerprints18 to represent ligands for DTA prediction.
+
+Python API of an open-source cheminformatics package RDKit v. 2021.03 was used to generate both ligand representations based on isomorphic SMILES. We calculated 1024 bit vectors of classical Morgan fingerprints with radius 2 and 1024-bit vectors of feature-based fingerprint invariants19 with the same radius. Both vectors were concatenated into a single 2048-bit vector.
+
+The graphs for ligands were generated on the atomistic level (one node in the graph is one heavy atom in a ligand). Fig. 2 shows distributions of the number of heavy atoms in the used ligands, while Table 2 shows the features for a molecular graph representation of the ligands.
+
+The Morgan fingerprints and ligand graphs are available in the GitHub repository. The order of the features in the graphs is the same as in Table 2.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Materials and methods › Protein representation</h3>    <p>We have developed the residue-level protein graph based on 3D protein structures generated by AlphaFold.13 Approximately 50% of the proteins in both datasets have known 3D structures deposited in the Protein Data Bank but we decided to use AlphaFold predictions for all proteins to make our approach unified and to avoid additional tedious pre-processing of experimentally determined structures, which are often incomplete, contain irrelevant crystallographic ligands, etc.
+
+For the KIBA dataset, all the structures were obtained from the AlphaFold protein structure database (https://alphafold.ebi.ac.uk/). For the Davis dataset only single protein entries without mutations were downloaded from the AlphaFold database. For the rest of the entries, 3D structures were generated manually using an accelerated implementation of the AlphaFold algorithm in Google Colaboratory: ColabFold.20
+
+To avoid undesirable noise from the parts of proteins, which have weak or no relation to the ligand binding, we have parsed domain annotations from UniProt16 to determine the ligand binding sites. Both datasets contain only the kinase enzymes and the ligands with kinase inhibitor activity. Consequently, only the domains with known kinase activity or related to the kinase activity (annotated by UniProt as a protein kinase, histidine kinase, PI3K/PI4K, PIPK, AGC-kinase, or CBS) were kept in the protein structures.
+
+This preprocessing step not only decreased the noise in the data but also eliminated most residues with a low per-residue confidence score (pLDDT). In AlphaFold a pLDDT is a continuous scale from 0–100 (higher is better), which shows the quality of structure prediction. pLDDT lower than 70 emerges in predicted 3D structures if they are unstructured in physiological conditions or the amino acid sequence has low alignment depth13. The regions with such low scores should be treated with caution. Since the domains related to kinase activity are mostly well studied and available in databases of experimental protein structures, keeping only them and removing other regions improves the average pLDDT score. Fig. 3 shows the number of amino acids in processed PDB files (A) as well as the distribution of pLDDT scores (B).
+
+Filtered 3D structures were converted into the residue-level graphs using Biopython v. 1.79 (ref. 21) and Pteros.22,23 Inspired by the Open Drug Discovery Toolkit,24 we have developed an approach for encoding protein properties in the graph edge features. An edge was created if two amino acids form an either covalent bond or a non-covalent contact within a particular distance cutoff. The edge features define the type of this connectivity (Table 3). This technique allowed reducing the size of the protein graph in terms of the number of edges compared to the conventional protein graph generation approaches that define the same distance threshold for all types of residue–residue interactions.
+
+Such a graph is directed because of the hydrogen bonds, salt bridges, and cation–pi interactions, which are non-commutative and require specification of the roles for each of involved residues. For example, in the edge created by the hydrogen bond between nodes a and b, it is important to identify which node is a donor and which one is an acceptor. Thus, edge a–b is assigned edge features that are different from those of edge b–a. Similarly, the salt bridges require distinguishing between cationic residue and anionic residue nodes and the cation–pi interactions – between cationic and aromatic residues. In contrast, covalent bonds, pi-stacking and hydrophobic contacts are symmetric.
+
+For each of the 20 standard amino acid types, we assigned seven characteristics AAPHY7 (ref. 25) and 23 BLOSUM62 values according to alignments of homologous protein sequences26 provided by GraphSol.27 In addition, the structure-dependent and sequence-dependent node and edge features were used (Table 4).
+
+As the two last node features for the protein graphs we added phosphorylation status and mutation status. Each of the two features is either 1 (phosphorylated/mutated) or 0 (non-phosphorylated/non-mutated) and is the same for each node in a protein graph. It is essential in the case of the Davis dataset due to the presence of protein entries with the same sequence but annotated as phosphorylated/non-phosphorylated or wild-type and mutant entries with internal tandem duplication (ITD) mutation that is hard to translate into sequence unambiguously. Ignoring this data would cause the situation when proteins with identical graph representation have different binding affinities to the same ligand.
+
+Generated protein graphs are available in the GitHub repository. The order of features in the graph is the same as in Table 4.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Materials and methods › Model architecture</h3>    <p>We used GNNs to extract features from the ligand and protein graphs followed by fully connected (FC) neural network layers. The general model architecture is represented in Fig. 4.
+
+We tuned 3DProtDTA for the single GNN type or the combination of several GNN types that provides the best cross-validation results on the benchmark dataset. The following GNN types were considered: Graph Attention Network that fixes the static attention problem (GAT),28 Graph Convolutional Network (GCN),29 Graph Isomorphism Network (GIN),30 Graph Isomorphism Network with incorporated edge features (GINE),31 and GCN for learning molecular fingerprints (GMF).32
+
+Besides GNN types, the subjects to tuning included: the configuration of FC layers after 1D input data, GNN pooling output and final dense neural network; dropout rates; activation function for GNN layers; usage of batch normalisation; graph pooling type or combination of types.
+
+The 3DProtDTA model was built with an open-source machine learning framework PyTorch33 and the GNNs were implemented using PyTorch Geometric.34</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Materials and methods › Comparison with existing techniques</h3>    <p>We compared the results of our approach to different classical machine learning-based and deep learning-based methods, which are considered to be state-of-art at the time of writing.
+
+Similarity-based approaches KronRLS7 and SimBoost8 used a similarity matrix computed using Pubchem structure clustering server (Pubchem Sim, https://pubchem.ncbi.nlm.nih.gov) to represent ligands and the protein similarity matrix constructed with help of Smith–Waterman algorithm to represent targets.35 KronRLS uses the regularised least-square model while SimBoost is the gradient boosting machine-based method.
+
+The DeepDTA method10 used 1D CNNs to process protein sequences and SMILES of the ligands. The GANsDTA11 proposed a semi-supervised GANs-based method to predict binding affinity using target sequences and ligand SMILES. The same initial protein and ligand representations were used in the DeepCDA9 method, where authors applied encoding by CNN and LSTM blocks. The GraphDTA12 authors proposed GNNs to process ligand graphs, while proteins were still encoded by CNN applied to sequences.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Materials and methods › Evaluation metrics</h3>    <p>We selected 3 evaluation metrics used by most authors of the baseline approaches.
+
+The mean squared error (MSE):
+
+where n is the number of samples, yi is the observed value, and pi is the predicted value.
+
+The concordance index (CI):36
+
+where bi is the prediction for the larger affinity δi, bj is the prediction value for the smaller affinity δj, Z is a normalisation constant, h(x) is the step function:
+
+The rm2 index:37
+
+where r2 and r02 are the squared correlation coefficients with and without intercept respectively.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Materials and methods › Experimental setup</h3>    <p>The experimental workflow can be split into the following steps: (1) tuning of the best model architecture to use in the benchmarking; (2) benchmarking itself (comparison with other approaches); (3) manual cross-validation experiments to assess the impact of particular choices in the input features model architecture; (4) assessment of the approach performance on cold (unseen by the model) protein target and generalisation over different kinase types.
+
+To assess our approach properly, we used the same train-test and cross-validation data split as in the baseline approaches. Specifically, KIBA15 and Davis14 datasets were divided into six equal parts in which one part is selected as the independent test set. The remaining parts of the dataset were used to determine the hyper-parameters via 5-fold cross-validation. All 5-fold training sets were used for model training. Subsequently, 5 trained models were applied to predict test set affinity. Finally, an average for each metric was calculated and compared to the baseline approaches. Train and test folds of the datasets were obtained from DeepDTA10 GitHub repository.
+
+We tuned 3DProtDTA to choose the best GNN type or GNN types combination; the number of multi-head-attentions/size of output sample (number of output node features) in GNNs; usage of activation function after a GNN layer and type of the function (ReLU, Leaky ReLU, sigmoid); the configuration of FC layers; dropout rates; usage of batch normalisation; graph pooling type/types.
+
+The tuning was performed with help of hyperparameter optimization software Optuna v. 3.0.3 (ref. 38) using the tree-structured Parzen estimator algorithm. We trained the model for 700 epochs and used a batch size of 32, the Adam optimiser with a learning rate of 0.0001, and the mean squared error loss function. The objective of the tuning was to minimise the MSE metric. The other metrics were used for testing the model performance but were not optimised during the training.
+
+After the tuning by the tree-structured Parzen estimator algorithm, we ran a range of manual cross-validation experiments (after obtaining benchmarking results) keeping all the components in the best tuned architecture fixed except:
+
+- The type of GNN architecture for a protein;
+
+- The type of GNN architecture for a ligand;
+
+- The type of graph pooling for both protein and ligand;
+
+- Usage of ligand graph or Morgan fingerprint as the only ligand features.
+
+These experiments were performed in order to assess in depth the impact of GNN architecture, graph pooling and ligand features. While changing the type of GNN model, we kept the size of output (or the number of attention heads in the case of GAT) equal or as close as possible to the tuned parameters.
+
+The last set of experiments was conducted to assess how the 3DProtDTA performs on cold protein targets and, at the same time, to generalise over different kinase types. For that purpose, we annotated the proteins in both datasets using InterPro database entries.39,40 The number of proteins annotated by the top 20 entries can be found in Tables S6 and S7.† As expected, two major kinase groups in both datasets were tyrosine-protein kinases (InterPro entry IPR008266) and serine/threonine-protein kinases (InterPro entry IPR008271). Subsequently, we randomly selected 10 tyrosine kinases and 10 serine/threonine kinases from each benchmarking dataset and separated all the samples containing those proteins into cold target test datasets. The rest of the samples were filtered to create 3 training datasets (separately for Davis and KIBA benchmarks): (1) all the remaining samples without filtering; (2) the samples with all tyrosine kinases excluded; (3) the samples with all serine/threonine kinases excluded. Consequently, we obtained 3 models per benchmarking dataset: trained on all data, trained on the data without tyrosine kinases, and trained on the data without serine/threonine kinases. We collected the metrics from all cold target test splits.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Results and discussion › Benchmarking</h3>    <p>The best model architectures and tuned hyperparameters for the benchmark are available in ESI (Fig. S1†). All the data for model training is freely available in the GitHub repository (https://github.com/vtarasv/3d-prot-dta.git).
+
+Tables 5 and 6 compare obtained model performance metrics to the baseline approaches for Davis and KIBA datasets respectively. The best scores are shown in bold.
+
+According to obtained results, 3DProtDTA considerably outperforms other approaches in terms of all 3 metrics on the Davis dataset. In the case of the KIBA dataset, the only metric that demonstrated significant improvement over competitors was rm2, while the two other metrics were comparable (but still superior) to the rivals.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Results and discussion › Performance of ligand feature types</h3>    <p>Atom-level molecular graphs and Morgan fingerprints are widely used types of features in the development of predictive models that take small molecules as input. The result of model training on each type separately or both types together is provided in Fig. 5.
+
+The results demonstrate the nearly equal performance of molecular graph only and combined representation of ligands for the Davis dataset. Nevertheless, the combined representation is clearly superior to others in terms of the KIBA dataset.
+
+We identified the molecular diversity in both datasets defined as 1 – Tanimoto similarity scores based on Morgan fingerprints with radius 3 and averaged for each pair of ligands in the dataset. They are equal to 0.882 and 0.892 for the Davis and KIBA datasets respectively. Despite comparable molecular diversity, the model performance on Davis and KIBA datasets is different when comparing graph only and combined representation. We attribute this to two factors: a different number of ligands (68 in Davis and 2111 in KIBA, Table 1) and a much wider distribution of the number of atoms in the molecules from the KIBA dataset (Fig. 2). The graph only representation is most likely insufficient to generalise over all the molecules in the KIBA dataset, especially, for the small cohort of ligands with more than 50 heavy atoms.
+
+The model trained on the molecular graph and Morgan fingerprint together provided the best average MSE, CI, and rm2 index of both benchmark datasets (Tables S1–S5†). Therefore, we can suggest that these two ligand feature types contain some non-overlapping information useful for DTA prediction.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Results and discussion › Performance of graph pooling methods</h3>    <p>Graph pooling is a crucial step used to generate the same length 1D latent representation of data processed by GNN for subsequent processing by FC layers. There are three common types of pooling methods including mean pooling, max pooling and add (sum) pooling. Fig. 6 provides a comparison of these pooling approaches.
+
+Fig. 6 demonstrates that add pooling is the best choice for the Davis dataset, while add pooling is comparable to the combined approach (mean + add + max poolings concatenated) in the KIBA dataset cross-validation results. The add pooling provides superior average MSE, CI, and rm2 index of both benchmark datasets (Tables S1–S5†).</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Results and discussion › Performance of ligand GNN types</h3>    <p>Fig. 7 illustrates that there is no obvious leader or outsider as the GNN for ligand graph processing. The average of the two benchmark datasets is very close for all the GNN types considering any of the three evaluation metrics (Tables S1–S5†). It is important to highlight that the only GNN model that used edge features during the training was GINE. Thus, the specific characteristic of the edge (like covalent bond type) doesn&#39;t play a crucial role in affinity prediction.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Results and discussion › Performance of protein GNN types</h3>    <p>According to Fig. 8, it is hard to extract a particular GNN model that works the best as a protein graph encoder. The GAT, GCN, GIN and GINE provide very similar average results. The GMF model, however, is noticeably worse (Tables S1–S5†). Analogously to the performance of different GNNs on ligand graphs, the only GNN considering edge features of the protein graph GINE didn&#39;t show noticeable metrics improvement relative to other GNN types. This suggests that covalent and non-covalent interactions of amino acid residues alone provide enough information for DTA prediction.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Results and discussion › Performance on cold protein target and different kinase types</h3>    <p>The performance of our model trained on either all kinases, data without tyrosine kinases, or data without serine/threonine kinases was evaluated on a cold protein, as well as on a cold kinase type (Tables 7 and 8). The best scores are shown in bold.
+
+The results show that the model trained on all kinase types performs quite similarly for both tyrosine and serine/threonine kinases in the Davis dataset. In contrast, the model trained on all kinase types of the KIBA dataset demonstrates considerably better performance for serine/threonine kinases. We expected the opposite result because the rate of serine/threonine kinases to tyrosine kinases is roughly 2 : 1 in the KIBA dataset and 3 : 1 in the Davis dataset (Tables S6 and S7†).
+
+The models trained without tyrosine kinases demonstrate the best or nearly the best performance on the cold serine/threonine kinases test and vice versa. Their performance is better than for the models trained on all kinase types. This means that adding new kinase types to the dataset may have a negative impact on the model inference for other kinase types. A potential solution to this issue is training a multi-task model, which will contain common layers for all kinase types in the beginning and separate layers for each kinase type at the end. Development and testing of such a model are out of the scope of this work, however.
+
+The models trained without a particular type of kinases perform significantly worse on the test with omitted types of kinases. This is expectable behaviour, which emphasises that the models perform the best for protein types, which were present in the training set.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Results and discussion › Limitations and perspectives</h3>    <p>Although the usage of protein structures from the AlphaFold database provides data uniformity, it has some drawbacks. Particularly, this approach introduces uncertainty if multiple experimental structures are resolved and used as templates. In such cases, the AlphaFold could potentially produce a blend between several alternative protein conformations, which is not functionally relevant. A potential improvement would be the usage of all available experimentally determined protein structures along with the AlphaFold predictions. However, we observed that the residue-level graphs of several randomly picked experimental structures of kinases are nearly identical to ones generated from the AlphaFold predicted structures (Table S8†). The probable reasons for this are: (1) the abundance of various experimentally determined kinase domain structures available for AlphaFold that positively impacts the quality of predictions (Fig. 3B) and (2) the coarse-grained resolution on the residue-level graph representation used in this work (which would not be the case for atom-level graph representations, though). The usage of the AlphaFold structures provides additional benefits, such as covering proteins without known experimental structures and avoiding problems with incomplete structures and missing or ambiguous atoms.
+
+Another straightforward improvement is the usage of atomic-level protein graphs instead of residue-level ones, and the usage of more comprehensive node and edge features. Particularly, the B-factors and other measures of protein flexibility, such as cross-correlation matrices of motions, could be used.
+
+It is necessary to note that there are other ML-based approaches to predict drug-target affinity, which were not included in this study, such as CSatDTA,41 FusionDTA,42 NerLTR-DTA,43 Masashi&#39;s method,44 WGNN-DTA,45etc. In these techniques, the experimental setups and data split into training and testing datasets are either different from what we use in the current work or not specified in enough detail. Some of them also utilise specific evaluation metrics, which prevent their direct comparison with other methods.
+
+Our attempts to re-train some of these models using our data split had failed. For example, there is no source code available for NerLTR-DTA, while provided binary crashes. Since the bug reports on GitHub have not been answered for several years, we decided that further attempts to use this technique are futile. The authors of the FusionDTA do not report the amount of computational resources required for the model training. According to our internal estimates, this model is much heavier than 3DProtDTA and its proper re-training is prohibitively long and expensive on our computational facilities. In addition, FusionDTA utilises different hyperparameters for each dataset, which diverges from our concept of the universal model architecture and hyperparameters for all datasets.
+
+Therefore, we decided to limit the scope of our work to the methods, which possess identical setups, datasets and performance metrics and thus allow the apple-to-apple comparison without re-training the third-party ML models.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Conclusions</h3>    <p>In this work we developed a new deep learning model for assessing drug–protein affinities called 3DProtDTA. The distinctive feature of this model is graph-based representation of both protein and the ligands, which retain a significant amount of information about their connectivity and spatial arrangement without introducing excessive computational burden. The features for model training were created using the AlphaFold database of predicted protein structures which allows for covering all proteins in two common benchmark datasets. We tuned a wide range of GNN-based model architectures and their combinations to achieve the best model performance. The 3DProtDTA outperforms its competitors on common benchmarking datasets and has a potential for further improvement.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Data availability</h3>    <p>https://github.com/vtarasv/3d-prot-dta.git.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Author contributions</h3>    <p>SS and AN designed the study and supervised model development and testing. SY coordinated the work, provided scripts for Pteros molecular modelling library and participated in results interpretation. TV developed the modules for features generation, model tuning and testing. TV and RS researched existing methods for drug-target affinity prediction. DN and IK participated in protein preprocessing before feature generation. LP, ZO, and RZ participated in consultations about the best practices and strategies for model tuning and efficient training. PH, IK, and VV performed and supervised the tuning and testing process. The manuscript was written by TV and SY.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Conflicts of interest</h3>    <p>All authors are employees of Receptor.AI INC. SS, AN and SY have shares in Receptor.AI INC.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>https://github.com/vtarasv/3d-prot-dta.git.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

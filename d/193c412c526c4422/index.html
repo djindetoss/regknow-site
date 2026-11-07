@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Implications of Additivity and Nonadditivity for Machine Learning and Deep Learning Models in Drug Design · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Implications of Additivity and Nonadditivity for Machine Learning and Deep Learning Models in Drug Design</h1>
+<p class="authors">Karolina Kwapien, Eva Nittinger, Jiazhen He, Christian Margreitter, Alexey Voronov, Christian Tyrchan</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>ACS omega</dd>
+<dt>Published</dt><dd>2022-07-19</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">ADMET and toxicity prediction</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1021/acsomega.2c02738">10.1021/acsomega.2c02738</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/35936431/">35936431</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/35936431/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/35936431/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>193c412c526c4422</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Matched molecular pairs (MMPs) are nowadays a commonly applied concept in drug design. They are used in many computational tools for structure-activity relationship analysis, biological activity prediction, or optimization of physicochemical properties. However, until now it has not been shown in a rigorous way that MMPs, that is, changing only one substituent between two molecules, can be predicted with higher accuracy and precision in contrast to any other chemical compound pair. It is expected that any model should be able to predict such a defined change with high accuracy and reasonable precision. In this study, we examine the predictability of four classical properties relevant for drug design ranging from simple physicochemical parameters (log D and solubility) to more complex cell-based ones (permeability and clearance), using different data sets and machine learning algorithms. Our study confirms that additive data are the easiest to predict, which highlights the importance of recognition of nonadditivity events and the challenging complexity of predicting properties in case of scaffold hopping. Despite deep learning being well suited to model nonlinear events, these methods do not seem to be an exception of this observation. Though they are in general performing better than classical machine learning methods, this leaves the field with a still standing challenge.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractMatched molecular pairs (MMPs) are nowadays a commonly applied concept in drug design. They are used in many computational tools for structure–activity relationship analysis, biological activity prediction, or optimization of physicochemical properties. However, until now it has not been shown in a rigorous way that MMPs, that is, changing only one substituent between two molecules, can be predicted with higher accuracy and precision in contrast to any other chemical compound pair. It is expected that any model should be able to predict such a defined change with high accuracy and reasonable precision. In this study, we examine the predictability of four classical properties relevant for drug design ranging from simple physicochemical parameters (log D and solubility) to more complex cell-based ones (permeability and clearance), using different data sets and machine learning algorithms. Our study confirms that additive data are the easiest to predict, which highlights the importance of recognition of nonadditivity events and the challenging complexity of predicting properties in case of scaffold hopping. Despite deep learning being well suited to model nonlinear events, these methods do not seem to be an exception of this observation. Though they are in general performing better than classical machine learning methods, this leaves the field with a still standing challenge.</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>A matched molecular pair (MMP) describes a pair of molecules that differs in one substituent only. Such a structural transformation is associated with a potential property change. MMP analysis is often used by medicinal chemists to compare properties in order to understand the structure–activity relationship (SAR) for a series of compounds. An extension from a pair to a series of molecules that differ in a single transformation forms a matched molecular series (MMS). MMS have been used to investigate automatic ways to derive an SAR similarity score1,2 and to predict ADME properties.3
+
+The reason for the popularity of MMP analysis is its intuitivity: a particular change in a molecular structure introduces a certain change in a biological activity or physical property. However, this simple concept works only under the assumptions of linearity and additivity. Linearity means that the change in property due to a particular change in structure is constant. Additivity means that the effect of a structural change on a property is independent of other variables. It is important to take these assumptions into consideration before performing an MMP analysis or building a quantitative structure–activity relationship (QSAR) model.4 Unfortunately, most publications in the field do not report any such analysis on the data sets. We advocate that this relevant step becomes good practice in the QSAR/ML field. The use of a linear model would fail to capture the trend of nonadditive data mathematically, resulting in erroneous predictions.
+
+Another important aspect of checking the validity of the additivity assumption is the identification of outliers. Outliers indicate so-called activity cliffs, a pair of molecules or even a single observation where a small structural change causes a significant change in property or biological activity.5−7 Analysis of outliers and its understanding can lead to more efficient and effective design of molecules. The interpretation of activity cliffs is hampered by the complexity of the underlying effects and the fact that they can arise from any combination of these.8−10 A common example of such an activity cliff is so-called magic methyls where a single methyl group has a large effect on bioactivity or selectivity of a molecule.11,12
+
+Nonadditive data highlight critical changes in the SAR and are therefore the most interesting for a medicinal chemist. Most common causes of the nonadditive SAR are interactions between substituents, different binding modes, and changes in protein conformation.8,9 Identification and analysis of nonadditive effects are important and can lead to understanding of changes in binding modes or ligand conformation. Additionally, they prevent chemists from missing good compounds and can change the direction of ligand optimization.
+
+Especially with recent advancement of deep learning, many methods have become available in order to predict molecular properties. State-of-the-art property prediction models make use of fingerprints as molecular representations.13−17 Furthermore, models can be trained on SMILES representations or molecular graphs in order for the network to learn the important features themselves, without the need for precalculated molecular descriptors.18−24
+
+In this publication, we examine several machine learning and deep learning algorithms to predict four properties (log D, solubility, permeability, and clearance) using different data sets obtained from AstraZeneca’s (AZ) internal database. First, we determine experimental uncertainty for each property as this is an upper limit for predictability of in silico models.25,26 Then, we perform a nonadditivity analysis (NAA) using the algorithm published by Kramer27 to identify nonadditive datapoints. Based on this analysis, we generate four data sets: (1) all data, additive and nonadditive; (2) all MMPs; (3) additive MMPs (MMPs A); and (4) nonadditive MMPs (MMPs N). By comparing the different data sets, we analyze the influence of nonadditivity on the modeling and check if using only MMPs is beneficial for the performance of a model. A variety of methods are considered starting from simple partial least squares (PLS, serving as a benchmark), through random forest (RF), support vector regressor (SVR), gradient-boosted trees (XGBoost) to deep learning algorithm (single and multitask deep neural networks). The quality of the models was evaluated using statistical parameters (R2 and RMSE). Other common parameters in QSAR studies as receiver operating curves or precision recall curves are not taken into account as our intent is not to judge the performance in a virtual screening setting. Our aim is to evaluate the capability of machine learning methods to qualify and predict MMPs, the smallest possible compound change in a medicinal chemistry project.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Methods</h3>    <p>The overview workflow of the whole study is presented in Figure S1. In the following sections, we describe each step in more detail.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Methods › Data Sets</h3>    <p>In-house AstraZeneca data were used for all four properties, log D, solubility in DMSO, cell permeability, and liver microsome clearance. By using in-house data, a continuous assay setup is guaranteed for each property to reduce the influence of systematic errors in the analysis.
+
+All in-house data were collected on September 14, 2020. Data were curated based on our previously developed pipeline.4 Herein, molecules were standardized using PipelinePilot (standardization of stereoisomers, neutralization of charges, and removal of unknown stereochemistry), and the canonical tautomer was generated and kept for further analysis. All properties were converted to log values (SI Table S 1). Further data curation involved removal of unknown or uncertain (“&lt;”, “&gt;”) values and molecules with more than 70 heavy atoms (data_all). Subsequently, for compounds measured multiple times the median was calculated (data_stereo). Finally, compounds with large differences between their multiple measurements (&gt;2.5 log units) were discarded, and compounds only varying in their stereochemistry were combined, while keeping the more active compound (Table 1 and Set 1, Table 2).
+
+Using the open-source package mmpdb,28 all MMPs were obtained (Set 2, Table 2). Based on the NAA, two additional sets were generated, one containing only additive compounds (Set 3) and one containing only nonadditive ones (Set 4). To determine (non-)additivity, a double transformation cycle (DTC) must be generated. Because not all MMPs are also in a DTC, the number of MMPs (Set 2) is larger than the combination of Set 3 and Set 4.
+
+For log D and solubility, the size of the corresponding sets is similar, with clearance generally having slightly less compounds. The data sets for permeability are about 10 times smaller. The exception is permeability Set 4 with only 909 compounds in total.
+
+For machine learning approaches, we would expect Set 4 to be most difficult to predict followed by Set 1. Set 3 should be the easiest, because all compounds are additive.
+
+The training and test sets for the machine learning approaches were obtained by doing a classical stratified training-test split with 0.8 and 0.2 ratio.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Methods › Experimental Uncertainty and Rmax2</h3>    <p>For all selected properties, data were collected for (a) multiple measurements for the same compound (data_all) and (b) measurements for compounds only differentiating in their stereochemistry (data_stereo). These data were used to calculate the experimental uncertainty of each respective assay.
+
+Herein, the weighted mean was used to derive the experimental uncertainty for each property:
+
+with x being the bin where 2.5% (0.5%) of datapoints for multimeasures (stereoduplicates) are included. A smaller amount of datapoints per bin only lead to an artificial increase of experimental uncertainty.
+
+Based on the experimental uncertainty, the maximum R2 achievable for a machine learning approach can be determined:29</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Methods › Nonadditivity Analysis</h3>    <p>NAA was performed to determine (non-)additivity in a compound data set. Therefore, the open-source NA analysis code published by Christian Kramer was used (available on GitHub: https://github.com/KramerChristian/NonadditivityAnalysis).27 The code is written in Python and makes use of the cheminformatics libraries RDKit,30 Pandas, and NumPy. NA calculations are based on matched molecular squares, so-called DTCs, which consist of four MMPs (four compounds) linked by two distinct transformations. The MMPs in the NA code are generated by the open-source code developed by Dalke et al.,28 an implementation of the MMPA algorithm developed by Hussain and Rea.31 The NA value of each DTC is calculated as the difference in logged biological activities (pAct1–4) of the four compounds assembling the cycle:</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Methods › Machine/Deep Learning › Machine Learning Models Using Optuna</h3>    <p>PLS, RF, SVR, and gradient-boosted trees (XGBoost) models were built using Optuna (https://optuna.org).32 Optuna is a hyperparameter optimization framework and forms the basis of our in-house QPTUNA framework (available on GitHub: https://github.com/MolecularAI/Qptuna) that extends Optuna by adding chemoinformatics functionality. Optuna allows specifying the hyperparameter search space for a plethora of machine learning algorithms and automatically tries to optimize them with respect to a defined output metric for a specified number of trials. By using a surrogate model, such search should be more efficient than a mere random or grid search.
+
+For each of the data sets provided, we trained a number of regressors for a minimum of 300 iterations each. This was done with threefold cross-validation (see Table S2 for details) to avoid overfitting during training, and models were then built from the entire training sets. Finally, the models were evaluated on the respective test sets.
+
+For some of the SVR runs, we had to use a “downsampled” data set (10% of the corresponding original size) to be able to obtain optimized hyperparameters within a reasonable time frame. This was done for log D, solubility, and clearance (Sets 1–3). The rest of the sets (all permeability data sets and Set 4 for each property) were used all datapoints for hyperparameter optimization. The following steps, model training and prediction of the respective test sets, were performed on the full-size sets for all properties.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Methods › Machine/Deep Learning › Graph Neural Network Deep Learning Model</h3>    <p>The message passing neural network (MPNN)33 framework operates on molecular graphs with atoms as nodes and bonds as edges. There are two main phases: (1) message passing phase, in which the node information is propagated and updated across the graph in order to build a neural representation of the whole graph, and (2) readout phase, when a final feature vector/representation describing the whole graph is created. Then a feed-forward neural network can be applied to this feature vector for prediction tasks.
+
+The directed message passing neural network (D-MPNN)24 (available on GitHub: https://github.com/chemprop/chemprop) builds upon the MPNN framework with the difference that during the message passing phase, the directed edge information is used instead of node information.
+
+In this study, the D-MPNN model was trained in a single-task setting and a multitask setting. In the single-task setting, the model was trained individually for each property task, while in the multitask setting, a multitask model was trained on the union of the training sets from all the property tasks where each molecule has four target values. Therefore, after training, the multitask model can predict the four properties simultaneously for the molecules of the test set.
+
+Hyperparameter optimization was performed for each data set using Bayesian optimization (i.e., Hyperopt34) provided by chemprop, which finds the optimal parameters (hidden size, depth, dropout, and the number of feed-forward layers; details about the searching space can be found in chemprop) through multiple trials. In particular, 20 and 50 hyperparameter trial settings were tried in a single-task setting, which results in two models for each data set, hereafter named DNN-S_20 and DNN-S_50, respectively. For the multitask setting, only 20 hyperparameter trial settings were tried (DNN-M_20).
+
+During the hyperparameter optimization, the original training set in Table 2 is split into training, validation, and test with the ratio 0.8, 0.1, and 0.1, to find out the best parameter configuration based on the RMSE metric. Then the model was trained using this parameter configuration, and the original training set in Table 2 is split into train and validation with the ratio 0.8 and 0.2. Finally, the trained model was applied to the test set to obtain the predictions.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Results and Discussion</h3>    <p>R2 and RMSE for log D and clearance—Set 3 (only additive data) vs Set 4 (only nonadditive data). Comparison of different models and endpoints. Rmax2 (dashed line) is the upper limit for R2 derived from experimental uncertainty (Table 3). Full performance details can be found in the Supporting Information (SI Figures S6 and S7).
+
+R2 against RMSE for test (a) Set 3 (only additive data) and (b) Set 4 (only nonadditive data). Comparison of different models and endpoints.
+
+Predicted versus measured values for solubility. Comparison between RF (left column) and DNN-S_20 (right column) for Set 3: only additive data (blue) and Set 4: only nonadditive data (orange). The values are in log units.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Results and Discussion › Experimental Uncertainty and Rmax2</h3>    <p>The experimental uncertainty of an assay can be calculated by leveraging the information from compounds measured multiple times (Table 1). Herein, two aspects were analyzed: first, the experimental uncertainty based on compounds measured multiple times and second, the experimental uncertainty for compounds with different stereochemistry. The idea of the latter analysis was that the stereochemistry should play a minor role for the different physicochemical properties. Thus, the experimental uncertainty for those compounds should be rather small.
+
+Table 3 summarizes the experimental uncertainties as well as the resulting maximum R2 values (SI Figures S2–S5). Solubility has the highest experimental uncertainty for multimeasurements, followed by permeability, resulting for both assays in a twofold variability of the measured value. As expected, stereoduplicates show very low experimental uncertainties. Only for clearance this trend is not true; stereoduplicates display a similar experimental uncertainty. log D has the lowest experimental uncertainty with 0.07 log units. Thus, using the machine learning approach almost ideal performance is theoretically possible (Rmax2 = 0.993).
+
+In the following, the experimental uncertainties are used as cutoffs for the NAA. Herein, compounds with a nonadditivity value greater than two times the experimental uncertainty are classified as nonadditive.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Results and Discussion › Nonadditivity Analysis</h3>    <p>NAA allows the classification of compounds into additive and nonadditive ones. Herein, a prerequisite is the composition of matched molecular squares. These are used to determine whether a cycle is additive or nonadditive.
+
+Surprisingly, log D, solubility, and clearance all have more than 12% nonadditive compounds (Table 4). In our previous study of nonadditivity in bioactivity data, 9% (5%) of compounds were nonadditive for in-house (and public ChEMBL) data. Compared to this, the amount of nonadditivity found here is significantly larger. The reasons might be manifold and different for each property,4 for example, in the case of log D solubility might play an important role, as in the case of solubility crystal packing seems to be important. Permeability displays an exception with only 5% of compounds being classified as nonadditive (Table 4).
+
+The results of the NAA were used to generate the data sets for machine learning.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Results and Discussion › Machine/Deep Learning</h3>    <p>Tables 5 and 6 present R2 and RMSE obtained for all algorithms, data sets, and properties discussed in this work. The results are also presented visually for Set 3 (only additive data) and Set4 (only nonadditive data) in Figures 1 and 2.
+
+The analysis of R2 and RMSE shows the same accuracy ranking for all models when comparing different data sets: Set 3 &gt; Set 2 &gt; Set 1 &gt; Set 4. This is valid for all properties considered in this work with the exception of log D modeled using PLS and SVR. Predictive models are most accurate for additive data sets (Set 3) while nonadditive data (Set 4) are least well predictable (SI Figures S6 and S7). Mixed data sets with both additive and nonadditive data (Set 1 and Set 2) are ranked in the middle. There is just a small difference in R2 and RMSE values between Set 1 (all data) and Set 3 (MMPs), indicating that using only MMPs instead of all datapoints does not improve the models significantly.
+
+Figure 1 shows the comparison of performance metrics for additive vs nonadditive data for log D and clearance (Set 3 and Set 4). In most cases, deep learning algorithms give the best results (lowest RMSE and highest R2) followed by XGBoost and RF. The worst performance is observed for the linear model PLS, which serves as a benchmark.
+
+Deep learning models based on additive data achieve for log D predictions almost Rmax2, which is calculated based on experimental uncertainty. For clearance, the achieved performance on the additive test set is significantly lower than Rmax2. For all properties, the performances of all models drop when applied to nonadditive data. The only exception is the SVR model based on nonadditive log D data, with an increase in R2 from 0.58 to 0.74 for additive and nonadditive data, respectively (SI Figures S6 and S7). Log D is the property for which the performance is least affected with both DNN models achieving R2 of 0.84 when trained on nonadditive data only. For solubility, permeability and clearance models based on nonadditive data only achieve R2 &lt; 0.43.
+
+In terms of the deep learning models, multitask modeling improves over single-task for all studied properties except for log D. More hyperparameter trial settings (20 compared to 50) improve the models only slightly and remain below the performance of multitask models (DNN-S_20 and DNN-S_50 in Tables 5 and 6).
+
+Figure 2 displays the correlation between R2 and RMSE and shows different slopes for each property trendline. The lowest RMSE and R2 are for clearance, while the highest for log D, with permeability and solubility being placed in between. For most properties, the correlation between R2 and RMSE is linear, with some variation observed for log D Set 3 (only additive data).
+
+Comparison between additive and nonadditive data (Table 5 and Figure 2) reveals that even deep learning methods, which are nonlinear, have problems with nonadditivity. It can be clearly seen in Figure 2 that only for log D the R2 range is similar for additive and nonadditive data, while for the other properties it is shifted toward lower values (below 0.45). Log D is a bulk property and should therefore be less impacted by nonadditivity. The observed nonadditivity might be the result of random experimental errors. For the rest of the studied properties, many factors can introduce nonadditivity, like crystal packing in case of solubility and efflux, sticking to the membranes, and metabolism for cell-based properties (permeability and clearance) among others. The aim of this paper, however, is not to disclose the underlying reason for nonadditivity, but to recognize its importance, as models built on data sets with nonadditivity included lead to reduced predictability.
+
+Figure 3 displays the correlation between measured and predicted solubility values using RF and a deep learning model (DNN-S_20) for additive and nonadditive data. As expected, the deep learning model performs generally better than RF. This improved performance is observed throughout the whole range of values, for all data sets and properties (SI Figures S8–S10). We performed a zero-slope analysis using the t-test (see Tables S3 and S4 and details in the SI) to check the significance of R2. For all properties, P-values are below the significance level indicating that R2 obtained in our analysis is statistically significant.
+
+R2 and RMSE for log D and clearance—Set 3 (only additive data) vs Set 4 (only nonadditive data). Comparison of different models and endpoints. Rmax2 (dashed line) is the upper limit for R2 derived from experimental uncertainty (Table 3). Full performance details can be found in the Supporting Information (SI Figures S6 and S7).
+
+R2 against RMSE for test (a) Set 3 (only additive data) and (b) Set 4 (only nonadditive data). Comparison of different models and endpoints.
+
+Predicted versus measured values for solubility. Comparison between RF (left column) and DNN-S_20 (right column) for Set 3: only additive data (blue) and Set 4: only nonadditive data (orange). The values are in log units.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Conclusions</h3>    <p>In this publication, we have evaluated the implications of MMPs and (non-)additivity on machine learning and deep learning models. We hypothesized that due to the small molecular changes captured in MMPs, these should be easier to predict than non-MMPs. As expected, data sets with only additive datapoints are easiest to predict, as opposed to data sets with only nonadditive datapoints. Mixed data sets with both additive and nonadditive data are ranked in the middle. The sole reduction from all datapoints to MMPs only does not lead to a significant increase in predictability. Using only additive data thus leads to an improvement.
+
+Comparison among properties shows the best performance for log D followed by solubility, permeability, and clearance. This is in accordance with the complexity of the physicochemical property. In terms of models, deep learning methods give the best results with lowest RMSE and highest R2. However, our study indicates that even deep learning algorithms have problems with nonadditivity. This highlights the importance of recognition of nonadditive events before building a QSAR/ML model. Unfortunately, NA analysis is not included in a predictive modeling workflow on a regular basis. We strongly advocate that this step becomes best practice, as the quality of model and the prediction error depend on nonadditive data. This would also allow more relevant comparisons of different models with similar endpoints, but based on different data sets with additive compounds. Moreover, identification and analysis of nonadditive effects are important, as they reveal critical changes in the SAR and are therefore the most interesting from a medicinal chemistry perspective.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Conclusions › Data and Software Availability › Data</h3>    <p>Data underlying the findings described in this manuscript are considered proprietary to AstraZeneca and are not publicly available. The reason why we have used our internal database for this work, instead of public data, is that we needed to have assay consistency and enough nonlinear datapoints in order to test our hypothesis. Based on our recent publication “Nonadditivity in public and inhouse data: implications for drug design”4 we have shown that our internal AZ database contains more nonlinear events than the public database. Moreover, the assay data are more consistent in the AZ database. We strongly believe that the trends presented here are reproductible observations and general issues with QSAR models.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Conclusions › Data and Software Availability › Software</h3>    <p>The software used in this work is available on GitHub:</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Acknowledgments</h3>    <p>We would like to thank Dea Gogishvili for her work on nonadditivity analysis and the preparation of the data curation pipeline. J.H. thanks the PostDoc program at AstraZeneca.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Supporting Information Available</h3>    <p>The Supporting Information is available free of charge at https://pubs.acs.org/doi/10.1021/acsomega.2c02738.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Author Present Address</h3>    <p>§ Data Science Department, Odyssey Therapeutics, Cambridge, Massachusetts, United States (C.M.)</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Author Contributions</h3>    <p>∥ K.K. and E.N. are shared first authors.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Author Contributions</h3>    <p>E.N. and K.K. performed data curation. N.A. analyzed and wrote the paper. J.H., C.M., and A.V. realized the M.L. study. C.T. supervised the study and wrote the paper. All authors read and approved the final manuscript.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Text</h3>    <p>The authors declare no competing financial interest.</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Supplementary Material</h3>    <p>ao2c02738_si_001.pdf</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Associated Data</h3>    <p>ao2c02738_si_001.pdf</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Associated Data › Supplementary Materials</h3>    <p>ao2c02738_si_001.pdf</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Associated Data › Data Availability Statement › Data</h3>    <p>Data underlying the findings described in this manuscript are considered proprietary to AstraZeneca and are not publicly available. The reason why we have used our internal database for this work, instead of public data, is that we needed to have assay consistency and enough nonlinear datapoints in order to test our hypothesis. Based on our recent publication “Nonadditivity in public and inhouse data: implications for drug design”4 we have shown that our internal AZ database contains more nonlinear events than the public database. Moreover, the assay data are more consistent in the AZ database. We strongly believe that the trends presented here are reproductible observations and general issues with QSAR models.</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>Associated Data › Data Availability Statement › Software</h3>    <p>The software used in this work is available on GitHub:</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

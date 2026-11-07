@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Machine Learning and Structural Analysis for Generation-Wise Selection of Perylene Diimide Dendrimers Based on Topological Compatibility With Drug Molecules · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Machine Learning and Structural Analysis for Generation-Wise Selection of Perylene Diimide Dendrimers Based on Topological Compatibility With Drug Molecules</h1>
+<p class="authors">Zainab Bibi, Jabbar Ali, Sana Irshad, Muhammad Saad Ghafar, Yasir Ali, Yilun Shang</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>ChemistryOpen</dd>
+<dt>Published</dt><dd>2026-11-01</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Molecular design and generation</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1002/open.70324">10.1002/open.70324</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/42955224/">42955224</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/42955224/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/42955224/</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>7edf1e639558406a</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Machine learning is increasingly used to explore structure-property relationships in dendrimer-drug systems; however, its integration with topology-based structural compatibility analysis remains limited. This study presents a learning-driven framework to evaluate the topology-based structural compatibility of perylene diimide core dendrimers with antiviral, antioxidant, and imaging agents. Within a quantitative structure-property relationship framework, linear regression, Gaussian process regression (GPR), and artificial neural networks are employed to identify dominant graph-theoretic topological indices and to capture linear and nonlinear structure-property relationships. These insights are combined with a structure-based compatibility analysis that ranks dendrimer generations without altering drug identity or ordering. Generation-wise compatibility is computed using standardized Euclidean distance after global normalization, and ranking stability is assessed through monotonic and magnitude analysis. Results show class-dependent descriptor relevance, with GPR achieving test-set R2 values above 0.94 for molecular weight, exact mass, monoisotopic mass, and heavy atom count. The generation-wise compatibility analysis further reveals distinct topology-based structural compatibility patterns across the investigated drug classes, highlighting the value of integrating machine learning with graph-theoretic analysis for rational nanocarrier design and the computational assessment of potential encapsulation suitability.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractMachine learning is increasingly used to explore structure–property relationships in dendrimer‐drug systems; however, its integration with topology‐based structural compatibility analysis remains limited. This study presents a learning‐driven framework to evaluate the topology‐based structural compatibility of perylene diimide core dendrimers with antiviral, antioxidant, and imaging agents. Within a quantitative structure–property relationship framework, linear regression, Gaussian process regression (GPR), and artificial neural networks are employed to identify dominant graph‐theoretic topological indices and to capture linear and nonlinear structure–property relationships. These insights are combined with a structure‐based compatibility analysis that ranks dendrimer generations without altering drug identity or ordering. Generation‐wise compatibility is computed using standardized Euclidean distance after global normalization, and ranking stability is assessed through monotonic and magnitude analysis. Results show class‐dependent descriptor relevance, with GPR achieving test‐set R 2 values above 0.94 for molecular weight, exact mass, monoisotopic mass, and heavy atom count. The generation‐wise compatibility analysis further reveals distinct topology‐based structural compatibility patterns across the investigated drug classes, highlighting the value of integrating machine learning with graph‐theoretic analysis for rational nanocarrier design and the computational assessment of potential encapsulation suitability.Keywords: drug encapsulation compatibility, graph‐theoretic topological indices, PDI core dendrimers, QSPR modeling Gaussian process regression</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Advances in nanotechnology have significantly transformed modern pharmaceutical and biomedical sciences by enabling the development of nanoscale delivery platforms capable of improving drug solubility, stability, biodistribution, and therapeutic efficacy. Among the wide range of nanocarriers investigated for biomedical applications, dendrimers have emerged as one of the most structurally versatile and controllable nanoscale systems [1, 2]. These highly branched macromolecules typically possess diameters ranging from ≈1 to 100 nm and are constructed through iterative branching processes that generate well‐defined generational architectures [3, 4, 5].
+
+Structurally, dendrimers consist of three key components: a multifunctional central core, repetitive branching units forming successive generations, and numerous terminal functional groups that determine the physicochemical behavior of the molecular surface. The term dendrimer originates from the Greek word dendron, meaning tree, reflecting the characteristic tree‐like topology of these macromolecules [6, 7]. A schematic representation of the general dendrimer architecture is presented in Figure 1, highlighting the central core, branching layers, terminal functional groups, and internal cavities capable of hosting guest molecules [8].
+
+Dendrimers have a unique architecture, endowing a number of characteristics that are beneficial when compared to those of traditional linear or randomly‐branched polymers. Their monodisperse nature gives strict control of molecular size and weight during synthesis, and the large quantity of surface functional groups increases their solubility, reactivity, and molecular recognition. Moreover, the internal cavities created inside the branched structure allow the encapsulation of guest molecules by means of hydrophobic interactions, hydrogen bonding, or electrostatic interactions. Such structural features have prompted the widespread use of dendrimers in drug delivery, gene transfection, diagnostic imaging, catalysis, and antimicrobial therapy applications, among others, as demonstrated in [9, 10].
+
+The growing biomedical importance of dendrimers is also reflected in the increasing number of dendrimer‐based formulations that have progressed toward clinical translation. There are a number of dendrimer‐based systems which are already commercialized, and others are at different stages of clinical trials to be used in oncology, antiviral therapy, and inflammatory diseases. Representative examples of commercially available dendrimer products and therapeutic candidates in clinical development are tabulated in Tables 1 and 2.
+
+In addition to experimental and clinical advances, dendrimers also offer a desirable structure in terms of theoretical and computational analyses because of their very regular and hierarchical patterns of branches. Such systems can be represented by a natural mathematical form of chemical graph theory, with molecules represented as graphs with various vertices corresponding to atoms and edges corresponding to chemical bonds [21, 22]. In this framework, topological indices are graph invariants that give compact numerical indicators that can be used to describe key structural features like branching pattern, connectivity, and molecular complexity of a system [23].
+
+Among the numerous topological descriptors proposed in the literature, the Leap Zagreb indices and the Wiener polarity index have proven particularly useful for analyzing highly branched macromolecular systems. These descriptors quantify different aspects of molecular connectivity and branching architecture and have been widely applied in quantitative structure–property relationship (QSPR) studies [24, 25, 26, 27].
+
+The first Leap Zagreb index is defined as
+
+where d2(v) represents the number of vertices located at topological distance two from vertex v in graph G. This index captures second‐order branching characteristics and has been associated with structural compactness and molecular stability [25, 26]. The second leap Zagreb index is expressed as
+
+which describes interactions between second‐order neighborhoods of adjacent vertices and therefore reflects higher‐order connectivity patterns within the molecular graph [25]. The third Leap Zagreb index combines first‐ and second‐order degree information and is defined as
+
+where d1(v) denotes the degree of vertex v. This descriptor captures both local and extended branching features and is useful for analyzing dendrimer size, connectivity, and encapsulation potential [26]. Another widely used topological descriptor is the Wiener polarity index
+
+which counts the number of vertex pairs separated by a topological distance of three in the molecular graph and provides insight into the complexity of branching architecture [21, 27].
+
+Because dendrimers possess well‐defined generational architectures, these graph‐theoretical descriptors provide a powerful framework for analyzing how structural variations influence physicochemical behavior and drug–carrier interactions. Understanding the relationship between dendrimer generation and drug compatibility is therefore essential for the rational design of nanoscale delivery systems. Despite the growing use of dendrimers as nanocarriers and the increasing application of machine learning in drug‐related structure–property studies, an integrated computational framework that combines graph‐theoretical characterization of perylene diimide (PDI) dendrimer generations with topology‐based compatibility analysis and machine‐learning‐driven QSPR interpretation remains limited. In particular, the generation‐wise structural compatibility of PDI core dendrimers with chemically diverse drug and imaging agents has not been systematically investigated using standardized topological descriptors. Moreover, the extent to which these descriptors encode physicochemical information relevant to drug‐dendrimer matching across different compound classes remains insufficiently explored. This gap motivates the present study, which integrates topological indexing, standardized structural compatibility analysis, generation‐wise ranking, and QSPR modeling to provide a quantitative computational framework for evaluating potential dendrimer‐drug compatibility.
+
+In this work, we present a systematic structural analysis of dendrimer‐drug interactions by integrating chemical graph theory, similarity‐based compatibility analysis, and machine learning‐driven QSPR modeling. Specifically, PDI core dendrimers across multiple generations are investigated in order to evaluate their compatibility with a diverse set of therapeutic and imaging drugs. Four topological descriptors of the dendrimer architecture, namely, the Leap Zagreb indices (LM1, LM2, and LM3) and the Wiener polarity index (W p), are computed to characterize generational branching patterns. These descriptors are combined with physicochemical properties of drug molecules to construct a multidimensional descriptor space in which generation‐wise compatibility between dendrimers and drugs is quantified using normalized Euclidean similarity metrics. The resulting compatibility scores allow a systematic ranking of dendrimer generations with respect to predicted encapsulation suitability. Furthermore, machine learning‐based QSPR models are employed to analyze how dendrimer topological descriptors correlate with drug physicochemical properties. This integrated framework provides a quantitative and reproducible approach for identifying structurally compatible dendrimer generations and offers insights into the rational design of dendrimer‐based nanocarriers for drug delivery and biomedical applications. The overall computational workflow of the proposed methodology is illustrated in Figure 2.
+
+General structural architecture of a dendrimer showing the central core, branching generations, terminal functional groups, and internal cavities capable of encapsulating guest molecules.
+
+Commercially available dendrimer‐based products used in biomedical and diagnostic applications.
+
+Dendrimer‐based therapeutic candidates currently under clinical investigation.
+
+Overview of the proposed computational framework linking dendrimer graph construction, calculation of topological descriptors, integration of drug physicochemical properties, similarity‐based compatibility analysis, and machine learning‐based QSPR modeling.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation</h3>    <p>In this part, a QSPR framework of learning will be employed to examine how graph‐theoretic representations of PDI core dendrimers encode drug behavior‐relevant information. In this model, machine learning is utilized as one of the main analytical procedures in order to draw out the relationship of descriptor properties and then perform the structural compatibility analysis. The framework is aimed at assessing the presence of adequate structural information using the chosen topological indices of the PDI dendrimer generations to define the drug physicochemical properties of the different functional classes. Instead of considering machine learning as a purely predictive process, it is employed here to determine sensitivity patterns, relevance of descriptors, and class‐specific structural reactions.
+
+The learning process operates on a structured input space defined by graph‐based topological indices computed from generation‐wise PDI dendrimer graphs. These descriptors serve as numerical encodings of dendrimer topology and provide the structural feature set for modeling. The output space consists of drug physicochemical properties relevant to encapsulation behavior.
+
+Molecular graph representation of a PDI cored dendrimer D(n).
+
+Closed‐form expressions of topological indices.
+
+PubChem CIDs and isomeric SMILES of antiviral drugs.
+
+Selected physicochemical properties of antiviral drugs.
+
+Antioxidant and natural polyphenolic compounds: PubChem CIDs and isomeric SMILES.
+
+Selected physicochemical properties of antioxidant compounds.
+
+Imaging and theranostic agents: PubChem CIDs and isomeric SMILES.
+
+Selected physicochemical properties of theranostic/imaging agents.
+
+Regression equations for antioxidant compounds.
+
+Linear regression equations for antiviral compounds.
+
+Linear regression equations for imaging compounds.
+
+Statistical evaluation of linear regression models for antioxidant compounds.
+
+Statistical evaluation of linear regression models for antiviral compounds.
+
+Statistical evaluation of linear regression models for imaging compounds.
+
+Linear regression plots between topological indices and physicochemical properties of antioxidant compounds.
+
+Linear regression plots between topological indices and physicochemical properties of antiviral compounds.
+
+Linear regression plots between topological indices and physicochemical properties of imaging compounds.
+
+Gaussian process regression (GPR) prediction curves for representative physicochemical properties using their optimal descriptors. Solid blue curves represent an expression of the posterior mean prediction, shaded areas represent 95% credible intervals, red circles are training samples, and black triangles are test samples.
+
+Comparison of linear regression and Gaussian process regression (GPR) Performance for final selected descriptor property models.
+
+Training and validation loss curves for the ANN model showing stable convergence behavior.
+
+Correlation matrix between topological descriptors and physicochemical properties.
+
+ANN predictive performance statistics.
+
+Predicted versus actual molecular complexity using ANN. The dashed line indicates an ideal prediction.
+
+Comparison of linear, GPR, and ANN model performance across properties, highlighting stronger generalization by GPR and persistent challenges for weakly encoded descriptors.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Graph‐Based Representation of PDI Core Dendrimers</h3>    <p>PDI‐cored dendrimers represent an important class of dendritic macromolecules characterized by strong fluorescence emission, excellent photostability, high quantum yield, and low cytotoxicity [28, 29, 30, 31]. These physicochemical properties have made PDI‐based dendrimers valuable in several biomedical and nanotechnological applications, including fluorescence imaging, molecular labeling, sensing, and nanomaterial engineering [28, 29, 30].
+
+Let D(n) denote the molecular graph of a PDI cored dendrimer of generation n, where vertices represent atoms (or structural units), and edges represent chemical bonds within the dendrimer framework. A schematic molecular graph representation of D(n) is shown in Figure 3.
+
+Due to the recursive branching architecture of the dendrimer, the order and size of the molecular graph D(n) follow regular structural patterns. In particular, the numbers of vertices and edges are given as
+
+The highly symmetric and self‐similar topology of the PDI dendrimer results in repeated neighborhood configurations throughout the molecular graph. Consequently, vertices occupying equivalent structural positions share identical distance‐based degree properties, enabling systematic evaluation of graph‐theoretical descriptors.
+
+A detailed derivation of the vertex and edge partitions of D(n), together with the computation of distance‐based degrees and associated topological indices, has been presented in our previous study [32]. In the present work, this graph representation is adopted as the structural basis for evaluating dendrimer–drug compatibility.
+
+Molecular graph representation of a PDI cored dendrimer D(n).</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Computation of Graph Theoretic Topological Indices</h3>    <p>To quantitatively encode the structural characteristics of PDI core dendrimers, a set of graph‐theoretic topological indices is computed from the molecular graph representation of each dendrimer generation. These indices provide compact numerical descriptors that capture connectivity patterns, branching behavior, and global structural organization without relying on 3D conformational information. In this study, four topological indices, namely, LM1, LM2, LM3, and W p, are employed. The Leap Zagreb indices are degree‐based measures derived from vertex degree distributions and their interactions within the dendrimer graph. They reflect variations in branching intensity and local connectivity as the dendrimer generation increases. By comparison, the w p index is a distance‐based measure, which includes path length information and measures global structural compactness of the dendrimer. One of the most vital elements to compute these indices is called the second neighbour degree, and it defines the number of nodes directly two edges away from a particular node. Accurately determining this quantity allows for the precise calculation of distance‐ and degree‐based descriptors, which in turn reflect the dendrimer&#39;s branching complexity and overall topology. The computation of distance‐based descriptors for dendrimer graphs relies on the concepts of second and third neighbour degrees. For completeness, we recall the formal definitions used throughout this study in Theorem 1.
+
+The detailed proof of this result is presented in our previous study [32]. The theorem provides the structural basis for evaluating distance‐based descriptors of the dendrimer graph and is used in the subsequent computation of the topological indices. Using the structural properties and graph partitions of the PDI‐cored dendrimer D(n) together with Theorem 1, the closed‐form expressions of the Wiener polarity index and the leap Zagreb indices for generations n≥1 are obtained. The detailed derivations of these expressions are presented in [32], and the resulting formulas are summarized in Table 3. The fourth leap Zagreb index, introduced and studied in [33], will be considered in future work as an additional structural descriptor.
+
+The closed‐form expressions summarized above provide structural descriptors of the PDI‐cored dendrimer D(n) that capture its branching architecture and connectivity patterns. These descriptors serve as quantitative inputs for the subsequent analysis of dendrimer–drug compatibility. In the following sections, the computed indices are integrated with physicochemical properties of drug molecules to investigate their relationships using QSPR and machine learning models.
+
+Closed‐form expressions of topological indices.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Drug Classes and Physicochemical Characterization for Encapsulation in PDI Core Dendrimers</h3>    <p>PDI core dendrimer is an extensively conjugated, planar, π‐rich chromophore that has been employed as a robust dendrimer core for supramolecular host‐guest systems. PDI‐cored dendrimers are characterized by a rigid aromatic scaffold with a well‐defined, radially symmetric branching architecture. This highly conjugated core provides a hydrophobic and π‐electron‐rich environment, favoring π−π stacking, van der Waals, and hydrophobic interactions with guest molecules. These features make PDI dendrimers promising nanocarriers for aromatic, planar, and poorly water‐soluble drugs.
+
+To explore the carrier potential of PDI‐cored dendrimers, we extended our analysis to drug molecules belonging to three selected therapeutic classes of drugs of antiviral agents, antioxidant compounds, and imaging with aromatic or hydrophobic character, for which dendritic carriers have been widely investigated to enhance solubility, stability, bioavailability, or controlled release. Each class contains molecules with poor aqueous solubility and planar or aromatic scaffolds capable of engaging in π−π stacking with the PDI core. These categories cover a wide variety of molecular sizes, aromatics, polarity, and conformational flexibility, enabling the evaluation of the compatibility of dendrimer–drugs in a wide variety of structural and pharmacological spaces.
+
+Such categories encompass a broad range of molecular sizes, aromatics, polarity, and conformational flexibility to allow for an assessment of dendrimer–drug compatibility in a large range of structural and pharmacological spaces. The table of all physicochemical parameters, i.e., the molecular weight (M W), topological polar surface area (TPSA), XLogP, the number of hydrogen bond donors and acceptors (HBD and HBA), and the number of rotatable bonds (RotB), is represented in the tables, which is obtained from established chemical databases [34] for each drug molecule, which could be applied in the context of the encapsulation behavior. They are reported to affect dendrimer encapsulation, π−π interaction, hydrophobic association, as well as release dynamics, especially when the aromatic or planar scaffold of the drug is involved. Based on these parameters, PDI dendrimers have been shown to stabilize, solubilize, and deliver a vast range of therapeutically relevant molecules in diverse pharmacological classes.
+
+PubChem CIDs and isomeric SMILES of antiviral drugs.
+
+Selected physicochemical properties of antiviral drugs.
+
+Antioxidant and natural polyphenolic compounds: PubChem CIDs and isomeric SMILES.
+
+Selected physicochemical properties of antioxidant compounds.
+
+Imaging and theranostic agents: PubChem CIDs and isomeric SMILES.
+
+Selected physicochemical properties of theranostic/imaging agents.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Drug Classes and Physicochemical Characterization for Encapsulation in PDI Core Dendrimers › Antiviral Agents</h3>    <p>PDI dendrimers are becoming a promising antiviral therapeutic carrier. The planar, π‐rich PDI core enables π−π stacking or surface functionalization with antiviral molecules, enhancing encapsulation and controlled delivery. These systems facilitate photodynamic inactivation of viruses while allowing controlled release, demonstrating the potential of PDI dendrimers as multifunctional antiviral nanocarriers [35]. Tabular information concerning the selected antiviral drug molecules is presented in Table 4. In line with this, Table 5 lists analogous physicochemical parameters. Such structural and physicochemical property congruence is the most important in determining the compatibility of antiviral agents and PDI dendrimers, especially concerning hydrophobic interactions, π−π stacking of PDIs, and dynamics of controlled release.
+
+PubChem CIDs and isomeric SMILES of antiviral drugs.
+
+Selected physicochemical properties of antiviral drugs.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Drug Classes and Physicochemical Characterization for Encapsulation in PDI Core Dendrimers › Antioxidant and Natural Polyphenolic Compounds</h3>    <p>PDI dendrimers have been employed for the delivery of antioxidant and natural polyphenolic compounds. The dendritic architecture and π‐rich PDI core facilitate controlled release and enable fluorescence monitoring of the payload. Delivery via PDI improves aqueous solubility, enhances stability against oxidation, and allows simultaneous antioxidant therapy and imaging, demonstrating the potential of PDI dendrimers as multifunctional carriers for therapeutic and diagnostic applications [36].
+
+All selected antioxidant and polyphenolic compound data are provided in Table 6. The corresponding physicochemical properties are summarized in Table 7. These data are essential for evaluating dendrimer–drug compatibility, particularly for π−π stacking interactions, hydrophobic encapsulation, and controlled release efficiency.
+
+Antioxidant and natural polyphenolic compounds: PubChem CIDs and isomeric SMILES.
+
+Selected physicochemical properties of antioxidant compounds.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Drug Classes and Physicochemical Characterization for Encapsulation in PDI Core Dendrimers › Imaging/Theranostic Agents</h3>    <p>PDI dendrimers have been extensively explored as carriers for imaging and theranostic applications. The intrinsic fluorescence of the PDI core enables real‐time optical tracking, as well as codelivery with magnetic nanoparticles, quantum dots, or fluorescent dyes, enabling multimodal imaging, i.e., fluorescence, MRI, or photoacoustic imaging modalities. Anticancer drugs can also be delivered using PDI‐based carriers with diagnostic imaging and therapeutic operation on the same platform.
+
+All selected PDI‐based theranostic agent data are provided in Table 8. Corresponding physicochemical properties are summarized in Table 9. These data enable evaluation of dendrimer–drug compatibility, optical properties, and potential for multimodal imaging and targeted delivery.
+
+Imaging and theranostic agents: PubChem CIDs and isomeric SMILES.
+
+Selected physicochemical properties of theranostic/imaging agents.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Computational QSPR Modeling Framework</h3>    <p>In order to investigate the relationship between molecular structure and physicochemical properties, a QSPR modeling framework was employed. In this approach, graph‐theoretical descriptors derived from the molecular representation of dendrimers were used as predictive variables for estimating experimentally reported molecular properties of the investigated compounds.
+
+The analysis focuses on several key properties, including M W, TPSA, XLogP, HBD, and HBA counts, number of RotB, and molecular complexity. These properties capture different aspects of molecular size, polarity, lipophilicity, and conformational flexibility. The objective is to evaluate how effectively the selected topological indices describe these physicochemical characteristics across chemically diverse compound classes.
+
+Regression equations for antioxidant compounds.
+
+Linear regression equations for antiviral compounds.
+
+Linear regression equations for imaging compounds.
+
+Statistical evaluation of linear regression models for antioxidant compounds.
+
+Statistical evaluation of linear regression models for antiviral compounds.
+
+Statistical evaluation of linear regression models for imaging compounds.
+
+Linear regression plots between topological indices and physicochemical properties of antioxidant compounds.
+
+Linear regression plots between topological indices and physicochemical properties of antiviral compounds.
+
+Linear regression plots between topological indices and physicochemical properties of imaging compounds.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Computational QSPR Modeling Framework › Linear Regression Modeling</h3>    <p>As an initial step, linear regression models were constructed to establish direct and interpretable relationships between the topological descriptors and the target molecular properties. The linear QSPR model is expressed as
+
+where y represents the predicted molecular property, xi denotes the ith topological descriptor, βi is the regression coefficients, β0 is the intercept, and ε represents the random error term.
+
+The linear formulation provides an interpretable baseline model for assessing the contribution of each descriptor to molecular property prediction. Model performance was evaluated using the correlation coefficient (R), coefficient of determination (R2), root mean square error (RMSE), standard error, and statistical significance (p‐value). For each property, the optimal single‐descriptor model was selected based on statistical significance (p&lt;0.05), maximum R2, and minimum RMSE.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Computational QSPR Modeling Framework › Comparative Linear QSPR Analysis Across Therapeutic Classes</h3>    <p>To explore the consistency and constraints of single‐descriptor linear QSPR models in chemically diverse therapeutic classes, the statistical performance of the linear regression models was analyzed individually in the case of antioxidant, antiviral, and imaging compounds. The regression equations and their corresponding statistical evaluations summarized in Tables 10, 11, 12, 13, 14–15, together with the graphical representations in Figures 4, 5–6, form the basis of the comparative discussion presented below.
+
+In the case of the antioxidant compounds, the properties associated with molecular size, such as molecular weight, exact mass, monoisotopic mass, and number of heavy atoms in the molecule, have a high linear dependence on Wiener polarity index W p with coefficients of determination usually above (R 2 = 0.77−0.79). There is also a significant linear tendency in molecular complexity. Conversely, the polarity and hydrogen‐bonding descriptors, including TPSA and the number of hydrogen bond donors, exhibit a weak or statistically nonsignificant correlation, and those of XLogP, hydrogen bond acceptors, and rotatable bonds have moderate predictive capability.
+
+The same is manifested in the antiviral compounds, where the mass‐ and connectivity‐driven properties (molecular weight, exact mass, monoisotopic mass, the count of heavy atoms, and complexity) have statistically significant and strong linear relationships with W p (maximum R2 of 0.78). On the other hand, the nonsignificance of TPSA and hydrogen bond donors and the moderate correlations between lipophilicity and flexibility descriptors (XLogP, HBA, and rotatable bonds) suggest a less effective single‐descriptor model to explain these properties.
+
+In the case of the imaging compounds, the strongest correlations are found in general, especially with molecular complexity and the number of heavy atoms, which have very high goodness‐of‐fit with both Zagreb‐type indices, i.e., the values of both LM1 and LM3 are close to unity. Similar properties of molecular weight and mass also show a strong linear behavior of the properties (R 2 somewhere between 0.78 and 0.88). However, TPSA, XLogP, hydrogen bonding descriptors, and rotatable bonds fail to reach statistical significance, further indicating that polarity‐ and lipophilicity‐driven properties are inadequately captured by single‐descriptor linear relationships.
+
+Across all three compound classes, size, mass, and topological connectivity descriptors consistently yield robust and statistically significant linear models, whereas properties governed by intermolecular interactions, polarity, and conformational flexibility exhibit weak or nonlinear behavior. Overall, the single‐descriptor QSPR analysis establishes a reliable baseline for interpreting linear structure–property relationships and highlights the necessity of incorporating multivariate or nonlinear modeling approaches to adequately describe more complex physicochemical properties.
+
+Regression equations for antioxidant compounds.
+
+Linear regression equations for antiviral compounds.
+
+Linear regression equations for imaging compounds.
+
+Statistical evaluation of linear regression models for antioxidant compounds.
+
+Statistical evaluation of linear regression models for antiviral compounds.
+
+Statistical evaluation of linear regression models for imaging compounds.
+
+Linear regression plots between topological indices and physicochemical properties of antioxidant compounds.
+
+Linear regression plots between topological indices and physicochemical properties of antiviral compounds.
+
+Linear regression plots between topological indices and physicochemical properties of imaging compounds.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Nonlinear Machine Learning Models</h3>    <p>To capture nonlinear relationships between graph‐based topological descriptors and the physicochemical properties of the studied compounds, machine learning regression techniques were employed. Molecular structure–property relationships often involve complex interactions between structural descriptors that cannot be adequately represented by linear models. Therefore, nonlinear learning algorithms provide a more flexible modeling framework for QSPR prediction.
+
+Gaussian process regression (GPR) prediction curves for representative physicochemical properties using their optimal descriptors. Solid blue curves represent an expression of the posterior mean prediction, shaded areas represent 95% credible intervals, red circles are training samples, and black triangles are test samples.
+
+Comparison of linear regression and Gaussian process regression (GPR) Performance for final selected descriptor property models.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Nonlinear Machine Learning Models › Gaussian Process Regression (GPR)</h3>    <p>GPR was employed to model nonlinear dependencies between the selected topological indices and the molecular properties. GPR is a nonparametric Bayesian regression technique that places a Gaussian process prior over the space of possible functions and learns the relationship directly from the observed data. This framework is particularly suitable for small‐ to medium‐sized datasets and provides both predictive estimates and uncertainty quantification. Mathematically, a Gaussian process is defined as
+
+where m(x) denotes the mean function and k(x,x′) represents the covariance kernel describing the similarity between data points. The radial basis function (RBF) kernel was used in this work due to its capability of modeling nonlinear, smooth relations in the multidimensional space of descriptors. The kernel‐based formulation enables complex interactions of structural properties to be learnt by GPR with no explicit functional structure being assumed, and also gives confidence limits around values predicted. The comparative predictions between GPR and linear regression models (based on high coefficients of determination, R 2) showed better predictive performance of the GPR as compared to the linear regression models, as well as a better prediction error. For reproducibility, a fixed random seed of 123 was used throughout the analysis. The dataset was randomly partitioned into training and independent test subsets using an 80:20 split implemented through the createDataPartition function in the caret package. The four topological descriptors (LM1, LM2, LM3, and W p) were standardized using centering and scaling parameters estimated exclusively from the training subset; the same transformation was subsequently applied to the test subset. Separate GPR models were fitted for each physicochemical property using the RBF kernel implemented through the kernlab package. The variance parameter was fixed at 0.01 in the GPR implementation. No separate k‐fold cross‐validation or LOOCV procedure was used for GPR model selection; instead, predictive performance was assessed using the independent 20% test subset. The model performance was quantified using the coefficient of determination (R 2), RMSE, and mean absolute error (MAE). In addition, 200 bootstrap resamples of the training data were generated to estimate the uncertainty bands around the GPR prediction curves.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Nonlinear Machine Learning Models › Comparative Evaluation of Model Performance Across Therapeutic Classes</h3>    <p>To systematically assess model robustness and generalization, GPR was evaluated across all therapeutic classes using consistent statistical criteria. Single‐descriptor linear regression models provide an interpretable baseline for understanding structure–property relationships; however, the statistical results summarized in Tables 13–15 demonstrate that only a subset of physicochemical properties can be reliably predicted using linear mappings of individual topological descriptors. Specifically, the measurements of size‐dependent properties like molecular weight, exact mass, monoisotopic mass, number of heavy atoms, and molecular complexity are all strongly correlated (R 2 ≈ 0.69–0.89, p&lt;10−4) with each other, indicating that the properties are largely determined by global structural topology as captured in graph‐based indices.
+
+Conversely, the relationships between polarity‐based descriptors, hydrogen bonding parameters, lipophilicity, and conformational flexibility tend to show weak correlation (R2&lt;0.30) associated with low statistical significance in antioxidant, antiviral, and imaging datasets. These findings suggest that these properties are nonlinear structural effects that are not well explained by linear relationships using a single descriptor.
+
+In order to address this shortcoming, GPR was used as a nonlinear model structure that can learn complex functional relationships as well as measure predictive uncertainty at the same time. For each physicochemical property, the descriptor yielding the highest predictive performance in the independent test‐set evaluation was selected for the representative GPR response curve shown in Figure 7.
+
+The nonlinear models confirm and extend the conclusions obtained from linear regression. Properties that were already well predicted by linear models exhibit further improvement under GPR. Those properties that were already well predicted by linear models are further enhanced by GPR. Specifically, heavy atom count, monoisotopic mass, exact mass, and molecular weight exhibit near‐perfect predictive ability (Rtest2&gt;0.94), suggesting that global structural topology is a determinant of all these metrics and that nonlinear modeling optimizes existing strong relationships. Molecular complexity and rotatable bond count also show substantial enhancement in predictive accuracy, demonstrating that these properties depend on higher‐order structural interactions captured effectively by nonlinear kernels.
+
+Importantly, several descriptors that were poorly modeled using linear regression show partial improvement under GPR. The number of hydrogen bond acceptors and lipophilicity have moderate predictive ability (Rtest2≈0.39–0.49), showing that nonlinear structural relationships are present and partially captured by available topological indices. This proves that hidden property‐relation structures that linear models cannot detect can be recovered in nonlinear learning. fail to detect.
+
+However, nonlinear modeling does not work equally well with all properties. The number of hydrogen‐bond donors and TPSA is not easy to forecast, and generalization performance is low, even with high training accuracy. This indicates inherent limitations in the descriptors and not in the insufficiency of the model and indicates that these properties arise mainly via electronic effects, functional group chemistry, or intermolecular interactions that are inadequately captured using degree‐based graph descriptors. As demonstrated in Table 16, nonlinear GPR modeling significantly enhances prediction processes of various properties, especially those that have weak or insignificant linear relationships.
+
+In general, both linear and nonlinear analyses indicate a strong hierarchy of predictability among physicochemical properties. Descriptors dependent on topology can perform well even when simple learning models are used, but structurally sensitive properties can only perform well with nonlinear learning. Nevertheless, even flexible machine learning approaches have difficulties with electronically controlled descriptors. These findings demonstrate that graph‐theoretical indices encode rich structural information whose predictive potential becomes fully accessible only when nonlinear modeling approaches such as GPR are employed.
+
+Gaussian process regression (GPR) prediction curves for representative physicochemical properties using their optimal descriptors. Solid blue curves represent an expression of the posterior mean prediction, shaded areas represent 95% credible intervals, red circles are training samples, and black triangles are test samples.
+
+Comparison of linear regression and Gaussian process regression (GPR) Performance for final selected descriptor property models.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Artificial Neural Network (ANN) Modeling</h3>    <p>Even though GPR significantly enhanced the prediction of various nonlinear structure–property relations, some physicochemical descriptors were still poorly modeled. This brought about a significant question: are these limitations due to a lack of model flexibility, or are the limitations inherent to the chosen set of graph‐based descriptors due to a lack of information? To examine this difference, an ANN model was used as a nonlinear learning framework with a higher capacity. The ANN network was constructed by using the full descriptor vector.
+
+allowing the network to learn hierarchical nonlinear representations of structural information. The ANN simultaneously predicted six physicochemical properties, namely HBD, HBA, RotB, molecular complexity, XLogP, and TPSA. The network consisted of eight fully connected hidden layers containing 2000, 1000, 1000, 500, 2640, 1320, 320, and 160 neurons, respectively. Each hidden layer employed a LeakyReLU activation function with α=0.001 and L2 kernel regularization with a coefficient of 0.01. The final output layer contained six neurons with linear activation for simultaneous regression of the six target properties. The learned mapping is given by
+
+where W1,W2 denote weight matrices, b1,b2 denote bias vectors, and σ a nonlinear activation function. Parameters were optimized using backpropagation to minimize mean squared error. The ANN was implemented using TensorFlow/Keras and trained using the Adam optimizer with an initial learning rate of 0.001. For reproducibility, the TensorFlow and NumPy random seeds were fixed at 42, and the train‐test partition used a random state of 42. The dataset was initially divided into 80% training and 20% independent test subsets. Subsequently, 20% of the training subset was used as validation data during model training, resulting in an effective overall partition of 64% training, 16% validation, and 20% independent test data. The input and target variables were standardized using the training subset, and the corresponding transformations were applied to the test data.
+
+A batch size of four and a maximum of 100 training epochs were used. To regulate the training process, the learning rate was reduced by a factor of 0.5 when the validation loss did not improve for 10 consecutive epochs, with a minimum learning rate of 10−4. Early stopping with a patience of 10 epochs was also employed, with restoration of the weights corresponding to the lowest validation loss. The independent test subset was retained exclusively for final performance evaluation.
+
+Training and validation loss curves for the ANN model showing stable convergence behavior.
+
+Correlation matrix between topological descriptors and physicochemical properties.
+
+ANN predictive performance statistics.
+
+Predicted versus actual molecular complexity using ANN. The dashed line indicates an ideal prediction.
+
+Comparison of linear, GPR, and ANN model performance across properties, highlighting stronger generalization by GPR and persistent challenges for weakly encoded descriptors.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Artificial Neural Network (ANN) Modeling › Model Comparison and Evaluation Framework</h3>    <p>To make sure that a rigorous comparison is made between linear regression, GPR, and ANN, all the models were tested within the same statistical framework. The same four topological descriptors were used as inputs for all models, and an independent test subset was retained for final performance evaluation. Model‐specific training and validation procedures were applied according to the requirements of each learning framework. The same descriptor inputs, training and testing splits, and validation strategies were used to ensure that the methods were consistent. Standard regression measures were used to estimate model performance. The coefficient of determination is defined as
+
+where yi represents observed values, y^i is the predicted values, and y¯ is the mean of observed data. This metric quantifies the proportion of variance explained by the model.
+
+Prediction accuracy was further evaluated using
+
+and
+
+RMSE is more sensitive to large deviations, whereas MAE is a measure of average prediction error, which can be interpreted. A combination of these measures enables the consistent evaluation of the accuracy, robustness, and generalization behavior of models in all modeling strategies.
+
+Initial model behavior can be found through training dynamics. As Figure 8 demonstrates, the training and validation loss curves reduce at a fast rate in the first several epochs and slow down further, which means that the convergence is efficient and there is no severe overfitting. This indicates stable training convergence under the validation‐based learning rate reduction and early‐stopping strategy. This confirms that the network successfully learned patterns present in the data and that prediction limitations, if present, are unlikely to arise from optimization failure.
+
+We considered the extent to which the descriptors can inform us of the various properties. The correlation plot (Figure 9) reveals that the majority of the descriptors have close correlations with molecular complexity. There are other factors, such as hydrogen bonding, lipophilicity, and TPSA, which have a loose connection with the descriptors. The implication of this is that there are only properties that are very strongly reflected in the space of topological indices, so there is a limitation on the accuracy of the prediction, regardless of the model you are using.
+
+Quantitative ANN results summarized in Table 17 confirm this hypothesis. Molecular complexity achieves the strongest predictive performance (R2=0.487), indicating that nonlinear structural information is partially captured. Hydrogen bond donor count shows moderate improvement, while hydrogen bond acceptor count, XLogP, and TPSA remain poorly predicted. Rotatable bond count exhibits a negative R2, indicating that the network fails to generalize and performs worse than a mean‐based estimator.
+
+The predictive behavior of the network is further illustrated for molecular complexity in Figure 10. The data points approximate the linear line; thus, the network captures the general trends but not very high or low values. This indicates that the ANN has the capacity to identify useful nonlinear patterns, but it is constrained by the amount of information supplied by the descriptors rather than the flexibility of the model itself.
+
+Taken together, these findings establish an important principle for graph‐based QSPR modeling. When there is insufficient physicochemical information in the descriptors, it does not necessarily improve predictions as the complexity of the algorithm is increased. Compared to linear regression or GPR, ANN is more flexible, though it can assist only with properties that are largely determined by the shape of the molecule. The properties that are dependent on the behavior of electrons, changes in shape, and interaction with other molecules are also not predicted well since they are not factored into degree‐based indices directly.
+
+Hence, out of the approaches we have considered, GPR offers the best model and provides credible predictive performance on our data without an extremely complicated model. The ANN analysis thus serves primarily as a diagnostic tool confirming that remaining prediction limitations originate from descriptor information constraints rather than modeling methodology.
+
+Training and validation loss curves for the ANN model showing stable convergence behavior.
+
+Correlation matrix between topological descriptors and physicochemical properties.
+
+ANN predictive performance statistics.
+
+Predicted versus actual molecular complexity using ANN. The dashed line indicates an ideal prediction.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Machine Learning Framework for QSPR Interpretation › Artificial Neural Network (ANN) Modeling › Comparative Modeling Objectives and Descriptor Sensitivity Analysis</h3>    <p>Each modeling approach employed in this study serves a distinct analytical purpose within the learning‐driven QSPR framework. Linear regression gives a baseline linear estimate and allows the descriptor coefficients to be interpreted directly, which allows the primary impact of individual topological indices to be evaluated. GPR is a probabilistic model that estimates smooth and nonlinear relationships between descriptors and drug properties without disturbing the probabilistic structure that indicates uncertainty about predictions. ANNs are nonlinear representation learners with high capacity and can capture higher and more complex interactions between descriptors. In addition to the performance metrics investigated numerically, the model comparison focuses on the description of sensitivity stability across classes of drugs. This assessment is based on the consistency of the influence of the descriptors among the various modeling methods, the differences in predictive power of the antiviral, antioxidant, and imaging drug classes, and the extent of improvement in the process of changing from linear to nonlinear modeling. Figure 11 shows that GPR usually offers the most reliable predictive behavior on structurally controlled properties, implying that there are some nonlinear property interactions within the descriptor properties, although similar behavior across models implies that structural relationships are largely linear.
+
+Each drug class is analyzed separately to determine whether this drug class shows any class‐dependent modeling behavior. It allows for the analysis of differential sensitivity to descriptor change, the degree of nonlinear response that is revealed in each of the classes, and the transferability of the effects of descriptors across functional regimes. This developed comparison helps to support conclusions on encapsulation selectivity in terms of predictive accuracy and also in terms of similarity in behavior of the descriptors’ responses across paradigms of modeling.
+
+Comparison of linear, GPR, and ANN model performance across properties, highlighting stronger generalization by GPR and persistent challenges for weakly encoded descriptors.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Structural Compatibility and Generation‐Wise Structural Selectivity</h3>    <p>In this section, a structure‐based discussion of the suitability of encapsulation in PDI core dendrimers is conducted. Although the above learning‐based QSPR model establishes relationships between descriptor properties, the aspect of encapsulation is assessed here in terms of direct structural compatibility between dendrimer generations and drug molecules. The following section outlines the entire computation pipeline to determine the extent to which each generation of PDI dendrimer can be compatible with a wide range of drug molecules. The workflow integrates graph‐based topological descriptors, distance‐based compatibility assessment, and generation‐wise ranking analysis to identify structurally suitable dendrimer generations for downstream investigation. The computational process is initiated by the generation‐wise computations of the topological indices in terms of graphs of the PDI core dendrimer family. Simultaneously, topological descriptors were computed on each drug molecule so as to obtain a consistent space of structural features. The sets of these descriptors are then assembled together to create a single dataset with which it becomes possible to directly compare structures between dendrimer generations and drug molecules. In the present study, the term compatibility refers specifically to the structural proximity between PDI dendrimer generation and a drug molecule within the standardized space of the selected topological descriptors. The compatibility score is therefore a computational similarity measure and does not represent a direct experimental measurement of encapsulation efficiency, loading capacity, binding affinity, or release behavior. Accordingly, the generation‐wise results should be interpreted as identifying dendrimer generations with comparatively similar topological profiles to the investigated drug molecules, thereby providing a computational indication of potential suitability for further encapsulation studies. The present analysis is based exclusively on graph‐theoretical topological descriptors and standardized structural compatibility and therefore does not directly account for the energetic, conformational, electronic, or intermolecular factors governing drug‐dendrimer interactions. Consequently, the compatibility scores should not be interpreted as direct evidence of binding affinity or experimental encapsulation efficiency. Molecular docking, binding energy calculations, molecular dynamics simulations, and experimental encapsulation studies could provide complementary information for validating the topology‐based predictions. Such investigations are beyond the scope of the present work and represent important directions for future research. Encapsulation compatibility has then been measured by computing standardized Euclidean distances among dendrimer and drug descriptor vectors.
+
+Depending on these scores, generation‐wise ranking vectors are built to assess the potential of encapsulation with the same drug identity and ordering not changed. The obtained distance values are converted to compatibility scores, indicating the comparative structural proximity of each dendrimer generation to the investigated drug molecules within the selected topological descriptor space.
+
+To make sure that the resulting rankings are representative of systematic structural behavior but not random fluctuations, both monotonic rank consistency and magnitude‐based compatibility tendencies are used to conduct stability analysis. Lastly, the analysis identifies representative dendrimer generations exhibiting the highest topology‐based compatibility with the investigated drug classes, providing a computational basis for further encapsulation studies.
+
+Topological indices of PDI dendrimer generations D(n) for n = 0–4.
+
+Topological indices of antiviral drugs.
+
+Topological indices of antioxidant/natural polyphenolic compounds.
+
+Topological indices for imaging/theranostic agents.
+
+Standardized z‐scores for PDI dendrimer generations.
+
+Standardized z‐scores for group: Antioxidant.
+
+Standardized z‐scores for group: Antiviral.
+
+Standardized z‐scores for group: Imaging.
+
+Generation‐wise distance and compatibility of antioxidant compounds with PDI core dendrimers.
+
+Generation‐wise distance and compatibility of antiviral drugs with PDI core dendrimers.
+
+Generation‐wise distance and compatibility of imaging agents with PDI core dendrimers.
+
+Ranking of PDI dendrimer generations (D0–D4) for antioxidant compounds.
+
+Ranking of PDI dendrimer generations (D0–D4) for antiviral drugs.
+
+Ranking of PDI dendrimer generations (D0–D4) for imaging agents.
+
+Heatmap representation of Spearman rank association between PDI dendrimer generations.
+
+Mean compatibility C¯(G) and relative change ΔC(G) for PDI dendrimer generations.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Structural Compatibility and Generation‐Wise Structural Selectivity › Generation‐Wise Computation of Topological Indices for the PDI‐Cored Dendrimer</h3>    <p>In the first stage, closed‐form analytical expressions for four graph‐theoretic topological descriptors of the PDI core dendrimer family and drug molecules were employed to compute generation‐wise structural indices:
+
+These descriptors capture complementary structural characteristics, including connectivity patterns, branching intensity, and global structural compactness of the dendrimer and drug topology. The expressions for the considered topological indices of D(n) are given in Table 18.
+
+These expressions were evaluated for dendrimer generations n=0,1,2,3,4, resulting in a structured descriptor matrix representing the progressive topological evolution of the PDI dendrimer family. The computed dendrimer indices form the foundational structural feature set used in subsequent compatibility and ranking analyses.
+
+The resulting generation‐wise descriptor values are summarized in Table 18. These descriptors were later combined with corresponding topological indices computed for all drug molecules, derived by using SMILES strings with the help of Python, as shown in Tables 19, 20–21 to construct a unified dataset for comparative encapsulation analysis.
+
+Topological indices of PDI dendrimer generations D(n) for n = 0–4.
+
+Topological indices of antiviral drugs.
+
+Topological indices of antioxidant/natural polyphenolic compounds.
+
+Topological indices for imaging/theranostic agents.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Structural Compatibility and Generation‐Wise Structural Selectivity › Global Standardization of Molecular Descriptors Across Compound Classes</h3>    <p>To maintain a consistent numerical scale among all molecular structures, the four topological descriptors were used.
+
+were standardized using global population z‐score normalization [37]. Unlike group‐specific scaling, global standardization treats the entire dataset as a single population. This allows a direct and consistent comparison between different dendrimer generations and all investigated drug classes, including antiviral, antioxidant, and imaging compounds.
+
+Let x i, k represent the value of descriptor k for the molecular entity i. The complete dataset consists of five PDI dendrimer generations, together with all compounds from the selected therapeutic groups. If the total number of molecular structures is N, the global population mean μ k and the corresponding standard deviation σ k for each descriptor k are computed as [38]:
+
+The standardized value of each descriptor is then obtained through [37, 39]:
+
+This transformation ensures that each descriptor across the dataset possesses zero mean and unit variance. Consequently, no individual descriptor or therapeutic class dominates the subsequent distance‐based compatibility analysis [38, 39]. The resulting standardized descriptor matrix is Z = (z i, k) forms the basis for computing standardized Euclidean distances and the corresponding drug dendrimer compatibility rankings presented in later sections. The standardized z‐score values for the dendrimer generations are summarized in Table 22, while the standardized descriptor values for the antiviral, antioxidant, and imaging drug datasets are provided in Tables 23, 24–25.
+
+Standardized z‐scores for PDI dendrimer generations.
+
+Standardized z‐scores for group: Antioxidant.
+
+Standardized z‐scores for group: Antiviral.
+
+Standardized z‐scores for group: Imaging.</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Structural Compatibility and Generation‐Wise Structural Selectivity › Similarity Measurement and Compatibility Evaluation in Standardized Descriptor Space</h3>    <p>After performing global standardization, both dendrimer generations and drug molecules are embedded in a common descriptor space defined by the four standardized structural indices. In this representation, each dendrimer generation D(n) is described by the vector
+
+where the components correspond to the standardized values of the leap Zagreb and Wiener polarity indices. Similarly, every drug molecule Drugj is represented by the descriptor vector
+
+Since the descriptors were standardized across the complete molecular dataset, each component possesses a zero mean and unit variance. Consequently, the four indices contribute equally to the comparison between dendrimers and drugs belonging to different therapeutic categories, enabling a consistent multivariate similarity analysis [37, 38]. The structural similarity between a dendrimer generation D(n) and a drug Drugj was evaluated using the standardized Euclidean distance
+
+Because all descriptor dimensions share a common standardized scale, each index contributes uniformly to the metric defined in Equation (13). The resulting value therefore reflects the geometric separation between dendrimer and drug structures in the standardized descriptor space, which is a widely adopted approach in multivariate similarity assessment and clustering analysis [38].
+
+For interpretability in the context of dendrimer–drug affinity evaluation, the calculated distances were converted into a normalized compatibility measure through global max‐normalization [37]:
+
+In this formulation, the compatibility score ranges between 0 and 1. A value close to 1 indicates the highest structural compatibility between a dendrimer generation and a drug molecule, whereas values approaching 0 correspond to the least compatible pairs within the dataset. Distance normalization procedures of this type are frequently used to transform dissimilarity measures into bounded similarity scores for ranking and comparative analysis [37]. The complete matrix of standardized distances and compatibility scores for all dendrimer–drug combinations is reported in Tables 26, 27–28.
+
+Generation‐wise distance and compatibility of antioxidant compounds with PDI core dendrimers.
+
+Generation‐wise distance and compatibility of antiviral drugs with PDI core dendrimers.
+
+Generation‐wise distance and compatibility of imaging agents with PDI core dendrimers.</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Structural Compatibility and Generation‐Wise Structural Selectivity › Generation‐Based Encapsulation Compatibility Ranking Analysis</h3>    <p>Once the global compatibility matrix was obtained, each drug j was associated with a set of compatibility scores Compat(G,Drugj) evaluated across all dendrimer generations G∈{D0,D1,D2,D3,D4}. These values quantify the structural similarity between the topological descriptor profile of a drug molecule and that of each PDI dendrimer generation. To identify the dendrimer generation exhibiting the highest relative structural compatibility with each drug within the proposed descriptor space, a generation‐wise ranking procedure was applied to the computed compatibility scores.
+
+Let
+
+denote the rank assigned to dendrimer generation G with respect to drug j Rankj(G) is denoted as Rj(G). The ranking is obtained by ordering the compatibility values Compat(G,Drugj) from the largest value (highest compatibility or smallest structural distance) to the smallest value (lowest compatibility or largest structural distance). Under this ordering scheme,
+
+identifies the dendrimer generation exhibiting the strongest structural agreement with drug j, whereas
+
+represents the least compatible generation. Ranking that depends on a generation‐based framework is a systematic approach and optimal approach to identify the capability of encapsulation of any drug data set molecules. In this approach, the compatibility scores are obtained by using max‐normalized Euclidean distance. In such cases, ties may occur as a result of floating‐point arithmetic; to deal with these ties, the standard minimum‐rank convention is used to maintain consistency in statistical data analysis and comparative interpretation. The ranking profile is expressed in the form of a vector for each of the drugs
+
+The above ranking vectors depict the relative topology‐based compatibility of the five dendrimer generations with each investigated drug molecule. Tables 29, 30–31 show all the rankings for antioxidant, antiviral, and imaging compounds. It is analyzed that the ranking patterns are structurally consistent, and the highest compatibility scores are obtained for lower dendrimer generations (D0–D1), which reflects that they are relatively compact and less‐branched architectures that align well with the descriptor profiles of many drug molecules. Intermediate generations (D1–D2) occasionally represent improved compatibility for larger or structurally complex molecules due to their expanded branching and increased surface area. The behavior of higher generations (D3–D4) shows reduced compatibility, likely resulting from excessive branching and topological divergence from the molecular descriptor space of the considered drugs. Overall, the ranking analysis suggests that early to intermediate generations (D0–D2) provide the most suitable structural framework for PDI‐cored dendrimer–drug encapsulation across the studied therapeutic classes.
+
+Ranking of PDI dendrimer generations (D0–D4) for antioxidant compounds.
+
+Ranking of PDI dendrimer generations (D0–D4) for antiviral drugs.
+
+Ranking of PDI dendrimer generations (D0–D4) for imaging agents.</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Structural Compatibility and Generation‐Wise Structural Selectivity › Generation‐Wise Stability Analysis of Topological Compatibility</h3>    <p>In order to determine the best generation of PDI dendrimers for compatibility in a drug global validation analysis between generations D0–D4 was carried out using the entire drug library. This analysis evaluates the case of sequential dendrimer generations of preference patterns that are consistent across all drugs so that the rank assignments of generations previously assigned on the basis of compatibility scores are indicative of carrier selectivity and not arbitrary or fluctuating patterns.
+
+The proposed compatibility framework indicates generation‐dependent variation in the structural similarity between PDI dendrimers and the investigated drug molecules. In order to describe this behavior, two complementary diagnostics were used. This analysis is carried out not to rerank drugs, but to ensure that compatibility trends and magnitudes of the scores are coherently similar as one goes through consecutive generations (D0→D1→D2→D3→D4). This analysis provides an additional assessment of the consistency of the observed generation‐wise compatibility patterns and helps distinguish systematic descriptor‐space trends from potential ranking artifacts.
+
+Let C(G,j) denote the compatibility score between generation G and drug j, derived from standardized Euclidean distances. For each consecutive generation pair (G,G+1), the consistency of generation selection across the same drug set was evaluated using two complementary diagnostics:
+
+Heatmap representation of Spearman rank association between PDI dendrimer generations.
+
+Mean compatibility C¯(G) and relative change ΔC(G) for PDI dendrimer generations.</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Conclusion</h3>    <p>To examine drug–dendrimer interactions in PDI‐based dendritic structures with graph‐theoretic topological indices, we developed a computationally grounded, chemically based strategy in the present study. The Leap Zagreb indices (LM1, LM2, and LM3) and the Wiener polarity index (W p) offered a strict structural description of both dendrimers and drug molecules, which could then be compared chemically, having undergone global standardization of descriptors. Standardized Euclidean distance gave rise to compatibility scoring, which showed generation‐specific encapsulation patterns, with the least PDI dendrimer generations (D0−D2) showing the most desirable structural correspondence of most therapeutic agents. Generation stability diagnostics also ensured that these trends are systematic and based on true topological differences and not stochastic effects. The complementary use of QSPR‐based neural regression analysis showed that the topological indices are strongly related to major physicochemical properties, molecular size, polarity, hydrogen‐bonding potential, conformational flexibility, and complexity of the π‐systems, making them valid, chemically interpretable descriptors. The results indicate that the investigated PDI dendrimer generations exhibit distinct topology‐based compatibility profiles with the studied drug molecules. These computational patterns provide structural indications that may support the selection of dendrimer generations for further investigation, while direct encapsulation behavior requires complementary molecular‐level and experimental validation.
+
+The integrated methodology presented here provides a robust platform for rational dendrimer design, predictive drug carrier matching, and future development of chemically informed nanocarrier optimization strategies.
+
+Future studies should extend the present analysis to chemically modified PDI dendrimers, including terminal group functionalization and heteroatom‐substituted π‐cores, to examine how electronic and steric perturbations alter host‐guest selectivity. Incorporating solvent explicit simulations and quantum chemical descriptors may further clarify the mechanistic basis of π‐driven encapsulation. Experimental studies measuring encapsulation efficiency, loading capacity, and release behavior would provide complementary validation of the topology‐based compatibility predictions. On the predictive side, expanding the neural QSPR model with additional molecular features or generative architectures could enable inverse design of dendrimer carriers optimized for specific drug classes. Together, these directions will help establish a more comprehensive and chemically interpretable framework for rational engineering of PDI‐based nanocarriers.</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>Funding</h3>    <p>The authors have nothing to report.</p>
+  </section>
+  <section id="s26" class="text-unit">
+<h3>Conflicts of Interest</h3>    <p>The authors declare no conflicts of interest.</p>
+  </section>
+  <section id="s27" class="text-unit">
+<h3>Contributor Information</h3>    <p>Zainab Bibi, Email: zainabbangash398@gmail.com.
+
+Yilun Shang, Email: yilun.shang@northumbria.ac.uk.</p>
+  </section>
+  <section id="s28" class="text-unit">
+<h3>Data Availability Statement</h3>    <p>The data are available upon request to the corresponding authors.</p>
+  </section>
+  <section id="s29" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>The data are available upon request to the corresponding authors.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

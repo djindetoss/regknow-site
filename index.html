@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>RegKnow</title>
+<link rel="stylesheet" href="static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="index.html">RegKnow</a>
+  <nav><a href="index.html">Search</a><a href="dates.html">Key dates</a><a href="dashboard.html">Dashboard</a><a href="about.html">About</a></nav>
+</header>
+<main><section class="intro">
+  <p class="tagline">Public reference library for AI, data and pharmaceutical regulation</p>
+  <form id="search-form" role="search">
+    <label class="visually-hidden" for="q">Search the library</label>
+    <input id="q" name="q" type="search" placeholder="Search in English, French or Dutch" autocomplete="off">
+  </form>
+  <label class="meaning"><input type="checkbox" id="meaning"> Also search by meaning, across English, French and Dutch</label>
+  <p class="meaning-note">The first use downloads a 118 MB model from Hugging Face and its code from jsDelivr. What you type stays in your browser.</p>
+</section>
+<div class="layout">
+  <details class="filters" id="filter-panel">
+    <summary>Filters</summary>
+    <div id="filters"></div>
+    <button type="button" id="clear" class="linklike">Clear all filters</button>
+  </details>
+  <section aria-live="polite">
+    <p id="summary" class="summary">Loading the library…</p>
+    <ol id="results" class="results"></ol>
+    <button type="button" id="more" class="more" hidden>Show more</button>
+  </section>
+</div>
+<noscript><p>Search needs JavaScript. Exports are on the <a href="about.html">About page</a>.</p></noscript>
+</main>
+<script type="module" src="static/search.js"></script></body>
+</html>

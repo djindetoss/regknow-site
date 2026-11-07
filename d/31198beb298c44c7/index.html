@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Quantitative evaluation of explainable graph neural networks for molecular property prediction · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Quantitative evaluation of explainable graph neural networks for molecular property prediction</h1>
+<p class="authors">Jiahua Rao, Shuangjia Zheng, Yutong Lu, Yuedong Yang</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Patterns (New York, N.Y.)</dd>
+<dt>Published</dt><dd>2022-11-10</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Evaluation of AI in drug discovery (benchmarks, validation, reproducibility)</span><span class="chip">Explainability</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1016/j.patter.2022.100628">10.1016/j.patter.2022.100628</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/36569553/">36569553</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/36569553/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/36569553/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>31198beb298c44c7</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Graph neural networks (GNNs) have received increasing attention because of their expressive power on topological data, but they are still criticized for their lack of interpretability. To interpret GNN models, explainable artificial intelligence (XAI) methods have been developed. However, these methods are limited to qualitative analyses without quantitative assessments from the real-world datasets due to a lack of ground truths. In this study, we have established five XAI-specific molecular property benchmarks, including two synthetic and three experimental datasets. Through the datasets, we quantitatively assessed six XAI methods on four GNN models and made comparisons with seven medicinal chemists of different experience levels. The results demonstrated that XAI methods could deliver reliable and informative answers for medicinal chemists in identifying the key substructures. Moreover, the identified substructures were shown to complement existing classical fingerprints to improve molecular property predictions, and the improvements increased with the growth of training data.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>SummaryGraph neural networks (GNNs) have received increasing attention because of their expressive power on topological data, but they are still criticized for their lack of interpretability. To interpret GNN models, explainable artificial intelligence (XAI) methods have been developed. However, these methods are limited to qualitative analyses without quantitative assessments from the real-world datasets due to a lack of ground truths. In this study, we have established five XAI-specific molecular property benchmarks, including two synthetic and three experimental datasets. Through the datasets, we quantitatively assessed six XAI methods on four GNN models and made comparisons with seven medicinal chemists of different experience levels. The results demonstrated that XAI methods could deliver reliable and informative answers for medicinal chemists in identifying the key substructures. Moreover, the identified substructures were shown to complement existing classical fingerprints to improve molecular property predictions, and the improvements increased with the growth of training data.Keywords: explainable artificial intelligence, graph neural networks, quantitative assessments, molecular property benchmarks, XAI applications</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Graph neural networks (GNNs) have received increasing attention across various areas because of their expressive power on topological data,1 including social networks,2,3 recommendation systems,4,5 and natural science.6,7 Despite their promise, GNN models are still criticized for their lack of interpretability, and these models are often considered “black box.”8 It is necessary to interpret the models through explainable methods.
+
+To interpret GNN models, many explainable artificial intelligence (XAI) methods have been developed. For example, GNNExplainer9 explains GNNs through mutual information between the predictions and explanations. PGExplainer10 learns a parameterized model to predict whether an edge is important. Unfortunately, these methods are only qualitatively assessed on real-world datasets such as social network (Reddit-Binary)9 and sentiment graph (Graph-SST2),8 mainly because these datasets are difficult to summarize their interpretable substructural &#34;ground truth&#34; for quantitative evaluations. In contrast, prior knowledge of explainability has already existed in scientific datasets, especially in chemistry and drug-discovery fields. For example, the interpretable substructural patterns for several molecular properties (e.g., hepatotoxicity and mutagenicity) have been well explored and carefully reviewed by previous studies.11,12
+
+Benefiting from the accumulated data in drug discovery, several XAI studies have been devoted to interpreting molecular substructures. For example, Rodríguez-Pérez et al.13 interpreted relevant features and substructures for compound activity prediction through the Shapley additive explanations. Pope et al.14 identified key substructures in adverse-effect prediction by the attribution method,15 which was originally developed for CNN models. Jiménez-Luna et al.16 highlighted molecular features and structural elements on GNN models through the integrated gradient (IG) attribution. Since these methods focused on nodes or edges individually according to their attributions, they did not consider substructures such as functional groups. For this reason, Jin et al.17 employed the Monte Carlo tree search (MCTS) to extract molecular substructures that are likely responsible for the property. Unfortunately, all these studies relied on qualitative judgments in case studies due to a lack of ground truths. In addition, these XAI studies have not been rigorously compared with human experts on explainability tasks to demonstrate that their learned interpretations are reliable. The comparison with human experts is widespread in scientific experiments, especially in chemistry,18,19 for example, asking medicinal chemists to predict molecular solubility20 and compound prioritization21 during drug discovery.
+
+In parallel, Sanchez-Lengeling et al.22 attempted to quantitively assess XAI methods through synthetic molecular benchmarks, where subgraph logic rules were defined by whether molecules contained particular substructures such as benzene, fluoride, and carbonyl groups. Though such definitions have built relationships between graphs and labels, the simple chemical rules are not applicable to realistic scenarios. For instance, in toxicity prediction, the key substructures (also known as structural alerts) often involve dozens of fragments that are strongly associated with increased occurrences of toxicity. These fragments need to be determined from literature reports11 and statistical analyses.23,24 Jose Jimenez-Luna et al.25 have established the activity cliffs benchmark to evaluate the feature attribution methods and showed that machine-learning models with accurate predictions could bring meaningful inspiration to chemists, but their analyses are limited by their benchmarking and predictive performance. In the case of property cliffs,26 as molecular counterfactuals,27,28 it is even more complicated because slight modifications of molecular structures will cause huge changes in molecular properties, sometimes from strong binding to non-binding with the target molecules. The collections of these realistic and complex scenario datasets will certainly bring big challenges but also opportunities to the development of XAI methods.
+
+On the other hand, though XAI methods are widely considered helpful to improve model prediction performance,29 the current XAI methods, despite affording interpretable predictions, have not really led to improvements in prediction performance.30 For example, Yu et al.31 recognized the compressed subgraph through the graph information bottleneck and used it to predict the molecular properties. However, their prediction performances have not been improved, especially on the MUTAG dataset. Hao et al.32 generated subgraph patterns through reinforcement learning and applied them to predict the graph labels, but they only showed their interpreting models with reasonable performance without comparative assessments. Therefore, it is desirable to propose a scheme to advance the model performance through the learned interpretations.
+
+In this study, we have established five XAI benchmark datasets, including two synthetic and three experimental datasets, to quantitatively assess the interpretability of XAI methods. Through these benchmarks, we comprehensively evaluated six commonly used XAI methods combined with four types of GNN models and made a direct comparison with seven medicinal chemists of different experience levels. The results demonstrated that current XAI methods could deliver reliable and informative answers for medicinal chemists in identifying the key substructures. Based on the learned interpretations, we developed a data-driven fingerprint that could complement the classical fingerprints in molecular property predictions, and the improvement continued to increase with the growth of training data. To our best knowledge, this is the first time that a comparison of XAI methods with human experts on explainability tasks has been made. In addition, it is also important to indicate the ability to promote model performance through learned interpretations.
+
+In summary, our study offers three main contributions:</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Results</h3>    <p>Schematic view of the XAI study
+
+(A) XAI evaluation framework: different prediction models are first trained using state-of-the-art GNN models, which are then interpreted through all XAI methods. The interpretations are quantitatively assessed and compared with experienced medicinal chemists.
+
+(B) XAI benchmarks including two particular subgraphs (two synthetic benchmarks), the conjunction of multiple substructures, or a local transformation between two molecular graphs (i.e., property cliff).
+
+(C) XAI-assisted fingerprints: the high-frequency key substructures predicted by XAI methods are encoded as fingerprints to input machine-learning models for predicting properties.
+
+Prediction performance on the XAI benchmarks
+
+Quantitative assessments
+
+(A and B) The average attribution-AUROC values for (A) four GNN models and (B) six XAI methods.
+
+(C) Detailed attribution accuracies for combinations of all XAI methods and GNN models.
+
+(D) The predicted substructures by representative combinations of CMPNN or IG for the CAS 33301-41-6 molecule.
+
+(E) The embeddings learned by CMPNN + IG over the mutagenicity dataset shown by t-SNE, together with representatively 3 mutagenic and 3 non-mutagenic molecules.
+
+Comparison of the XAI (CMPNN + IG) method with medicinal chemists
+
+The accuracy on the hepatotoxicity dataset along the predicted confidence score by (A) XAI or the working years of medicinal chemists (MCs), (B) precision-recall curve, (C) attribution accuracy for identified substructures, (D) attribution precision-recall curves, and (E) the identified substructures by XAI and MCs.
+
+The performances of Morgan-FP, Morgan-FP + MACCS-FP, and Morgan-FP + XAI-FP by random forest
+
+(A) The AUROC of three classification tasks.
+
+(B) The R2 on two regression tasks (IGC50 and LD50).
+
+(C) The AUROC values on the OGB-HIV dataset by Morgan-FP and XAI-assisted fingerprints trained with different sample sizes.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Results › Framework overview</h3>    <p>As shown in Figure 1, we established five XAI benchmark datasets, including two synthetic and three experimental datasets. Two synthetic datasets determined the ground-truth substructures through particular subgraphs of three-membered rings (3MRs) and benzene, respectively. Two out of three experimental datasets comprised multiple hand-crafted substructures causing hepatotoxicity and Ames mutagenicity, respectively. Another experimental dataset automatically computed the substructures by comparing one pair of similar compounds with similar structures but significantly different CYP3A4 inhibitions (i.e., property cliff). Based on the datasets, GNN models were trained through four state-of-the-art GNN architectures, which were then, respectively, interpreted through six commonly used XAI methods. These combinations were quantitively evaluated and compared with seven medicinal chemists of different levels. The results demonstrated that current XAI methods could deliver reliable and informative answers for medicinal chemists in identifying key substructures. Based on the learned interpretations, we encoded the learned structural descriptors into a binary bit string as the data-driven fingerprint, which was employed to supplement the classic fingerprint (extended-connectivity fingerprints [ECFP]) in five commonly used molecular property prediction benchmarks.
+
+Schematic view of the XAI study
+
+(A) XAI evaluation framework: different prediction models are first trained using state-of-the-art GNN models, which are then interpreted through all XAI methods. The interpretations are quantitatively assessed and compared with experienced medicinal chemists.
+
+(B) XAI benchmarks including two particular subgraphs (two synthetic benchmarks), the conjunction of multiple substructures, or a local transformation between two molecular graphs (i.e., property cliff).
+
+(C) XAI-assisted fingerprints: the high-frequency key substructures predicted by XAI methods are encoded as fingerprints to input machine-learning models for predicting properties.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Results › Benchmarking XAI methods with GNN models for recognizing key substructures</h3>    <p>To quantitatively assess the interpretability of XAI methods over GNN models, we evaluated the explanation performance on five benchmark datasets with combinations of four GNN and six XAI methods, leading to 5∗4∗6 attribution-area under the receiver operating characteristic curve (AUROC) and accuracy values. The prediction performance of the four state-of-the-art GNN models is shown in Table 1. The superiority of these GNN models has been demonstrated from the performance comparisons with various deep-learning models, as shown in Tables S1–S3. When averaging over all six XAI methods and five datasets for GNN models (Figure 2A), the communicative message-passing neural network (CMPNN) achieved overall the highest average attribution-AUC of 0.671, while GraphSAGE achieved the lowest value of 0.523. GraphNET and graph attention network (GAT) ranked 2nd and 3rd, respectively. This agreed with a previous study22 that vanilla GCN (GraphSAGE) and GAT are often inferior to delicate graph convolutional network (GCN) models such as GraphNET and CMPNN. This difference was consistent in the synthetic and realistic benchmarks, where CMPNN still performed the best with attribution-AUROC values of 0.827 and 0.566, respectively.
+
+When averaging for XAI methods (Figure 2B), integrated gradients (IG) led to the highest AUROC of 0.675, followed by the GradInput and GradCAM with values of 0.629 and 0.559, respectively. SmoothGrad and class activation map (CAM) achieved AUC values of 0.467 and 0.520, which are essentially the same as the 0.513 achieved randomly. This is likely because SmoothGrad and CAM are unstable across different GNN model architectures. They were originally developed for CNN models so that the average AUROC values would be dragged down by the poor performance in combinations with different GNN architectures. In terms of accuracy, the trends are similar for both GNN models and XAI methods (Figure S1).
+
+Instead of the overall accuracies over datasets, we also computed the accuracy for each molecule in the datasets. As shown in Figure 2C, CMPNN + IG has overall the best performance on all five datasets. Here, we did not show AUROC values since they cannot be calculated for negative molecules without key substructures.
+
+As an example, we selected the CAS 33301-41-6 molecule from the mutagenicity dataset interpreted by IG over four GNN models and the other four XAI methods over CMPNN models (Figure 2D; see also Table S4). When using the IG method, CMPNN truly identified the connected substructure, while GraphNET falsely identified another separate fragment. GAT and GraphSAGE methods partly identified the actual substructure but falsely focused on other substructures such as benzene and nitrogen atoms. The correct identification by CMPNN should attribute to its robust inclusion of both node and edge interactions during the communicative message passing. When comparing different XAI methods, IG could correctly recognize the substructures, while GradInput and GradCAM identified redundant substructures. This is likely because IG eliminates the errors by interpolating gradients from zero embeddings to the input vector. We further projected the embeddings learned by IG over CMPNN, and the learned embeddings from t-stochastic neighbor embedding (t-SNE)33 were able to clearly separate two classes of molecules and correctly identify their key substructures for the mutagenicity (Figure 2E) and benzene (Figure S2) datasets.
+
+Prediction performance on the XAI benchmarks
+
+Quantitative assessments
+
+(A and B) The average attribution-AUROC values for (A) four GNN models and (B) six XAI methods.
+
+(C) Detailed attribution accuracies for combinations of all XAI methods and GNN models.
+
+(D) The predicted substructures by representative combinations of CMPNN or IG for the CAS 33301-41-6 molecule.
+
+(E) The embeddings learned by CMPNN + IG over the mutagenicity dataset shown by t-SNE, together with representatively 3 mutagenic and 3 non-mutagenic molecules.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Results › Comparison with medicinal chemists to identify key substructures of molecular hepatotoxicity</h3>    <p>To assess the actual ability of the interpretation methods, we made a comparison with 7 medicinal chemists (MCs) of different levels (9 months to 30 years). We randomly selected 50 unlabeled molecules from the test set of the hepatotoxicity dataset and predicted the hepatotoxicity and key substructures. In real-world scenarios, it is a challenging task for MCs to determine the human hepatotoxicity accurately even with their background knowledge and experience.23,34 As shown in Figure 3A, the CMPNN + IG model achieved an accuracy of 0.920, much higher than all MCs (detailed in Table S5). MCs achieved accuracies between 0.500 and 0.680, with the best one achieved by the most experienced MC1 (30 years). The prediction accuracies of MCs had a positive but weak correlation (Pearson correlation coefficient [PCC] = 0.530, Wilcoxon paired signed-rank test, p &lt; 0.01) with the working years. Though MC1 is above the precision-recall curve by CMPNN + IG (Figure 3B), MC1 over-estimated the hepatotoxicity with a high recall but relatively low precision.
+
+In terms of the substructure identification, the CMPNN + IG model achieved an attribution accuracy of 0.839, slightly lower than 0.852 achieved by the 2nd experienced MC2 (21 years) but higher than other MCs (Figure 3C). According to the attribution precision-recall curve by CMPNN + IG, MC2 was slightly above our ROC curve because of his over-definition of the toxic substructures, while other MCs were below the curve (Figure 3D).
+
+The differences were further shown by four representative molecules (Figure 3E). The CMPNN + IG model correctly identified the key substructures for stanozolol and norethandrolone molecules. It also predicted most of the substructure atoms for the sudoxicam and nilutamide molecules but missed separate substructures. By comparison, MC1 was conservative to predict smaller substructures, while MC2 tended to predict a larger substructure containing the key substructures. For example, MC1 missed the sulfonamide moiety that is known to be associated with hepatotoxicity35 for the Sudoxicam molecule. For the nilutamide molecule, both MC1 and MC2 are disturbed by the NO2− group, causing them to miss the actual halogen atoms. Note that the substructures misidentified by MCs may also be the new potential structural alerts that have not yet been confirmed, but it is a fair comparison for XAI methods and human experts to quantitatively evaluate with consistent ground truths.
+
+Comparison of the XAI (CMPNN + IG) method with medicinal chemists
+
+The accuracy on the hepatotoxicity dataset along the predicted confidence score by (A) XAI or the working years of medicinal chemists (MCs), (B) precision-recall curve, (C) attribution accuracy for identified substructures, (D) attribution precision-recall curves, and (E) the identified substructures by XAI and MCs.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Results › XAI-assisted FPs for molecular property prediction</h3>    <p>Since the XAI method is comparable with MCs in the previous experiments, it is interesting to know how the identified substructures could promote the performance of machine-learning models. Herein, we used the interpreted substructures identified by XAI methods as an XAI-assisted or data-driven FP. The FP was combined with Morgan-FP (ECFP)36 and input to the random forest technique for molecular property predictions on five popular benchmarks, including three classification datasets (BBBP, BACE, and HIV from the OGB benchmark37) and two regression datasets (IGC50 and LD50 collected by AGBT38). We did not use XAI-FP individually because it only reflects the substructures relevant to properties without containing other molecular structural information. The random forest technique was utilized because of its balance of performance and interpretability.39
+
+As shown in Figures 4A and 4B, the inclusion of our FP achieved AUCs of 0.832, 0.855, and 0.724 over three classification tasks and R2s of 0.638 and 0.648 over two regression tasks. These are higher than those from only Morgan-FP by 2.59%, 0.35%, and 4.32% on classification tasks and 8.36% and 5.63% on regression tasks, respectively. The improvements are not trivial because Morgan-FP development reached a bottleneck, and the addition of other FPs brought little improvement.40,41 As a result, the combination of MACCS, another popular FP, is on average 2.302% lower than our FP. Figure S3 detailed all AUROCs and the comparison of predicted and experimental values.
+
+Since the interpretations were learned from the training data, we would like to know whether the growth of training data could further promote the improvements. By tested on the largest dataset (OGB-HIV; Figure 4C), the AUROC increased with the size of the training data. The learned FP hurt the Morgan-FP performance when using only 100 training samples but outperformed Morgan-FP at ∼1,000 samples. The FP reached the level of MACCS FP with ∼5,000 samples and of CMPNN with ∼9,000 samples. The performance had did not converge until 3 × 104 training samples. Therefore, the addition of training samples was expected to improve the performance, indicating the advantages of such data-driven methods.
+
+The performances of Morgan-FP, Morgan-FP + MACCS-FP, and Morgan-FP + XAI-FP by random forest
+
+(A) The AUROC of three classification tasks.
+
+(B) The R2 on two regression tasks (IGC50 and LD50).
+
+(C) The AUROC values on the OGB-HIV dataset by Morgan-FP and XAI-assisted fingerprints trained with different sample sizes.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Discussion</h3>    <p>In this study, we have established five XAI benchmarks, including synthetic and experimental benchmarks, in the context of drug discovery. Through these benchmarks, we quantitatively evaluated six commonly used XAI methods combined with four types of GNN models and made a direct comparison with different levels of MCs. The results demonstrated that current XAI methods could deliver reliable and informative answers for MCs in identifying both molecular toxicity and key substructures. Based on the interpretations, our XAI-assisted FP was shown to promote the predictions of molecular property.
+
+While many XAI methods have been developed to interpret GNN models, they have not been quantitatively evaluated due to a lack of high-quality data or ground truths. Benefiting from the accumulated knowledge and laboratory data in drug discovery, we have established five molecular datasets with well-defined ground truths, enabling quantitative assessments of state-of-the-art XAI methods combined with GNN models. To our best knowledge, this is the first time a comparison of XAI methods with human experts on the explainability tasks has been made. The comparison with human experts indicated that current XAI methods could deliver reliable and informative answers for MCs in identifying the key substructures.
+
+Another challenge in XAI development is to go beyond the model interpretations. Though several studies31,32 attempted to integrate the interpretations back into the GNN models, the results were frustrated with no effect or even negative impacts. This is partly caused by the noise in their datasets and a lack of ground truths. Here, we encode the learned interpretation into the data-driven FP and input it into the random forest together with classical fingerprints. We prove that the learned interpretations are complementary to the classical FPs and that the strategy can improve the performance in molecular property predictions. More importantly, the improvements brought by the data-driven FP continue incrementing with the growth of training data. This represents a potential direction of XAI applications not only in drug discovery but also XAI methods in general fields.
+
+Despite the merits of this study, we focus on post-processing XAI methods that do not fully combine the advantages of GNN and XAI techniques. It might be desired to develop a highly accurate and mechanically interpretable GNN model. We hope that further development of new XAI methods in GNNs would greatly benefit from our meaningful benchmarking and rigorous framework. Secondly, current methods are purely model based, which strongly depends on high-quality scientific datasets. In the future, it might be necessary to include prior knowledge through a knowledge graph42 so as to process other noisy data like multi-omics or social networks data.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Experimental procedures › Resource availability › Lead contact</h3>    <p>The lead contact is Yuedong Yang (yangyd25@mail.sysu.edu.cn).</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Experimental procedures › Resource availability › Materials availability</h3>    <p>There are no newly generated materials.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Experimental procedures › Materials and methods › XAI benchmarks</h3>    <p>To evaluate the interpretability of XAI methods over GNN models, we established different levels of benchmarks from easy to hard: two synthetic datasets containing particular subgraphs (benzene and 3MRs), two datasets of handcrafted substructures causing toxicity (hepatotoxicity and Ames mutagenicity), and one dataset of substructures automatically computed according to pairs of molecules with similar structures but different molecular activities. The statistics of XAI benchmarks are shown in Table S6.
+
+Synthetic datasets. Following the strategy of Sanchez-Lengeling et al.,22 we established two synthetic datasets to identify whether a molecular graph contains particular substructures. By substructure matching through RDKit program, we identified 6,000 and 1,406 positive compounds containing benzene and 3MRs, respectively, from the lead-like subset (50,000 compounds) in ZINC15.43 For comparison, we randomly selected 6,000 and 1,746 compounds’ unmatched molecules as negative samples, respectively.
+
+Experimental datasets. In real-world scenarios, molecular properties usually result from dozens of substructures, which are much more difficult to identify than the particular substructures. Here, we compiled two toxicity datasets containing hand-crafted substructures (hepatotoxicity and Ames mutagenicity). The hepatotoxicity data were collected from Liu et al.,23 including 174 hepatotoxic, 230 possible hepatotoxic, and 183 non-hepatotoxic compounds. Among these, 12 molecular substructures have been identified as key substructures for human liver injuries. The Ames mutagenicity data were collected from Hansen et al.,44 including 6,506 compounds and corresponding Ames mutagenicity values. From the data, 46 toxic substructures were summarized by Sushko et al.11 These handcrafted substructures would be used as ground truths for assessing XAI methods.
+
+In addition, we compiled another more challenging dataset to automatically determine substructures without handcrafted rules. For this purpose, we employed the property cliffs in the Cytochrome P450 3A4 (CYP3A4) inhibitions experimentally measured by Veith et al.,45 which includes 3,626 active inhibitors/substrates and 5,496 inactive compounds. The active compounds were compared with inactive ones through MMPA46 in the RDKit package. This led to 106 molecular pairs and corresponding substructures involving 46 active and 51 inactive compounds. During the GNN model training, all these involved compounds involved in found pairs will be put into the test set.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Experimental procedures › Materials and methods › Formulating molecular explanation task for GNNs</h3>    <p>In molecular GNNs, a molecule is represented using a graph G=(V,E) with node representation V∈RNa×d for atoms and edge representation E∈RNb×l for chemical bonds, where Na and Nb are the number of atoms and bonds and d and l are the lengths of their representations, respectively. A trained GNN model M over the graph G is interpreted by input into an explanation method (XAI) to fit the prediction by generating GfM=(VfM,EfM), where VfM is the predicted importance of atoms or key subgraphs by the XAI method f and EfM is the predicted importance of edges.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Experimental procedures › Materials and methods › GNN</h3>    <p>To benchmark XAI methods, we employed four popular GNN architectures (GraphSAGE,47 GAT,48 GraphNET,49 and CMPNN50) that mostly differed in their message-passing strategies. GraphSAGE is the first method to generate node embeddings by sampling and aggregating features from its local neighborhood. It relies on a neighborhood sampling scheme to improve the effectiveness of message passing. Instead, the GAT incorporates the attention mechanism into the message-passing step. It computes the relative weights between two connected nodes following a self-attention strategy, which shows an impressive improvement over GraphSAGE on the classification tasks. Differently, GraphNET and CMPNN take the edge features into consideration during message passing. While GraphNET updates the node representation by aggregating its neighbor information with edge features for message passing, the CMPNN improves the molecular embedding by strengthening the message interactions between nodes and edges through a communicative kernel.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Experimental procedures › Materials and methods › XAI methods</h3>    <p>We focus on the XAI methods that explain GNN models as an external explainer in the testing phase without changing the models. The XAI methods include attribution-based (CAM,51 SmoothGrad,52 GradInput,53 GradCAM,15 IGs54) and subgraph recognition methods (MCTS17), totaling 6 methods as detailed below.
+
+CAM attributes on GNN models by multiplying the final convolutional layer’s feature map activations act with the output weights of the last message-passing layer over the node vj and edge ek features as
+
+GradInput obtains the attributions based on the partial derivatives of the input node vj and edge ek features as
+
+Therefore, GradInput is defined as the element-wise product of the partial derivative with the input node vj and edge ek features:
+
+GradCAM extended GradInput by utilizing the element-wise product of the activations in the intermediate GNN convolution layer and the gradients of the node and edge features in the intermediate layer:
+
+SmoothGrad was a strategy used to combine the GradInput attribution method by averaging the attributions obtained from noise-perturbed inputs:
+
+IG integrates the element-wise product of the interpolated input graph and the gradient of property with respect to interpolated graphs. The interpolated graphs are interpolated between the actual input G and a counterfactual input G′:
+
+MCTS extracted the candidate rationales from molecules with the help of a property predictor. The root of the search tree is the molecular graph G, and each state in the search tree is a subgraph derived from a sequence of bond deletions.
+
+As a control, we also included random attributions drawn from a uniform distribution.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Experimental procedures › Materials and methods › Evaluation metrics for XAI</h3>    <p>Following the evaluation strategy of previous studies,8,9 we assessed the explanation performance of XAI methods by quantifying how well the interpretations match the ground-truth key substructures. If the GNN model is “right for the right reasons,” we expect the XAI methods to highlight the correct ground-truth subgraphs in the input graph. Therefore, we used attribution-accuracy (ACC) and attribution-AUROC metrics to evaluate the XAI methods.
+
+Attribution-ACC. The attribution-ACC is defined as the node-level accuracy for those important nodes/edges in explanation predictions compared with those in the ground truths. Formally, the metric attribution-ACC is computed as
+
+where N is the number of nodes in a molecular graph and yi denotes the ground-truth label for node i. Here, yiˆ is the prediction that the node i is an important node, and the indicator function Ι(yi=yiˆ) returns 1 if yi and yiˆ are equal and returns 0 otherwise.
+
+Attribution-AUROC. The attribution-AUROC is defined as the area under the receiver operating characteristic curve from the atom attribution scores. Formally, the metric attribution-AUROC is computed as
+
+where rank(i) is the descending rank value of atom i in the substructures among all predicted attribution scores and p and n represent the number of atoms in the substructures and not in the substructures, respectively. Particularly, the subgraph recognition methods such as MCTS could not be evaluated by attribution-AUROC since their outputs are directly subgraphs rather than attribution scores.
+
+There are still many other metrics for explainability. For example, stability often measures how interpretations change when the input graph is perturbed, but it is not suitable for molecule-related tasks because the molecules with structural changes/perturbations are quite different from the original molecules.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Experimental procedures › Materials and methods › GNN for property prediction</h3>    <p>Since XAI methods depend on GNN models, we first introduce how to train four GNN models, which are implemented by Pytorch and run on Ubuntu Linux 18 with NVIDIA 3090 GPUs. In practice, the node and edge features used in GNN models are listed in Table S7 and are computed by open-source package RDKit. In our experiments, the XAI benchmarks were randomly split into training, validation, and test sets using a proportion of 8:1:1. We have applied a hyper-parameter searching module to explore the best performance for each GNN model on the validation set. The hyper-parameters of the four types of GNN models are detailed in Table S8. With the well-trained GNN models, we evaluated their prediction performances on the test set and further applied them to the XAI studies.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Experimental procedures › Materials and methods › Assessment of XAI methods</h3>    <p>To quantitatively assess the interpretability of XAI methods on GNN models, the explanation experiments were also evaluated on the test sets. These test set are consistent with the prediction experiments of GNNs. These XAI methods do not require retraining of the GNN models, so we applied the XAI methods to the well-trained models and interpret the predictions of GNN. Our goal is to judge whether the GNN models have learned the implicit relationship between a molecular graph and its corresponding properties. Therefore, the GNN model does not learn the labels of the key substructures of molecules. For the interpretations, the XAI methods calculated the importance of atoms and edges or recognized the key substructures that are associated with the property, and then the interpretations by XAI are quantitatively assessed by comparisons with predefined key substructures. Particularly, in the property cliff dataset, we assessed the interpretations in terms of molecular pairs.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Experimental procedures › Materials and methods › Comparison with MCs</h3>    <p>Human experts are frequently used in surveys about the future of research areas in science. In our experiments, we invited 7 MCs from Galixir Technologies (Shenzhen, Guangdong, China) and asked them to predict the molecular hepatotoxicity and their corresponding key substructures. The selection of the MCs was carefully planned to keep diversity. We selected MCs with different levels of working experience, including experts (MC1: 30 working years, and MC2: 20 working years) that are experienced in both academic and industry. The other 5 MCs have working experience ranging from 9 months to 10 years. All these MCs have been involved in experimental projects on hepatotoxicity and have background knowledge on this particular topic.
+
+Before the experiment began, it was suggested that they study the relevant literature (except the benchmark literature), but they were not allowed to access additional information during the experiments. We also have made the test set of 50 compounds and results marked by experts available at https://github.com/biomed-AI/MolRep.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Experimental procedures › Materials and methods › XAI-assisted FP generation</h3>    <p>The model interpretations would be able to be used as additional features to enhance the predictive performance of the machine-learning (ML)/AI models. Firstly, we counted and selected the substructures that XAI method considered to be the most critical for a certain molecular property. In our experiments, we selected top-K substructures (K = 50 or 100) with the highest frequency. Particularly, the substructures only consisting of one or two carbon atoms will be removed in the selection process. And then, we utilized these high-frequency key substructures to construct structural molecular FPs as the XAI-assisted FP. The XAI-assisted FP is encoded into a binary bit string, and each bit corresponds to whether the selected substructures have matched the molecule.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Experimental procedures › Materials and methods › XAI-assisted FP experiments</h3>    <p>To demonstrate that the effectiveness of the XAI-assisted FP, we conducted the XAI-assisted FP experiments with random forest (RF) models on five public benchmarks including three classification datasets (BBBP, BACE, and HIV) and two regression datasets (IGC50 and LD50). The statistics of the datasets are shown in Table S9. We also conducted the experiments on the XAI benchmarks (Table S10). For each dataset, the XAI-assisted FP was generated from the training set following our generation strategy. In our experiments, we compared the performance of Morgan-FP, the combination of Morgan-FP and MACCS-FP, and the combination of Morgan-FP and XAI-assisted FP. And, we have performed a hyper-parameter searching on these RF models to explore the best performance, and the hyper-parameters are detailed in Table S11. Therefore, we can demonstrate the effectiveness of the XAI-assisted FPs in promoting the performance of molecular property prediction. In addition, we conducted experiments on the HIV dataset to explore the impact of XAI-FP with the increase of training data. The HIV dataset was down-sampled to 100, 1,000, 5,000, 10,000, and 30,000 molecules, and each subsampled data were used to construct XAI-assisted FP.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Acknowledgments</h3>    <p>The authors thank MCs of Galixir Technologies, Ltd., who participated in the human benchmarking study. The authors are also grateful to Chengtao Li, Jixian Zhang, and the three anonymous reviewers, whose constructive comments were helpful for strengthening this article. This study has been supported by the National Key R&amp;D Program of China (2020YFB0204803), National Natural Science Foundation of China (61772566 and 62041209), Guangdong Key Field R&amp;D Plan (2019B020228001 and 2018B010109006), Introducing Innovative and Entrepreneurial Teams (2016ZT06D211), and Guangzhou S&amp;T Research Plan (202007030010).</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Acknowledgments › Author contributions</h3>    <p>J.R., S.Z., and Y.Y. devised the project and the main conceptual ideas. J.R. and S.Z. developed the methodology and performed the experiments. J.R. and S.Z. wrote the manuscript in consultation with Y.L. and Y.Y. All authors discussed the results and contributed to the final manuscript.</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Acknowledgments › Declaration of interests</h3>    <p>This work was done when J.R. worked as an intern at Galixir Technologies, Ltd., and S.Z. currently works for Galixir Technologies, Ltd.</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Text</h3>    <p>Published: November 10, 2022</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Data and code availability</h3>    <p>All data and code used in the experiments are available at https://github.com/biomed-AI/MolRep. The codes are also publicly available on Zenodo (https://doi.org/10.5281/zenodo.7176794)</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>All data and code used in the experiments are available at https://github.com/biomed-AI/MolRep. The codes are also publicly available on Zenodo (https://doi.org/10.5281/zenodo.7176794)</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

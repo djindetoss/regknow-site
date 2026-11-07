@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>A scoping review of OMOP CDM adoption for cancer research using real world data · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>A scoping review of OMOP CDM adoption for cancer research using real world data</h1>
+<p class="authors">Liwei Wang, Andrew Wen, Sunyang Fu, Xiaoyang Ruan, Ming Huang, Rui Li, Qiuhao Lu, Heather Lyu, Andrew E Williams, Hongfang Liu</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>NPJ digital medicine</dd>
+<dt>Published</dt><dd>2025-04-07</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">RWD/RWE</span><span class="chip">Standards (FHIR, OMOP, IDMP, SPOR)</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1038/s41746-025-01581-7">10.1038/s41746-025-01581-7</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40189628/">40189628</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40189628/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/40189628/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>8b27b426378e4767</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>The Observational Medical Outcomes Partnership (OMOP) common data model (CDM) supports large-scale research by enabling distributed network analyses. However, the breadth of its adoption in cancer research is not well understood. We conducted a scoping review to describe the adoption of the OMOP CDM in cancer research. A total of 49 unique articles were included in the review, with 30 on the data analysis theme, and 20 on the infrastructure theme. This review highlighted that while the OMOP CDM ecosystem has enabled successful data support for cancer research, particularly for collaborative studies, ongoing model development and iterative improvement remain needed to fulfill additional research data needs. Expanding disease sites, specifically for rare cancers, integrating more diverse types of data sources, improving data quality, adopting advanced analytics methodology, and increasing multisite evaluations serve as important opportunities to facilitate secondary usage of observational data in future cancer research.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractThe Observational Medical Outcomes Partnership (OMOP) common data model (CDM) supports large-scale research by enabling distributed network analyses. However, the breadth of its adoption in cancer research is not well understood. We conducted a scoping review to describe the adoption of the OMOP CDM in cancer research. A total of 49 unique articles were included in the review, with 30 on the data analysis theme, and 20 on the infrastructure theme. This review highlighted that while the OMOP CDM ecosystem has enabled successful data support for cancer research, particularly for collaborative studies, ongoing model development and iterative improvement remain needed to fulfill additional research data needs. Expanding disease sites, specifically for rare cancers, integrating more diverse types of data sources, improving data quality, adopting advanced analytics methodology, and increasing multisite evaluations serve as important opportunities to facilitate secondary usage of observational data in future cancer research.Subject terms: Cancer, Data integration, Data processing, Standards, Epidemiology, Predictive medicine</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Cancer has been a major cause of premature death globally1 throughout the 21st century, prompting increasing research efforts and funding. Observational research has emerged as a powerful approach for generating hypotheses and uncovering unique insights into patient populations, treatments, and outcomes2,3. This methodology has significantly advanced clinical understanding and influenced medical practices4. Primary sources of observational health data include electronic health records (EHRs), administrative claims, hospital billing systems, clinical registries, and longitudinal surveys5. Given the extensive role of observational health data, a robust framework for the generation of this information is essential to complete effective cancer studies and deliver high-quality cancer care.
+
+Multicenter studies are widely utilized in observational research to improve the generalizability of findings. Distributed research networks, such as the Observational Health Data Sciences and Informatics (OHDSI)6, the Agency for Healthcare Research and Quality-supported projects7, the National Patient-Centered Clinical Research Network (PCORnet)8 and the Electronic Medical Records and Genomics (eMERGE) network, have emerged in recent years to promote multicenter observational studies9. Among these efforts, OHDSI supplies both a common data model (CDM) and the concept representation (terminology) for standardization to support federated analytics, demonstrating great potential for large-scale, collaborative observational cancer studies10,11. The OHDSI network adopts the CDM developed as part of the Observational Medical Outcomes Partnership (OMOP) to represent data from disparate sources in a standardized format through data normalization processes. The OHDSI network’s CDM allows users to map data from disparate sources to a standardized format through data normalization processes. This enables a federated model, which allows individual data holders to maintain their patient-level databases locally, while allowing collaboration via systematic analytics, fostering diverse and geographically diverse patient cohorts, enhancing reproducibility, and ensuring patient confidentiality.
+
+There have been two prior reviews on the role of OMOP CDM. One focused on the adoption of the OMOP CDM for observational patient data research between 2016 and 2021 and concluded that the relevance of the OMOP CDM is increasing regarding multi-country studies12. Another review of the literature from 2016 through 2021 explored the potential application of the OMOP CDM in cancer prediction, specifically on the role of genomic vocabulary extensions in AI-based prediction models13. This study found that the OMOP CDM can enable a decentralized use of AI in the early prediction and diagnosis of cancer, personalized cancer treatment, and the discovery of important biological markers. While these studies have established the potential for the OMOP CDM, the breadth of its adoption in cancer research is not well understood. This paper aims to address this gap by presenting a scoping overview of the OMOP CDM in the field of cancer research to identify key opportunities and highlight unexplored areas for future investigation.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Results</h3>    <p>The complete article selection process is shown in Fig. 1. After identifying the included articles, the study team performed a comprehensive full-text review of the resulting 49 studies. There were 30 studies on data analysis and 20 studies on data infrastructure. Among them, one article (published in 2018) belonged to both themes14. All extracted data elements from the articles are provided in the Supplementary Data 1.
+
+Flow diagram illustrating the PRISMA approach for the identification, screening, and selection of studies.
+
+Article distribution is shown across publication year (a), data sources (b), publication year and geographic region (c), and cancer types (d).
+
+Comparison of Infrastructure and Data analysis in data sources
+
+Comparison of Infrastructure and Data analysis in cancer types
+
+a Infrastructure theme, b Data analysis theme. The infrastructure theme (a) covered all 8 CDM tables in the data analysis theme (b), and additionally incorporated several more tables, including Care_site, Cohort, Episode, Episode_event, Fact_relationship, Location, Note, Note_NLP, Device_exposure, and Specimen. It also covered extensions of the OMOP CDM including Genomic_test, Imaging_series, Imaging_study, Target_gene, Variant_annotation, Variant_occurrence, and Vocabulary_extension.
+
+A summary of papers in the infrastructure theme
+
+Numbers refer to paper numbers. A global study is defined as a study that includes at least two countries, in contrast to a single-country study.
+
+By geolocation (a), study cohort size (b), top in-network institutions (c), and top out-network institutions (d).
+
+References for the study methods
+
+Numbers refer to paper numbers. This figure illustrates the relationships between target domains, study designs, statistical methods, and CDM domain names used across all included data analysis papers.
+
+Types of cancer research questions addressed in the disease target domain</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Results › Overview analysis</h3>    <p>The analysis of the included studies’ metadata revealed insights into the distribution and trends of the research across the two themes: Infrastructure and Data Analysis. (Fig. 2) Although articles were collected from 2010 onward, the first article included in our study was published in 2017. There was an increasing trend in the publication of data analysis papers from 2018 to 2022 (Fig. 2a). Figure 2b compares the data sources used between Infrastructure and Data Analysis studies. One article may include more than one data source. EHR data were the most frequently used data source across both themes. Claims data served as another important source, particularly for the data analysis studies. EHR data were used in combination with another data source in six infrastructure-themed articles (claims and survey)15–20, and seven data analysis-themed articles (claims, registry, and omics)10,21–26. EHR data were used with two additional data sources (claims and registry) in only one infrastructure-themed article27. Table 1 lists the references of data sources in each theme. EHR was the most commonly used data source in both the infrastructure and data analysis themes.
+
+In terms of geographic distribution, North America, Asia, and Europe were the leading continents for article contribution, and a jump in accumulated publication numbers appeared in the year 2020 (Fig. 2c). Figure 2d illustrates a similar trend of cancer types studied across both themes, though there were more studies on blood and lymph cancers in the infrastructure theme. Table 2 provides detailed references of the specific cancer types and categorizations in each theme. Colorectal cancer was well studied in both themes.
+
+Clusters based on cancer types and CDM table names were compared between the infrastructure and data analysis themes (Fig. 3). The infrastructure theme (Fig. 3a) covered all 8 CDM tables in the data analysis theme (Fig. 3b), and additionally incorporated several more tables, including Care_site, Cohort, Episode, Episode_event, Fact_relationship, Location, Note, Note_NLP, Device_exposure, and Specimen. It also covered extensions of the OMOP CDM including Genomic_test, Imaging_series, Imaging_study, Target_gene, Variant_annotation, Variant_occurrence, and Vocabulary_extension. Such extensions of OMOP tables or vocabularies aimed to enable more comprehensive studies by addressing gaps that currently limit research due to the absence of necessary tables or vocabularies. For example, the Note_NLP table was included for colorectal cancer; Imaging_series and Imaging_study tables were included for prostate cancer; the Device_exposure table was included for breast and lung cancer; the Note table was included for thyroid cancer, and the Specimen table was included for blood, lung, and colorectal cancer. In the data analysis theme (Fig. 3b), the Condition_occurrence and Person tables were the most frequently used across all cancer types, followed by the Drug_exposure table, and the Observation, Measurement, and Procedure_occurrence tables. There was minimal use of the Visit_occurrence and Death tables.
+
+Article distribution is shown across publication year (a), data sources (b), publication year and geographic region (c), and cancer types (d).
+
+Comparison of Infrastructure and Data analysis in data sources
+
+Comparison of Infrastructure and Data analysis in cancer types
+
+a Infrastructure theme, b Data analysis theme. The infrastructure theme (a) covered all 8 CDM tables in the data analysis theme (b), and additionally incorporated several more tables, including Care_site, Cohort, Episode, Episode_event, Fact_relationship, Location, Note, Note_NLP, Device_exposure, and Specimen. It also covered extensions of the OMOP CDM including Genomic_test, Imaging_series, Imaging_study, Target_gene, Variant_annotation, Variant_occurrence, and Vocabulary_extension.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Results › Infrastructure theme</h3>    <p>For all studies included in the infrastructure theme, efforts to develop reusable tooling and practices to transform cancer-specific data to the OMOP CDM format and to expand the OMOP CDM to support additional data were described. A total of 20 studies fell under this category. Studies in this category were divided into 4 subcategories (Table 3).
+
+Studies in the infrastructure category were split relatively equally across three geographic regions including the United States (n = 7)16,17,20,27–30, Europe (n = 7)15,19,31–35, Asia with South Korea (n = 5)18,36–39 and China (n = 1)14. Within Europe, Germany was particularly distinct as it contributed five of the included studies from that region19,31–33,35.
+
+A majority of articles utilized a single dataset (n = 11)14,17,19,29–32,34,36–38, which is reasonable for infrastructure construction efforts. One study reported four datasets27, three studies involved three datasets16,33,39, three studies involved two datasets18,20,28, one study involved eight datasets35, and one study involved 20 datasets15.
+
+Of the studies (n = 7) that sought to extend the OMOP CDM or enrich the data contained within18,19,27,30,38,39, four sought to extend the model to better support oncology-related data elements27,30,38,39, two sought to extend support for –omics data18,19, and one sought to extend support for imaging data34.
+
+A bulk (n = 9)14,16,17,20,32,34–37 of the studies in this category did not report a direct evaluation of the mapping quality into the OMOP CDM. Evaluation metrics were similarly ill-defined (Table 3 shows papers with some form of evaluation), although the most common evaluation was mapping coverage/percentage of source rows that were successfully mapped to the OMOP CDM standard (n = 4)28,29,38,39, or the proportion of clinical concepts that could be successfully represented in the OMOP CDM standard (n = 2)27,31. Two studies32,35 did not include an evaluation of the mapping process but did report a metric of the percentage of concepts that were not represented in their tables.
+
+Common themes regarding data mapping limitations were that the OMOP CDM could not represent certain clinically relevant concepts without further extension (n = 6)14,19,27,30,34,35 and some data were not directly available in structured form and required algorithmic normalization (n = 3)14,20,38.
+
+A summary of papers in the infrastructure theme</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Results › Data analysis theme</h3>    <p>To better delineate the relationship amongst the various data elements collected, we conducted synthesis analyses for the data analysis theme. Figure 4 shows the linkage between aggregated cancer types, geographic area, study cohort size, study start year, and the study period. To categorize geographic locations, a global study is defined as a study that includes at least two countries, in contrast to a single-country study. Global studies (n = 6) began in 202010,21,23,26,40,41, and accounted for 20% of papers in the data analysis theme. Global collaborations were evident across multiple regions and countries, including USA, Spain, France, Germany, UK, Denmark, Netherlands, South Korea, and China, with the USA participating in the majority of studies, contributing to 5 out of 6 studies (83.3%). Among the 24 single-country studies, 15 came from South Korea, 6 from the USA, 2 from Denmark and 1 from China.
+
+Among 30 studies in the data analysis theme, 15 (50%) studies leveraged multi-site datasets ranging from 2 to 11 individual sites10,11,21,23,25,26,41–49. The remaining 15 studies used a single dataset, including 8 from South Korea50–57 4 studies from USA22,24,58,59, and 1 each from Denmark60, China14, and a collaboration effort between Denmark and Netherland40. In terms of cancer types and population, 15 studies on the South Korean population covered all cancer types except nervous system (brain cancer), which was exclusively conducted in the US population47. Six local studies in the USA concentrated on genitourinary, nervous, and respiratory cancers22,24,44,47,49,59. Denmark48,60 and China14 focused on digestive system cancers in their local studies. While global studies had the capacity to cover a population of more than one million patients23,26, local studies included populations ranging from &lt;=1000 to 1 million. The earliest dataset started in 1986; two were from the South Korea25,44, and one was an international, multisite study49. The study periods of 8 studies exceeded 15 years10,23,25,44,46,48,49,60. Four studies didn’t provide the period of the studied population. Figure 5 shows the details of the distributions of cancer types by geolocation and study cohort size, top in-network institutions, and top out-network institutions compared with OHDSI collaborators (https://www.ohdsi.org/who-we-are/collaborators/).
+
+Since studies from South Korea were disproportionately represented compared with other nations, Supplementary Fig. 1 shows the linkage after excluding studies from South Korea.
+
+Study designs were categorized under two broader groups: “observational study” and “advanced analytics”. The “observational study” group was comprised of 22 (73.3%) papers, and “advanced analytics” group was comprised of 8 (26.7%) studies. Table 4 provides a list of the study methodologies.
+
+Figure 6 illustrates the relationships between target domains, study designs, analysis methods, and CDM domain names used across all included data analysis papers. The majority (86.7%) of the research efforts focused on two primary target domains, i.e., diseases (n = 15)10,14,22,24,40,41,43,47–49,51,55,56,58,60 and drug-cancer association (n = 11)11,21,23,42,44–46,50,52–54,56, respectively. Other domains included risk factors for emergency department (ED) visits57, treatment patterns25,26, and trial eligibility59. Specifically, studies focusing on diseases are listed with their specific research questions in Table 5.
+
+Other study designs in Fig. 6 include case control55,58, cross sectional43, and phenotyping59. All 11 observational studies on drug-cancer association exclusively utilized the cohort study design. Conversely, observational studies on diseases included a variety of study designs. Among these, predictive modeling was the dominant approach (n = 6)40,41,47–49,60, followed by cohort studies (n = 4)10,22,24,51. The Cox regression model was the most widely used statistical method in observational studies (n = 12)11,14,21–23,42,44–46,50,52,55, followed by logistic regression (n = 5)24,43,53,54,56. Machine learning was the sole method for advanced analytics in predictive modeling study design (n = 7). NLP was only employed for the trial eligibility via phenotyping59. Supplementary Table 1 summarizes the studies using NLP. In data analysis papers, a wide range of CDM tables were analyzed by both statistical and machine learning methods, with the number of studies for each table shown in Fig. 6.
+
+Numbers refer to paper numbers. A global study is defined as a study that includes at least two countries, in contrast to a single-country study.
+
+By geolocation (a), study cohort size (b), top in-network institutions (c), and top out-network institutions (d).
+
+References for the study methods
+
+Numbers refer to paper numbers. This figure illustrates the relationships between target domains, study designs, statistical methods, and CDM domain names used across all included data analysis papers.
+
+Types of cancer research questions addressed in the disease target domain</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Discussion</h3>    <p>In our review, cancer studies using OMOP CDM fell into two themes, data analyses and infrastructure construction. The presence of studies in both arenas indicates an ongoing evolution of OMOP integration into the data infrastructure for cancer researchers and centers. OHDSI was founded in 2008 and started to yield publications in 201061, however, we found that studies with in-depth data analyses with OMOP data were not published until 201747, and publications in building out individual OMOP infrastructures were published in 2018. Global collaborative studies using OMOP started being published in 202021,26,41. Notably, the OMOP CDM enabled longitudinal studies with a study period spanning up to 15 years21,24,26,44,48,49,60 and projects with more than 1 million patients23,26. Our review also demonstrated leaders in the field with the USA, South Korea, and Germany standing out as the leading countries leveraging the OMOP CDM for the cancer specific studies; this is consistent with a previous review62. Types of cancer research questions addressed in the data analytics studies varied widely and included disease-specific topics, drug-cancer association, risk factors for emergency department (ED) visits, treatment patterns, and clinical trial eligibility. Disease-specific and drug-cancer association were the most commonly studied topics. This demonstrates the potential utilization of the OMOP CDM for other types of cancer-specific topics such as drug repurposing and disease trajectory discovery.
+
+To gain an understanding of whether real-world data are diverse enough and meet the data needs for downstream analysis, we investigated the cancer types in the studies across both themes. There was a wide range of cancer types covered in our review. However, when examining the cancer types, rare cancers were not well represented with limited studies on pancreatic cancer45,51 and pediatric brain cancer47. The potential of OMOP CDM facilitating rare cancer science and discovery by pooling large-scale data is invaluable and warrants further exploration.
+
+The diverse set of data sources included in the reviewed infrastructure studies suggests that cancer studies often require additional data sources including but not limited to clinical registries, omics, biobank, and population based datasets beyond the current EHR/Claims data-focused ecosystem. Meanwhile, new target CDM tables, such as Episode, Note_NLP and Specimen, and data model for omics and imaging data were extended in the infrastructure theme. It is evident that the OMOP CDM ecosystem is still undergoing active development and iteration, which will result in continuous improvements in its ability to support cancer research.
+
+The reviewed studies in the data analysis theme were mostly observational cohort studies, demonstrating the important role of longitudinal analyses in generating hypotheses and showing important trends over time. Although limited in number, predictive studies using OMOP data were also highlighted in this review. Machine learning models were often used in these studies, while deep learning and large language model-based approaches remain yet unexplored. Advanced methodologies were also emphasized in the infrastructure theme – one study presented an overview of sustainable cloud-based platforms for developing, implementing, verifying, and validating trustable, usable, and reliable AI models for cancer care63. Adopting advanced analytics methodologies will become important as data systems become more mature.
+
+It should be noted that a substantial amount of clinically relevant information for cancer is represented in unstructured form. This is particularly true for certain types of data. For example, information within pathology reports is often difficult to capture, as synoptic reporting has been adopted for few cancer types at many institutions. However, limited studies explored the integration of NLP methods in building data infrastructure37–39, and only one study leveraged NLP-derived data in the data analysis theme59. The potential challenges of current NLP methodologies for handling text data were highlighted in these studies, e.g., the limitations of using simple regex in NLP, along with concerns regarding generalizability and systematic evaluation of annotation schemas37,38,59. We identified similar issues and barriers for wide adoption of cancer NLP in our previous study64. Despite these challenges, it is critical to incorporate NLP-derived data within OMOP CDM instances for cancer research. A federated NLP deployment framework following the RITE-FAIR (Reproducible, Implementable, Transparent, Explainable - Findable, Accessible, Interoperable, and Reusable) principles with scientific rigor and transparent (TRUST) provides a solution towards real-world clinical NLP while preserving the integrity and privacy for data from multiple sites65,66.
+
+Data quality challenges were typically attributed to two issues: accessibility information quality (IQ) and representational IQ67,68. For accessibility IQ, concerns related to poor record linkage and inaccessible geocoding information were discussed by several studies16,28,34. Data timeliness was another issue as the current data retrieval and operation process is steward-based and lacks a real-time process (n = 2)17,33. Data privacy, security (e.g., data identification), and regulatory considerations play a significant role in addressing accessibility IQ17. Regarding representational IQ, the lack of data standardization, particularly in the context of limited OMOP vocabularies, was noted as a challenge. In addition, a substantial portion of the reviewed studies in the infrastructure theme did not perform mapping quality evaluation. This is a significant issue as variations in this process can have profound effects on the validity of any downstream use cases. The potential solution for the data standardization and concept mapping problems lies in efforts to derive human-driven consensus amongst multiple use-cases on individual value-sets corresponding to individual clinical entities. Most prolific amongst these efforts is the NLM’s Value Set Authority Center (VSAC)69 which aims to render clinical concept sets publicly available for further reuse and refinement. Beyond that, efforts have been made to create additional tooling allowing for similar functions at an institutional level (with greater human interaction), such as the OHNLP Valueset Workbench70. Nevertheless, greater efforts should be made to integrate similar functionality into current clinical phenotyping workflows.
+
+Although the OMOP CDM is designed to support multi-site studies, our review indicates that the majority of studies used single-site data. A gap in multisite evaluation for proposed methods/frameworks14,16,17,20,25,32,34–37,41,63 and representativeness of research findings due to single site data analysis design14,22,24,40,50–60 was observed in the infrastructure and data analysis themes, respectively. Site-specific biases within individual data sources further compound these challenges. Overall, the challenges lie in the multifaceted nature of the data ETL and harmonization processes, emphasizing the need for comprehensive and collaborative approaches to overcome technical, regulatory, and operational challenges.
+
+While harmonization of clinical data via the OMOP CDM has vastly improved data standardization for multisite studies, these issues persist due to non-standard approaches by which these data are populated, particularly when it comes to concept normalization approaches. This issue is further complicated by the closed nature of many current EHR system licenses, limiting public sharing of developed ETL pipelines and leading to a substantial amount of re-implementation with differing methodologies. In the absence of any changes to EHR system licensing processes, the best approach is to actively publish concept mappings (e.g., via mechanisms such as the aforementioned Valueset Workbench69) such that they can be reviewed, refined, and re-used by other collaborating institutions, particularly in the case of manual mappings and/or NLP-derived mappings from text-based clinical concepts71.
+
+Limitations in our study included the potential biases of missing relevant articles that may be caused by search strings and databases selected, as well as the inherent ambiguity associated with data element collection, normalization, and analysis due to subjectivity occurred in the review process.
+
+In conclusion, we conducted a scoping review to describe the adoption of the OMOP CDM in cancer research, providing an overview of efforts aimed at leveraging the OHDSI ecosystem for oncology studies. This review highlighted that while the OMOP CDM ecosystem has enabled successful data support for cancer research, particularly for collaborative studies, ongoing model development and iterative improvement remain needed to fulfill additional research data needs. Expanding disease sites, specifically for rare cancers, integrating more diverse types of data sources, improving data quality, adopting advanced analytics methodology, and increasing multisite evaluations serve as important opportunities to facilitate secondary usage of observational data in future cancer research.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Methods</h3>    <p>We opted to employ a scoping review to explore the scope of the OMOP CDM for cancer research72. Our approach followed the framework outlined by Arksey and O’Malley73, as well as the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) extension for scoping reviews74. The process was conducted in five stages as detailed below:</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Methods › Identifying the objectives</h3>    <p>To analyze the status, challenges, and opportunities of adopting OMOP CDM for cancer research using real-world data, it’s critical to have a complete understanding of the studies on practical applications of OMOP CDM, and those on data infrastructure construction. Therefore, we aimed to address the following objectives in the review process: (1) Examine the landscape of currently published cancer studies that utilized the OHDSI/OMOP CDM, (2) Assess the role of OHDSI/OMOP CDM as an appropriate data infrastructure for cancer research, and (3) Highlight challenges and opportunities to identify directions for future investigations.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Methods › Identifying relevant studies</h3>    <p>We included articles published between January 1, 2010 through December 31, 2023. Articles written in English were retrieved from the following databases: Ovid, IEEE Xplore, PubMed, Web of Science, and Embase. A detailed description of the search strategies for articles using OHDSI OMOP for cancer related studies is provided in Supplementary Table 2.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Methods › Study selection</h3>    <p>Two reviewers (L.W. and A.W.) independently screened the titles and abstracts of all articles retrieved. Publications were included if the OHDSI/OMOP CDM was used for cancer related studies. The following exclusion criteria were applied:
+
+A second round of full-text screening was performed by the same reviewers to ensure all publications met the inclusion and exclusion criteria. When disagreement arose, they discussed to achieve a consensus.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Methods › Charting the relevant studies</h3>    <p>Four authors (L.W., A.W., S.F., H. Liu) designed the study themes, standardized templates for summarizing pertinent publications, and systematically organizing the information. Studies were categorized into two main themes: data analysis and infrastructure. The data analysis theme included observational studies or articles that utilized advanced analytics such as machine learning or natural language processing (NLP). In the infrastructure theme, we focused on studies describing reusable tools and practices for transforming data into the OMOP CDM format and expanding them to support additional data types, specifically in relation to cancer. Three reviewers (L.W., X.R., M.H.) were allocated for data element extraction for the data analysis theme, and three reviewers (A.W., Q.L., R.L.) were allocated for the infrastructure theme. Any disagreements were resolved by inter-discussion or discussion with a third reviewer to achieve a consensus.
+
+The following described our review protocol. For the data analysis theme, data elements were extracted following the STROBE (strengthening the reporting of observational studies in epidemiology) checklist75 a reporting guideline that describes core considerations for observational research. Key data elements included publication years, objectives, data sources, cancer type, institution names, geographic region, cohort size, target domain of study (disease, drug-cancer association, other.), method (machine learning, descriptive analysis, logistic regression, etc.), NLP usage (yes or no), study period (start year, end year), study design (cohort, case-control, and cross-sectional studies for observational study, predictive modeling, or phenotyping, etc.), variables analyzed (diagnosis, procedures, etc.), and number of datasets. To facilitate subsequent analyses, variables were aggregated based on table names in OHDSI CDM version 5.4 (https://ohdsi.github.io/CommonDataModel/). Specifically, variables indicating lower-level clinical events were manually extracted from the method sections of included articles, and then manually mapped to the corresponding CDM tables. For example, medical history was mapped to the Condition_occurrence table, smoking status was mapped to the Observation table (see Supplementary Table 3). In addition, we extracted countries of the OMOP CDM datasets used for data analysis to identify geographic regions and institution names of the authors.
+
+For the infrastructure theme, we categorized articles according to the OMOP CDM construction process (data linkage and standardization, transformation, etc.). Data elements of interest included publication year, geographic regions, institution names, cancer types, study topics, source data type (local EHR, claims data, etc.), target CDM table, mapping coverage, ETL (extract, transform, and load) challenges, mapping evaluation methods, data model extension, and limitations of data model (data element not specified, no definition, etc.). We extracted the countries of the authors to identify geographic regions and institution names of the datasets.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Methods › Collating, summarizing, and reporting the results</h3>    <p>Data from the charting process were summarized, analyzed, and visualized to present an overview of the application of the OHDSI CDM in cancer research.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Supplementary information</h3>    <p>PRISMA-ScR Checklist
+
+Supplementary Data 1
+
+Supplementary File 1</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Acknowledgements</h3>    <p>This project is supported by the Cancer Prevention Research Institute of Texas (CPRIT). RR230020, National Institute of Aging grant RF1AG072799, National Human Genome Research Institute R01HG12748, and National Library of Medicine R01LM11934. The funders played no role in the study design, data collection, analysis and interpretation of data, or the writing of this manuscript.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Author contributions</h3>    <p>L.W.: conceptualized and designed the study, analyzed the data of the data analysis theme, visualized results and drafted the manuscript; A.W.: conceptualized and designed the study, analyzed the data of the infrastructure theme and drafted the manuscript; F.S.: designed the study, analyzed the data of infrastructural theme and drafted the manuscript; X.R.: analyzed the data of the data analysis theme, visualized results and drafted the manuscript; M.H.: analyzed the data of the data analysis theme, visualized results and drafted the manuscript; R.L.: analyzed the data of infrastructural theme and visualized results; Q.L.: analyzed the data of infrastructural theme; A.E.W.: revised the manuscript; H.L.: revised the manuscript; H.L.*: conceptualized, supervised, designed the study and revised the manuscript.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Data availability</h3>    <p>Data is provided within the manuscript or supplementary information files.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Competing interests</h3>    <p>Heather Lyu is an associate editor, and Hongfang Liu is an Editorial Board Member of NPJ Digital Medicine.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Supplementary information</h3>    <p>The online version contains supplementary material available at 10.1038/s41746-025-01581-7.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Associated Data</h3>    <p>PRISMA-ScR Checklist
+
+Supplementary Data 1
+
+Supplementary File 1</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Associated Data › Supplementary Materials</h3>    <p>PRISMA-ScR Checklist
+
+Supplementary Data 1
+
+Supplementary File 1</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>Data is provided within the manuscript or supplementary information files.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

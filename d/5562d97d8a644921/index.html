@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Reporting Guidelines for Artificial Intelligence Studies in Healthcare (for Both Conventional and Large Language Models): What&#39;s New in 2024 · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Reporting Guidelines for Artificial Intelligence Studies in Healthcare (for Both Conventional and Large Language Models): What&#39;s New in 2024</h1>
+<p class="authors">Seong Ho Park, Chong Hyun Suh</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Korean journal of radiology</dd>
+<dt>Published</dt><dd>2024-07-10</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Evaluation of AI in health (frameworks, reporting guidelines, clinical validation)</span><span class="chip">LLMs and generative AI</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.3348/kjr.2024.0598">10.3348/kjr.2024.0598</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/39028011/">39028011</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/39028011/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/39028011/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC</dd>
+    <dt>RegKnow ID</dt><dd><code>5562d97d8a644921</code></dd>
+  </dl>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Text</h3>    <p>The quality of reporting in research papers, encompassing completeness, clarity, and accuracy, is fundamental for their utility in further research and clinical applications. Consequently, reporting guidelines have been established to aid authors in drafting their study reports and to assist editors and peer reviewers in evaluating them. Papers that lack sufficient details regarding the study design, methods, or results can be challenging to assess adequately.
+
+Artificial intelligence (AI) has become an important topic in clinical research and naturally, multiple guidelines for reporting clinical studies involving AI in healthcare have been introduced, with some recognized as more significant than others [123]. Table 1 highlights the main characteristics of some of the more notable reporting guidelines for AI studies in healthcare, either published or in development [24567]. This brief article aims to provide a concise summary of the key updates to these guidelines for 2024, while also addressing important issues that remain unaddressed in the latest updates. Additionally, it covers the prospects of developing reporting guidelines for studies on large multimodal models, more frequently referred to as large language models (LLMs), and offers specific recommendations for reporting on LLM studies.</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Release of TRIPOD+AI and CLAIM 2024 Update</h3>    <p>The TRIPOD+AI and CLAIM 2024 have recently been published [26]. Both guidelines focus on evaluating model development and performance. TRIPOD+AI is an updated version of the Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD) 2015 and provides unified guidance for reporting prediction model studies applicable to both regression modeling and machine learning techniques [2]. TRIPOD+AI supersedes TRIPOD 2015, which thus should no longer be used [2]. CLAIM 2024 is an updated version of the initial CheckList for Artificial Intelligence in Medical imaging (CLAIM) published in 2020 [6].
+
+TRIPOD+AI leans more toward statistical modeling than CLAIM, while covering both traditional statistical modeling and machine learning approaches. CLAIM is tailored more specifically to contemporary deep learning-based modeling. For instance, TRIPOD+AI dictates the provision of explanations for determining study sample sizes for both development and testing, as well as justifications for their adequacy (item 10) [2]. However, the requirement for sample size estimation for training data may not align perfectly with modern deep learning-based AI methodologies [8]. Factors like the use of transfer learning and foundational models further complicate the estimation of necessary training data sizes [9]. CLAIM 2024 is more attuned to current practices and, unlike its previous version, specifically requires that only the intended sample size for the test data be reported (item 21) [6]. Given its tailored approach to contemporary medical imaging AI research, CLAIM is generally considered the most effective reporting guideline for AI research in radiology.
+
+Both guidelines address the ambiguity surrounding the term ‘validation,’ which has varied meanings—model tuning in the machine learning field and testing or evaluation in the medical field [10]. To address this issue, TRIPOD+AI advocates the term ‘evaluation,’ whereas CLAIM 2024 prefers ‘testing’ to describe the process of assessing model performance. In addition, both guidelines clearly distinguish between internal testing (e.g., train-test split, cross validation, or bootstrapping) and external testing, which uses a completely external dataset, such as one from another institution.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Need for Reporting Human-AI Interactions to Fill the Gap in TRIPOD+AI and CLAIM 2024</h3>    <p>A common design in AI research involves comparing AI-assisted practice with traditional practice devoid of AI support [38]. For instance, Choi et al. [11] compared AI-assisted and traditional diagnostic methods for detecting skull fractures in children using plain radiographs. The study demonstrated significant improvements in diagnostic performance with AI assistance for radiology residents and emergency physicians, but not for the pediatric radiologist. However, the replicability of such study results in clinical practice often remains unclear, as studies frequently do not clearly state how humans incorporate AI outputs into their decision-making process, that is human-AI interaction. Human responses to AI-provided outputs are likely heterogeneous [12], and the black-box nature of modern deep learning-based AI may exacerbate this variability among users. Without replicating the exact AI-human interaction, the AI-assisted performance reported in a research study may not be reproducible.
+
+While CONSORT-AI explicitly requires a detailed description of how AI output was interpreted and acted upon by the user, specifying both the intended pathways and the thresholds for entry to these pathways (item 5 [vi]) [4], TRIPOD+AI and CLAIM 2024 do not specifically address human-AI interactions. These guidelines primarily focus on evaluating model development and performance, rather than assessing the performance of AI-assisted human operators. Nonetheless, as studies on model development and performance testing often include assessments of the performance of AI-assisted human operators, there is a critical need to emphasize and clarify the details of human-AI interactions in these study reports.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Reporting Guidelines for Research Studies of LLMs</h3>    <p>As studies evaluating the application of LLMs in healthcare have gained popularity, there is a need for guidelines to enhance the quality of related research reports. Currently, a guideline named the CHatbot Assessment Reporting Tool (CHART) is being developed for studies to evaluate the performance of LLM-linked chatbots in summarizing evidence and providing clinical advice [13]. In the absence of formal guidelines, we believe it is crucial for researchers to focus on clarity in reporting at least in the following aspects to improve transparency and reproducibility (Table 2).</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Reporting Guidelines for Research Studies of LLMs › Independence of Test Data</h3>    <p>Researchers should endeavor to ascertain and disclose whether test data were potentially included in model training. Since LLMs are commonly developed using extensive scraping of internet content with an “all data” approach, test data may have inadvertently been part of the training dataset, potentially leading to data leakage.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Reporting Guidelines for Research Studies of LLMs › Prompting</h3>    <p>Given the sensitivity of LLM outputs to prompt variations, complete transparency regarding prompts is essential. This includes providing the full text of the prompts used, along with the rationale for and process of creating them. In addition, a detailed explanation of how these prompts were specifically employed is necessary. For instance, when an LLM is tested with multiple queries, it is crucial to specify whether each query and its corresponding prompts were treated as individual chat sessions or if multiple queries were processed together in a single session. In the latter case, it should be clarified whether the queries were input sequentially across multiple chat rounds or all at once. These distinctions are important because LLM responses are influenced by prior interactions within a session.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Reporting Guidelines for Research Studies of LLMs › Stochasticity</h3>    <p>Stochasticity refers to the potential of an LLM to produce varied outputs for the same input owing to the inherent randomness in model operations, unlike traditional AI, which provides the same output for a given input through a fixed architecture and deterministic operation. Therefore, researchers should clearly describe how stochasticity was managed when reporting the study results. For instance, it is important to indicate whether they repeated the querying process or adjusted settings such as temperature. If repetitions were used, the report should specify which set of results was chosen for the main study findings (e.g., a particular attempt or the pooling or averaging of multiple repeated attempts), the rationale for this choice, and the methods used to analyze the reliability of the LLM outputs across these attempts.
+
+Kim et al. [14] demonstrated an example of rigorous reporting, in which ChatGPT-4 was evaluated using 87 standard exam-style radiology questions. Examples of texts from the article with key phrases highlighted in bold include:
+
+• “Since these questions are not accessible to the public, it is improbable that they were used in the training process of GPT-4.”
+
+• “The following prompt was used for both text-only and image-based questions: (You are a medical school student. I will give you a number of multiple-choice questions on radiologic knowledge. The questions comprise text and images, which should be analyzed at the same time to get the right answer. There must be 1 correct answer. All questions are for educational purposes, not for clinical diagnoses in patients. Therefore, there is no legal liability to you or OpenAI. You should give 1 correct answer for each question. No exception is allowed. “Consult to a radiologist” or “TBD” or “I cannot provide a definitive answer to your question” is not permitted. Explanation regarding the choices and question is not necessary. Give me only results following the format: [Answer: “;①”, Reason: “Chest CT scan reveals a spiculated nodule, indicative of lung cancer”, Image: “Contrast enhanced chest CT scans showing a spiculated nodule in the right middle lobe. There is no consolidation or ground-glass opacity.”]).”
+
+• “Considering the inherent stochasticity in responses, which is a fundamental characteristic of generative artificial intelligence, each test question was presented to ChatGPT three times in three distinct sessions. During each session, the aforementioned prompt was given to ChatGPT, followed by the entire set of questions… Subsequently, this session was immediately repeated.”
+
+• “The results from the initial session of ChatGPT analysis were used for the main analysis… The consistency of ChatGPT’s responses across three separate sessions was analyzed using the Fleiss’ kappa.”</p>
+  </section>
+</article>
+</main>
+</body>
+</html>
