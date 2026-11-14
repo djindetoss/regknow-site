@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Masked Autoencoders Are Scalable Vision Learners · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Masked Autoencoders Are Scalable Vision Learners</h1>
+<p class="authors">Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollár, Ross Girshick</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings - IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings</dd>
+<dt>Published</dt><dd>2022-06-01</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Foundations of modern AI (architectures, training, foundation models)</span></dd><dt>Tags</dt><dd><span class="chip">must-read</span><span class="chip">must-read-foundations</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1109/cvpr52688.2022.01553">10.1109/cvpr52688.2022.01553</a></dd><dt>Source</dt><dd><a href="https://doi.org/10.1109/cvpr52688.2022.01553" rel="noopener">https://doi.org/10.1109/cvpr52688.2022.01553</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>304f9c2be17e46a4</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>This paper shows that masked autoencoders (MAE) are scalable self-supervised learners for computer vision. Our MAE approach is simple: we mask random patches of the input image and reconstruct the missing pixels. It is based on two core designs. First, we develop an asymmetric encoder-decoder architecture, with an encoder that operates only on the visible subset of patches (without mask tokens), along with a lightweight decoder that reconstructs the original image from the latent representation and mask tokens. Second, we find that masking a high proportion of the input image, e.g., 75%, yields a nontrivial and meaningful self-supervisory task. Coupling these two designs enables us to train large models efficiently and effectively: we accelerate training (by 3× or more) and improve accuracy. Our scalable approach allows for learning high-capacity models that generalize well: e.g., a vanilla ViT-Huge model achieves the best accuracy (87.8%) among methods that use only ImageNet-1K data. Transfer performance in downstream tasks outperforms supervised pretraining and shows promising scaling behavior.</p>
+  <section class="viewer" id="viewer" data-pdf="../../files/304f9c2be17e46a4.pdf" data-vendor="../../vendor/pdfjs/">
+    <div class="viewer-bar">
+      <button type="button" id="prev" aria-label="Previous page">‹</button>
+      <label>Page <input id="page" type="number" min="1" value="1"> of <span id="pages">…</span></label>
+      <button type="button" id="next" aria-label="Next page">›</button>
+      <span class="spacer"></span>
+      <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+      <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+      <a href="../../files/304f9c2be17e46a4.pdf" download>Download PDF</a>
+    </div>
+    <div class="canvas-wrap"><canvas id="canvas"></canvas></div>
+  </section>
+</article>
+</main>
+<script type="module" src="../../static/viewer.js"></script></body>
+</html>

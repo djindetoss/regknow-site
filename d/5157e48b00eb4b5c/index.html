@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Guideline-Incorporated Large Language Model-Driven Evaluation of Medical Records Using MedCheckLLM · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Guideline-Incorporated Large Language Model-Driven Evaluation of Medical Records Using MedCheckLLM</h1>
+<p class="authors">Marc Cicero Schubert, Stella Soyka, Wolfgang Wick, Varun Venkataramani</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>JMIR formative research</dd>
+<dt>Published</dt><dd>2025-04-24</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Evaluation of AI in health (frameworks, reporting guidelines, clinical validation)</span><span class="chip">LLMs and generative AI</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.2196/53335">10.2196/53335</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40272831/">40272831</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40272831/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/40272831/</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>5157e48b00eb4b5c</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>The study introduces MedCheckLLM, a large language model-driven framework that enhances medical record evaluation through a guideline-in-the-loop approach by integrating evidence-based guidelines.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractThe study introduces MedCheckLLM, a large language model–driven framework that enhances medical record evaluation through a guideline-in-the-loop approach by integrating evidence-based guidelines.</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Large language models (LLMs) have demonstrated enormous potential in assessing complex datasets in health care across many applications [1,2]. One underexplored area is their application for the reliable evaluation of medical documents. The automated evaluation of these documents has the potential to enhance patient safety. The system’s reasoning process must be (1) transparent and comprehensible to human evaluators and (2) guided by established medical guidelines proven to increase patient safety [3].
+
+In this study, we introduce a framework that consists of a multistep approach for medical record evaluation that incorporates guidelines into the evaluation process (ie, guideline-in-the-loop). Our proposed algorithm, MedCheckLLM, is an LLM-driven, structured reasoning mechanism designed to automate the evaluation of medical records against evidence-based guidelines. The guidelines are deterministically accessed and returned to the LLM as input without further model fine-tuning. This strict separation of LLM and guidelines is expected to increase the validity and interpretability of the evaluations. The approach&#39;s step-by-step structure could improve transparency in clinical applications. The primary objective of this research is to introduce the conceptual framework and assess its feasibility.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Methods</h3>    <p>The MedCheckLLM algorithm begins by extracting a patient’s diagnosis from the medical report (Figure 1). Based on the diagnosis, it suggests an appropriate guideline. A human medical expert makes the final guideline selection. Guidelines are then accessed independently of the LLM’s mechanisms using programmatically built interfaces for guideline retrieval. Subsequently, guidelines are provided as input to the LLM and are either identified as already formatted in a usable checklist or converted into a checklist. This diagnosis-specific checklist is used to assess the medical report by the LLM, with a final verification by a human medical expert. To test this approach, we used expert-validated simulated medical reports (simulated dataset) and physician-generated medical reports (physician dataset). Performance was analyzed for patient histories with headaches using guidelines from the International Headache Society and the physician dataset for four further neurological diagnoses (ie, border zone infarction, meningitis, neuromyelitis optica, and subarachnoid haemorrhage). The validity of this method was further analyzed by evaluating generated doctor’s notes with a correct diagnosis compared to doctor’s notes with a false diagnosis. The LLMs, GPT-4 and Claude-3 were used for testing (see Multimedia Appendix 1).</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Results</h3>    <p>We evaluated the medical report analysis conducted by MedCheckLLM for various headache diagnoses. In the simulated dataset, MedCheckLLM (based on GPT-4 and Claude-3, Table 1) extracted the specified diagnosis correctly in 100% of cases from a list of 61 possible diagnoses from The International Classification of Headache Disorders-3 [4]. The model suggested existing evidence-based guidelines in 70.59% (12/17) of medical reports and detected the format of the guidelines as checklists in 100% of the cases (N=17). MedCheckLLM accurately evaluated 87% (67/ 77) of checklist items. Performance on the physician dataset showed an accurate evaluation in 77.4% (24/ 31) of checklist items (Table 2). It identified incorrect diagnoses where the stated diagnosis did not align with the content of the doctor’s letters in 94.1% (16/17) of cases, while it correctly recognized 100% (N=17) of letters with matching diagnoses.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Discussion</h3>    <p>The framework of MedCheckLLM represents a promising approach for a comprehensive, guideline-anchored review of electronic health records. It holds the potential to function as a quality assurance framework throughout patient care due to its advantages of separate partitioning of the LLM and the guidelines, rather than training guidelines into an LLM. The flexibility of this approach allows for immediate implementation of guideline updates or the option to implement customized protocols for subgroups of patients. Due to the checklist-based approach, each item can be verified individually, thus increasing the algorithm’s interpretability, which is crucial in health care settings [5]. Due to the LLM’s subpar guideline suggestion capability, medical experts are integrated at this step to ensure that established guidelines are used. Further research is essential to advance the development of LLM-driven methods for extracting checklists from unstructured guidelines, as well-structured guidelines are crucial for detailed, high-quality checklists. Further, this framework facilitates improved data mining practices in electronic health records [6]. In the future, it is crucial to address privacy concerns to ensure the ethical application of these powerful tools in real-world clinical settings [7-9].</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

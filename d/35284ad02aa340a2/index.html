@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The Fast Health Interoperability Resources (FHIR) Standard: Systematic Literature Review of Implementations, Applications, Challenges and Opportunities · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>The Fast Health Interoperability Resources (FHIR) Standard: Systematic Literature Review of Implementations, Applications, Challenges and Opportunities</h1>
+<p class="authors">Muhammad Ayaz, Muhammad F Pasha, Mohammed Y Alzahrani, Rahmat Budiarto, Deris Stiawan</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>JMIR medical informatics</dd>
+<dt>Published</dt><dd>2021-07-30</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Standards (FHIR, OMOP, IDMP, SPOR)</span><span class="chip">Interoperability</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.2196/21929">10.2196/21929</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/34328424/">34328424</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/34328424/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/34328424/</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>35284ad02aa340a2</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Information technology has shifted paper-based documentation in the health care sector into a digital form, in which patient information is transferred electronically from one place to another. However, there remain challenges and issues to resolve in this domain owing to the lack of proper standards, the growth of new technologies (mobile devices, tablets, ubiquitous computing), and health care providers who are reluctant to share patient information. Therefore, a solid systematic literature review was performed to understand the use of this new technology in the health care sector. To the best of our knowledge, there is a lack of comprehensive systematic literature reviews that focus on Fast Health Interoperability Resources (FHIR)-based electronic health records (EHRs). In addition, FHIR is the latest standard, which is in an infancy stage of development. Therefore, this is a hot research topic with great potential for further research in this domain. The main aim of this study was to explore and perform a systematic review of the literature related to FHIR, including the challenges, implementation, opportunities, and future FHIR applications. In January 2020, we searched articles published from January 2012 to December 2019 via all major digital databases in the field of computer science and health care, including ACM, IEEE Explorer, Springer, Google Scholar, PubMed, and ScienceDirect. We identified 8181 scientific articles published in this field, 80 of which met our inclusion criteria for further consideration. The selected 80 scientific articles were reviewed systematically, and we identified open questions, challenges, implementation models, used resources, beneficiary applications, data migration approaches, and goals of FHIR. The literature analysis performed in this systematic review highlights the important role of FHIR in the health care domain in the near future.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>BackgroundInformation technology has shifted paper-based documentation in the health care sector into a digital form, in which patient information is transferred electronically from one place to another. However, there remain challenges and issues to resolve in this domain owing to the lack of proper standards, the growth of new technologies (mobile devices, tablets, ubiquitous computing), and health care providers who are reluctant to share patient information. Therefore, a solid systematic literature review was performed to understand the use of this new technology in the health care sector. To the best of our knowledge, there is a lack of comprehensive systematic literature reviews that focus on Fast Health Interoperability Resources (FHIR)-based electronic health records (EHRs). In addition, FHIR is the latest standard, which is in an infancy stage of development. Therefore, this is a hot research topic with great potential for further research in this domain.ObjectiveThe main aim of this study was to explore and perform a systematic review of the literature related to FHIR, including the challenges, implementation, opportunities, and future FHIR applications.MethodsIn January 2020, we searched articles published from January 2012 to December 2019 via all major digital databases in the field of computer science and health care, including ACM, IEEE Explorer, Springer, Google Scholar, PubMed, and ScienceDirect. We identified 8181 scientific articles published in this field, 80 of which met our inclusion criteria for further consideration.ResultsThe selected 80 scientific articles were reviewed systematically, and we identified open questions, challenges, implementation models, used resources, beneficiary applications, data migration approaches, and goals of FHIR.ConclusionsThe literature analysis performed in this systematic review highlights the important role of FHIR in the health care domain in the near future.</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>General architecture of the Fast Health Interoperability Resources (FHIR) standard [4].</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Introduction › Background</h3>    <p>In 2011, the proponent of Australian Health Level Seven (HL7) standards, Grahame Grieve, proposed an interoperability approach called Resources for Healthcare (RFH) as a new standard for better interoperability in digital health. Technically, RFH has been designed for web technology, and the resource is based on extensible markup language (XML) with an HTTP-based representational state transfer (REST)ful protocol and a distinct URL for each resource. The RFH standard was renamed Fast Health Interoperability Resources (FHIR) with extension of previous HL7 specifications (ie, HL7 version 2 and version 3) with consideration of modern web technologies [1].
+
+The main idea behind FHIR was to build a set of resources and develop HTTP-based REST application programming interfaces (APIs) to access and use these resources. FHIR uses components called resources to access and perform operations on patient health data at the granular level. This feature makes FHIR a unique standard from all other standards because it was not available in all previous versions of HL7 (v2, v3) or the HL7 clinical document architecture (CDA).
+
+The basic building blocks of FHIR are the so-called resources, a generic definition of common health care concepts (eg, patient, observation, practitioner, device, condition). FHIR uses JavaScript object notation and XML structures for data exchange and resources serialization. FHIR does not only support a RESTful to exchange resources but also manages and documents an interoperability paradigm.
+
+Since the first day of its introduction, FHIR has gained popularity and has been increasingly adopted by the health care industry. In 2018, six large technology companies, including Microsoft, IBM, Amazon, and Google, pledged to remove barriers for health care interoperability and signed a letter that explicitly mentions FHIR as an emerging standard for the exchange of health data [2]. With incorporation of Substitutable Medical Applications Reusable Technologies (SMART), a platform for interoperable apps [3], FHIR can be expected to attract even more attraction in digital health in the future. Using FHIR for the exchange of medical data can provide potential benefits in a large number of domains, including mobile health apps, electronic health records (EHRs), precision medicine, wearable devices, big data analytics, and clinical decision support.
+
+The main objective of FHIR is to reduce implementation complexity without losing information integrity. Moreover, this new standard combines the advantages of the previous HL7 (v2, v3, and CDA) standards and is expected to overcome their limitations. FHIR allows the developers to develop standardized browser applications that enable the user to access clinical data from any health care system regardless of the operating systems and devices that a health care system uses. For example, a user runs an application on the browser and will access data from a health care system using any device, whether it is running on a desktop, smartphone, Windows, Android, or Linux operating system. Figure 1 represents the general architecture of FHIR [4].
+
+The goal of this study was to gain a deeper understanding of the FHIR standard, and to review the use and adoption of the standard in current health care applications and organizations. This study can assist researchers and experts in understanding the FHIR architecture, design, implementation, resources, challenges, mapping, and adoption in health care informatics. Additionally, this systematic review identifies the key topics discussed in the context of FHIR in the literature.
+
+General architecture of the Fast Health Interoperability Resources (FHIR) standard [4].</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Introduction › FHIR Resource</h3>    <p>A resource is the smallest discrete concept that can be maintained independently and is the smallest possible unit of a transaction [5]. Thus, a resource is a known identity providing meaningful data. Each resource has clear boundaries and differs from all other resources. A resource should be described in sufficient detail to define and support the medical data exchange that is involved in the process. According to the latest FHIR version (R4), the FHIR community has defined more than 150 resources to date [6]. These resources are divided into five major categories: (1) Administrative: location, organization, device, patient, group; (2) Clinical: CarePan, diagnostics, medication, allergy, family history; (3) Financial: billing, payment, support; (4) Infrastructure: conformance, document, message profile; and (5) Workflow: encounter, scheduling, order.
+
+FHIR is the latest standard; however, to date, there has been no comprehensive systematic literature review performed in this area. Therefore, a systematic literature review was performed in this study to provide a broad view of FHIR, and to address various challenges, applications, and goals of FHIR highlighted in research in this field.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Introduction › Motivation and Objectives</h3>    <p>Owing to its dynamic characteristics, FHIR is gaining popularity rapidly. It is expected that FHIR will soon become an icon for clinical information exchange in the health care sector. However, it also faces numerous challenges, which is the main motivation that inspired us to perform this systematic literature review. Despite its importance in health care research, there is no comprehensive review of the literature in the field.
+
+There were five objectives of this study. The first objective was to profoundly investigate the literature related to FHIR and EHR to explore their multiple challenges in the health care domain and give a comprehensive summary of these issues. The second objective was to identify FHIR applications, goals, challenges, and their roles in the health care domain. The third aim was to address different models of FHIR implementation. Fourth, we addressed different existing and emerging challenges of electronic health implementation to provide the readers with up-to-date information about the different types of hurdles faced by health care project implementations. Finally, this review offers useful suggestions and recommendations about the solutions to these issues faced by health care stakeholders.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Methods</h3>    <p>Research questions and associated objectives.
+
+Inclusion and exclusion criteria.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Methods › Design</h3>    <p>This systematic literature review was conducted through the following steps: (1) establishing the research questions to be investigated; (2) identification of digital libraries to be explored and establishing the search strategy; (3) setting the criteria for selection of relevant articles; (4) setting the quality assessment criteria to select the best articles for this study; and (5) data extraction to address the research questions from the selected articles.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Methods › Research Questions</h3>    <p>According to Kitchenham et al [7], research questions are the most crucial part of any systematic literature review. Therefore, we have to set questions related to the focus fields, which are FHIR and EHR. We formulated specific research questions to identify the objectives in terms of problems, challenges, solutions, and goals. Our research questions identify the mentioned domain broadly and cover almost every aspect of the field, which is essential for the research purpose. Table 1 summarizes the research questions and their corresponding objectives.
+
+Research questions and associated objectives.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Methods › Search Strategy</h3>    <p>After establishing the research questions, the next step was to search for articles to collect the required data. To perform a proper systematic literature review, an appropriate search is essential to define the scope and search keywords, which are the fundamental concepts of our research questions for retrieving accurate results.
+
+There is a possibility that the search method may not identify some relevant studies. Therefore, to establish an optimized search string, Kitchenham et al [7] suggest breaking down the research questions into individual facets called research units, which include all of their associated acronyms, synonyms, abbreviations, related words, and alternative spellings combined using Boolean operators (AND, OR) for the construction of keyword phrases.
+
+Finally, we obtained and used the search string shown in Textbox 1 to retrieve the relevant articles.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Methods › Article Selection Process</h3>    <p>Inclusion and exclusion criteria.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Methods › Article Selection Process › Step 1</h3>    <p>The following questions were defined for article selection: (1) What are the main domains/fields of the searched papers (eg, FHIR)? (2) Where are these papers published (conferences or journals)? (3) What should be the scope and credibility of these papers? (4) When were the papers published?</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Methods › Article Selection Process › Step 2</h3>    <p>To cover as many studies as possible, we selected the relevant articles from the literature by searching through well-known academic digital databases, including ACM, IEEE Xplore, Springer, Google Scholar, PubMed, and ScienceDirect. These databases cover the most relevant conference and journal articles within the fields of health care and computer science. To limit the search, we set the range from January 2012 to December 2019. The search was performed during January 2020.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Methods › Article Selection Process › Step 3</h3>    <p>We selected the articles from all of the databases listed above on the basis of the search string (Textbox 1). We used the string and checked every article in chronological order, including title, abstract, keywords, introduction, background, methods, results, discussion, and conclusion. We then selected and downloaded the articles from the databases when the string or substring matched with any string in any of the above components of the article.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Methods › Article Selection Process › Step 4</h3>    <p>We removed duplicate articles retrieved from different databases, and manually filtered the collected articles using Endnote software to remove the articles included in multiple databases.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Methods › Article Selection Process › Step 5</h3>    <p>The inclusion criteria were full articles that deal with FHIR published in the English language in world-class conference proceedings or peer-reviewed journals between 2012 and 2019. The exclusion criteria were articles that address an FHIR-related issues but do not meet the inclusion criteria, such as books, theses (doctorate and masters), notes, chapters, press reports, informal literature surveys, literature surveys, papers without access to full text, and articles that discuss aspects outside of the scope of health care without reference to FHIR or EHR. All articles published in non-English journals/proceedings were removed. Table 2 provides further details of the inclusion and exclusion criteria used in this literature survey.
+
+Inclusion and exclusion criteria.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Results</h3>    <p>Phases of article selection and retrieval at each phase.
+
+Distribution of article types.
+
+Geographic distribution of the selected articles.
+
+Focus of the selected articles over time.
+
+List of selected articles in ascending order of publication year.
+
+List of resources used in Fast Health Interoperability Resources implementation.
+
+Applications that benefit from the use of Fast Health Interoperability Resources (FHIR).
+
+Approaches used to map or migrate data from other Health Level 7 (HL7)-based legacy systems to the Fast Healthcare Interoperability Resources (FHIR)-based system.
+
+Goals of Fast Healthcare Interoperability Resources.
+
+Challenges and open questions related to Fast Healthcare Interoperability Resources (FHIR).</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Results › Characteristics of Selected Articles</h3>    <p>After performing the search queries, a total of 8144 articles from all five major digital databases were retrieved from the initial search. After thoroughly checking the web profiles of authors and their networks, 37 new articles were added with a snowballing procedure. From the 8181 retrieved articles, we first applied the duplication criteria, and then set the inclusion and exclusion criteria described in Table 2. Therefore, we first excluded all of the articles found in multiple databases. After removal of duplicates, 1514 articles remained. In the second phase, we discarded articles published in non-English journals/proceedings, resulting in 1442 articles for further screening. In the third phase, we excluded articles that were not primary studies such as reviews and survey papers. Finally, 892 articles remained for further screening.
+
+In the fourth phase, we analyzed the remaining articles on the basis of their title, abstract, and keywords, and the number dropped to 278. In the final phase, after reading and analyzing the full text of the articles, we selected 80 articles from the list to be included in the systematic review. Table 3 shows the results of the different phases of the selection process, Table 4 presents the articles chosen for our study, and Table 5 provides the geographic information of the publications.
+
+As shown in Table 4, the distribution of the articles was 59% and 41% for journal articles and conference proceedings, respectively. The conferences represented are the main international conferences on health care or health care informatics, whereas the journals represent the world-class reputable journals in the field of computer science and health care. In terms of geography, as shown in Table 5, the number of publications related to FHIR published by researchers in the United States was the highest among represented countries. This indicates that the research in the field is quite active in the United States, which may become a factor that pushes the adoption of the standard in the country and in the rest of the world.
+
+The 80 selected articles are arranged based in their primary subject categories in Table 6.
+
+Once the articles were selected, we arranged them by ascending order of publication year. We then considered the attributes of the articles, including author names, article title, venue of publication (eg, journal article, conference proceeding), and publisher name. The complete list of the selected articles and their attributes is depicted in Table 7.
+
+Phases of article selection and retrieval at each phase.
+
+Distribution of article types.
+
+Geographic distribution of the selected articles.
+
+Focus of the selected articles over time.
+
+List of selected articles in ascending order of publication year.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Results › Quality Assessment</h3>    <p>According to Kitchenham et al [7], it is essential to select and assess the best articles for every literature review, and the quality of selected studies must be verified before inclusion in the study. We evaluated the selected articles with regard to research quality, related work, purposes of research, the obtained result, the methodology used, literature review, current and future objectives, conclusion, publication repository, and other factors. We evaluated the quality of each article according to the protocol defined by Roehrs [85] as displayed in Textbox 2.
+
+The proposed quality criteria scores were assessed for each selected article. Although the majority of the selected articles did not fully satisfy all six criteria for evaluation, they complied with at least four out of the six quality assessment criteria listed in Textbox 2.
+
+All of the assessed articles clearly presented their research purpose, literature review, and were supported by a research methodology, bibliographical references, or models/architectural proposals. Based on this quality assessment, we did not exclude any articles from the corpus; this assessment only evaluates whether the articles have a satisfactory structure.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Results › Data Extraction and Addressing the Research Questions</h3>    <p>List of resources used in Fast Health Interoperability Resources implementation.
+
+Applications that benefit from the use of Fast Health Interoperability Resources (FHIR).
+
+Approaches used to map or migrate data from other Health Level 7 (HL7)-based legacy systems to the Fast Healthcare Interoperability Resources (FHIR)-based system.
+
+Goals of Fast Healthcare Interoperability Resources.
+
+Challenges and open questions related to Fast Healthcare Interoperability Resources (FHIR).</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Results › Data Extraction and Addressing the Research Questions › Process</h3>    <p>In summary, the quality assessment of the selected articles was as follows. If an article identified by our search query criteria contained information related to our research questions, then the following three steps were applied. First, the title and abstract of the selected articles were carefully read to scrutinize whether the articles were relevant to our research questions. Second, we skimmed the entire article to assure that the required information was available. Finally, in the third round, we read through the entire article from start to end to ensure that this information was helpful for our study and could address the research questions.
+
+To gather information from the selected articles corresponding to our research questions and criteria, we developed separate forms in Microsoft Word and Excel. We reviewed every section of the article from beginning to end and recorded details of the articles in these two forms whenever we found the answer to a corresponding research question. After compilation of the results, we placed these results in specific question-and-answer section tables and discarded the two temporary generated Word and Excel forms.
+
+We collected the following types of data from each article: author name(s), affiliation and country name, venue (journal or conference), publication year. We then collected the answers to the set of research questions from these articles and recorded the details of selected articles for further processing.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Results › Data Extraction and Addressing the Research Questions › SQ1: What are the Types or Models of FHIR Implementation?</h3>    <p>To address this question, we reviewed the literature in the FHIR domain and investigated various techniques, methods, and mechanisms used in the implementation of FHIR in the health care sector.
+
+At present, FHIR is the most attractive domain among health care researchers. Therefore, extensive efforts are being taken to implement FHIR with consideration of multiple aspects and diverse areas. We obtained 11 categories for FHIR implementation. From a platform point of view, we considered the implementation of mobile/tablet apps [3,9,28,35,39,51,57,60,65,70,72,77,82], standalone apps/servers [3,23,51,58,61], web services/API [3,11,14,26,34,36, 40,48,53,56,71,78], and web-based tools/applications [18,26,37,40,42,46,55,69,78] categories. From a conceptual framework, we considered the categories of general FHIR implementation [48,59], using SMART on FHIR [3,14,22,31], HL7 API (HAPI)-FHIR server/library/applications [14,16,20,32,34-36,40,43,51,54,55,73,76,81,82], and FHIR general framework [14,40,78]. In consideration of compatibility, we chose FHIR data model/data exchange [5,11,26,45,55,66,67,73] and defining ontology to align with FHIR [44,68,69] as the main categories. In addition, we classified all implementation-related work under the miscellaneous category [21,25,30,32,47,60,71], such as FHIR implementation of the legacy clinical data repository system, FHIR implementation of the agent-based system, implementation of operational data model metadata [86] to FHIR questionnaire resource implementation, FHIR implementation of the electronic treatment form, Clinical Asset Mapping Program for FHIR, integration of the architecture of domain information model (ISO/IEEE 11073 DIM) [31] with FHIR, and FHIR-based decision support systems.</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Results › Data Extraction and Addressing the Research Questions › SQ2: What are the Common Resources Used in FHIR Implementation?</h3>    <p>The FHIR community has defined more than 150 resources to date [6]. For this research question, we reviewed the literature in the FHIR domain to identify various FHIR resources used in implementation. We observed that approximately 82 different types of resources have been used in FHIR implementation in various articles. The resource names and the articles mentioned in various resources are shown in Table 8.
+
+In the miscellaneous category, we list all of the articles that mention only one or two resources: (1) Activity Definition, (2) Adverse Reaction, (3) Adverse Event, (4) Address, (5) Billing, (6) Bundle, (7) Contraindication, (8) Conformance, (9) Consent, (10) Concept Map, (11) Claim, (12) Clinical, (13) Clinical Study Plan (14), Clinical Impression (15), Care Team, (16) Category, (17) Coverage, (18) Device Component, (19) Device Observation Report, (20) Document Manifest (21), Document Reference (22), Dosage (23), Data Element (24), Diagnostic (25), Diagnostic Order (26), Drug Administration, (27) Element, (28) Element Definition (29), Equipment (30), Gender (31), Goal (32), Group (33), Intolerance (34), Imaging Study (35), Imaging Manifest (36), Medication Dispense, (37) Message Profile, (38) Nutrition Order, (39) Procedure Request, (40) Provenance (41), Provider, (42) Risk Assessment, (43) Research Definition, (44) Request Group, (45) Relative, (46) Related Person, (47) Schedule, (48) Specimen, (49) Staff (50), Structure Definition.
+
+List of resources used in Fast Health Interoperability Resources implementation.</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Results › Data Extraction and Addressing the Research Questions › SQ3: What are the Applications that Benefit from the use of FHIR?</h3>    <p>We attempted to thoroughly investigate the literature from various directions and provide the readers with a comprehensive summary of every aspect of FHIR. In this section, we consider the type of applications that can benefit from the FHIR standard, including health care systems/applications benefit in terms of interoperability/data exchange, rules, security/privacy, conformance, health care process, and administration. Thus, we came up with eight categories based on how the applications make use of the FHIR standard (Table 9). In the miscellaneous category, we included all articles that address the type of applications that benefit from the FHIR standard but do not fall under any of the other categories mentioned above (eg, clinical applications for data exchange, testing applications). Table 9 shows the articles that address specific applications that benefit from the FHIR standard.
+
+SMART on FHIR is mentioned under implementation in Table 8 as well as under applications in Table 9. Articles that mentioned SMART on FHIR implementation, either fully or partially, were grouped into one category, and the articles that mentioned any applications that benefit from the SMART on FHIR concept were considered as a different category. Thus, in Table 8, we list articles that mention SMART on FHIR in various implementations, whereas in Table 9, we list applications that benefit from SMART on FHIR platforms.
+
+The SMART platform is a health data layer based on the FHIR API and resource definitions [87]. From the beginning, the SMART team selected platform components that emphasize web standards (eg, HTML, JavaScript, OAuth, and Resource Description Framework) [3]. This setup results in the HL7 legacy versions (ie, v2, v3, CDA) to be unable to implement SMART applications. All previous versions could not use a web API for data access and were unable to access data at the granular level. Additionally, the CDA is based on the reference information model and is lacking in sufficient detail, whereas version 2 suffers from inconsistencies across implementations and version 3 is complex, which leads to incompatible documents and systems [3].
+
+In contrast, the FHIR standard uses web APIs for data access, which is capable of accessing the clinical data at the granular level. The SMART on FHIR concept does not exist without support of the FHIR standard. Therefore, the SMART concept is developed after introducing the FHIR standard, and SMART on FHIR when considered as a standard has some predecessors. All of these contribute in one way or another to the current standards (FHIR) [88]. Considering all of this evidence, we conclude that SMART on FHIR is the main beneficiary of the FHIR standard compared with the other standards.
+
+During the literature review, we observed that mobile, research, and SMART on FHIR applications are the most common beneficiaries of the FHIR standard, followed by electronic records and medical practices, and web-based applications.
+
+Applications that benefit from the use of Fast Health Interoperability Resources (FHIR).</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Results › Data Extraction and Addressing the Research Questions › SQ4: What Approaches are Applied to Map or Migrate Data from Other HL7-Based Legacy Systems to the FHIR-Based System?</h3>    <p>At present, HL7 (v2 and CDA) is the most popular data standard in the health care sector, with many countries still using this standard for medical data exchange. Specifically, more than 35 countries implement the HL7 v2 standard and 95% of US health care organizations are still using this standard for medical data sharing among various health care organizations [89].
+
+Owing to its dynamic structure, FHIR provides numerous advantages such as flexibility to manage and retrieve granular clinical information from the whole document. Clinical practitioners and health care providers expect that the FHIR standard will soon occupy the health care market, and that it will replace all of the previous HL7 (eg, v2, v3, CDA) standards. Nevertheless, in this review, we found that FHIR is not likely to replace the previous HL7 (v2, v3, and CDA) standards within weeks or months, but might take years or decades. The rationale is related to the worldwide implementation of the earlier standards such as HL7 v2 and HL7 CDA. Furthermore, health care organizations argue that FHIR has not yet replaced the ubiquitous HL7 v2, and likely will not for several years, because many organizations have already recognized the value of adopting FHIR alongside legacy HL7 standards [27].
+
+Therefore, for addressing this research question, we reviewed the literature in the FHIR domain and investigated various articles that address the mechanisms to extract FHIR resources from HL7 or other previous standards, and to map or migrate them to the FHIR standard. We classified these mappings into six different categories (Table 10).
+
+All of the included articles that address the mapping of any standards to the FHIR standard, but that are not in the six categories mentioned above, were categorized as “miscellaneous/other standards to FHIR mapping.” Nevertheless, we found one study in which data were mapped from the FHIR standard to other standards, and the FHIR resource was mapped to the Web Ontology Language–based ontology [27]. Table 10 shows the list of articles categorized into different mapping categories.
+
+Approaches used to map or migrate data from other Health Level 7 (HL7)-based legacy systems to the Fast Healthcare Interoperability Resources (FHIR)-based system.</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Results › Data Extraction and Addressing the Research Questions › SQ5: What are the Goals of FHIR?</h3>    <p>For this research question, we reviewed the literature in the FHIR domain to identify or investigate the goals of the FHIR standard in the health care domain. According to the objectives of the reviewed articles, we divided the inquiries regarding the goals into seven different objectives (Table 11). Table 11 shows the articles that address various goals of the FHIR standard, demonstrating that most of these articles focus on the result rather than other goals and objectives.
+
+Goals of Fast Healthcare Interoperability Resources.</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>Results › Data Extraction and Addressing the Research Questions › SQ6: What are the Challenges and Open Questions Related to FHIR?</h3>    <p>As the latest standard in the health care domain, it is predictable that FHIR will face various challenges in terms of implementation, adoption, maintenance, data exchange, and other issues. In addition, numerous questions will be raised with respect to use of the FHIR standard. Therefore, for this research question, we reviewed the literature in the FHIR domain to identify various challenges faced by the FHIR standard. We found 19 articles that discussed the implementation challenges, highlighting seven areas of challenge for the FHIR standard (Table 12).
+
+Observations made during the literature review led us to conclude that implementing FHIR in any type of application is the most challenging task in the health care sector; 9 of the 19 related articles discussed this issue. Developers face various types of challenges during the development of any FHIR-based application. Table 12 lists the articles that mentioned these challenges.
+
+Challenges and open questions related to Fast Healthcare Interoperability Resources (FHIR).</p>
+  </section>
+  <section id="s26" class="text-unit">
+<h3>Discussion › Principal Findings</h3>    <p>This systematic literature review successfully identified both qualitative and quantitative sets of studies that enable obtaining a clear view of the FHIR standard in health care in the past 8 years, starting from the selected number of articles. Some of the most relevant studies in the field are highlighted according to systematic selection criteria. We identified the main topics associated with the use of FHIR in digital health. Many articles dealt with topics related to FHIR implementations and use resources, as well as data migration data models. As expected, various application categories such as mobile apps, SMART on FHIR applications, and research applications were the main topics associated with FHIR. Multiple challenges in FHIR adoption and implementation were also highlighted in the included articles. Interestingly, only a small number of relevant articles addressed FHIR goals.
+
+At the beginning of this study, we planned to identify some common aspects in this field by answering some fundamental research questions. Hence, we established six research questions to address the objectives, goals, applications, and challenges of FHIR emerging in recent years. As a result, we can propose a taxonomy of the literature, and identify gaps to be further investigated on existing challenges and issues related to use of the FHIR standard in recent years. We also identify other common and related aspects with respect to interoperability, privacy, authorization (access control), data type, and testing and validation tools. For example, interoperability between the provider and hospital systems poses additional barriers to effective data sharing. In addition, various testing and validation tools are used to improve server compliance with the FHIR specification. Moreover, FHIR specifications define different data types to access and process the FHIR resources element.
+
+Various FHIR-related studies aim to address FHIR implementation challenges such as data migration and cross-institutional sharing of clinical data in the clinical environment [60,71]. The main findings that are presented in these reviews and some other related studies include the importance of realizing EHR data interoperability via adoption of FHIR by health care providers. This adoption might be essential for the improvement of health care services with respect to health data sharing, integration, and availability. Furthermore, use of the FHIR standard in the health care sector may enhance the chance of adoption of smart technologies in the health care domain, such as smartphones, mobile health apps, tablets, smart watches, fitness trackers, and any other future innovations [90]. Furthermore, use of artificial intelligence technologies and data sciences will also be dominant in implementing FHIR-based applications.
+
+FHIR is viewed as the latest standard purely operating on resources, which are used for data storage, migration, and processing among multiple health care providers. The resources-based structure of FHIR is declared as distinct from other standards and is considered to be its main advantage. FHIR has several advantages that range from being a flexible standard, minimal implementation complexity, ability to display the patient history in a single document, granular data access, and avoiding message variability with the use of RESTful APIs.
+
+FHIR is considered to be a unique pathway that can offer a solution to the interoperability issues of clinical data. Nevertheless, various studies indicate that FHIR also faces numerous challenges such as implementation, adoption, maintenance, mapping, and standard complexity. The RESTful API that makes FHIR unique from other standards also faces its own challenges in accessing sensitive health care data stored in the cloud environment [36].
+
+Numerous studies have shown that several applications used in different domains are taking advantage of FHIR, including mobile apps, SMART on FHIR applications, research applications, electronic records and medical applications, graphic/image applications, HAPI FHIR application, and web-based applications.
+
+To the best of our knowledge, this is the first comprehensive systematic literature review that focuses on FHIR-based EHR. There are some systematic literature reviews available in the FHIR domain; however, we found that the existing reviews are unable to explain the FHIR standard in detail. The FHIR standard is very rich, and therefore research in this domain is equally diverse with focus in various directions. Readers are interested in searching for articles that do not only introduce the FHIR standard but also explain various aspects of the standard in detail. For example, Lehne et al [91] only reviewed articles related to a general introduction of FHIR, without providing in-depth analysis on either FHIR or articles mentioning FHIR. In particular, the titles or identification of included articles and more comprehensive details of the included articles are missing. Based on a thorough reading, we concluded that this previous review could not fully introduce and address various aspects of FHIR, such as challenges, applications, goals, mapping, and implementation models. Moreover, individual aspects of the reviewed articles were not explained adequately. Therefore, it is not possible to find a corresponding article when interested in a particular topic. Further, the authors focused on articles published between 2002 and 2018, although the FHIR concept was only introduced in 2011; thus, this was a mixed review of EHR and FHIR with little focus on FHIR itself. Lastly, the authors included only 15 references in the review, which is not sufficient for a systematic literature survey.
+
+Similarly, another systematic literature review [90] only explained the general concept and current status of FHIR, whereas core issues such as challenges, goals, and application implementation were not discussed. Important articles that discuss the FHIR resources used in various application implementations were also not included in this review. Although this previous review analyzed some articles in the FHIR domain, the list of articles was not provided or explained properly. Therefore, it is quite difficult for readers to search for articles related to specific information of interest, such as FHIR applications, goals, challenges, and used resources. This information is the core requirement for readers interested in this field. Thus, we concluded that the existing reviews only introduced the FHIR standard without performing a comprehensive analysis of the current state of the field.
+
+In this work, we deeply explored the literature and identified articles that not only mention the FHIR standard but also discuss its major aspects such as core challenges, applications, goals, mapping, used resources, and implementation models. In addition, we highlighted every article along with their references and addressed aspects such as those mentioned above. We searched existing databases for articles on the FHIR standard published between 2012 and 2019, and then included every article that discussed or mentioned even a single aspect of the FHIR standard. This approach provides a convenient resource for readers to easily search articles of interest in the literature.
+
+FHIR is a new standard in the health care domain. It is still in the early stages of development and evaluation, and consequently faces numerous obstacles. We believe that these obstacles might eventually be overcome, thereby opening a new roadmap to solving the problem of data interoperability in the health care sector, which is in line with the findings of the literature review and remains the main objective of our research.</p>
+  </section>
+  <section id="s27" class="text-unit">
+<h3>Discussion › Limitations</h3>    <p>This study was limited to aspects related only to the FHIR standard rather than the general health care concept. In this sense, the literature review focused exclusively on articles addressing FHIR concepts. This work sought to answer research questions proposed for providing an outline of the current literature related to FHIR without specifically assessing any computer system that refers to FHIR use. In addition, our search focused on articles published in various scientific journals related to health care and computer science within a limited time frame. This investigation was limited to articles selected from journals/conferences through implementations of standard steps of the systematic literature review methodology. We focused on scientific articles and did not address commercial or more technological approaches or solutions.</p>
+  </section>
+  <section id="s28" class="text-unit">
+<h3>Discussion › Conclusion</h3>    <p>This study provides a systematic literature review regarding the FHIR EHR standard, with the main objective of identifying and discussing the main issues, challenges, goals, and possible benefits from adoption of the FHIR standard in the health care sector. We have explored the FHIR-related literature and investigated articles associated with the FHIR standard in health care information systems. We identified various data models, methods/techniques used in FHIR implementation, FHIR beneficiary applications, and resources used in FHIR implementation. Various data mapping techniques/approaches, key challenges, and primary goals of FHIR were also explored. We observed that FHIR studies mainly focus on clinical data interoperability and portability issues between health care information systems.
+
+The FHIR standard is capable of providing an optimized solution for medical data exchange between two systems and will establish data-sharing trust among health care providers. Furthermore, the FIHR standard is identical in terms of the support of smart technologies such as smartphones, tablets, mobile health apps, smart watches, and fitness trackers, which could solve numerous health care problems that were not possible for the previous standards (ie, HL7 v2, v3 and CDA). Based on this thorough investigation of the literature, we recommend the FHIR standard as a future suitable solution for addressing the health care interoperability problem. Nevertheless, FHIR itself faces some challenges such as implementation, standard complexity, and adoption, among others. Therefore, further research is required to address these challenges.
+
+This review on the standard, purpose, and applications of FHIR will provide readers with a more comprehensive view and understanding of FHIR. This review should also help researchers and health care information technology professionals to access FHIR-associated information in the research community and to assess its impact on digital health. Lastly, this work can provide a roadmap, and suggest possible directions for future research and development in the FHIR domain.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

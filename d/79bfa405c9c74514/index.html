@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Machine learning estimation and optimization for evaluation of pharmaceutical solubility in supercritical carbon dioxide for improvement of drug efficacy · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Machine learning estimation and optimization for evaluation of pharmaceutical solubility in supercritical carbon dioxide for improvement of drug efficacy</h1>
+<p class="authors">Hadil Faris Alotaibi, Chou-Yi Hsu, Fadhil Faez Sead, Anupam Yadav, Renuka Jyothi S, Swati Mishra, Bilakshan Purohit, Anorgul Ashirova, Murodjon Yaxshimuratov, Ashish Singh Chauhan</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Scientific reports</dd>
+<dt>Published</dt><dd>2025-10-14</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Manufacturing</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1038/s41598-025-19873-z">10.1038/s41598-025-19873-z</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/41087587/">41087587</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/41087587/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/41087587/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>79bfa405c9c74514</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>This study focuses on predicting the solubility of paracetamol and density of solvent using temperature (T) and pressure (P) as inputs. The process for production of the drug is supercritical technique in which the focus was on theoretical investigations of drug solubility and solvent density as well. Machine learning models with a two-input, two-output structure were developed and validated using experimental data on paracetamol solubility as well as density. Ensemble models with decision trees as base models, including Extra Trees (ETR), Random Forest (RFR), Gradient Boosting (GBR), and Quantile Gradient Boosting (QGB) were adjusted to predict the two outputs. The results are useful to evaluate the feasibility of process in improving the efficacy of the drug, i.e., its enhanced bioavailability. The hyper-parameters of ensemble models as well as parameters of decision tree tuned using WOA algorithm separately for both outputs. The Quantile Gradient Boosting model showed the best performance for mole fraction (drug solubility), while the R2 score of 0.985 was determined. For density of solvent, the Extra Trees model performed the best with an R2 equal to 0.997.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>This study focuses on predicting the solubility of paracetamol and density of solvent using temperature (T) and pressure (P) as inputs. The process for production of the drug is supercritical technique in which the focus was on theoretical investigations of drug solubility and solvent density as well. Machine learning models with a two-input, two-output structure were developed and validated using experimental data on paracetamol solubility as well as density. Ensemble models with decision trees as base models, including Extra Trees (ETR), Random Forest (RFR), Gradient Boosting (GBR), and Quantile Gradient Boosting (QGB) were adjusted to predict the two outputs. The results are useful to evaluate the feasibility of process in improving the efficacy of the drug, i.e., its enhanced bioavailability. The hyper-parameters of ensemble models as well as parameters of decision tree tuned using WOA algorithm separately for both outputs. The Quantile Gradient Boosting model showed the best performance for mole fraction (drug solubility), while the R2 score of 0.985 was determined. For density of solvent, the Extra Trees model performed the best with an R2 equal to 0.997.</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Modeling and simulation of pharmaceutical processes can help improve the process and is essential for shifting from batch to continuous paradigm in pharmaceutical manufacturing. Continuous production (CP) is a new paradigm in the pharma sector which can improve the process efficiency by better test and control of quality1,2. Different pharmaceutical unit operations in continuous mode have been designed and developed such as granulation, filtration, dryer, mixer, etc3,4. Despite development of continuous individual units for pharmaceutical processing of solid-dosage drugs, design and operation of seamless processing for end-to-end manufacturing in continuous mode is still a big challenge in pharmaceutical processing5. Different aspects of the process should be taken into account for design and operation of end-to-end manufacturing. Modeling of process is a great tool to develop continuous processing. Mechanistic models or data-driven models can be utilized for description of continuous pharmaceutical processing6.
+
+A newly developed green process which can be also used for continuous manufacturing of pharmaceutical formulations is supercritical-based technology which offers some superior characteristics in the area of pharmaceutical manufacture. Some modeling techniques have been developed to describe this new process for pharmaceutical preparation of solid-based products7–9. Another advantage of this process is that nanosized drugs can be formed using this technique which can solve the problem of low drug solubility in aqueous solutions. Indeed, drug bioavailability is increased with formation of drug particles at nanosized scale.
+
+Modeling of supercritical-based pharmaceutical processing is of vital importance for evaluation and feasibility study of the process for various drug substances. Given that the process is primarily driven by the drug’s solubility in the supercritical solvent, determination of drug solubility in the solvent is needed to be evaluated. Recent reports indicated that the methods based on artificial intelligence (AI) and machine learning (ML) outperformed in estimation of drug solubility in solvents and can improve the accuracy of solubility predictions/correlations9–11. The models of ML are developed by utilizing some measured data and can be used for estimation of solubility in vast majority of conditions such as different pressures and temperatures. Therefore, for solubility correlations of drugs, pressure and temperature are designated as the main input parameters. Moreover, the density of solvent is important to be evaluated by the ML model as it can significantly affect the solubility values.
+
+The application of machine learning has become increasingly important in predicting complex and non-linear relationships between input variables and results. Ensemble models, which combine the outputs of multiple base models to improve prediction accuracy, have become a popular choice for various scientific predictions12. Decision tree-based ensemble methods, such as Gradient Boosting and Random Forest have shown promising results in predicting various chemical parameters.
+
+The RFR and ETR models, both decision tree-based ensembles, predict by averaging multiple trees but differ in randomness: RFR selects random feature subsets for each tree, while ETR uses random thresholds at each node. Similarly, GBR and QGB, also decision tree-based, iteratively minimize a loss function to boost accuracy; however, QGB targets conditional quantiles, offering insights into prediction uncertainty.
+
+In this study, we focus on predicting the mole fraction for paracetamol as the model drug as well as the density of solvent (supercritical CO2) using temperature (T) and pressure (P) as inputs. To achieve this, we developed, as a novel method, a combined framework integrating decision tree–based ensemble models (RFR, ETR, GBR, and QGB) with the Whale Optimization Algorithm (WOA) for hyperparameter tuning in the context of drug solubility and solvent density prediction. As such, this is pioneering research developing hybrid model for estimation of paracetamol solubility in supercritical CO2.
+
+Correlation of all parameters for paracetamol solubility.
+
+Statistics of Paracetamol solubility data.
+
+Overall modelling framework.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Introduction › Data visualization</h3>    <p>The dataset for this study represents the modelling of the mole fraction of paracetamol as model drug and density of supercritical CO2 in relation to temperature and pressure inputs which is reported by13. Data for paracetamol was used by Song et al.14 for machine learning models, And their procedure is used in this study for developing our new models. So, the ML models are developed considering two inputs And two responses which are solubility And density. Temperature and pressure are the input features, and the target variables are mole fraction and density. The dataset contains 40 data points with temperatures ranging from 311 K to 358 K And pressures ranging from 95 bar to 265 bar. The dataset presents density and mole fraction values expressed in scientific notation. Figure 1 illustrates the correlation matrix among the studied variables. In this representation, warmer shades correspond to stronger correlation coefficients, whereas cooler tones denote weaker associations. This can be useful for identifying which variables are most strongly correlated with each other and for detecting any patterns or trends in the data. Table 1 presents a summary of the statistical information pertaining to the dataset.
+
+Fig. 1Correlation of all parameters for paracetamol solubility.
+
+Table 1Statistics of Paracetamol solubility data.VariableMeanStandard deviationMinimumMaximumT (K)327.333320.36595311358P (bar)144.166753.5058495265Mole fraction5.190E-065.983E-063.100E-071.640E-05Density (kg/m3)633.0737181.5278196.2869898.951
+
+Correlation of all parameters for paracetamol solubility.
+
+Statistics of Paracetamol solubility data.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Introduction › ML methodology</h3>    <p>This study presents a methodology for modeling and comparing the results of these models. The procedural steps are depicted in the flowchart illustrated in Fig. 2. The initial stages involve preprocessing. Because the dataset contains a small number of data rows with no missing values, there is no need to impute missing data. Consequently, in this phase, an examination of the outliers is conducted and the data is subjected to normalization.
+
+In the following, the mentioned models are optimized with the involvement of WOA algorithm to obtain the optimal hyperparameters and use them in the final models. After this step, the final models were compared and the most appropriate model was selected for each of the two outputs to be used in the final analysis.
+
+Fig. 2Overall modelling framework.
+
+For data preprocessing, outlier detection was performed using the Isolation Forest algorithm15, which identifies anomalies. The method is effective for small datasets, as it does not rely on distributional assumptions. Following outlier detection, the dataset was normalized using the Min-Max Scaler16, which rescales the values of each feature to the range [0,1].
+
+The dataset was divided into 80% training And 20% testing sets utilizing a fixed random seed of 42 to guarantee consistency; no stratification or repeated/nested splits were implemented due to the limited dataset size. Although normalization is not strictly required for tree-based models, we applied Min-Max scaling to the input features (temperature and pressure) to ensure consistent preprocessing across all models, particularly because the WOA operates in a continuous search space where scaling helps maintain stability and comparability of hyperparameter tuning.
+
+Overall modelling framework.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Introduction › Whale optimization algorithm (WOA)</h3>    <p>The WOA is a population-based optimizer technique that emulates the foraging strategy of humpback whales during bubble-net feeding. The procedure commences with the initialization of a population of potential solutions, which are denoted as a group of whales17,18. The whales then advance toward the most promising solution by employing three primary mechanisms: foraging, spiral motion, and bubble-net feeding19. These strategies are derived from the natural hunting methods of humpback whales, renowned for their efficacy in prey capture17,20.
+
+The WOA minimizes an objective function f(x) through an iterative population-based process. It begins by randomly initializing a set of candidate solutions (whales) and evaluating their fitness. At each iteration, the best whale found so far is updated, and each whale adjusts its position using one of three strategies—prey searching, spiral movement, or bubble-net encirclement—while ensuring solutions remain within boundaries. Fitness values are recalculated, and the best solution is updated until a stopping criterion is reached, making WOA a simple yet effective optimization technique with broad applicability.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Introduction › Random forest regression (RFR)</h3>    <p>RFR is a powerful model that belongs to the ensemble learning family of models. It is a flexible and easy-to-use model that is versatile in handling both regression and classification tasks21,22. In this description, we will focus on the RFR model for regression tasks.
+
+The RFR model is a collection of decision trees that work together to make predictions. The core principle of decision tree learning is the recursive partitioning of the dataset into progressively smaller subsets, guided by the features that provide the greatest discriminatory power with respect to the target variable. The RFR model takes this idea a step further by using a collection of decision trees to arrive at a final prediction23,24.
+
+The equation for the prediction of the RFR model is expressed as25:\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:f\left(x\right)=\frac{1}{M}{\sum\:}_{m=1}^{M}T\left(x,{{\uptheta\:}}_{m}\right)$$\end{document}
+
+Here, \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:f\left(x\right)$$\end{document} is the predicted target value for input vector \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:x$$\end{document}, \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:M$$\end{document} is the quantity of decision trees, \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{{\uptheta\:}}_{m}$$\end{document} are the parameters of tree \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:m$$\end{document}, and \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:T\left(x,{{\uptheta\:}}_{m}\right)$$\end{document} is the prediction of tree \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:m$$\end{document} for input vector \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:x$$\end{document} and parameters \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{{\uptheta\:}}_{m}$$\end{document}. The output of the model is the average prediction of all tree models in the forest.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Introduction › Extra trees regression (ETR)</h3>    <p>ETR algorithm is a form of tree-based ensemble learning utilized in regression tasks. This model is founded on the Random Forest algorithm, which employs a collection of decision tree models to forecast the target variable. In the context of ETR, the decision trees are constructed utilizing a randomized split-point selection mechanism, resulting in greater diversity and reduced correlation compared to the decision trees employed in Random Forest26.
+
+Let \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:X={x}_{1},{x}_{2},\dots\:,{x}_{n}$$\end{document} be the input features and \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:Y={y}_{1},\dots\:,{y}_{n}$$\end{document} be the corresponding target values. ETR aims to learn a mapping from X to Y, which can be represented as \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:f\left(X\right)=Y$$\end{document}. To fulfill this aim, the ETR model constructs a large number of decision trees \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{T}_{1},{T}_{2},\dots\:,{T}_{m}$$\end{document}, each of which is trained based on a randomly selected subset of the train data and features.
+
+The ETR model generates random splits for each decision tree by selecting a random subset of features for each split and choosing a random split point within the range of the feature values. This process makes the trees more diverse and less prone to overfitting than traditional decision trees. By averaging the results of numerous decision trees, the ETR model arrives at its final prediction27. The ETR model has several hyperparameters, including the count of base decision trees to build and the maximum tree depth as the most critical settings.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Introduction › Gradient boosting regression (GBR)</h3>    <p>GBR algorithm is a widely used model that utilizes decision trees as fundamental learners to generate predictions. The iterative process of incorporating decision trees into the ensemble model is a fundamental aspect of the algorithm, whereby each subsequent tree is designed to rectify the inaccuracies of its predecessor. This approach allows the model to improve its predictions over time and achieve a high level of accuracy28,29.
+
+During each iteration, the GBR computes the negative gradient of the loss function in relation to the predicted values, followed by the fitting of a decision tree to this gradient30. The algorithm then adds this tree to the ensemble and adjusts the weights of the observations, giving more importance to those that were predicted poorly in the previous round31.
+
+The method can be summarized in following working steps30,32:
+
+Begin the model with a fixed value, usually the mean of response: \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{F}_{0}\left(x\right)=\text{arg}\underset{{\upgamma\:}}{\text{min}}{\sum\:}_{i=1}^{n}L\left({y}_{i},{\upgamma\:}\right)$$\end{document}
+
+2.For m in range(1, M):
+
+Calculate the negative gradient of the loss function concerning the present model output: \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{r}_{im}=-\frac{\partial\:L\left({y}_{i},F\left({x}_{i}\right)\right)}{\partial\:F\left({x}_{i}\right)}\:\:{|}_{F\left(x\right)={F}_{m-1}\left(x\right)}$$\end{document}
+
+Generate a decision tree as: \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{h}_{m}\left(x\right)={\sum\:}_{j=1}^{{J}_{m}}{c}_{jm}I\left(x\in\:{R}_{jm}\right)$$\end{document}
+
+Update the model output by adding the tree’s predictions, multiplied by a learning rate: \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{F}_{m}\left(x\right)={F}_{m-1}\left(x\right)+{\upnu\:}{h}_{m}\left(x\right)$$\end{document}
+
+3.Return the final model output, which is the sum of all individual decision trees: \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{F}_{M}\left(x\right)={\sum\:}_{m=1}^{M}{\upnu\:}{h}_{m}\left(x\right)$$\end{document}</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Introduction › Quantile gradient boosting regression (QGB)</h3>    <p>QGB is a decision tree-based method used for predicting conditional quantiles. Similar to traditional gradient boosting regression, QGB combines multiple weak models to form a strong model capable of handling complex non-linear problems. However, instead of minimizing the mean squared error (MSE) or another point-wise loss function, QGB minimizes a quantile regression loss function, which directly estimates the conditional quantiles of the target variable33,34.
+
+The objective function of QGB can be formulated as follows35:\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:\text{QGB}\left(x\right)={q}_{{\uptau\:}}\left(F\left(x\right)\right)+{\sum\:}_{m=1}^{M}{{\upgamma\:}}_{m}{h}_{m}\left(x\right)$$\end{document}
+
+where \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:\text{QGB}\left(x\right)$$\end{document} stands for the prediction of the QGB model for a given data point \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:x$$\end{document}, \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{q}_{{\uptau\:}}\left(F\left(x\right)\right)$$\end{document} denotes the \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{\uptau\:}$$\end{document}-th conditional quantile of the target parameter y given the input x, F(x) is the current approximation of the conditional distribution of y given x, \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{{\upgamma\:}}_{m}$$\end{document} is the weight of the mth tree, and \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\:{h}_{m}\left(x\right)$$\end{document} is the prediction of the mth decision tree.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Results</h3>    <p>Modeling And ML evaluations were performed using Python 3.13 accessible freely from: https://www.python.org. The error rates and scores of the four ensemble models for predicting the targets are displayed in Table 2. Overall, the results reveal that the QGB model is the most suitable for predicting Mole Fraction of the paracetamol drug, while ETR has the best performance for solvent Density predictions. Therefore, in the following subsections we used these two models to analyze two target outputs of this study. It is also revealed that all the ML models are finely tuned so that the value of R2 for all cases is greater than 0.9 which is acceptable for the correlation of solubility data and density of solvent at supercritical condition.
+
+Table 2The results of the tuned models for mole fraction and density as outputs.ModelOutputR2 scoreMSEMAPEMax ErrorRFRMole fraction0.901091.5951E-123.44237E-012.88831E-06ETR0.937091.2241E-123.05439E-011.76273E-06GBR0.982253.9006E-133.48290E-011.11545E-06QGB0.985513.4043E-132.51847E-011.01547E-06RFRDensity0.98695.9735E + 023.60135E-025.47199E + 01ETR0.997391.3351E + 021.75167E-021.61284E + 01GBR0.985468.1942E + 025.94288E-026.09604E + 01QGB0.973241.1989E + 037.65950E-027.12475E + 01
+
+The results of the tuned models for mole fraction and density as outputs.
+
+Fitting plot for Mole fraction using QGB model.
+
+Trends of temperature on mole fraction output in different pressure levels.
+
+Trends of pressure on mole fraction output in different Temperature levels.
+
+Mole fraction contour plot.
+
+3D surface of mole fraction based on temperature and pressure.
+
+Fitting plot for density using ETR model.
+
+Trends of temperature on density output in different pressure levels.
+
+Trends of pressure on density output in different temperature levels.
+
+Density contour plot.
+
+3D surface of density based on temperature and pressure.
+
+3-fold cross-validation results for mole fraction and density predictions.
+
+The results of modeling for solubility achieved in this study and comparisons with other studies.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Results › Final model for mole fraction</h3>    <p>The final model selected for prediction of mole fraction is Quantile Gradient Boosting (QGB) with 140 decision trees, learning rate equal to 1.46 And tolerance value of 0.0411. Figure 3 demonstrates the good agreement between actual experimental values and predicted mole fraction values using this model. Indeed, both training and testing dataset are shown in this figure to illustrate the overfitting is also avoided by using and tuning this model for the entire dataset. Some deviations can be observed for the training set (blue ones), while for the testing set (orange ones) the agreement is quite acceptable for the entire range of paracetamol solubility. Song et al.14 reported similar accuracy and data scattering for fitting paracetamol data.
+
+Fig. 3Fitting plot for Mole fraction using QGB model.
+
+After observing the actual and predicted values and their distance, the single effect of the two input parameters on the mole fraction output has been evaluated, the results of which can be seen in Figs. 4 and 5. The presented data illustrates a general rise in mole fraction as a function of the increase in both input parameters. At low pressure levels, the mole fraction is decreased with rising the temperature (see Fig. 4), whereas a rising trend has been obtained for the higher pressure values (&gt; 95 bar) which is indicator for cross-over pressure point in the solubility data. At the pressures above 95 bar, the effect of temperature dominated which resulted in increasing the mole fractions14.
+
+Also, Fig. 6 is the 2D contour plot of mole fraction based on two inputs. Finally, the 3D surface plot of this parameter as a function of temperature and pressure is displayed in Fig. 7. Paracetamol solubility is changed with the input parameters and its variations trend is increasing for the two parameters, so that the highest solubility has been obtained at the highest pressure and temperature considered in this study.
+
+Fig. 4Trends of temperature on mole fraction output in different pressure levels.
+
+Fig. 5Trends of pressure on mole fraction output in different Temperature levels.
+
+Fig. 6Mole fraction contour plot.
+
+Fig. 73D surface of mole fraction based on temperature and pressure.
+
+Fitting plot for Mole fraction using QGB model.
+
+Trends of temperature on mole fraction output in different pressure levels.
+
+Trends of pressure on mole fraction output in different Temperature levels.
+
+Mole fraction contour plot.
+
+3D surface of mole fraction based on temperature and pressure.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Results › Final model for density</h3>    <p>The final model selected for prediction of density is Extra Trees (ETR) with 12 decision trees with maximum tree depth of 9 and absolute error as criterion. As depicted in Fig. 8, the predicted density values using this model are in excellent agreement with the actual experimental values which confirms the model is finely optimized for correlation of solvent density14.
+
+Fig. 8Fitting plot for density using ETR model.
+
+Upon analyzing the observed and predicted values and their respective distances, the singular impact of the two input parameters on the output of density has been assessed. The findings of this analysis are presented in Figs. 9 and 10. The presented data illustrates a decrease in density with increasing temperature a general rise in density as a function of the increase in pressure input parameters14. Figure 11 depicts a two-dimensional contour plot of density that is based on two inputs. Figure 12 shows the 3D surface plot of this parameter as a function of temperature and pressure.
+
+Fig. 9Trends of temperature on density output in different pressure levels.
+
+Fig. 10Trends of pressure on density output in different temperature levels.
+
+Fig. 11Density contour plot.
+
+Fig. 123D surface of density based on temperature and pressure.
+
+To further demonstrate the robustness of the models and the absence of overfitting despite the limited dataset size (40 data points), a 3-fold cross-validation (CV) was performed (Table 3). In this setup, the dataset was divided into three equal folds (approximately 13–14 points each), with each fold serving as the validation set once while the remaining two folds were used for training. The models were retrained and evaluated in each iteration using the same hyperparameter tuning via WOA. The performance metrics (R² score, MSE, MAPE, and Max Error) were averaged across the three folds, with standard deviations reported to indicate consistency. These CV results are comparable to the hold-out test set metrics in Table 2, confirming that the models generalize well without overfitting, as the CV scores remain high and stable.
+
+To evaluate the relative importance of input features in predicting paracetamol solubility And solvent density, permutation-based feature importance was computed for the QGB And ETR models. For mole fraction prediction using QGB, pressure contributed 62.3% to the model’s performance, while temperature accounted for 37.7%. For density prediction using ETR, pressure was dominant with An importance of 78.5%, And temperature contributed 21.5%. These results, derived by permuting each feature and measuring the increase in MSE, highlight pressure as the primary driver for both outputs, consistent with the physical behavior of supercritical CO₂ systems.
+
+Table 33-fold cross-validation results for mole fraction and density predictions.ModelOutputAvg R² (Std Dev)Avg MSE (Std Dev)Avg MAPE (Std Dev)Avg max error (Std Dev)RFRMole fraction0.892 (0.021)1.712E-12 (2.14E-13)0.358 (0.045)3.012E-06 (4.23E-07)ETR0.928 (0.018)1.348E-12 (1.89E-13)0.317 (0.039)1.891E-06 (3.12E-07)GBR0.976 (0.012)4.215E-13 (5.67E-14)0.362 (0.028)1.234E-06 (1.89E-07)QGB0.979 (0.009)3.728E-13 (4.56E-14)0.264 (0.022)1.128E-06 (1.45E-07)RFRDensity0.981 (0.015)642.78 (78.92)0.039 (0.007)58.34 (6.78)ETR0.994 (0.008)152.67 (21.34)0.019 (0.004)17.89 (2.56)GBR0.979 (0.017)892.15 (104.56)0.062 (0.009)65.12 (7.89)QGB0.968 (0.023)1287.42 (156.78)0.081 (0.012)76.45 (9.34)
+
+The results obtained in this study were compared with the other studies on ML modeling drug solubility in terms of Mean Absolute Percentage Error (MAPE), and the outcomes are indicated in Table 4. It is seen that the best model, i.e., QGB, optimized in this work outperformed other regressive ML models (GRNN and POR) for prediction of drug solubility in the supercritical CO2.
+
+Table 4The results of modeling for solubility achieved in this study and comparisons with other studies.ModelMAPEQGB model (This work)0.25GRNN model360.86POR model370.33
+
+Fitting plot for density using ETR model.
+
+Trends of temperature on density output in different pressure levels.
+
+Trends of pressure on density output in different temperature levels.
+
+Density contour plot.
+
+3D surface of density based on temperature and pressure.
+
+3-fold cross-validation results for mole fraction and density predictions.
+
+The results of modeling for solubility achieved in this study and comparisons with other studies.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Discussion</h3>    <p>The findings of this study highlight the potential of machine learning–assisted modeling to improve understanding and optimization of drug solubility in supercritical carbon dioxide. Accurate prediction of solubility and solvent density is not only a theoretical exercise but also has direct implications for pharmaceutical formulation and manufacturing to improve the drug efficacy. Improved solubility prediction can guide formulation scientists in selecting optimal processing conditions, thereby reducing experimental trial-and-error, lowering costs, and accelerating development timelines. For patients, this translates into more efficient drug formulations with enhanced bioavailability, particularly important for poorly water-soluble compounds.
+
+Supercritical CO₂ processing itself is an emerging green technology with growing relevance in pharmaceutical workflows. Its ability to generate nanosized drug particles offers a pathway to overcoming solubility and dissolution challenges without relying heavily on organic solvents. Integrating reliable predictive models with such processes can support scale-up, facilitate continuous manufacturing approaches, and align with the industry’s move toward more sustainable production methods.
+
+Overall, the present work demonstrates that machine learning can serve as a bridge between computational modeling and practical pharmaceutical applications. By enabling better-informed decisions on drug solubility and processing conditions, these approaches can support both innovation in manufacturing and the broader goal of improving drug efficiency and patient outcomes.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Conclusion</h3>    <p>This study examined how temperature (T) and pressure (P) can be used to predict the mole fraction solubility of paracetamol and the density of the supercritical solvent. The process considered in this study is a supercritical process for measuring the solubility of paracetamol, which can be then used as new technology for preparation of nanomedicine to enhance drug’s bioavailability. The study developed ensemble models utilizing decision trees as base models, specifically Random Forest (RFR), Extra Trees (ET), Gradient Boosting (GB), and Quantile Gradient Boosting (QGB), for the purpose of predicting two outputs. The hyperparameters of ensemble models and the parameters of decision trees were individually optimized for both outputs through the utilization of the WOA algorithm. The model of Quantile Gradient Boosting exhibited superior performance in relation to mole fraction, as evidenced by an R2 score of 0.985 And a maximum error of 1.015 × 10−6. The Extra Trees model exhibited superior performance in terms of density, as evidenced by its R2 score of 0.997 And maximum error of 16.13.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

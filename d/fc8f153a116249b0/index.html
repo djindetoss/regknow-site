@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Deep learning in rib fracture imaging: study quality assessment using the Must AI Criteria-10 (MAIC-10) checklist for artificial intelligence in medical imaging · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Deep learning in rib fracture imaging: study quality assessment using the Must AI Criteria-10 (MAIC-10) checklist for artificial intelligence in medical imaging</h1>
+<p class="authors">Jonas M Getzmann, Kitija Nulle, Cinzia Mennini, Umberto Viglino, Francesca Serpi, Domenico Albano, Carmelo Messina, Stefano Fusco, Salvatore Gitto, Luca Maria Sconfienza</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Insights into imaging</dd>
+<dt>Published</dt><dd>2025-08-09</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Evaluation of AI in health (frameworks, reporting guidelines, clinical validation)</span><span class="chip">Validation</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1186/s13244-025-02046-x">10.1186/s13244-025-02046-x</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40783476/">40783476</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40783476/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/40783476/</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>fc8f153a116249b0</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>To analyze the methodological quality of studies on deep learning (DL) in rib fracture imaging with the Must AI Criteria-10 (MAIC-10) checklist, and to report insights and experiences regarding the applicability of the MAIC-10 checklist. An electronic literature search was conducted on the PubMed database. After selection of articles, three radiologists independently rated the articles according to MAIC-10. Differences of the MAIC-10 score for each checklist item were assessed using the Fleiss&#39; kappa coefficient. A total of 25 original articles discussing DL applications in rib fracture imaging were identified. Most studies focused on fracture detection (n = 21, 84%). In most of the research papers, internal cross-validation of the dataset was performed (n = 16, 64%), while only six studies (24%) conducted external validation. The mean MAIC-10 score of the 25 studies was 5.63 (SD, 1.84; range 1-8), with the item &#34;clinical need&#34; being reported most consistently (100%) and the item &#34;study design&#34; being most frequently reported incompletely (94.8%). The average inter-rater agreement for the MAIC-10 score was 0.771. The MAIC-10 checklist is a valid tool for assessing the quality of AI research in medical imaging with good inter-rater agreement. With regard to rib fracture imaging, items such as &#34;study design&#34;, &#34;explainability&#34;, and &#34;transparency&#34; were often not comprehensively addressed. AI in medical imaging has become increasingly common. Therefore, quality control systems of published literature such as the MAIC-10 checklist are needed to ensure high quality research output. Quality control systems are needed for research on AI in medical imaging. The MAIC-10 checklist is a valid tool to assess AI in medical imaging research quality. Checklist items such as &#34;study design&#34;, &#34;explainability&#34;, and &#34;transparency&#34; are frequently addressed incomprehensively.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractObjectivesTo analyze the methodological quality of studies on deep learning (DL) in rib fracture imaging with the Must AI Criteria-10 (MAIC-10) checklist, and to report insights and experiences regarding the applicability of the MAIC-10 checklist.Materials and methodsAn electronic literature search was conducted on the PubMed database. After selection of articles, three radiologists independently rated the articles according to MAIC-10. Differences of the MAIC-10 score for each checklist item were assessed using the Fleiss’ kappa coefficient.ResultsA total of 25 original articles discussing DL applications in rib fracture imaging were identified. Most studies focused on fracture detection (n = 21, 84%). In most of the research papers, internal cross-validation of the dataset was performed (n = 16, 64%), while only six studies (24%) conducted external validation. The mean MAIC-10 score of the 25 studies was 5.63 (SD, 1.84; range 1–8), with the item “clinical need” being reported most consistently (100%) and the item “study design” being most frequently reported incompletely (94.8%). The average inter-rater agreement for the MAIC-10 score was 0.771.ConclusionsThe MAIC-10 checklist is a valid tool for assessing the quality of AI research in medical imaging with good inter-rater agreement. With regard to rib fracture imaging, items such as “study design”, “explainability”, and “transparency” were often not comprehensively addressed.Critical relevance statementAI in medical imaging has become increasingly common. Therefore, quality control systems of published literature such as the MAIC-10 checklist are needed to ensure high quality research output.Key Points Quality control systems are needed for research on AI in medical imaging.The MAIC-10 checklist is a valid tool to assess AI in medical imaging research quality.Checklist items such as “study design”, “explainability”, and “transparency” are frequently addressed incomprehensively. Graphical Abstract Keywords: Artificial intelligence, Deep learning, Checklist, Guideline, Fracture</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Artificial intelligence (AI)-based technologies dominate medical headlines and promise to revolutionize medicine globally [1]. High rates of medical errors, clinical workflow inefficiencies, and unsustainable utilization of resources may potentially be overcome with the correct use of AI. In addition, the amount of research in which AI-based technologies are making important contributions towards faster and more accurate diagnosis, and therefore reliable prognosis, is growing [2]. At the same time, the number of proposed frameworks for ensuring the safety and effectiveness of AI-based software as a medical device is also increasing [3]. To ensure appropriate methodological quality control mechanisms, numerous sets of criteria have been proposed, and one of the latest guidelines published to assess AI in medical imaging is the Must AI Criteria-10 (MAIC-10) checklist [4]. The goal of the MAIC-10 checklist is to provide a concise definition of essential core standards to which every publication on AI-based technologies in medical imaging should adhere. It includes several items, as described in Table 1. These include: (1) clinical need—justification of the clinical relevance; (2) study design—appropriate and transparent design strategy; (3) safety and privacy—protection of patient data; (4) data curation—proper handling and quality assurance of datasets; (5) data annotation—accuracy and reproducibility of labeled data; (6) data partitioning—transparency in training, validation, and testing splits; (7) AI model—comprehensive description of the model architecture and implementation; (8) robustness—assessment of model performance stability; (9) explainability—clarity in model decision pathways; and (10) transparency—openness of methodology, including code and data availability.
+
+In this study, we investigated the applicability of the MAIC-10 checklist in studies on the use of AI in rib fracture imaging. Rib fractures are the most common type of chest injury [5]. Depending on the number of ribs fractured, bone fragment dislocation, or damage to the surrounding structures, rib fractures are associated with complications and can impact the choice of therapy and outcome after injury [6]. Several imaging studies have recently focused on AI, particularly deep learning (DL), and rib fractures with the aim of ensuring accurate diagnosis and, consequently, improving prognosis.
+
+Thus, the objectives of this study were to analyze the methodological quality of studies on DL in rib fracture imaging with MAIC-10, and to report insights and experiences regarding the applicability of the MAIC-10 checklist.
+
+MAIC-10 checklist to assess quality of AI-based medical imaging research studies (adopted from [4])</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Methods › Literature search and study selection</h3>    <p>Institutional Review Board approval was not needed for this study, which consisted of an analysis of published literature, and no patients were involved. An electronic literature search was conducted by two independent reviewers (J.M.G. and K.N.) on the PubMed database for articles published up to August 31, 2024. The search query was performed using the following keywords and their expansions: (“rib fracture”) AND (“artificial intelligence” OR “deep learning” OR “neural networks” OR “predictive models”). The reviewers assessed potential studies by screening titles and abstracts. Research articles were included if they met the following criteria: (i) the use of AI in either diagnostic or prognostic purposes with regard to rib fractures; (ii) English language; and (iii) statement that approval from the local ethics committee and informed consent from each patient or a waiver for it was obtained (if this information was not available in the abstract, the full text was reviewed to confirm eligibility).
+
+The exclusion criteria were (i) studies reporting insufficient data for outcomes (insufficient data reporting was defined as missing critical methodological or results-related information that prevented a sufficient quality assessment using MAIC-10); (ii) reviews, guidelines, consensus statements, editorials, letters, comments, or conference abstracts.
+
+Articles that met the inclusion criteria were obtained in full, including any supplementary material. The eligibility was further determined based on the full-text articles by the reviewers. The reference lists of included articles were scanned for further potentially eligible studies.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Methods › Data extraction and quality assessment</h3>    <p>Three radiologists (K.N., C.M., and U.V.) independently rated the articles in accordance with the MAIC-10 checklist. A training phase was introduced to prepare the three readers for the assessment of the 25 articles. This was performed using a research article, which was not included in the final list of papers to assess for the current study. The review of the training study using the MAIC-10 checklist was discussed until the three readers understood each parameter. If they could not come to an agreement, a fourth radiologist with five years of experience in AI research (S.G.) was asked to join the discussion in order to reach a conclusion.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Methods › Data analysis</h3>    <p>All statistical analyses were conducted using SPSS (version 29.0.1.0; IBM). p values &lt; 0.05 were considered statistically significant. Differences of the MAIC-10 score for each checklist item were assessed using the Fleiss’ kappa coefficient. The strength of the Fleiss’ kappa is based on the values of Cohen’s kappa coefficient [7]. Fleiss’ kappa coefficient of 0.20 or less is considered poor, 0.21–0.40 fair, 0.41–0.60 moderate, 0.61–0.80 good, and 0.80–1.00 very good [7, 8].</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Results</h3>    <p>Flowchart of systematic identification, screening, eligibility, and inclusion information from retrieved studies. AI, artificial intelligence
+
+Baseline study characteristics of papers dealing with artificial intelligence in rib fracture imaging
+
+Adherence to individual items of the MAIC-10 checklist and inter-rater agreement</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Results › Literature search</h3>    <p>A flowchart illustrating the literature search process is presented in Fig. 1. The electronic literature search resulted in 35 articles from PubMed. Two studies were not available in English and were excluded. A total of 33 abstracts were screened. Among these, one study was a literature review, three studies did not include imaging of the ribs, and three studies did not include AI. For one study, only an abstract was available. After applying all the eligibility criteria, 25 studies were included.
+
+Flowchart of systematic identification, screening, eligibility, and inclusion information from retrieved studies. AI, artificial intelligence</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Results › Baseline study characteristics</h3>    <p>Table 2 describes the baseline study characteristics of the included studies. Most of the articles were published between 2020 and 2023 (n = 24, 96%). Only one paper was published before that in 1995 [9]. The mean sample size was 1130 (standard deviation (SD), 4188; range, 39–20,260).
+
+Several research topics were covered in the included articles. Among them, most studies focused on rib fracture detection (n = 21, 84%). Only two studies (8%) focused on the prediction of injury outcomes [9, 10], while one study (4%) focused on the detection of pulmonary contusions [11] and another one (4%) on specific findings on chest X-rays [12]. The DL approach was most frequently used as a diagnostic tool (n = 23, 92%), and in two articles (8%) as a prognostic tool [9, 10]. In terms of modalities, 21 studies (84%) used CT and four studies (16%) used X-ray. In most of the research papers, internal cross-validation of the dataset was performed (n = 16, 64%), while only six studies (24%) conducted external validation. Three articles (12%) did not report on validation strategies [13–15].
+
+Baseline study characteristics of papers dealing with artificial intelligence in rib fracture imaging</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Results › MAIC-10 adherence</h3>    <p>The items of the MAIC-10 checklist are shown in Table 1. The mean MAIC-10 score of the 25 studies was 5.63 (SD, 1.84; range 1–8), which was 56.3% of the ideal score of 10. The adherence to individual MAIC-10 items is described based on the mean score of all raters.
+
+The checklist item “clinical need” was addressed in all studies (n = 25, 100%). Only 5.2% of studies reported on all aspects of “study design”. The item ‘’safety and privacy” of the MAIC-10 checklist was properly addressed in 37.3% of studies. ‘’Data curation”, ‘’data annotation” and ‘’data partitioning” were properly and completely described in 69.3%, 74.6%, and 68.0% of articles, respectively. 61.3% of the studies provided full information about the “AI model”. 74.6% of articles addressed the ‘’robustness” of the research. ‘’Explainability” and ‘’transparency” were correctly addressed in 36.0% and 34.6%, respectively.
+
+The inter-rater agreement of MAIC-10 was calculated (Table 3). The average inter-rater agreement for the MAIC-10 score was 0.771. Specifically, very good agreement was achieved in evaluating the items ‘’clinical need” (K = 1.000), ‘’study type” (K = 0.930), ‘’data curation” (K = 0.875), “data annotation” (K = 0.930), and ‘’transparency” (K = 0.823). Poor agreement was obtained only in evaluating the item “explainability” (K = 0.190).
+
+Adherence to individual items of the MAIC-10 checklist and inter-rater agreement</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Discussion</h3>    <p>The role of AI-based technologies in rib fracture imaging has demonstrated remarkable growth, mainly due to the advances of computers and software solutions. However, AI-based solutions require strict quality control before introduction into routine clinical practice. Furthermore, AI developments have come so far that it is not enough for the model to perform well, it is paramount that we understand why the model makes a certain decision [16]. To guarantee this transparency and explainability, numerous authors have come up with criteria they consider essential to guarantee minimum quality standards.
+
+After reviewing a selection of articles on AI in rib fracture imaging, we tested the applicability of the MAIC-10 checklist. MAIC-10 seemed to be a valid tool for the quality assessment of the selected articles, with good inter-rater agreement. However, some items of the checklist were often not comprehensively addressed.
+
+The mean MAIC-10 score of all reviewed publications was 5.63 out of 10. This relatively low mean score might be explained by the use of sub-items in the checklist that add a level of complexity to it. If one study fails to mention only one of the sub-items, it would not obtain a point for the respective checklist item. An alternative approach could involve weighting checklist sub-items based on their impact on study reliability, or introducing tiered scoring rather than binary assessment.
+
+With regard to the different items of the checklist, all studies addressed the clinical background and described previous approaches in the literature, and the intended use and role of the AI application (“clinical need”). The second item of the checklist (“study design”) was, however, not comprehensively addressed in most of the studies. Although most papers described the methodology in a clear manner, only the study by Liu et al [17] also provided a sample size estimate and related calculations. Inadequate reporting or unacknowledged changes in sample size can introduce bias and lead to misinterpretation of results [18].
+
+Most of the articles included in our analysis mentioned that the data was anonymized. However, a detailed description of the anonymization with regard to data pre-processing, as well as the description of the de-identification protocol, was found to be often missing. This was not in accordance with the MAIC-10 checklist, which actively emphasizes the importance of transparent reporting, data protection protocols, and easy-to-reproduce de-identification (“safety and privacy”).
+
+“Data curation”, “data annotation”, and “data partitioning” were relatively well described in the selected articles on rib imaging (in 69.3%, 74.6%, and 68.0% of the articles, respectively). Sub-items that were frequently missing were the reasoning for data set splitting and train-test-validation of data set divisions in “data partitioning”. 61.3% of the articles provided full information about the “AI model,” including software and hardware, training-tuning-testing methods, and performance metrics. The sub-item that was most frequently incompletely described was hardware. Even when hardware was mentioned, the extent and details of the information provided varied greatly.
+
+“Robustness” was addressed in 74.6% of the articles, however depth of details and provided analysis varied as well. The concept of “robustness” as captured in the MAIC-10 checklist does not explicitly require the assessment of model performance across different demographic groups or imaging devices. This raises the concern that important aspects of external validity and generalizability may be underrepresented in current evaluations. Given the increasing deployment of AI models in diverse clinical settings, it may be warranted to extend the MAIC-10 checklist by incorporating a dedicated item focused on dataset diversity and external applicability.
+
+“Explainability” and “transparency” were the two items of the checklist that were most frequently described inconsistently in the selected articles on rib imaging (i.e., addressed correctly in only 36,0% and 34,6% of papers, respectively). Common barriers to transparency include proprietary AI models and a lack of open-access datasets. Furthermore, low inter-rater agreement was found for the item “explainability”. One of the reasons might be that this item of the checklist was perceived as subjective by the readers and therefore showed greater interpretability. One possible solution to standardize interpretation would be the addition of accompanying examples to the checklist. On the other hand, it is generally important that the explanation of the AI model is as clear as possible in order to avoid the “black box effect” (i.e., poor explainability) and ensure that the study’s methodology is described so clearly that others can reproduce the experiment. Future studies should incorporate standardized methods whenever possible and provide transparency by sharing model architectures and training protocols in detail.
+
+There are several limitations in this study. First, the authors only included AI-based articles in rib fracture imaging, not involving other medical sub-disciplines. While this may limit generalizability, it was a deliberate design choice to assess MAIC-10 within a well-defined medical imaging application. Second, an electronic literature search was performed in the PubMed database only. Third, the evaluation of included studies was performed by radiologists only, which might introduce a certain bias. Studies utilizing AI-based technologies are usually conducted by multidisciplinary teams [19–21]. Hence, it might be challenging for a single reader to comprehend all aspects of the study, which could in turn lead to possible under- or overscoring due to variable interpretation of checklist items. Fourth, the number of articles included in this study was relatively small (n = 25), and a great heterogeneity in terms of objectives and evaluated parameters was seen.
+
+In conclusion, after reviewing selected articles on rib fracture imaging according to MAIC-10, some quality aspects have not been comprehensively addressed. However, during the evaluation process, questions about the clarity of the checklist items themselves have arisen. It is evident that profound knowledge of statistics and AI-based solutions is necessary not only to thoroughly understand the research, but also the checklist itself and the reasoning behind it. Nevertheless, the inevitable tendency of AI to emerge in medical imaging and increasingly also in statistical and technical studies requires implementing quality criteria. The MAIC-10 checklist seems to be a valid evaluation tool for assessing the quality of such studies.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Authors contributions</h3>    <p>All authors contributed to the study conception and design. Material preparation, data collection, and analysis were performed by J.M.G., K.N., C.M., and U.V. The first draft of the manuscript was written by J.M.G. and K.N. All authors commented on previous versions of the manuscript. All authors read and approved the final manuscript.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Funding</h3>    <p>This research and APC fees were supported by the Italian Ministry of Health. J.M.G. was also supported by the Gottfried und Julia Bangerter-Rhyner-Stiftung with a research grant. The funding sources provided financial support without any influence on the study design; on the collection, analysis, and interpretation of data; and on the writing of the report. The last author had the final responsibility for the decision to submit the paper for publication.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Data availability</h3>    <p>Datasets including extracted and analyzed data can be obtained upon request by sending an email to the corresponding author.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Declarations › Ethics approval and consent to participate</h3>    <p>Institutional Review Board approval was not needed for this study, which consisted of an analysis of published literature, and no patients were involved.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Declarations › Consent for publication</h3>    <p>Not applicable.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Declarations › Competing interests</h3>    <p>The authors declare that they have no competing interests.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>Datasets including extracted and analyzed data can be obtained upon request by sending an email to the corresponding author.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

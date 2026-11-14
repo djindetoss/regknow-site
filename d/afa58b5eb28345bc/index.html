@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Multi-objective de novo drug design with conditional graph generative model · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Multi-objective de novo drug design with conditional graph generative model</h1>
+<p class="authors">Yibo Li, Liangren Zhang, Zhenming Liu</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Journal of Cheminformatics</dd>
+<dt>Published</dt><dd>2018-07-24</dd><dt>Topics</dt><dd><span class="chip">Molecular design and generation</span><span class="chip">Foundations of modern AI (architectures, training, foundation models)</span></dd><dt>Tags</dt><dd><span class="chip">must-read</span><span class="chip">must-read-domain</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1186/s13321-018-0287-6">10.1186/s13321-018-0287-6</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/30043127/">30043127</a></dd><dt>Source</dt><dd><a href="https://doi.org/10.1186/s13321-018-0287-6" rel="noopener">https://doi.org/10.1186/s13321-018-0287-6</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>afa58b5eb28345bc</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Recently, deep generative models have revealed itself as a promising way of performing de novo molecule design. However, previous research has focused mainly on generating SMILES strings instead of molecular graphs. Although available, current graph generative models are are often too general and computationally expensive. In this work, a new de novo molecular design framework is proposed based on a type of sequential graph generators that do not use atom level recurrent units. Compared with previous graph generative models, the proposed method is much more tuned for molecule generation and has been scaled up to cover significantly larger molecules in the ChEMBL database. It is shown that the graph-based model outperforms SMILES based models in a variety of metrics, especially in the rate of valid outputs. For the application of drug design tasks, conditional graph generative model is employed. This method offers highe flexibility and is suitable for generation based on multiple objectives. The results have demonstrated that this approach can be effectively applied to solve several drug design problems, including the generation of compounds containing a given scaffold, compounds with specific drug-likeness and synthetic accessibility requirements, as well as dual inhibitors against JNK3 and GSK-3β.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractRecently, deep generative models have revealed itself as a promising way of performing de novo molecule design. However, previous research has focused mainly on generating SMILES strings instead of molecular graphs. Although available, current graph generative models are are often too general and computationally expensive. In this work, a new de novo molecular design framework is proposed based on a type of sequential graph generators that do not use atom level recurrent units. Compared with previous graph generative models, the proposed method is much more tuned for molecule generation and has been scaled up to cover significantly larger molecules in the ChEMBL database. It is shown that the graph-based model outperforms SMILES based models in a variety of metrics, especially in the rate of valid outputs. For the application of drug design tasks, conditional graph generative model is employed. This method offers highe flexibility and is suitable for generation based on multiple objectives. The results have demonstrated that this approach can be effectively applied to solve several drug design problems, including the generation of compounds containing a given scaffold, compounds with specific drug-likeness and synthetic accessibility requirements, as well as dual inhibitors against JNK3 and GSK-3β. Electronic supplementary materialThe online version of this article (10.1186/s13321-018-0287-6) contains supplementary material, which is available to authorized users.Keywords: Deep learning, De novo drug design, Graph generative model</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Background</h3>    <p>The ultimate goal of drug design is the discovery of new chemical entities with desirable pharmacological properties. Achieving this goal requires medicinal chemists to explore the chemical space for new molecules, which is proved to be extremely difficult, mainly due to the size and complexity of the chemical space. It is estimated that there are around 1060-10100 synthetically available molecules [1]. Meanwhile, the space of chemical compounds exhibits a discontinues structure, making searching difficult to perform [2].
+
+De novo molecular design aims at assisting this processes with computer-based methods. Early works have developed various algorithms to produce new molecular structures, such as atom based elongation or fragment based combination [3, 4]. Those algorithms are often coupled with global optimization techniques such as ant colony optimization [5, 6], genetic algorithms [7, 8] or particle swam optimization [9] for the generation of molecules with desired properties.
+
+Recent developments in deep learning [10] have shed new light on the area of de novo molecule generation. Previous works have shown that deep generative models are very effective in modeling the SMILES representation of molecules using recurrent neural networks (RNN), an architecture that has been extensively applied to tasks related sequential data [11]. Segler et al. [12] applied SMILES language model (LM) on the task of generating focused molecule libraries by fine-tuning the trained network with a smaller set of molecules with desirable properties. Olivecrona et al. [13] used a GRU [14] based LM trained on the ChEMBL [15] dataset to generate SMILES string. The mode is then fine-tuned using reinforcement learning for the generation of molecules with specific requirements. Popova et al. [16] proposed to integrate the generative and predictive network together in the generation phase. Beside language model, Gómez–Bombarelli et al. [13] used variational autoencoder (VAE) [17] to generate drug-like compounds from ZINC database [18]. This work aimed at obtaining a bi-directional mapping between molecule space and a continuous latent space so that operations on molecules can be achieved by manipulating the latent representation. Blaschke et al. [19] compared different architectures for VAE and applied it to the task of designing active compounds against DRD2.
+
+The researches described above demonstrated the effectiveness of SMILES based model regarding molecule generation. However, producing valid SMILES strings requires the model to learn rules that are irrelevant to molecular structures, such as the SMILES grammar and atom ordering, which increases the burden of the model and makes the SMILES string a less preferable representation compared with molecular graphs. Research in deep learning has recently enabled the direct generation of molecular graphs. Johnson et al. [20] proposed a sequential generation approach for graphs. Though their implementation is mainly for reasoning tasks, this framework is potentially applicable to molecule generation. A more recent method [21] was proposed for generating the entire graph all at once. This model has been successfully applied to the generation of small molecular graphs. The implementation that is most similar to ours is by the recent work by Li et al. [22] using a sequential decoding scheme similar to that by Johnson et al. Decoding invariance is introduced by sampling different atom ordering from a predefined distribution. This method has been applied to the generation of molecules with less than 20 heavy atoms from ChEMBL dataset. Though inspiring, the methods discussed above have a few common problems. First of all, the generators proposed are relatively general. This design allows those techniques to be applied to various scenarios but requires further optimization for application in molecule generation. Secondly, many of those models suffer from scalability issue, which restricts the application to molecules with small sizes.
+
+In this work, we propose a graph-based generator that is more suited for molecules. The model is scaled to cover compounds containing up to 50 heavy atoms in the ChEMBL dataset. Results show the graph-based model proposed is able to outperform SMILES based methods in a variety metrics, including the rate of valid outputs, KL and JS divergence of molecular properties, as well as NLL loss. A conditional version of the model is employed to solve various drug design related tasks with multiple objectives, and results have demonstrated promising performance.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Methods</h3>    <p>Cimetidine and its graph based representation. In the graph based generative models, molecules (see a) are represented as graphs G=(V,E) (see b), where atoms are bonds are viewed as nodes and edges respectively. Atom types are specified by three parameters: the atomic symbol (or equally the atomic number), the number of explicit hydrogens attached, and the number of formal charges (see c). For bond types, only single, double, triple and aromatic bonds are considered in this work (see d)
+
+A schematic representation of molecule generation process. Starting with the empty graph G0, initialization is performed to add the first atom. At each step, a graph transition (append, connect or terminate) is sampled and performed on the intermediate molecule structure. The probability for sampling each transition is given by pθ(t|Gi,…,G0), which is parametrized using deep neural network. Finally, termination operation is performed to end the generation
+
+The two type of graph generative architectures explored in this work: a MolMP: this architecture treats graph generation as a Markov process, in which the transition of Gi only depends on the current state of the graph, not on the history. b MolRNN: this architecture adds a single molecule level recurrent unit to MolMP
+
+Network architecture for MolMP. This figure shows the detailed model architecture for MolMP. MolRNN adopts a structure highly similar to that of MolMP, except the inclusion of a molecule level recurrent unit
+
+Architecture of graph convolutional layer. At each layer, the output representation for atom v is given by: (1) the input representation of v from previous layers, (2) information of local neighbors and (3) information of distant neighbors
+
+Conditonal generative models: a For the generation of molecules based on a given requriement, the requriement (query) is first converted to the numerical representation called conditoinal code, the generative model is then modified to be conditioned on the conditonal code. b Scaffold based molecule generation: The model is required to generate molecules based on a given scaffold. This requriement is first converted to the conditional code called scaffold fingerprint. Then the molecule containing the query scaffold is generated based on the fingerprint. c Generation based on drug-likeness and synthetic accessibility: Drug-likeness and synthetic accessibility are first quantized using QED and SAscore. Then model then generates molecules based on the two properties. d Designing of dual inhibitors of JNK3 and GSK-3β: the generation process is based on the bioactivity fingerprint containing the activity requirement of each target
+
+Workflow for scaffold based molecule generation. Scaffold set S is first extracted from compounds in DrugBank. The conditional code c is set to be the substructure fingerprint based on S. Training is performed with the training samples labeled with cG. After training, scaffold based generation is performed using the fingerprint cs of the query scaffold s∈S</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Methods › Molecular graph</h3>    <p>Molecular graph is a way of representating the structural information of molecules using graphs (G=(V,E)). Atoms and bonds in the molecule are viewed as graph nodes (v∈V) and edges (e∈E). Each node is labeled with its corresponding atom type, while each edge is labeled with its corresponding bond type. We refer the set of all atom types and bond types as A and B respectively. In this work, the atom type is specified using three variables: the atomic symbol (or equally the atomic number), the number of explicit hydrogens attached, and the number of formal charges. For example, the nitrogen atom in pyrrole can be represented as the triple (“N”, 1, 0). The set of all atom types (A) is extracted from molecules in the ChEMBL dataset (see Additional file 1: Supplementary Text 1), and contains 33 members in total. For bonds, we only consider the following four bond types: single, double, triple and aromatic. A visualized demonstration of molecular graph is given in Fig. 1.
+
+Cimetidine and its graph based representation. In the graph based generative models, molecules (see a) are represented as graphs G=(V,E) (see b), where atoms are bonds are viewed as nodes and edges respectively. Atom types are specified by three parameters: the atomic symbol (or equally the atomic number), the number of explicit hydrogens attached, and the number of formal charges (see c). For bond types, only single, double, triple and aromatic bonds are considered in this work (see d)</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Methods › Graph generative model</h3>    <p>We now consider the deep generative models that can directly output molecular graphs. In this work, we mainly focus on sequential graph generators, which build graph by iteratively refining its intermediate structure. The process starts from the empty graph G0=(∅,∅). At step i, a graph transition ti is selected from the set of all available transition actions T(Gi) based on the generation history (G0,…,Gi). The selection is done by sampling ti from a probability distribution ti∼pθ(ti|Gi,…,G0), which is parametrized by a deep network. Then, ti is performed on Gi to get the graph structure for the next step Gi+1=ti(Gi). At the final step n, termination operation t∗ is performed and the model outputs G=Gn as the final result.
+
+The entire process is illustrated in Fig. 2. We call the mapping T, which determines all available graph transitions at each step, a decoding scheme. The sequence r=((G0,t0),(G1,t1),…,(Gn,tn)) is called a decoding route of G, and the distribution pθ(ti|Gi,…,G0) is called a decoding policy.
+
+Previous graph generative models are usually too general and less optimized for the generation of molecular graphs. Here we offer the following optimizations:
+
+The following three sections are devoted to the detailed discussions of the optimizations above.
+
+A schematic representation of molecule generation process. Starting with the empty graph G0, initialization is performed to add the first atom. At each step, a graph transition (append, connect or terminate) is sampled and performed on the intermediate molecule structure. The probability for sampling each transition is given by pθ(t|Gi,…,G0), which is parametrized using deep neural network. Finally, termination operation is performed to end the generation</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Methods › Decoding scheme</h3>    <p>The transitions in T(Gi) given the intermediate state Gi is restricted to the following four types:
+
+The entire process is shown in Fig. 2, and a more detailed illustration is provided in Additional file 2: Figure S1 and S2. In theory, T(G) should not contain actions that violate the chemical validity of molecules. However, in order to test the ability for the model to learn those constraints, we do not explicity exclude those actions from T(G) during training.
+
+Note that compared with the implementation in [22], the action of adding new atom and the action of connecting it to the molecule is merged into a single “append” step. This helps to reduce the number of steps during generation. It is easy to show that the number of steps required for generating graph G=(V,E) equals exactly to |E|+2, which is generally much smaller than the length of the corresponding SMILES string (as shown in Additional file 2: Figure S3).</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Methods › Decoding policy</h3>    <p>During generation, the decoding policy pθ need to specify the probability value for each graph transition in T(Gi). More specifically, pθ need to output the following probability values:
+
+A visualized depiction of pvA, pvC and p∗ is shown in Fig. 2. The decoding policy pθ is parameterized using neural network. At each step, the network accepts the the decoding history (G0,…,Gi) as input and calculates the probability values (pvA, pvC, p∗) as output. In this work, we explored two novel graph generation architectures, namely MolMP and MolRNN. Unlike the methods proposed in [20, 22], the two architectures do not involve atom level recurrency, which helps to increase the scalability of the model.
+
+The two type of graph generative architectures explored in this work: a MolMP: this architecture treats graph generation as a Markov process, in which the transition of Gi only depends on the current state of the graph, not on the history. b MolRNN: this architecture adds a single molecule level recurrent unit to MolMP
+
+Network architecture for MolMP. This figure shows the detailed model architecture for MolMP. MolRNN adopts a structure highly similar to that of MolMP, except the inclusion of a molecule level recurrent unit
+
+Architecture of graph convolutional layer. At each layer, the output representation for atom v is given by: (1) the input representation of v from previous layers, (2) information of local neighbors and (3) information of distant neighbors</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Methods › Decoding policy › MolMP</h3>    <p>MolMP models graph generation as a Markov process, where the transition of Gi only depends on the current state of the graph, not on the history (Fig. 3a). This means that pθ(t|Gi,…,G0)=pθ(t|Gi). Since this type of architecture does not include any recurrent units, it will be less expensive compared with RNN based models. Moreover, the computation at different steps can be easily parallelized during training. The detailed architecture of MolMP is given as follows:
+
+The architecture of the entire network is shown in Fig. 4.
+
+The two type of graph generative architectures explored in this work: a MolMP: this architecture treats graph generation as a Markov process, in which the transition of Gi only depends on the current state of the graph, not on the history. b MolRNN: this architecture adds a single molecule level recurrent unit to MolMP
+
+Network architecture for MolMP. This figure shows the detailed model architecture for MolMP. MolRNN adopts a structure highly similar to that of MolMP, except the inclusion of a molecule level recurrent unit</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Methods › Decoding policy › MolRNN</h3>    <p>The second architecture adds a single molecule level recurrent unit to MolMP, as shown in Fig. 3. We refer to this method as MolRNN. The model architecture is specified as follows:
+
+The overall architecture of MolRNN is highly similar to that of MolMP. However, it is found that the molecule level recurrent unit in MolRNN provides significant improvements to the model performance (see “Model performance and sample quality”), while inducing little extra computational cost compared with MolMP.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Methods › Decoding policy › Graph convolution</h3>    <p>In this work, we rely on graph convolutional network (GCN) [24] to extract information from intermediate graph states Gi. Each graph convolutional layer adopts the “BN-ReLU-Conv” structure as described before. In terms of the convolution part, the architecture is structured as follows:
+
+where hvl is the output representation of atom v at layer l, and hvl-1 is the input representation. Nbbond(v) is the set of all atoms directly connected to atom v with bond of type b, and Ndpath(v) is the set of all atoms whose distance to atom v equals to d. D represents the receptive field size, which is set to 3 in this work. Wl, Θbl and Φdl are weight parameters of layer l.
+
+In brief, the output representation of atom v at each layer l (hvl) is calculated according to the following information:
+
+The architecture is illustrated in Fig. 5. Our implementation of graph convolution is similar to the edge conditioned convolution by Simonovsky et al. [25], except that we directly include the information of remote neighbors of v in order to achieve a larger receptive field with fewer layers.
+
+Architecture of graph convolutional layer. At each layer, the output representation for atom v is given by: (1) the input representation of v from previous layers, (2) information of local neighbors and (3) information of distant neighbors</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Methods › Likelihood function</h3>    <p>To train the generative model, we need to maximize the log-likelihood pθ(G) for the training samples. However, for the step-wise generative models discussed above, the likelihood is only tractable for a given decoding route r=((G0,t0),(G1,t1),…,(Gn,tn)):
+
+While the marginal likelihood can be computed as:
+
+where R(G) is the set of all possible decoding route for G. The marginal likelihood function is intractable for most molecules encountered in drug design. One way to resolve this problem is to use importance sampling as proposed in [22]:
+
+where q(r|G) is a predefined distribution on R(G). Both the deterministic and the fully randomized q(r|G) were explored in the previous work [22]. However, a more desirable solution would lie in somewhere between deterministic decoding and fully randomized decoding. In this work, instead of sample from the distribution q(r|G), we sample r from distribution qα(r|G) that is parameterized by 0≤α≤1. qα(r|G) is designed such that the decoding will largely follow depth first decoding with canonical ordering, but at each step, there is a small possibility 1-α that the model will make a random mistake. In this way, the parameter α measures can be used to control the randomness of the distribution qα. The algorithm is shown in Additional file 1: Supplementary Text 4.
+
+For α=1, the distribution falls back to the deterministic decoding. The parameter α is treated as a hyperparameter which is optimized for model performance. We tried α∈{1.0,0.8,0.6} on both MolMP and MolRNN.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Methods › Conditional generative model</h3>    <p>Most molecule design tasks require to produce compounds satisfying certain criteria, such as being synthetically available or having a high affinity for a certain target. Previous researches have developed various methods to achieve objective directed molecule generation. Segler et al. [12] used transfer learning in the design of focused compound libraries. Olivecrona et al. [13] applied reinforcement learning (RL) in the objective based chemical design and have reported promising performance in various tasks. Guimaraes et al. [26] proposed ORGAN, which combines SeqGAN with an domain-specific objective term, and showed that ORGAN is effective in the optimization of different molecular properties. Neil et al. [27] created a benchmark analysis of various RL based method in different tasks of molecule design. In this work, we explored another way to achieve requirement based molecule design using conditional generative model. We first convert the given requirement to the numerial representation called conditional code (c), and the generative model is then modified to be conditioned on c. For graph generative model, this means that the decoding policy is now pθ(ti|Gi,…,G0,c) (see Fig. 6). Compared with previous approaches by Olivecrona et al. and Guimaraes et al., conditional generative model does not require reinforcement learning, and provides the following flexibilities:
+
+Both graph based and SMILES based conditional generators are implemented in this work. For graph based model, the graph convolution is modified to include c as input:
+
+Simply state, c is included in the graph convoludion architecture by adding an additional term Ψlc to the unconditional implementation in Eq. 12. For SMILELS based model, the conditional code is included by concatenating it with the input at each step: xi′=Concat(xi,c). where xi is the one-hot representation of the SMILES charactor input at step i.
+
+Conditional models have already been used by the previous work [21] for molecule generation, but was restricted to simple properties such as the number of heavy atoms as conditional codes. Also, the method have not yet applied to multi-objective molecule generation. Here, we apply this method to other more complexed drug design tasks, including scaffold-based generation, property-based generation and the design of dual inhibitor of JNK3 and GSK-3β (see 6). The best performing graph and SMILES based generator (see “Model performance and sample quality”) are implemented in conditionalized version and applied to those tasks.
+
+Conditonal generative models: a For the generation of molecules based on a given requriement, the requriement (query) is first converted to the numerical representation called conditoinal code, the generative model is then modified to be conditioned on the conditonal code. b Scaffold based molecule generation: The model is required to generate molecules based on a given scaffold. This requriement is first converted to the conditional code called scaffold fingerprint. Then the molecule containing the query scaffold is generated based on the fingerprint. c Generation based on drug-likeness and synthetic accessibility: Drug-likeness and synthetic accessibility are first quantized using QED and SAscore. Then model then generates molecules based on the two properties. d Designing of dual inhibitors of JNK3 and GSK-3β: the generation process is based on the bioactivity fingerprint containing the activity requirement of each target</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Methods › Scaffold-based generation</h3>    <p>The concept of molecular scaffold has long been of significant importance in medicinal chemistry [28]. Though various definitions are available, the most widely accepted definition is given by Bemis and Murcko [29], who proposed derive the scaffold of a given molecule by removing all side chain atoms. Studies have found various scaffolds that have privileged characteristics in terms of the activity of certain target [30–32]. Once such privileged structure is found, a related task is to produce compound libraries containing such scaffolds for subsequent screening.
+
+Here, conditional graph generative model is applied to generate compounds containing scaffold s, which is drawn from the pre-defined scaffold set S={si}i=1NS. The set S is extracted from the list of approved drugs in DrugBank [33]. Two types of structures are extracted from the molecules to construct S: (1) the Bemis–Murcko scaffolds, and (2) ring assemblies. Ring assemblies are included in S since we found that including extra structural information beside Bemis–Murcko scaffolds helps to improve the conditional generation performance. Detailed scaffold extraction workflow is shown in Additional file 1: Supplementary Text 2. For each molecule G, the conditional code c=(c1,c2,…,cNS) is set to be the binary vector such that ci=1 if G contains si as substructure, and ci=0 otherwise. We refer c as the scaffold fingerprint of G, as it can in fact be viewed as a substructure fingerprint based on scaffold set S. To generate molecule containing substructure s∈S, the fingerprint cs for s is used as conditional code. The output should contain two type of molecules:
+
+The procedure is better demonstrated in Fig. 7. Using this method, detailed control can be performed on the scaffold of the output structure.
+
+Workflow for scaffold based molecule generation. Scaffold set S is first extracted from compounds in DrugBank. The conditional code c is set to be the substructure fingerprint based on S. Training is performed with the training samples labeled with cG. After training, scaffold based generation is performed using the fingerprint cs of the query scaffold s∈S</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Methods › Generation based on synthetic accessibility and drug-likeness</h3>    <p>Drug-likeness and synthetic accessibility are two properties that have significant importance in the development of novel drug candidate. Drug-likeness measures the consistency of a given compound with the currently known drugs in terms of the structural or physical properties, and is frequently used to filter out obvious non-drug like compounds in the early phase of screening [34, 35]. Synthetic accessibility is also an important property for de novo drug design since subsequent experimental validation requires synthesis of the given compound [36]. In this task, the model is required to generate molecules according to a given level of drug-likeness and synthetic accessibility. The drug-likeness is measured using the Quantitative Estimate of Drug-likeness (QED) [37], and synthetic accessibility is evaluated using the SA score [36]. The conditional code c is defined as c=(QED,SA), where the QED and SA score is all calculated using RDKit [38].
+
+In practice, instead of specifying a single value of QED and SA score, we often use intervals to express the requirements for desired output molecules. This means that we are required to sample molecules from the distribution pθ(G|c∈C), where the generation requirement is described as a set C instead of a single point c. Here, we samples from pθ(G|c∈C) by first drawing c from p(c|c∈C), and then drawing G from pθ(G|c). Sampling from p(c|c∈C) can be achieved by first sample c from p(c) using molecules from the test set, then filter c according to the requirement c∈C.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Methods › Designing dual inhibitor against JNK3 and GSK-3β</h3>    <p>With the ability to model multiple requirements at once, conditional generative models can be used to design compounds with specific activity profiles for multiple targets. Here, we consider the task of designing dual inhibitors against both c-Jun N-terminal kinase 3 (JNK3) and glycogen synthase kinase-3 beta (GSK-3β). Both of the two targets are serine/threonine (S/T) kinases, and have shown to be related to the pathogenesis of various types of diseases [39, 40]. Notably, both JNK3 and GSK-3β are shown to be potential target in the treatment of Alzheimer’s disease (AD). Jointly inhibiting JNK3 and GSK-3β may provide potential benefit for the treatment of AD.
+
+The conditional code is set to be c=(cJNK3,cGSK-3β), where cJNK3, cGSK-3β are binary values indicating whether the compound is active against JNK3 and GSK-3β. For compounds in the ChEMBL dataset, cJNK3 and cGSK-3β are labeled using a separately trained predictor. Random forest (RF) classifier, which has been demonstrated to provide good performance for kinase activity prediction [41], is used as the predictor for GSK-3β and JNK3 activity. Here, we use ECFP6 [42] as the descriptor. The predictive model is trained using activity data from ExCAPE-DB [43], which is an integrated database with activity values from ChEMBL and PubChem [44]. Workflow for data extraction and predictor training is provided in Additional file 1: Supplementary Text 3. It is found that there is only 1.2% of molecules in ChEMBL that is predicted to be active against JNK3 or GSK-3β. This imbalance results in low enrichment rate during conditioned generation. For better result, the model is first trained under the unconditioned setting, and then fine-tuned based on the 1.2% molecules mentioned above.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Methods › Training details</h3>    <p>The graph generative models are trained using the ChEMBL dataset. The data processing workflow largely follows Olivecrona et al. [13], as described in Additional file 1: Supplementary Text 1. MXNet [45] is used to implement the networks, and Adam optimizer [46] is used for network training. An initial learning rate of 0.001 is used together with a decay rate of 0.001 for every 100 iterations. Other parameters of the optimizer are set to be the default values suggested in [46] (that is, β1=0.9,β2=0.999 and ϵ=10-8). The training lasts for 5 epochs, and the size of each mini-batch is set to 200 during the training.
+
+During training, the decoding route is drawn from the distribution qα(r|G). We tried three α values: 1.0, 0.8 and 0.6, as discussed previously. For α=1.0, k is set to 1 and the training can be performed on a single Nvidia GeForce GTX 1080Ti GPU for both MolMP and MolRNN. The training lasts for 14h for MolMP and 16h for MolRNN. For α=0.8 and α=0.6, k is set to 5 and the training is performed synchronously on 4 GPUs. The training lasts for 30h for MolMP and 35h for MolRNN.
+
+For scaffold based and property based generation tasks, the conditonal graph generator is trained using the same setting as unconditional model. For the generation of GSK-3β and JNK3 inhibitors, the model is first trained using the full dataset, and the fine tuned on the subset that is predicted to be active against GSK-3β or JNK3. The fine-tuning uses a learning rate of 0.0001 and a decay rate of 0.002 for every 100 iterations. The fine-tuning lasts for 10 epochs, and takes 1h to finish.
+
+In theory, the hyperparameters for the models mentioned above, including the training condition (batch size, learning rate, decay rate, β1, β2), model architectures(the number of convolutional layers, the hidden size in each layer) as well as α, should be optimized to achieve the best performance. However, due to the computational cost of both MolMP and MolRNN, we are unable to systematically optimize the hyperparameters. A througout discussion is only given for α, which determines the degree of randomness of qα. No optimization is performed on model architecture except fitting it into the memory.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Methods › Comparison with SMILES based methods</h3>    <p>The proposed graph-based model is compared with several SMILES based models. Two type of methods, variational autoencoder (VAE) and language model (LM), are considered in this comparison. The implementation of SMILES VAE follows Gómez-Bombarelli et al. [2]. The encoder contains three 1D convolutional layers, with 9, 9, 10 filters and 9, 9, 11 kernels each, and a fully connected layer with 435 hidden units. The model uses 196 latent variables and a decoder with three GRU layers with 488 hidden units. VAE for sequential data faces from the issue of “optimization challenge” [47, 48]. While the original implementation uses KL-annealing to tackle this problem, we follow the method provided by Kingma et al. [49] by controlling the level of free bits. This offers higher flexibility and stability compared with KL-annealing. We restrict the minimal level of free bits to 0.03 for each latent variable.
+
+For LM, two types recurrent units are adopted. The first type uses GRU, and includes two architectures: the first architecture (SMILES GRU1) consists of three GRU layers with 512 hidden units each, and the second (SMILES GRU2), uses a wider GRU architecture with 1024 units, following the implementation by Olivecrona et al. [13]. Beside GRU, we also included a LSTM based SMILES language model following Segler et al. [12]. This architecture uses three LSTM layers, each with 1024 units.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Methods › Comparison with reinforcement learning (RL) based methods</h3>    <p>We also compared the performance of conditional generative model with three RL based method. The first method, which is proposed by Olivecrona et al., maximizes following objective during model optimization:
+
+where p(x) is the Prior network pre-trained using ChEMBL dataset, and q(x) is the Agent network for task-specific molecule generation. SMILES GRU2 is used as the architecture for Prior and Agent.
+
+This method is refered to as “REINVENT” [13]. We also include the following two baselines in the comparison. The first is a non-regularized RL method with the following objective:
+
+We refer to this method as “Naive RL”. The second method includes a prior term in addition to 19:
+
+We refer to this method as “RL + Prior”.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Methods › Evaluation metrics</h3>    <p>Several metrics have been employed to evaluate the performance of generative models:</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Methods › Evaluation metrics › Sample validity</h3>    <p>To test whether the generative models are capable of producing chemically correct outputs, 300,000 structures are generated for each model, and subsequently evalulated by RDKit for the rate of valid outputs. We also evaluate the ability of each model to produce novel structures. This is done by accessing the rate of generated compounds that do not occure inside the training set.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Methods › Evaluation metrics › DKL and DJS for molecular properties</h3>    <p>A good molecule generator should correctly model the distribution of important molecular properties. Therefore, the distribution of molecular weight (MW), log-partition coefficient (LogP) and QED between the generated dataset (pg) and the test set (pdata) is compared for each method using Kullback–Leibler divergence (DKL) and Jensen–Shannon divergence(DJS):
+
+DKL and DJS are widely used in deep generated models for both training [17, 50] and evaluation [51]. Here, the two values are determined using kernel density method implemented in SciPy [52]. We used a gaussian kernel with bandwidth selected based on Scott’s Rule [53].</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Methods › Evaluation metrics › Performance metrics (Rc, Kcc′ and EORc) for task specific molecule design</h3>    <p>For discrete conditional codes c, let Mc be the set containing molecules sampled from distribution pθ(G|c). Mc is obtained by first sampling molecule graphs conditioned on c and then removing invalid molecules. The size of |Mc| is set to 1000. Let Ncc′ be the set of molecules in Mc that satisfy the condition c′ (c′ may be different from c). The ratio Kcc′ is defined as:
+
+The matrix Kcc′ can be used to evaluate the ability of the model to control the output based on conditional code c. When c=c′, this value gives the rate of correctly generated outputs, denoted by Rc. High quality conditional models should have a high value of Rc and low values of Kcc′ for c≠c′. In paractice, we find that the value of Kcc′ for scaffold and property based generation is significantly samller than Rc and have relatively low influence on the model’s performance. Therefore, the result of Kcc′ is omitted for scaffold and property based task, and is only reported for the task of kinase inhibitor design.
+
+Let Rc0 be the rate of molecules in the training data that satisfy condition c. The enrichment over random EORc is defined as:
+
+The definition is similar to that used in previous work [12], except that in their implementation Rc0 is calculated using the generated samples from the unconditioned model pθ(G). For continuous codes, a subset C of the conditional code space is used to describe the generation requirements. MC is sampled from pθ(G|c∈C), and values for KCC′, RC and EORC can be calculated in a similar manner.</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Methods › Evaluation metrics › Rate of reproduced active compounds</h3>    <p>For target based generation tasks, the rate of reproduced molecules is also reported following previous works [12, 13]. Take JNK3 as an example. During the evaluation, two sets of outputs are generated using two conditions: JNK3(+), GSK-3β (−) and JNK3(+), GSK-3β(+). The two set of outputs are denoted Mc1and Mc2respectively. Here, the size of |Mc1| and |Mc2| are both set to 50,000. Let T be the set containing the active molecules within the test set of JNK3. The rate of reproduced molecules (reprod) is calculated as:
+
+For GSK-3β, the calculation can be done in a similar manner.</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Methods › Evaluation metrics › Sample diversity</h3>    <p>For a good objective based molecule generator, the outputs are not only required to satisfy the given condition c, but also required to be structurally diverse. Benhenda [54] have suggested that the diversity of the model outputs should be consistent with the natural diversity of molecules satisfying the c. Also, Benhenda proposed to use the following statistics to evaluate the structural diversity of a given set of compounds:
+
+where M is the set of sampled molecules, and Td(x,y) is the Tanimoto-distance between the two molecules x and y. Td(x,y) is defined using the Tanimoto-similarity Ts: Td(x,y)=1-Ts(x,y). This metric is called the internal diversity of the molecule set M.
+
+For each condition c, the natural diversity Ic0 is first calculated using molecules in ChEMBL. The diversity of conditional outputs Ic is then calculated for each model. Note that when calculating Ic0 and Ic, we only include molecules that satisfy the condition c. Finally, the value |Ic-Ic0| is compared among different models for their ability to reconstruct the natural compound diversity.</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Results and discussion</h3>    <p>A visualized demonstration of model outputs. a–c. Output samples by MolRNN. Results are grouped by molecular weight (a MW &lt; 300, b 300 ≤ MW &lt; 500, c MW ≥ 500); d, e Common mistakes made by SMILES based model and graph based model respectively; f Examples of broken aromaticity occurred during graph generation
+
+Comparison between SMILES based and graph-based generators in output validity
+
+Comparison between SMILES based and graph-based generators in DKL(×10-3) and DJS(×10-3)
+
+Results of scaffold based generation. a Candesartan and the extracted scaffolds (scaffold 1–4); b Output samples based on scaffold 1–4
+
+Performance of graph based and SMILES based model on scaffold diversification tasks
+
+The comparison between condtional generative models RL based models in the task of generating molecules containing scaffold 4
+
+Location of C1∼C4 and c1∼c4. a Distribution of QED and SAscore in the ChEMBL dataset; b Location of input conditions (C1∼C4 and c1∼c4)
+
+Performance of graph based and SMILES based model on property based generation tasks
+
+The comparison between condtional generative models RL based models in the task of generating molecules satisfying condition C1 (that is, QED &gt; 0.84 and SA score &lt; 1.9)
+
+Distribution of QED and SAscore for generated results: the upper row indicates distribution of QED and SAscore of molecules generated under conditions C1, C2 , C3 and C4. The conditions C1∼C4 are shown as intervals represented by error bar. The lower row indicates distribution of QED and SAscore of molecules generated using single point conditions (c1, c2, c3 and c4). The conditions c1∼c4 are represented as dots in the plot
+
+Samples generated under the four predefined conditions on drug-likeness and synthetic accessibility score
+
+Performance of graph based and SMILES based model on inhibitor generation, results are reported as Mean±SD
+
+The Kcc′ matrix for kinase inhibitor generation task, the diagnal elements Kcc=Rc are omitted since they have been reported in Table 7
+
+The comparison between condtional generative models RL based models in the task of generating dual inhibitors against GSK-3β and JNK3
+
+Visualizing the distribution of generated samples for each target. The figure shows the t-SNE visualization of: a molecules form test set of GSK-3β and samples conditioned on JNK3(−), GSK-3β(+), b molecules from test set of GSK-3β and samples conditioned on JNK3(+), GSK-3β(+). c Molecules from test set of JNK3 and samples conditioned on JNK3(+), GSK-3β(−), d molecules from test set of JNK3 and samples conditioned on JNK3(+), GSK-3β(+)
+
+Samples conditioned on different selectivity conditions. a–c Generated samples under different condition of selectivity (a for dual inhibitors, b for GSK-3β selective inhibitors, and c for JNK3 selective inhibitors); d, e Some recovered actives of JNK3 and GSK-3β respectively. a Generated dual inhibitors. b Generated GSK-3β selective inhibiors. c Generated JNK3 selective inhibiors. d Recovered JNK3 inhibitors. e Recovered GSK-3β inhibitors</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>Results and discussion › Model performance and sample quality</h3>    <p>Several randomly generated samples by MolRNN are grouped by molecular weight and shown in Fig. 8a–c. The qauntitative comparison between SMILES based and graph based models (MolMP and MolRNN) has been performed, and the results are summarized in Tables 1 and 2. We first analysed the model performance in terms of the rate of valid outputs and the rate of valid and novel outputs. It can be seen from the results that both MolRNN and MolMP outperform all SMILES based methods. It is also noted that changing α from 1.0 to 0.8 can significantly increase the rate of valid outputs for both MolMP and MolRNN. Further decreasing α produces only marginal effect. The high validity of output structures by graph-based model is not surprising as the generation of SMILES poses much stricter rules to the output compared with the generation of molecular graphs.
+
+Figure 8d, e summarize respectively the common mistakes made by SMILES-based and graph-based model during generation. Results in Fig. 8d show that the most common cause of invalid output for SMILES based models is grammar mistakes, such as unclosed parentheses or unpaired ring numberings. But for the graph-based model, the majority of invalid output is caused by broken aromaticity, as demonstrated in Fig. 8f. This is likely a result of stepwise decoding pattern of graph-based models, as the decoder can only see part of the aromatic structure during generation, while the determination of aromaticity requires the information of the entire ring. It is also observed that mistakes related to atom valance are relatively minor, meaning that those rules are easy to learn using graph convolution.
+
+Graph-based methods also have the advantage of giving highly interpretable outputs compared with SMILES. This means that a large portion of invalid outputs can be easily corrected if necessary. For example, broken aromaticity can be restored by literately refining the number explicit hydrogens of aromatic atoms, and unclosed aromatic rings can be corrected simply by connecting the two ends using a new aromatic bond. Though possible, those corrections may introduce additional bias to the output samples depending on the implementation, thus not adopted in the subsequent tasks.
+
+Next, we investigate the ability for the generators to learn the distribution of molecular properties, as demonstrated in Table 2. Results have shown that MolRNN gives the best performance in DKL and DJS for molecular weight (MW) and QED, while SMILES GRU2 gives the best performance for LogP. For MolMP, although it is able to outperform SMILES GRU1 in the rate of valid outputs, it fails to give better performance in DKL and DJS. This observation suggest that the molecule level recurrent unit in MolRNN can significantly imporved the ability for the model to learn information about the data distribution.
+
+When it comes to the influence of α to DKL and DJS, it is found that changing α from 1.0 to 0.8 can significantly improve the perforamnce of MolMP and MolRNN for all molecular properties. Further decreasing α to 0.6 will have different effect for MolMP and MolRNN. For MolMP, this will hurt the overall performance of DKL and DJS, while for MolRNN, this will inprove the performance for molecular weight, but will significantly decrease the performance of LogP. Overall, α=0.8 will be a better choise for MolMP, and α=0.6 will be more suited for MolRNN.
+
+Generally, MolRNN have showed significant advantages among all generative mdoels considered. In the subsequent evaluation of conditonal generative models, the best performing graph based model (MolRNN) and the best performing SMILES based model (SMILES GRU2) are implemented as conditonal models and are compared among all tasks.
+
+A visualized demonstration of model outputs. a–c. Output samples by MolRNN. Results are grouped by molecular weight (a MW &lt; 300, b 300 ≤ MW &lt; 500, c MW ≥ 500); d, e Common mistakes made by SMILES based model and graph based model respectively; f Examples of broken aromaticity occurred during graph generation
+
+Comparison between SMILES based and graph-based generators in output validity
+
+Comparison between SMILES based and graph-based generators in DKL(×10-3) and DJS(×10-3)</p>
+  </section>
+  <section id="s26" class="text-unit">
+<h3>Results and discussion › Scaffold-based generation</h3>    <p>In the first task, conditional generative models are trained to produce molecules based on given scaffolds. To illustrate the result, scaffold 1, extracted from the antihypertensive drug Candesartan (see Fig. 9a), is used as an example, along with several related scaffolds (scaffold 2–4) derived from scaffold 1 (Fig. 9a). Conditional codes c are constructed for each type of scaffold, and output structures are produced according to the corresponding code.
+
+Results for both the SMILES based and graph based conditional generator are given in Table 3. In terms of output validity, graph based model is able to produce a higher fraction of valid outputs for scaffolds 1–4, compared with SMILES based methods, which is similar to the results of unconditional models
+
+In terms of the rate of correctly generated outputs (Rc), although the models are unable to achieve 100% correctness, the Rc results are significantly higher than Rc0, offering high enrichment rate over random. Both graph based and SMILES based model are able to achieve EORc&gt;1000 for scaffold 1–3 as well as EORc&gt;100 for scaffold 4, showing promising ability for the model to produce enriched output according to the given scaffold query. By comparing the result of Rc between the two type of architectures, it is found that graph based model have a higher performance for scaffold 3, while SMILES based method have a higher performance for scaffold 2. The two model have similar performance for scaffold 1 and scaffold 4.
+
+The structural diversity of the output samples is also evaluated for each model. Both graph based and SMILES based methods have resulted in a slightly lower output diversity Ic compared with the natural diversity Ic0. For scaffold 2, the graph based method have better performance compared with SMILES based method, while for scaffold 4, the SMILES based methods yields better result. For scaffold 1 and 3, the difference is not significant between graph based and SMILES based method.
+
+A comparison between conditional generative model and RL based approach is performed, using scaffold 4 as example. We set σ=20, and formulate the score function Sc(x) as follows:
+
+The result is summarized in Table 4. It is easily observed that all RL based approaches, including Naive RL, RL + Prior and REINVENT, are capable of achieving near perfect result on Rc. However, in terms of output diversity, the RL based methods yields worse performance compared with conditional generative models. Among them, Naive RL result in the lowest output diversity of 0.468, followed by the RL + Prior, whose output diversity is 0.55. REINVENT results in a much higher output diversity of 0.750, but is still lower than that of conditional generative models.
+
+The results above shows that conditional generators and RL based methods have opposite performance on Rc and Ic. This is mainly caused by the fact that the two methods actually operate on different objectives. The former, which is trained under maximum likelihood estimation (MLE), optimizes DKL(p(x|c)||qθ) (the proof is given in Additional file 1: Supplementary Text 5). During training, conditional generative model are encouraged to cover all modes in the data distribution, but are not punish for malicious modes, and therefore result in lower Rc.
+
+The RL based approach, however, optimizes a completely different objective. It can be proved that maximizing Eq. 18 is equivalent to minimizing the reviersed KL divergence DKL(qθ||p(x|c)). In fact, if the score σS(x) is formulated as logp(c|x), which is the log-likelihood for the molecule x to satisfy the requirement c, we can obtain the following relationship between G(x) ans DKL:
+
+The derivation is given in Additional file 1: Supplementary Text 6. This objective will force the model to comply with the given condition c, but may result in potential mode collapse, and therefore lower output diversity. In short, conditonal generative model and RL based methods each emphasizes different aspect of the molecule distribution, and future research may explore the possibility to combine those methods.
+
+Several generated samples by graph based model are given for each scaffold in Fig. 9b. Recall that the outputs given scaffold s should contain two type of molecules: (1) molecules with s as its Bemis–Murcko scaffold and (2) molecule whose Bemis–Murcko scaffold contains s but does not reside inside S. Both types are observed for scaffold 1–4 as shown in Fig. 9b. By further investigating the generated samples, it is observed that the model seems to have learnt about the side chains characteristics each scaffold. For example, samples generated from scaffold 1–3 usually have their substitutions occur at restricted positions, and frequently contains a long aliphatic side chain. Interestingly, this actually reflects the structural activity relationship (SAR) for angiotensin II (Ang II) receptor antagonists [55]. In fact, scaffold 1–3 have long been treated as a privileged structure against Ang II receptors [28], and as a result, molecules with scaffold 1–3 are largely biased to those who matches the SAR rules for the target. When trained with the biased dataset, the model can memorize the underlying structural activity relationship as a byproduct of scaffold based learning. This characteristic is beneficial for the generation of libraries containing specified privileged structures.
+
+Results of scaffold based generation. a Candesartan and the extracted scaffolds (scaffold 1–4); b Output samples based on scaffold 1–4
+
+Performance of graph based and SMILES based model on scaffold diversification tasks
+
+The comparison between condtional generative models RL based models in the task of generating molecules containing scaffold 4</p>
+  </section>
+  <section id="s27" class="text-unit">
+<h3>Results and discussion › Generation based on drug-likeness and synthetic accessibility</h3>    <p>In this task, the generative model is used to produce molecules according to the requirement on drug-likeness and synthetic accessibility. The conditional code is specified as c=(QED,SA). In the first experiments, the models are required to generate molecules based on the following requirements expressed as subsets of conditional code space: C1=(0.84,1)×(0,1.9), C2=(0,0.27)×(0,2.5), C3=(0.84,1)×(3.4,+∞) and C4=(0,0.27)×(4.8,+∞).
+
+The values are determined from the distribution of QED and SA in ChEMBL dataset (see Fig. 10a) using the 90 and 10% quantile. The conditions are illustrated in Fig. 10d. The four sets represent four classes of molecules respectively and the first class C1, which contains structures with high drug-likeness and high synthetic accessibility, defines the set of compounds that are most important for drug design.
+
+Quantitative evaluations of graph based and SMILES based models are demonstrated in Table 5. Again, under all conditions (C1∼C4), the graph based model is able to outperform SMILES based model on the rate of valid outputs. The difference is most significant for conditions specifying low synthetic accessibility (that is, high SAscore, which is given by C3 and C4). This observation suggests that SMILES based model have difficulty in generating complex structures while maintaining the structural validity.
+
+The graph based model also provides better performance in terms of RC and EORC as shown in Table 5. It is noted that both graph and SMILES based models result in comparatively low RC and EORC on condition C3, which corresponds to molecules with high drug-likeness and low synthetic accessibility. However, this result is relatively easy to understand. Since the definition of drug-likeness contains the requriement for high synthetic accessibility, therefore finding molecules with high QED score and high SAscore is in itself a difficult task. For other conditions, the RC results for both models varies from 50 to 70%. Those values are lower compared with scaffold based task, but nonetheless showing enrichments for all conditions over the distribution from ChEMBL. The diversity of generated samples are also reported.Different from the performance in %valid and Rc, SMILES based method is able to produce outputs with slighly higher diversity compared with graph based method. The different is statistically significant for tasks C1 and C3.
+
+We compared conditional generative model with RL based methods using C1 as example. Similar to “Scaffold-Based Generation”, we set σ to 20, and use the discrete score function SC(x) defined in Eq. 27. The results are summarized in Table 6. Overall, the performance of RL based methods are similar to that in the scaffold-based task. All RL methods are able to achieve high level of Rc, but with lower output diversity.
+
+For a visualized demonstration, the distributions of QED and SA score for the output samples from graph based generator are shown in Fig. 11. Random samples are also chosen for each class and are visualization in Fig. 12. The structural features for the output samples are mostly consistent with the predefined conditions, with small and simple molecules for C1 and highly complex molecules for C4.
+
+Note that conditional models also support generation based on a given point of QED and SAscore. This is demonstrated visually using graph based conditional model. Now, the molecule generation process is conditioned on a single points of conditional code c. Here, we use four different conditions as specified as follows: c1=(0.84,1.9), c2=(0.27,2.5), c3=(0.84,3.8) and c4=(0.27,4.8). Those conditons are also demonstrated in Fig. 10.
+
+The distributions of QED and SAscore for the output molecules by graph based model are shown in Fig. 10e–h. Results show that, although the requirement is specified using a single value of QED and SAscore, the distribution of the two properties for output samples are relatively dispersed. This result is not surprising since the QED and SAscore score are relatively abstract descriptions of structural features of molecules, and a small modification of molecule structure may lead to significant changes in QED and SA scores. Nonetheless, it can be found that the generated samples are enriched around the corresponding code c. It is also observed that the distribution of SAscore is more concentrated than that of QED. This is probably because that SAscore is direct measurement of molecular graph complexity, which may be easier to model for the graph based generator. In contrast, QED is a more abstract descriptor related to various molecular properties.
+
+Location of C1∼C4 and c1∼c4. a Distribution of QED and SAscore in the ChEMBL dataset; b Location of input conditions (C1∼C4 and c1∼c4)
+
+Performance of graph based and SMILES based model on property based generation tasks
+
+The comparison between condtional generative models RL based models in the task of generating molecules satisfying condition C1 (that is, QED &gt; 0.84 and SA score &lt; 1.9)
+
+Distribution of QED and SAscore for generated results: the upper row indicates distribution of QED and SAscore of molecules generated under conditions C1, C2 , C3 and C4. The conditions C1∼C4 are shown as intervals represented by error bar. The lower row indicates distribution of QED and SAscore of molecules generated using single point conditions (c1, c2, c3 and c4). The conditions c1∼c4 are represented as dots in the plot
+
+Samples generated under the four predefined conditions on drug-likeness and synthetic accessibility score</p>
+  </section>
+  <section id="s28" class="text-unit">
+<h3>Results and discussion › Generating dual inhibitors for JNK3 and GSK-3β</h3>    <p>In this task, the models are used to generate dual inhibitor for JNK3 and GSK-3β. A predictive model is first used to label the conditional code for ChEMBL dataset, and the conditional graph generator is trained on the labeled training set. The two predictors yield good results in general, with AUC = 0.983 for JNK3 and AUC = 0.984 for GSK-3β. The ROC curves for the two models are show in Additional file 2: Figure S4.
+
+Results for both the SMILES based and graph based conditional generator are given in Table 7. In terms of output validity, graph based model outperforms SMILES based model in generating GSK-3β selective and JNK3 selective compounds, but for the generation of dual inhibitors, SMILES based model achieves better performance. In terms of Rc and EORc, SMILES based model is able to obtain better performance in generating dual inhibitors and selective inhibitors against GSK-3β, while the graph based model performs better in the task of generating JNK3 selective inhibitors.The Kcc′ matrices for graph based and SMILES based model are shown in Table 8. For both graph based and SMILES based model, it is noted that when generating compounds that is active to both JNK3 and GSK-3β, there is a significant amount of outputs falling into the category of GSK-3β positive and JNK3 negative. Nonetheless, in terms of the enrichment over random EORc, the two models are able to achieve high performance for all selectivity combinations. Note that selective inhibitors for GSK-3β are relatively enriched in ChEMBL database, according to the result of the predictor. In comparison, the selective inhibitors against JNK3 and the dual inhibitor for both JNK3 and GSK-3β are much rarer. However, the model is still able to achieve significant enrichment for the two types of selectivity. The result shows potential application for target combinations that have low data enrichment rate.
+
+Similar to previous tasks, a comparison with RL based methods is performed. Here, we mainly focus on the task to generate joint inhibitors to JNK3 and GSK-3β. In terms of the design of score function, we have employed Sc(x) similar to that used in previous tasks (Eq. 27). The value of σ is set to 20 for Sd. The results are summarized in Table 9. Note that result for RL + Prior is omited, since in this task, we found that it tends to collapse quickly to a single molecule that could not provide meaningful result. The performance of Naive RL and REINVENT is similar to that reported in previous sections. Both RL based methods achieves high value of Rc, but have much lower output diversity.
+
+To better demonstrate the structural distribution of the generated samples, visualization based on t-SNE [56]is performed using the ECFP6 fingerprint. The generated samples under different selectivity specifications and molecules in the test set for each target are projected into two-dimensional embeddings and are shown in Fig. 13a–d. According to the result, it is shown that the conditional generator tends to produce molecules near the test set samples, which is consistent with observations based on other methods [12]. It is also observed that molecules generated under different selectivity condition occupy distinct region of chemical space.
+
+For each selectivity condition, several molecules are sampled using the model and are demonstrated in Fig. 14a–c. By investigating the generated structures in detail, it can be observed that the model tends to generate samples containing well-established scaffold for the corresponding target. For JNK3, structures such as diaminopurines [57] and triazolones [58], which have been frequently used in the design of JNK inhibitors, show high occurrence in the generated samples. The observation is the same for GSK-3β, with example like 2,3-bis-arylmaleimides, a class of widely studied inhibitors of GSK-3 [59]. On the other hand, aminopyrimidines are frequently shown in the outputs of all selectivity conditions, but they are more enriched in generated dual inhibitors. Those observations show good interpretability of the outputs, and indicate that the structural features of generated samples are in line with the existing knowledge about the two targets.
+
+Finally, we report the percentage of reproduced samples from the test set for each target. From the result, 10.3% of molecules are reproduced for JNK3 and, 6.0% of molecules are reproduced for GSK-3β. Note that molecules in the test sets for each targets have been excluded from the ChEMBL training set in this task, which means that the method is capable of generating molecules that have been confirmed to be positive, without seeing them in the training set of predictive model and conditional generative model.
+
+Several recovered actives are shown in Fig. 14d–e. Those molecules show relatively high diversity in structure, indicating that the model does not collapse to a subgroup of active compounds. A quantitative evaluation is performed using the internal diversity, and the result shows that the recovered GSK-3β inhibitors have a internal diversity of 0.819, while the recovered JNK3 inhibitors have a internal diversity of 0.761. Those values, although slighly lower, are relatively close to the diversity of test set molecules, which are 0.867 for GSK-3β and 0.852 for JNK3.
+
+Performance of graph based and SMILES based model on inhibitor generation, results are reported as Mean±SD
+
+The Kcc′ matrix for kinase inhibitor generation task, the diagnal elements Kcc=Rc are omitted since they have been reported in Table 7
+
+The comparison between condtional generative models RL based models in the task of generating dual inhibitors against GSK-3β and JNK3
+
+Visualizing the distribution of generated samples for each target. The figure shows the t-SNE visualization of: a molecules form test set of GSK-3β and samples conditioned on JNK3(−), GSK-3β(+), b molecules from test set of GSK-3β and samples conditioned on JNK3(+), GSK-3β(+). c Molecules from test set of JNK3 and samples conditioned on JNK3(+), GSK-3β(−), d molecules from test set of JNK3 and samples conditioned on JNK3(+), GSK-3β(+)
+
+Samples conditioned on different selectivity conditions. a–c Generated samples under different condition of selectivity (a for dual inhibitors, b for GSK-3β selective inhibitors, and c for JNK3 selective inhibitors); d, e Some recovered actives of JNK3 and GSK-3β respectively. a Generated dual inhibitors. b Generated GSK-3β selective inhibiors. c Generated JNK3 selective inhibiors. d Recovered JNK3 inhibitors. e Recovered GSK-3β inhibitors</p>
+  </section>
+  <section id="s29" class="text-unit">
+<h3>Conclusions</h3>    <p>In this work, a new framework for de novo molecular design is proposed based on graph generative model and is applied to solve different drug design problems. The graph generator is designed to be more fitted to the tasks of molecule generation using a simple decoding scheme and a graph convolutional architecture that is less computationally expensive. Furthermore, a more flexible way of introducing decoding invariance is also suggested. The method is trained using molecules in ChEMBL dataset and has demonstrated better performance compared with SMILES based methods, especially in terms of the rate of valid outputs.
+
+To generate molecules with specific requirements, we propose to use conditional generative model, which offers high flexibility and do not require reinforcement learning. The model is applied to solve problems that is highly related to drug design, such as generating molecules based on a given scaffold, generating molecules with good drug-likeness and synthetic accessibility and the generation of molecules with specific profile against multiple targets. Results have showed that the conditional generative model can effectively produce enriched outputs based on the given requirements. A comparison with RL based method is performed, and results shows that although conditional generative model yields lower output accuracy, but it is capable of achieving higher output diversity.
+
+This work can be extended in various aspects. First of all, the models used in this work completely ignores the stereochemistry information for molecules. In fact, stereochemistry is extremely important in the process of drug development, and introducing this information helps to improve the applicability of existing models. Secondly, for the target based generation, it will be much more helpful to jointly train the generator and the decoder, utilizing strategies such as semi-supervised learning [60, 61]. Finally, besides the three tasks experimented in this work, conditional graph generator can be used in many other scenarios. To summarize, the graph generative architecture proposed in this work gives promising result in various drug design tasks, and it is worthwhile to explore other potential applications using this method.</p>
+  </section>
+  <section id="s30" class="text-unit">
+<h3>Additional files</h3>    <p>Additional file 1. Containing additional information about the implementation details of experiments.
+
+Additional file 2. Contianing supplementary figures.</p>
+  </section>
+  <section id="s31" class="text-unit">
+<h3>Additional files</h3>    <p>Additional file 1. Containing additional information about the implementation details of experiments.
+
+Additional file 2. Contianing supplementary figures.</p>
+  </section>
+  <section id="s32" class="text-unit">
+<h3>Author&#39;s contributions</h3>    <p>YL formulated the concept and contributed to the implementation. YL wrote the manuscript, LZ and ZL reviewed and edited the manuscript. All authors read and approved the final manuscript.</p>
+  </section>
+  <section id="s33" class="text-unit">
+<h3>Author&#39;s contributions › Acknowledgements</h3>    <p>We would like to thank Xiaodong Dou for his help on the discussion of generated inhibitors of JNK3 and GSK3β. Thanks to Bo Yang who helped with the profiling of Additional file 1: Supplementary Text 8.</p>
+  </section>
+  <section id="s34" class="text-unit">
+<h3>Author&#39;s contributions › Competing interests</h3>    <p>The authors declare that they have no competing interests.</p>
+  </section>
+  <section id="s35" class="text-unit">
+<h3>Author&#39;s contributions › Availability of data and materials</h3>    <p>The materials supporing this article, including the source code, sampled molecules and pretrained models, are available at: https://github.com/kevinid/molecule_generator.</p>
+  </section>
+  <section id="s36" class="text-unit">
+<h3>Author&#39;s contributions › Funding</h3>    <p>This research was supported by the National Natural Science Foundation of China (Grant Nos. 81573273, 81673279 21572010 and 21772005), the National Major Scientific and Technological Special Project for “Significant New Drugs Development” (2018ZX09735001-003) and Beijing Natural Science Foundation (7172118).</p>
+  </section>
+  <section id="s37" class="text-unit">
+<h3>Author&#39;s contributions › Ethics approval and consent to participate</h3>    <p>Not applicable.</p>
+  </section>
+  <section id="s38" class="text-unit">
+<h3>Author&#39;s contributions › Consent for publication</h3>    <p>The authors declare no competing fnancial interests.</p>
+  </section>
+  <section id="s39" class="text-unit">
+<h3>Author&#39;s contributions › Publisher’s Note</h3>    <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+  </section>
+  <section id="s40" class="text-unit">
+<h3>Contributor Information</h3>    <p>Liangren Zhang, Email: liangren@bjmu.edu.cn.
+
+Zhenming Liu, Email: zmliu@bjmu.edu.cn.</p>
+  </section>
+  <section id="s41" class="text-unit">
+<h3>Associated Data</h3>    <p>Additional file 1. Containing additional information about the implementation details of experiments.
+
+Additional file 2. Contianing supplementary figures.</p>
+  </section>
+  <section id="s42" class="text-unit">
+<h3>Associated Data › Supplementary Materials</h3>    <p>Additional file 1. Containing additional information about the implementation details of experiments.
+
+Additional file 2. Contianing supplementary figures.</p>
+  </section>
+  <section id="s43" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>The materials supporing this article, including the source code, sampled molecules and pretrained models, are available at: https://github.com/kevinid/molecule_generator.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

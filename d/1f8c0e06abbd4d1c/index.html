@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Machine Learning to Predict Drug-Induced Liver Injury and Its Validation on Failed Drug Candidates in Development · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Machine Learning to Predict Drug-Induced Liver Injury and Its Validation on Failed Drug Candidates in Development</h1>
+<p class="authors">Fahad Mostafa, Victoria Howle, Minjun Chen</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Toxics</dd>
+<dt>Published</dt><dd>2024-05-24</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">ADMET and toxicity prediction</span><span class="chip">Evaluation of AI in drug discovery (benchmarks, validation, reproducibility)</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.3390/toxics12060385">10.3390/toxics12060385</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/38922065/">38922065</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/38922065/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/38922065/</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>1f8c0e06abbd4d1c</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Drug-induced liver injury (DILI) poses a significant challenge for the pharmaceutical industry and regulatory bodies. Despite extensive toxicological research aimed at mitigating DILI risk, the effectiveness of these techniques in predicting DILI in humans remains limited. Consequently, researchers have explored novel approaches and procedures to enhance the accuracy of DILI risk prediction for drug candidates under development. In this study, we leveraged a large human dataset to develop machine learning models for assessing DILI risk. The performance of these prediction models was rigorously evaluated using a 10-fold cross-validation approach and an external test set. Notably, the random forest (RF) and multilayer perceptron (MLP) models emerged as the most effective in predicting DILI. During cross-validation, RF achieved an average prediction accuracy of 0.631, while MLP achieved the highest Matthews Correlation Coefficient (MCC) of 0.245. To validate the models externally, we applied them to a set of drug candidates that had failed in clinical development due to hepatotoxicity. Both RF and MLP accurately predicted the toxic drug candidates in this external validation. Our findings suggest that in silico machine learning approaches hold promise for identifying DILI liabilities associated with drug candidates during development.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractDrug-induced liver injury (DILI) poses a significant challenge for the pharmaceutical industry and regulatory bodies. Despite extensive toxicological research aimed at mitigating DILI risk, the effectiveness of these techniques in predicting DILI in humans remains limited. Consequently, researchers have explored novel approaches and procedures to enhance the accuracy of DILI risk prediction for drug candidates under development. In this study, we leveraged a large human dataset to develop machine learning models for assessing DILI risk. The performance of these prediction models was rigorously evaluated using a 10-fold cross-validation approach and an external test set. Notably, the random forest (RF) and multilayer perceptron (MLP) models emerged as the most effective in predicting DILI. During cross-validation, RF achieved an average prediction accuracy of 0.631, while MLP achieved the highest Matthews Correlation Coefficient (MCC) of 0.245. To validate the models externally, we applied them to a set of drug candidates that had failed in clinical development due to hepatotoxicity. Both RF and MLP accurately predicted the toxic drug candidates in this external validation. Our findings suggest that in silico machine learning approaches hold promise for identifying DILI liabilities associated with drug candidates during development.Keywords: machine learning, drug-induced live injury, liver toxicity, random forest, multilayer perceptron, failed drug candidates</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>1. Introduction</h3>    <p>Drug-induced liver injury (DILI) continues to be a significant challenge for the pharmaceutical industry and regulatory organizations [1]. DILI is a complex safety issue characterized by various underlying processes, varying degrees of severity, population-specific differences, and the inherent challenges in categorizing the risk connected to medications, especially those recently granted marketing approval [2,3,4]. To prevent drugs with DILI liability from entering the market, it is crucial to enhance the ability to predict the potential risk of DILI in humans before obtaining marketing approval [5]. This improvement would lead to safer pharmaceuticals and more cost-effective drug development. In addition, prompt discontinuation of the development of drug candidates with a high propensity to cause DILI can result in the timely use of resources [6].
+
+In silico models have gained popularity among researchers due to their rapid development times, cost-effectiveness and no requirement of physical substances, although experimental approaches such as in vitro and in vivo assays are still integral in the assessment of DILI risk [5,7]. Typically, in silico DILI prediction models have been developed and validated using marketed drugs, neglecting testing on drug candidates in the developmental stages [8]. Recognizing the challenge of the “translational gap” between drug development and clinical research [9,10], it becomes imperative to evaluate the performance of these in silico models using drug candidates that have failed during the drug development process.
+
+In this study, we employed a large DILI likelihood dataset [11] created by the experts from the NIH LiverTox consortium [12]. We conducted a comparative analysis of various machine learning and deep learning algorithms to develop Quantitative Structure–Activity Relationship (QSAR) models, utilizing in-house Mold2 chemical descriptors. The evaluation through 10-fold cross-validation was used to select the model with the highest performance in terms of accuracy (ACC) or Matthews Correlation Coefficient (MCC). Subsequently, these models underwent external validation using a set of drug candidates that failed in clinical development due to hepatotoxicity in humans.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>2. Materials and Methods</h3>    <p>Feature selection for DILI prediction.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>2. Materials and Methods › 2.1. Data and Annotation for DILI Likelihood</h3>    <p>Medications can be classified in terms of their likelihood to cause liver injury in humans. The NIH LiverTox consortium has created a five-point classification for measuring the possibility that a medicine caused DILI. This classification is mostly based on the published literature. A drug is categorized by likelihood score on DILI [11] as category A (well known for DILI), Category B (highly likely to cause DILI), Category C (probably linked to DILI), Category D (possible cases for DILI), Category E (no evidence for DILI), or Category E* (suspected but no convincing DILI cases).
+
+In this study, the dataset is reclassified into drugs with the likelihood to cause DILI (DILI group) and without the likelihood to cause DILI (non-DILI group). The likelihood of YES to DILI is enumerated as 1 for categories A, B, and C, and NO to DILI as 0 with E and E*. The training set comprises 240 DILI-positive, which includes 61 drugs belonging to group A, 80 of group B, and 99 of group C, and 335 DILI-negative with 206 of group E and 129 of group E*. Notably, the DILI-positives contained 34 medications with Black Box Warnings or withdrawn from the market due to DILI concern. An independent dataset were used as the external validation, including 22 drug candidates that were terminated in development due to liver toxicity [13].</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>2. Materials and Methods › 2.2. Molecular Descriptors</h3>    <p>Here, we used Mold2 to calculate 777 1D, and 2D molecular descriptors to capture critical two-dimensional chemical structural information associated with drugs. Mold2 is a software package developed by the FDA NCTR for fast calculating a large and diverse set of molecular descriptors encoding two-dimensional chemical structure information [14]. Compared with those calculated from commercial software on published datasets Mold2 descriptors provides similar or better performance to represent sufficient structural information [14].</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>2. Materials and Methods › 2.3. Model Development</h3>    <p>In the binary classification of machine learning, the data are represented as a set of pairs (x,y), where x denotes the input features and y represents the binary target variable. Mathematically, the input features are typically denoted as a real-valued vector x∈ Rn, where n is the dimensionality of the feature space. The target variable y is a binary label, taking on one of two values: 0 or 1. The goal of binary classification is to learn mapping from input features to the binary labels, which is represented as a function f:Rn→{0,1}. This mapping is learned through a training process using a labeled dataset, and the objective is to find a decision boundary or a hypothesis h(x) that accurately predicts the binary label y based on the input features x in a way that minimizes a suitable loss or cost function. The framework of model development for DILI prediction includes the following:
+
+Feature selection for DILI prediction.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>2. Materials and Methods › 2.3. Model Development › 2.3.1. Feature Selection from Chemical Descriptors</h3>    <p>Feature selection helps identifying the features that have the most impact on the prediction. It combats computational complexity, overfitting, and improves model interpretability by selecting the most relevant characteristics. Choosing influential features helps a model generalize to new data, minimizes noise, and adds to more efficient model training (Figure 1).
+
+To assess the importance of input features, we analyzed the coefficients (weights) associated with each feature in the logistic regression model [15]. The absolute values of these coefficients represent the feature’s importance. The larger the absolute coefficient, the more important the feature is in predicting the binary outcome.
+
+The logistic regression model represents the relationship between the features and the binary outcome (0 or 1) using the logistic function (sigmoid function). The model is defined as follows:
+
+The logistic regression model can then be defined as
+
+To reduce overfitting, Lasso regularization is adopted during logistic regression, which encourages sparse coefficient values, making feature selection more explicit [16]. The logistic regression model with L1 regularization is represented as follows with the defined objective function:
+
+Here, J(θ) is the logistic regression cost function with Lasso regularization, m is the number of training samples, n is the number of features, θ represents the model parameters (weights), x(i) is the feature vector of the i-th sample, and hθx(i) is the logistic function. The λ term controls the strength of Lasso regularization. The Lasso regularization term encourages some of the θ coefficients to become exactly zero, which effectively selects a subset of features. The features with non-zero coefficients in the trained model are considered important for the classification task.
+
+Feature selection for DILI prediction.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>2. Materials and Methods › 2.3. Model Development › 2.3.2. Model Selection and Mathematical Analysis</h3>    <p>Model selection is an important component of developing predictive models since algorithms have different capabilities for modeling. In our current DILI study, binary classification was considered.
+
+If x is the input features of dimension n, then y is the binary class with class labels 0 and 1. If θ is the model parameters and Hθ is the predicted P(y=1∣x,θ), the SVM classifier’s prediction probability is:
+
+Hθ(x) predicts the class label, θ is the weight of the parameters and b is the bias. The objective function to minimize is
+
+In the case of the DT classifier [17], it recursively partitions the feature space into regions by selecting split based on Gini impurity or the entropy index. Random forest (RF) is an ensemble of DTs [18,19]. Each tree is trained on a bootstrap sample, and the final prediction is obtained by aggregating predictions of individual trees. A deep learning-based classifier, which is known as multilayer perceptron (MLP), is also used to train the model. The mathematical representation of a neural network is as follows:
+
+where W(1) and W(2) are weight matrices, and b(1) and b(2) are the biases. The cross-entropy loss function is
+
+The KNN classifier assigns a class label C to a new instance xnew based on the majority class among its k-nearest neighbors as follows:
+
+where Cxnew is the predicted class label for the xnew,c iterates the overall possible class labels, and δyi,c is the Kronecker delta, which is 1 if yi=c and 0 otherwise. To find the KNN of xnew, the Euclidean distance metric is used as dxi,xnew= ∑j=1mxij−xnew,j2, where m is the number of features in the data. Stochastic Gradient Descent (SGD) and Adaptive Moment Estimation (ADAM) are two optimization methods that are often used in machine learning models to minimize loss functions. SGD iteratively updates model parameters in logistic regression by examining small portions of training data, improving convergence speed and scalability [20]. These techniques let SVM discover the best hyperplane by repeatedly modifying the separation margins [21]. ADAM aids training in MLP by fine-tuning the network’s weights and biases, allowing it to approximate complicated correlations between inputs and outputs [22].</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>2. Materials and Methods › 2.3. Model Development › 2.3.3. Model Evaluations and Statistical Analysis</h3>    <p>To determine performance measures, predictions from each of the 100 iterations of the 10-fold cross-validation were compared with their actual DILI risk classifications. Each 10-fold cross-validation for the 2-class DILI prediction models produced a 2-by-2 confusion matrix.
+
+A panel of statistical matrices are used for investigating machine learning models [23], such as accuracy (ACC), precision, recall, F1 score (F1), and MCC. The predictions made by a classifier can be categorized as true positive (TP), true negative (TN), false positive (FP), and false negative (FN).</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>2. Materials and Methods › 2.3. Model Development › 2.3.4. Applicability Domain Analysis</h3>    <p>Determining the applicability domain [24,25] often involves using various statistical and cheminformatics techniques, such as clustering analysis, distance measures, or domain-specific rules. These methods help assess whether new data points or compounds fall within the established domain. Knowing the domain of application enables users to apply the model to data that are comparable to the training data, enhancing trust in their robustness and generalizability. Normally, a hypothesis is considered for finding optimal prediction space in the 2D visualization of the prediction data points.
+
+Here, the RF classifier and the Mahalanobis distance are utilized to apply the applicability domain [26] for evaluating the eligibility of new data points for prediction. Given a training dataset consisting of input features denoted as Xtrain and corresponding class labels ytrain, and a trained classifier model RF, the Mahalanobis distance, DOxnew, is calculated for a new data point xnew using the mean and covariance matrix of Xtrain. A threshold value, T, determined by a chosen significance level α and degrees of freedom, is utilized. The RF classifier predicts the class label ypred for xnew. If DOxnew is less than T,xnew is within the applicability domain; otherwise, it’s outside. The Mahalanobis distance’s comparison with T dictates the data point’s classification.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>3. Results</h3>    <p>Shapley values used to explain the prediction of a model by attributing the contribution of 10 most important features out of 168 top features to the prediction.
+
+Performance matrices for different machine learning and deep learning models on DILI prediction (mean ± standardized deviation).
+
+MCC scores from the permuted labels vs. the real labels by RF (upper) and MLP models (down). Both tests were statistically significant (p-value &lt; 0.001).
+
+An applicability domain defines the specific conditions under which a predictive model or algorithm is expected to perform well. The blue dots are the training data points and elliptic circle indicates domain threshold.
+
+Model predictions for drug candidates terminated in drug development with hepatotoxicity findings.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>3. Results › 3.1. Assessments of Feature Selection</h3>    <p>Feature selection is critical for machine learning to solve the issues associated with high-dimensional DILI datasets. Here, we used a regularized logistic regression method for identifying the most important features. The dataset was split into training and validation sets with an 80–20 ratio by using a simple random sampling technique. Then, we selected the top important features for classification based on their root mean squared error (RMSE) and λ using least absolute shrinkage and selection operator (lasso) and transformed the training and testing sets to include only the selected features. For doing this we selected a range of values for the regularization parameter λ using cross-validation. For each value of λ, we fit a lasso regression model on the training data. Then, we used a validation dataset to evaluate the performance of each lasso model. Once the optimal λ was determined, we fit the lasso regression model with this λ value on the entire dataset to obtain the final model. Using lasso with 10-fold CV, 168 top-ranked molecular descriptors were selected with the best λ = 0.01 and minimum RMSE of 0.466. The model employed feature selection using L1 regularization with logistic regression and calculated p-values for the selected features. After standardizing the features, it fit the lasso model to the training data, identifying the features with non-zero coefficients and the lowest p-values. From the 168 top-ranked descriptors obtained through the lasso variable selection strategy, we extracted the 10 most valuable features with the smallest p-values for DILI prediction. Subsequently, we assessed feature importance using SHAP (Figure 2) [27], and the detailed descriptions of these features can be found in Supplementary Table S1.
+
+Shapley values used to explain the prediction of a model by attributing the contribution of 10 most important features out of 168 top features to the prediction.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>3. Results › 3.2. Model Development and Performance Assessments</h3>    <p>Table 1 presents a comparison of several machine learning methods in terms of performance measures evaluated by 100 repeats of 10-fold cross-validation.
+
+RF had the highest ACC of 0.631, followed by MLP (0.626) and SVM (0.617). RF also had the highest recall of 0.716, followed by KNN (0.664) and MLP (0.658). It achieved the highest F1 score value of 0.677, followed by MLP (0.660) and SVM (0.654). Meanwhile, RF had the lowest standard deviation in the recall and F1 score.
+
+MLP had the highest MCC means (0.245), followed by RF and SVM (0.226 and 0.225, respectively). It also had the highest precision (0.673), followed by SVM (0.663) and NB (0.662). MLP recorded the second highest recall (0.658) and F1 score (0.660).
+
+Considering the metrics, RF consistently performs well in terms of ACC, precision, recall, MCC, and F1 score. It has the highest or near-highest mean values in most metrics. MLP has the highest MCC and precision and performs well in terms of recall. In summary, RF and MLP seem to be the best models based on the metrics provided.
+
+We conducted a permutation test for the selected QSAR models based on RF and MLP. By randomly shuffling the labels, we generated a permuted label distribution. The MCCs from our RF and MLP models (Figure 3) were significantly higher than those obtained from the models with permuted labels (p-value &lt; 0.0001). This suggests that the predictions from our models are not due to chance.
+
+We evaluated the RF model for the application domain. For threshold 0.6 (Figure 4), we observed the number of training data points inside the application domain to be 428 and the number of train data points outside the domain to be 32. Accordingly, the ACC within the domain is 0.64 and outside is 0.62.
+
+Performance matrices for different machine learning and deep learning models on DILI prediction (mean ± standardized deviation).
+
+MCC scores from the permuted labels vs. the real labels by RF (upper) and MLP models (down). Both tests were statistically significant (p-value &lt; 0.001).
+
+An applicability domain defines the specific conditions under which a predictive model or algorithm is expected to perform well. The blue dots are the training data points and elliptic circle indicates domain threshold.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>3. Results › 3.3. Model Validation by Drug Candidates That Failed in Development</h3>    <p>We tested the models using a set of 22 drug candidates that failed in drug development due to hepatotoxicity [15]. Both RF and MLP classifiers successfully predicted whether medications would result in “No-DILI-Concern” or “Most-DILI-Concern” with a success rate of 19/22 (90.9%) (Table 2). As a comparison, the rule-of-two model correctly predicted 13/22 compounds (59%), of which 8 compounds (*) were determined as ambiguous with either a high daily dose of &gt;100 mg/day or a high logP value of &gt;3 alone. We also applied the ToxSTAR online tool [28] for evaluating these drug candidates, which resulted in the correct prediction of 18/22 compounds (82%) for cholestasis and 16/22 compounds (73%) for hepatitis.
+
+Model predictions for drug candidates terminated in drug development with hepatotoxicity findings.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>4. Discussions</h3>    <p>In this study, we endeavored to construct computer models for assessing DILI risk caused by medications, utilizing a substantial human dataset annotated by experts from LiverTox. To achieve this, an extensive exploration of various machine learning and deep learning techniques was undertaken to evaluate the efficacy of different modeling classifiers.
+
+A 10-fold cross-validation procedure was employed to assess several selected machine learning algorithms, complemented by external testing. Our findings revealed that the RF and MLP models stood out as highly effective in predicting DILI. Specifically, RF outperformed other machine learning strategies, achieving an average prediction accuracy of 0.631 during cross-validation, while the MLP deep learning approach attained the best MCC of 0.245. The permutation tests revealed that the predictions from both models are better than by chance.
+
+QSAR models for DILI have been extensively studied in the literature. It is crucial to recognize that different endpoints in DILI prediction models can yield varying predictions due to differences in underlying mechanisms, data availability, and model complexities. In this study, we utilized a large dataset of drugs with quality endpoints related to DILI likelihood, as curated by the NIH’s LiverTox [11]. To the best of our knowledge, no other QSAR DILI model has been specifically based on the same endpoint. Another widely used dataset for developing QSAR models is DILIrank [29]. As detailed in Supplementary Table S2, various algorithms were employed to build these models, and they demonstrated comparable performance to ours, achieving accuracies in the range of 60–70% [8,30,31,32,33,34].
+
+The top selected features by our models include Geary topological structure autocorrelation length-1 weighted by atomic van der Waals volumes (D455), Moran topological structure autocorrelation length-2 weighted by atomic masses (D480), the number of group Al-C(=X)-Al (D742), structure lopping centric group index (D253), and mean molecular topological order-9 charge index (D529). Interestingly, our top two ranking features have also been reported to contribute to QSAR models for predicting the inhibition of Cytochrome P450 enzymes, specifically CYP3A4, CYP2D6 [35] and CYP2C8 [36]. Notably, the inhibition of CYP enzymes is known to be associated with an increased risk of DILI in humans [37].
+
+The RF model exhibited competitive F1 and AUC scores, demonstrating its capacity to successfully discriminate between positive and negative occurrences in the prediction process, achieving a harmonious balance between precision and recall. Of significant note, both models demonstrated their accuracy when externally validated against a set of 22 failed drug candidates with hepatotoxicity, although false negative rates need further evaluation. This underscores their potential in identifying compounds with hepatotoxic liabilities, mitigating risks to patients, and enhancing drug development procedures.
+
+Both MLP and RF have unique advantages when developing QSAR models. RF offers robustness through its ensemble of decision trees, feature importance analysis, and noise resilience. On the other hand, MLPs excel at automatically learning from complex features and identifying non-linear connections between molecular descriptors and DILI. Without the need for additional ensemble methodologies, MLPs and RF can independently achieve competitive performance in DILI prediction by leveraging their respective strengths in feature learning and ensemble learning. These methods help identify important structural traits associated with DILI, providing a deeper understanding of the connections between chemical properties and liver damage.
+
+However, there are also drawbacks to applying machine learning methods. One challenge is the availability of labeled data—finding high-quality, readily available data for training can be difficult. The size, quality, and representativeness of training datasets often vary, affecting the broad applicability of models. Another issue is class imbalance in datasets used for DILI prediction. For instance, when the proportion of liver injury cases is much lower than non-liver injury cases, models may perform poorly on the minority class and favor the dominant class. Extracting relevant traits or biomarkers from complex biological data can also be challenging. While machine learning algorithms can handle high-dimensional data, their interpretability may be limited, making it hard to understand the biological processes underlying DILI prediction. Additionally, complex models like deep learning neural networks (such as MLP) are prone to overfitting, especially when trained on small or noisy datasets. Overfitting occurs when a model memorizes the training data rather than capturing underlying patterns, leading to poor generalization performance on unseen data.
+
+Developing a robust in silico model to predict the DILI risk in humans remains an unmet challenge in drug development. The urgency for accurate DILI prediction in pharmaceutical research and patient safety underscores the need for improved risk management and drug development practices. Machine learning approaches offer a promising solution to address these complex healthcare concerns. This study paves the way for future research into the application of machine learning in DILI prediction and its broader implications for medication safety and healthcare.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Supplementary Materials</h3>    <p>The following supporting information can be downloaded at: https://www.mdpi.com/article/10.3390/toxics12060385/s1, Table S1: Top 10 ranking features out of 168 lasso selected features with symbol and chemical definition; Table S2: The published QSAR models for predicting liver toxicity in humans using DILIrank dataset as the endpoint.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Author Contributions</h3>    <p>Conceptualization, M.C.; methodology, F.M., V.H. and M.C.; validation, F.M. and M.C.; data curation, F.M. and M.C.; writing—original draft preparation, F.M.; writing—review and editing, V.H. and M.C.; visualization, F.M.; supervision, M.C.; project administration, M.C. All authors have read and agreed to the published version of the manuscript.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Institutional Review Board Statement</h3>    <p>Not applicable.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Informed Consent Statement</h3>    <p>Not applicable.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Data Availability Statement</h3>    <p>The datasets used and/or analyzed during the current study are available from the corresponding author on reasonable request.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Conflicts of Interest</h3>    <p>The authors declare no conflict of interest.</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Funding Statement</h3>    <p>This research received no external funding.</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>The datasets used and/or analyzed during the current study are available from the corresponding author on reasonable request.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

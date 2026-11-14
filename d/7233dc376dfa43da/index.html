@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>PharmaBench: Enhancing ADMET benchmarks with large language models · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>PharmaBench: Enhancing ADMET benchmarks with large language models</h1>
+<p class="authors">Zhangming Niu, Xianglu Xiao, Wenfan Wu, Qiwei Cai, Yinghui Jiang, Wangzhen Jin, Minhao Wang, Guojian Yang, Lingkang Kong, Xurui Jin, Guang Yang, Hongming Chen</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Scientific data</dd>
+<dt>Published</dt><dd>2024-09-10</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">ADMET and toxicity prediction</span><span class="chip">Evaluation of AI in drug discovery (benchmarks, validation, reproducibility)</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1038/s41597-024-03793-0">10.1038/s41597-024-03793-0</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/39256394/">39256394</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/39256394/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/39256394/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>7233dc376dfa43da</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Accurately predicting ADMET (Absorption, Distribution, Metabolism, Excretion, and Toxicity) properties early in drug development is essential for selecting compounds with optimal pharmacokinetics and minimal toxicity. Existing ADMET-related benchmark sets are limited in utility due to their small dataset sizes and the lack of representation of compounds used in drug discovery projects. These shortcomings hinder their application in model building for drug discovery. To address this issue, we propose a multi-agent data mining system based on Large Language Models that effectively identifies experimental conditions within 14,401 bioassays. This approach facilitates merging entries from different sources, culminating in the creation of PharmaBench. Additionally, we have developed a data processing workflow to integrate data from various sources, resulting in 156,618 raw entries. Through this workflow, we constructed PharmaBench, a comprehensive benchmark set for ADMET properties, which comprises eleven ADMET datasets and 52,482 entries. This benchmark set is designed to serve as an open-source dataset for the development of AI models relevant to drug discovery projects.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractAccurately predicting ADMET (Absorption, Distribution, Metabolism, Excretion, and Toxicity) properties early in drug development is essential for selecting compounds with optimal pharmacokinetics and minimal toxicity. Existing ADMET-related benchmark sets are limited in utility due to their small dataset sizes and the lack of representation of compounds used in drug discovery projects. These shortcomings hinder their application in model building for drug discovery. To address this issue, we propose a multi-agent data mining system based on Large Language Models that effectively identifies experimental conditions within 14,401 bioassays. This approach facilitates merging entries from different sources, culminating in the creation of PharmaBench. Additionally, we have developed a data processing workflow to integrate data from various sources, resulting in 156,618 raw entries. Through this workflow, we constructed PharmaBench, a comprehensive benchmark set for ADMET properties, which comprises eleven ADMET datasets and 52,482 entries. This benchmark set is designed to serve as an open-source dataset for the development of AI models relevant to drug discovery projects.Subject terms: Computational chemistry, Cheminformatics</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Background &amp; Summary</h3>    <p>Optimization of ADMET (Absorption, Distribution, Metabolism, Excretion, and Toxicity) properties plays a pivotal role in drug discovery. These pharmacokinetic properties directly influence a drug’s efficacy, safety, and ultimately clinical success. Early assessment and optimization of ADMET properties are essential for mitigating the risk of late-stage failures and for the successful development of new therapeutic agents1.
+
+The development of computational approaches provides a fast and cost-effective means for drug discovery, allowing researchers to focus on candidates with better ADMET potential and reduce labor-intensive and time-consuming wet-lab experiments2–4. One of the key factors contributing to the success of computational approaches in drug discovery is the decent volume of compound-related biomedical data5. The number of bioassays is increasing each year, and many of their screening results are publicly accessible in databases such as ChEMBL6, PubChem7, and BindingDB8 etc.
+
+Manual curation of ADMET data based on public data sources has been reported and some of them have been widely used as benchmark datasets for model evaluation. Wu et al.9, who constructed a large-scale benchmark for molecular machine learning named MoleculeNet, included 17 datasets and more than 700,000 compounds covering categories of physical chemistry and physiology related to ADMET experiments. Huang et al.10 published the Therapeutics Data Commons, which includes 28 ADMET-related datasets with over 100,000 entries by integrating multiple curated datasets from previous work. For specific ADMET experiment, Meng et al.11 present B3DB, which includes 1,058 compounds containing log BB values and 7,807 compounds with classification labels for the blood-brain barrier as one of the distribution properties. Meng et al.12 collected seven aqueous solubility datasets and presented a dataset curation workflow to establish solubility datasets as one of the physicochemical properties.
+
+However, serious concerns about these benchmark datasets still exist. Firstly, most of these benchmarks include only a small fraction of the publicly available bioassay data. For instance, the ESOL dataset13 within MoleculeNet provides water solubility data for 1,128 compounds, while the PubChem7 database contains more than 14,000 relevant entries. Secondly, the entries in these benchmarks differ substantially from those in the industrial drug discovery pipeline. For example, the mean molecular weight of compounds in the ESOL dataset is only 203.9 Dalton, whereas compounds typically within the drug discovery projects have molecular weights ranging from 300 to 800 Dalton14.
+
+These limitations of compiled open-source benchmark datasets are primarily due to the high complexity of data annotation for biological and chemical experimental records. Frequently, experimental results for identical compounds can vary significantly under different conditions, even within the same type of experiment15. For example, aqueous solubility can be influenced by various factors, such as different types of buffers, pH level, and experimental procedure. Thus, the same compound might be annotated with different solubility values depending on those experimental conditions16. This sort of variability poses a big challenge in the fusion of experimental results.
+
+Recently developed Large Language Models (LLMs) like ChatGPT17, PubMedBERT18, and BioBERT19 represent a novel approach of effectively extracting data from a large body of text, therefore a potential method for addressing data curation challenges. Some of these LLMs demonstrate state-of-the-art performance through one-shot or few-shot learning as a form of multi-task learning17,20,21. Compared to supervised methods or models requiring thousands of data for fine-tuning, this approach allows us to develop condition extraction models more efficiently with only a few examples.
+
+In the current study, we leveraged these LLMs as a core engine to extract experimental conditions from assay descriptions within biomedical databases, and an automated data processing framework was established for processing them for facilitating compilation of ADMET benchmark datasets as shown in Fig. 1. We implemented the pipeline to process bioassay data from the ChEMBL database and extract the experimental conditions missing from the table descriptions. These data, along with some other public datasets, were standardized and filtered to create PharmaBench22.
+
+Eventually, PharmaBench22, a data package including eleven ADMET properties, was curated and provided to cheminformatics community serving as a benchmark set for ADMET predictive model evaluation. These properties are recognized as key factors in real-world drug development efforts, and both the size and diversity of the data are significantly greater than those of previous datasets. We also included multiple validation steps to confirm the data quality, molecular properties, and modeling capabilities of PharmaBench22.
+
+Data processing workflow for building PharmaBench: From left to right, the multi-agent LLM system extracts experimental conditions from the ChEMBL database, combines other data sources and standardizes the data, filters various data types, and validates them through repeated tests, property distribution, and AI modeling.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Methods</h3>    <p>The Methods section provides a detailed overview of the data processing workflow used in constructing PharmaBench22, as depicted in Fig. 1. The Data Collection subsection outlines the data sources employed to build PharmaBench22. It includes a comprehensive description of the multi-agent LLM system for extracting experimental conditions from assay descriptions, detailed in the Data Mining subsection. Following the identification of experimental conditions in the Data Mining stage, we merge experimental results from various sources and standardize and filter the data based on drug-likeness, experimental values, and conditions, as summarized in the Data Standardization and Filtering section. Finally, we post-process the datasets by removing duplicate test results and dividing the dataset based on Random and Scaffold splitting methods for AI modeling purposes.
+
+We establish a final benchmark set that comprises experimental results in consistent units and under standardized experimental conditions. In addition, the data processing workflow described in the Methods section can eliminate inconsistent or even contradictory experimental results for the same compounds, enabling other researchers to effectively construct datasets from public data sources. For code reproduction, all data processing tasks were conducted within a Python 3.12.2 virtual environment, established using Conda on an OSX-64 platform. This environment included pandas 2.2.1, NumPy 1.26.4, Matplotlib 3.8.3, rdkit 2023.9.5, scikit-learn 1.4.1.post1, scipy 1.12.0, seaborn 0.13.2, and openai 1.12.0. A detailed description of the environment requirements can be found on GitHub at https://github.com/mindrank-ai/PharmaBench.
+
+Summary of data sources for PharmaBench, from left to right: the broad ADMET category, property name, number of ChEMBL entries and bioassays, number of other entries, and a summary of the sources with references.
+
+Table of Experimental Conditions and Filters Across Datasets.
+
+Sample Prompt for LLM Interaction: Illustration of a Typical User Query Input, Including Instructions and Example Parts.
+
+Overview of the Multi-Agent LLM Data Mining Workflow. This figure presents a summary of the multi-agent LLM data mining workflow, which includes three key components: the Keyword Agent, responsible for identifying experimental conditions; the Example Agent, tasked with generating examples; and the Data Mining Agent, designed to extract experimental conditions from assay descriptions.
+
+Sample Prompt for the Keyword Extraction Agent.
+
+Sample Prompt for the Example Forming Agent.
+
+Summary of Datasets in PharmaBench: ‘Property Name’ refers to the name of the dataset.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Methods › Data collection</h3>    <p>Our data primarily originated from the ChEMBL database, a manually curated collection of SAR (Structure-Activity Relationship) and related physicochemical property data, largely sourced from peer-reviewed journal articles. The data type within the ChEMBL database typically includes experimental value, chemical structure, assay description, type of experiment, and certain experimental conditions. Table 1 summarizes the original entries we collected, along with the number of bioassays of the ChEMBL database used for PharmaBench22. We analysis through 97,609 raw entries based on 14,401 different bioassays in PharmaBench22.
+
+These entries from different bioassays in the ChEMBL database were analyzed through our Data Mining workflow to extract the experimental conditions. This is mainly because most of the experimental conditions recorded in ChEMBL are not explicitly specified. For instance, for solubility experiments, entries in the ChEMBL database do not include explicit data columns such as buffer type, pH condition, and experimental procedure, which are critical factors influencing experimental results. Although these conditions can be found in the assay descriptions, they cannot be directly used as a filter to distinguish experiments due to their unstructured nature. Manual mining work would be labor-intensive, which necessitates an automatic data processing framework to identify important experimental conditions from the description texts.
+
+Thus, our multi-agent LLM system uses the entries from the ChEMBL database as the original sources and identifies various conditions for different ADMET experiments as summarised in Table 2. Additionally, we have augmented our datasets with some public datasets that have associated assay descriptions as illustrated in Fig. 1. Table 1 presents a summary of the 59,009 entries we have compiled from various public datasets, along with a delineation of their respective sources.
+
+Overall, we have used more than 150,000 entries from public data sources to construct PharmaBench22, and the data mining process has analyzed 14,401 different bioassays.
+
+Summary of data sources for PharmaBench, from left to right: the broad ADMET category, property name, number of ChEMBL entries and bioassays, number of other entries, and a summary of the sources with references.
+
+Table of Experimental Conditions and Filters Across Datasets.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Methods › Data mining</h3>    <p>GPT-417, a model created by OpenAI, was utilized as the core LLM for the data-mining task. Based on previous research, to obtain optimized results from GPT-4, a prompt with clear instructions and examples is required for every specific task17,23–25. As shown in Fig. 2, the prompt for our data-mining process includes both instructions and examples. The instructions summarize the experimental conditions as the data mining goal and specify the requirements for the output formats. The examples, on the other hand, provide few-shot learning examples for the LLM. This prompt engineering is an important process for improving the results of GPT-417.
+
+However, constructing prompts for various tasks requires domain knowledge of the ADMET experiments, and creating examples for these data mining tasks remains labor-intensive. We wish to explore whether the LLMs can automatically identify key experimental conditions from different types of experiments, generate examples, and complete the complex data mining process with minimal human effort.
+
+As a result, a multi-agent LLM data mining system was proposed in this study to extract experimental conditions from the descriptions of various bioassays26–28. An agent is a module or entity that utilizes the LLM to perform specific tasks, such as understanding, generating, or processing natural language texts28. Instead of using a single LLM-powered agent, a multi-agent system was proposed to customize LLMs into various agents, each with different capability, to automatically complete the complex data mining process, as shown in Fig. 326.
+
+The multi-agent system consists of three agents, namely keyword extraction agent (KEA), example forming agent (EFA), and data mining agent (DMA), as illustrated in Fig. 3. The KEA will pick out and summarize the key experimental conditions for ADMET experiments. The EFA will then generate examples based on these experimental results summarized by the KEA. We will manually validate the outcomes of the KEA and EFA to ensure their quality. Finally, the DMA will mine through all the assay descriptions and identify all the experimental conditions within these texts. The following sections will introduce these three agents in more detail.
+
+Sample Prompt for LLM Interaction: Illustration of a Typical User Query Input, Including Instructions and Example Parts.
+
+Overview of the Multi-Agent LLM Data Mining Workflow. This figure presents a summary of the multi-agent LLM data mining workflow, which includes three key components: the Keyword Agent, responsible for identifying experimental conditions; the Example Agent, tasked with generating examples; and the Data Mining Agent, designed to extract experimental conditions from assay descriptions.
+
+Sample Prompt for the Keyword Extraction Agent.
+
+Sample Prompt for the Example Forming Agent.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Methods › Data mining › Keyword extraction agent</h3>    <p>The KEA is designed to summarize key experimental conditions from various ADMET experiments. A prompt, as illustrated in Fig. 4, along with texts from 50 randomly selected assay descriptions, was created as the model input for the KEA. This prompt instructs GPT-4 to summarize the experimental conditions from selected assay descriptions of bioassays in ChEMBL. The model’s task is to identify and summarize the top five most frequently mentioned experimental conditions. For more complex experiments, such as microsome clearance and CYP inhibition, the model was asked to summarize the top ten conditions. GPT-4 is required to generalize these conditions rather than just listing specific conditions and duplicating or listing similar conditions should be avoided. An example of a Python list is provided to KEA to illustrate the desired output format for GPT-4. This process will leverage GPT-4’s internal knowledge to generate a list of significant experimental conditions. An example of the input and output for the KEA is shown in Fig. 4.
+
+The experimental conditions summarized by the KEA are listed in the ‘Experimental Condition’ column of Table 2. Domain experts were invited to confirm if these conditions are key conditions for ADMET experiments. These experimental conditions are then used as the primary data mining goal for the DMA to extract from each assay description.
+
+Sample Prompt for the Keyword Extraction Agent.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Methods › Data mining › Example forming agent</h3>    <p>The EFA focuses on generating examples from assay description texts. The prompt for this agent includes clear instructions incorporating the key experimental conditions summarized by the Keyword Agent, along with forty assay descriptions for analysis purposes. The Example Agent returns a Python dictionary containing the index, original sentences, and key experimental conditions as the keys. It will return ‘None’ if no information is provided within the sentences.
+
+For each ADMET experiment, forty examples will be generated through these automatic pipelines. Manual examination is conducted on the examples to eliminate errors and confirm the format. This fast labeling process generates few-shot learning examples for DMA, which avoids intensive human labeling. The example input and output for this agent is shown in Fig. 5.
+
+Sample Prompt for the Example Forming Agent.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Methods › Data mining › Data mining agent</h3>    <p>The DMA aims to complete the mining task for all assay descriptions from the ChEMBL database. As shown in Fig. 2, the prompt for this agent includes instructions containing the experimental conditions summarized by the KEA and forty examples generated by the EFA. As shown in Fig. 5, the prompt defines the data mining task, identifying experimental conditions and outputting them in the desired format. These examples provide few-shot learning data for the DMA to learn how to standardize the output format and improve the overall output quality.
+
+GPT-4 has a limit on the number of tokens to be processed in a single request17. Thus, we divided the assay descriptions with a batch size of twenty to mitigate the risk of overloading the model. This batching technique allows for a more accurate and reliable analysis, especially when dealing with complex assay descriptions.
+
+The DMA will return a Python Dictionary for every batch input. A routine was written to convert the Python Dictionary from a Markdown file into a Pandas DataFrame, which is then stored. Eventually, the Data Mining Agent goes through all the assay descriptions in the raw data and stores the output of every batch. The experimental conditions mined based on this multi-agent system are then merged back into the original file for data standardization and filtering.
+
+Overall, this multi-agent system mines through 14,401 assay descriptions to identify the experimental conditions for seven different ADMET experiments. It largely minimizes human effort to extract structured experimental conditions which will be then used in the following data standardization and filtering procedures.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Methods › Data standardization</h3>    <p>The data obtained from different sources exhibit significant variability in the format of structure, data type, name of experimental condition, and the unit and range of experimental value. For standardizing the data, we design a data standardization workflow to clean the data obtained from the previously described data mining step and it includes standardization of structure format, experimental condition, and experimental value.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Methods › Data filtering</h3>    <p>A data filtering process aims to filter out entries with abnormal molecules and irregular experimental results, to construct the final benchmark set that contains experimental results in consistent units and experimental conditions.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Methods › Data preparation for AI modeling</h3>    <p>After the above data processing workflow, a series of ADMET datasets were constructed from various bioassays. The count of entities is summarized in Table 3. However, multiple experimental results for the same compounds occur under the same conditions within the datasets after the processing workflow.
+
+Thus, we employed various strategies to unify these repeated results in the final datasets. For regression tasks, for compounds with repeated data, the mean value was taken as the unified value. There are two classification datasets in our benchmark set. For the BBB experiment, we eliminate all compounds with contradictory results, while for AMES, we label the compounds as positive if at least one positive result occurs in these experiments. This approach is primarily due to the fact that AMES is a toxicity-related experiment, which requires the model to be highly sensitive to positive results30.
+
+Additionally, we divided the datasets for each property into training and test sets with a ratio of 0.8:0.2 respectively, utilizing both random and scaffold splitting methods. Random splitting involves distributing the compounds arbitrarily across the training and test sets, whereas scaffold splitting is designed to create sets with distinct structural features by allocating compounds that share the same core scaffold exclusively to either the training or the test set10. This approach ensures that the test set is structurally different from the training compounds, making it more challenging for models to predict.
+
+Summary of Datasets in PharmaBench: ‘Property Name’ refers to the name of the dataset.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Data Records</h3>    <p>We have compiled 11 ADMET datasets to form PharmaBench, which is freely available at figshare22. Table 3 includes the number of entries after the data processing workflow for each dataset and the final entries for AI modeling. The final entries consist of one experimental result for each molecule, based on the experimental condition as described in the ‘Filter’ column of Table 2. The mission type of the different datasets is also summarized in the ‘Mission Type’ column of Table 3, including regression and classification.
+
+Overall, PharmaBench22 comprises a total of 52,482 entries. It is stored in comma separated values (CSV) format and includes a unified SMILES representation, experimental results, property names, and training labels based on both scaffold and random splitting, as summarized in Table 4. The data are also openly accessible on GitHub at https://github.com/mindrank-ai/PharmaBench, along with the processing workflow.
+
+The following section will introduce different datasets in more detail, including a general introduction to various ADMET properties, the units for different datasets, and the number of molecules.
+
+List of information in the final datasets.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Technical Validation</h3>    <p>Once the data collection is done, we evaluate the datasets from three aspects. Firstly, we use the repeated test results for the datasets before and after the implementation of the data processing workflow to demonstrate the improvement in data quality resulting from this workflow. Secondly, we illustrate the characteristics of PharmaBench22 by showing distributions of various molecular properties. Lastly, we trained various machine learning and deep learning models on the datasets and presented model performance on the test sets.
+
+Comparison of Data Quality Before and After the Data Processing Workflow Through Repeated Test Plots and Confusion Matrices (a) Repeated Test Plot for the LogD Experiment Before Data Processing. (b) Repeated Test Plot for the LogD Experiment After Data Processing. (c) Repeated Test Plot for the BBB Experiment Before Data Processing. (d) Repeated Test Plot for the BBB Experiment After Data Processing. Additional data can be found in Table 5.
+
+Comparison of Metrics Between the Regression Datasets Before and After the Data Processing Workflow.
+
+Comparison of Metrics Between the Classification Datasets Before and After the Data Processing Workflow.
+
+Frequency Histograms for All PharmaBench Datasets: Count Distribution of Atom Numbers, Molecular Weights, LogP, and QED Scores Across Different Datasets.
+
+Summary of AI Models Utilized in the Validation Process.
+
+Summary of final results for the PharmaBench based on random split.
+
+Summary of final results for the PharmaBench based on scaffold split.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Technical Validation › Repeated test for data quality assessment</h3>    <p>A comparison for repeated test results is a methodological approach where the same experiment is conducted multiple times to verify the consistency of the results37. Limited by the scope of this work, we cannot verify each data point through wet lab experiments or review each literature to confirm the direct data quality of the dataset. Thus, we implement an indirect approach, namely repeated testing, to confirm the data quality before and after data processing. A raw dataset often contains multiple records for the same compound due to different sources and varying experimental conditions. Repeated testing compares the maximum and minimum values for the same compound under the same condition to validate the data quality.
+
+As shown in Fig. 6, the repeated test plot is used to analyze regression results, and the confusion matrix is used to analyze the classification results. If the experimental results are consistent for different data sources, the repeated test plot will exhibit higher correlation and a lower mean absolute error (MAE) for regression tests, and the confusion matrix will show higher accuracy (ACC), precision, and recall for classification tests. In contrast, low-quality data will have opposite metric scores.
+
+We use this method to compare data quality before and after considering the experimental conditions mined through our data mining process, thereby demonstrating improvement in data quality based on our approach. The data quality before and after the data processing workflow can be compared and evaluated through the metrics mentioned above.
+
+Specifically, we group data entries for the same molecules from the raw data to create the ‘before data processing’ plot, and we group data entries for the same molecules under identical conditions for the ‘after data processing’ plot. The maximum and minimum experimental results for each group are selected as the worst-case scenario. We have created a scatter plot for the regression tests and a confusion matrix for the classification tests, as shown in Fig. 6. The R, MAE, and RMSE for regression tasks, and ACC, F1, precision, and recall for classification tasks, have been calculated and are recorded within Tables 5 and 6.
+
+Table 5 demonstrates the results of repeated tests for regression tasks within PharmaBench22, while Table 6 summarizes the classification tasks. All metrics improved following the data processing workflow, validating the quality increment. The results of repeated tests for certain experiments, such as the LogD experiment, have significantly improved data quality after the data processing workflow, reaching a level comparable to that of traditional wet lab experiments. However, the results of repeated tests for CYP and clearance experiments remain relatively low, due to the complex nature of these in vitro experiments.
+
+Comparison of Data Quality Before and After the Data Processing Workflow Through Repeated Test Plots and Confusion Matrices (a) Repeated Test Plot for the LogD Experiment Before Data Processing. (b) Repeated Test Plot for the LogD Experiment After Data Processing. (c) Repeated Test Plot for the BBB Experiment Before Data Processing. (d) Repeated Test Plot for the BBB Experiment After Data Processing. Additional data can be found in Table 5.
+
+Comparison of Metrics Between the Regression Datasets Before and After the Data Processing Workflow.
+
+Comparison of Metrics Between the Classification Datasets Before and After the Data Processing Workflow.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Technical Validation › Analysis of property distribution</h3>    <p>Basic physicochemical properties of the compounds, including atom counts, molecular weight, LogP, and QED, were calculated using RDKit. Histograms representing the frequency of these properties were calculated and are presented in Fig. 7 to illustrate the characteristics of the molecules within PharmaBench22,38.
+
+This histogram demonstrates that compounds in PharmaBench22 exhibit a broad distribution. The number of non-hydrogen atoms per molecule typically ranges from 10 to 50, and molecular weights range from 200 to 600 Daltons, which are consistent with the range of drug-like small molecules39. Additionally, the LogP values of these datasets are in the range from 0 to 8, indicating a tendency towards lipophilicity, which is also well aligned with that of drug-like compounds39. QED is a metric that evaluates the potential of a compound to be developed as a successful drug, based on a multi-factorial analysis of molecular properties of marked drugs39. The QED distribution for PharmaBench22 is skewed towards 1, suggesting that many compounds in the datasets possess favorable physio-chemical properties.
+
+Overall, the molecules within PharmaBench22 demonstrate preferable characteristics, which are similar to those in the small molecule drug discovery projects.
+
+Frequency Histograms for All PharmaBench Datasets: Count Distribution of Atom Numbers, Molecular Weights, LogP, and QED Scores Across Different Datasets.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Technical Validation › Deep learning and machine learning modeling</h3>    <p>Summary of AI Models Utilized in the Validation Process.
+
+Summary of final results for the PharmaBench based on random split.
+
+Summary of final results for the PharmaBench based on scaffold split.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Technical Validation › Deep learning and machine learning modeling › Modeling protocol</h3>    <p>Similar to the repeated test mentioned above, we used MAE, RMSE, and Pearson correlation coefficient R to evaluate the regression results. For classification results, we utilized AUC (area under the receiver operating characteristic curve), ACC, and the F1 score (F1) for evaluation.
+
+We selected two machine-learning approaches and seven deep-learning models for this evaluation process. The machine learning models include XGBoost40 and Random Forest (RF)41, utilizing the Extended Connectivity Fingerprints (ECFP) as descriptors for the molecules42. We selected seven deep learning models, some of them need a pre-training process, and their input is either 2D graph or 3D conformation. Detailed descriptions of these models can be found in Table 7.
+
+All models were built using default parameters, without additional fine-tuning. Although hyper-parameter optimizing strategy might improve the results, our intention is not to select the best model but rather to use these models to verify the quality of the PharmBench.
+
+Summary of AI Models Utilized in the Validation Process.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Technical Validation › Deep learning and machine learning modeling › Modeling results</h3>    <p>We present the metrics for the regression models and for the classification models, trained using both random as shown in Table 8 and scaffold splitting as shown in Table 9 datasets.
+
+For the datasets associated with regression tasks, the prediction results achieve desirable metrics for LogD, water solubility, BBB, and microsomal clearance, exhibiting relatively high R values and low MAE and RMSE. However, the prediction results for the CYP remain relatively low, which indicates that further improvements in data quality and modeling approaches are required for these datasets. The metrics for the classification tasks are all relatively high, which indicates that the models can effectively predict the classification results for the BBB and AMES datasets.
+
+In regards to the splitting method, the prediction results of random splitting are better than scaffold splitting for the majority of tasks. This is understandable since the prediction performance for the majority of models is usually worse for compounds with new scaffolds. In addition, deep learning approaches significantly outperform the machine learning approaches in regression tasks. The performance gap between the deep learning and machine learning models widens for datasets with a large amount of data, such as LogD and water solubility, but narrows for smaller datasets, such as mouse microsomal clearance. This indicates that conventional machine learning approach can adapt to small datasets and has less capability to model large amounts of data compared with deep learning model. In contrast, the performance of the machine learning approach for classification tasks witnesses a significant increase. The metrics for XGBoost models for AMEs and BBB datasets surpass some deep learning approaches, indicating that machine learning approaches are more suitable for classification tasks.
+
+Among deep learning approaches, the model with pretraining demonstrates the best performance in both regression and classification tasks for the majority of datasets. This indicates that the pretraining process can be useful for improving model performance for ADMET properties predictions. Moreover, there is no significant performance difference between graph-based and transformer-based approaches, or between 2D and 3D feature-based methods.
+
+More research and modeling work are encouraged to utilize this benchmark set in the future. For instance, investigating approaches to improve model capabilities in predicting molecules with novel scaffolds would be valuable. The use of transfer learning and pre-training approaches is also recommended for the analysis with these datasets. Additionally, applying explainable AI techniques could provide valuable insights into the key pharmacological factors influencing ADMET properties.
+
+Summary of final results for the PharmaBench based on random split.
+
+Summary of final results for the PharmaBench based on scaffold split.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Usage Notes</h3>    <p>There are eleven ADMET datasets within PharmaBench22. Standardized SMILES representations of compounds were provided for modeling the compounds, and the experimental values are provided as the prediction targets. Users may use the labels within the scaffold_train_test_label and random_train_test_label as the train-test labels for fair comparison.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Acknowledgements</h3>    <p>This study was funded by MindRank AI Ltd. H. C. acknowledged funding from the Guangzhou Basic and Applied Basic Research Project (202201011795) and the Pearl River Recruitment Program of Talents (No. 2021CX020227). G. Y. was supported in part by the ERC IMI (101005122), H2020 (952172), MRC (MC/PC/21013), the Royal Society (IEC\ NSFC\211235), the NVIDIA Academic Hardware Grant Program, the SABER project supported by Boehringer Ingelheim Ltd, Wellcome Leap’s Dynamic Resilience, and the UKRI Future Leaders Fellowship (MR/V023799/1).å</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Author contributions</h3>    <p>Z.N., X.X. and W.W. conceived the presented idea. X.X., W.W., Y.J. and Q.C. developed the theory and the data mining system. Q.C., W.J., G.J.Y., L.K. and J.X. collected the data. Z.N., X.X., W.W., Q.C., Y.J. and W.J. developed the data processing workflow. X.X., W.W., Q.C., Y.J., W.J., M.W. and G.J.Y. developed the technical validation for the data qualities. H. C. and G. Y. supervised the findings of this work. All authors discussed the results and contributed to the final manuscript.</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Code availability</h3>    <p>The codes used in this study have been deposited at https://github.com/mindrank-ai/PharmaBench. All the calculations were done with Python 3.12.2 under a virtual environment created with Anaconda on osx-64.</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Competing interests</h3>    <p>Z.N., X.X., W.W., Q.C., Y.J., W.J., M.W., G.J.Y., L.K. and X.J. are the employees of MindRank AI ltd.</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Contributor Information</h3>    <p>Guang Yang, Email: g.yang@imperial.ac.uk.
+
+Hongming Chen, Email: chen_hongming@gzlab.ac.cn.</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>The codes used in this study have been deposited at https://github.com/mindrank-ai/PharmaBench. All the calculations were done with Python 3.12.2 under a virtual environment created with Anaconda on osx-64.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

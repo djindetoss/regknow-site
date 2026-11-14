@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Evaluating the Role of Machine Learning and Artificial Intelligence in Oncology Drug Repurposing Efforts · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Evaluating the Role of Machine Learning and Artificial Intelligence in Oncology Drug Repurposing Efforts</h1>
+<p class="authors">Adam Mann</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Journal of research in pharmacy practice</dd>
+<dt>Published</dt><dd>2025-11-19</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Drug repurposing</span><span class="chip">Data quality</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.4103/jrpp.jrpp_50_25">10.4103/jrpp.jrpp_50_25</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/41368603/">41368603</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/41368603/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/41368603/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>e7d2931cfeb04d2c</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>This study aims to investigate how machine learning (ML) contributes to drug repurposing efforts in oncology, considering the pharmaceutical industry&#39;s mounting R and D inefficiencies and economic pressures. Through qualitative interviews with experts across artificial intelligence, oncology, and pharmaceutical development, this paper explores the real-world applications of ML in this field, the challenges to its implementation, and its future potential to streamline drug discovery. This study employed the &#34;research onion&#34; framework (Saunders et al., 2016), adopting an interpretivist philosophy and inductive approach to explore stakeholder perspectives on integrating ML into oncological drug repurposing. A multimethod strategy combined a narrative literature review with 13 semi-structured interviews, selected through purposive and snowball sampling. Data were thematically analyzed using Braun and Clarke&#39;s six-step framework, supported by NVivo. Research trustworthiness was ensured via Lincoln and Guba&#39;s criteria, and ethical approval was granted by Imperial College London. Three major thematic domains emerged: The technological, regulatory, and business landscapes. Technological challenges included poor data quality, limited accessibility to real-world datasets, and the need for robust infrastructure to support predictive modeling. Regulatory barriers are centered on ethical concerns in data governance and the difficulty of securing exclusivity and market protection for repurposed drugs. From a business perspective, profitability concerns, generic competition, and fragmented data ownership underscored the need for more collaborative and economically sustainable models. ML offers potential for oncological drug repurposing, but realizing its benefits requires addressing key technological, regulatory, and economic challenges.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractObjective:This study aims to investigate how machine learning (ML) contributes to drug repurposing efforts in oncology, considering the pharmaceutical industry’s mounting R and D inefficiencies and economic pressures. Through qualitative interviews with experts across artificial intelligence, oncology, and pharmaceutical development, this paper explores the real-world applications of ML in this field, the challenges to its implementation, and its future potential to streamline drug discovery.Methods:This study employed the “research onion” framework (Saunders et al., 2016), adopting an interpretivist philosophy and inductive approach to explore stakeholder perspectives on integrating ML into oncological drug repurposing. A multimethod strategy combined a narrative literature review with 13 semi-structured interviews, selected through purposive and snowball sampling. Data were thematically analyzed using Braun and Clarke’s six-step framework, supported by NVivo. Research trustworthiness was ensured via Lincoln and Guba’s criteria, and ethical approval was granted by Imperial College London.Findings:Three major thematic domains emerged: The technological, regulatory, and business landscapes. Technological challenges included poor data quality, limited accessibility to real-world datasets, and the need for robust infrastructure to support predictive modeling. Regulatory barriers are centered on ethical concerns in data governance and the difficulty of securing exclusivity and market protection for repurposed drugs. From a business perspective, profitability concerns, generic competition, and fragmented data ownership underscored the need for more collaborative and economically sustainable models.Conclusion:ML offers potential for oncological drug repurposing, but realizing its benefits requires addressing key technological, regulatory, and economic challenges.KEYWORDS: Drug repositioning, machine learning, neoplasms, pattern recognition</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>INTRODUCTION AND BACKGROUND</h3>    <p>Global pharmaceutical spending is expected to reach $1.6 trillion by 2025, with oncology showing a 30% compounded annual growth rate (CAGR) over the past decade.[1] However, the industry faces an R and D productivity crisis. Developing a new drug can take 10–15 years and cost over $2 billion,[2] with only 1 in 10–20 candidates gaining approval.[3] Pricing pressures and regulatory controls add further strain, as global demand for affordable healthcare rises. Governments and healthcare providers are pushing for lower prices,[4] while price controls in regions such as Europe and Japan impact profits and R and D reinvestment.[5] This creates a trade-off between innovation and accessibility.
+
+Patents offer up to 20 years of exclusivity.[6] Once a patent expires, generic drugs – which are molecularly identical to the original branded medication – can enter the market.[7] These generic drugs contain the same active pharmaceutical ingredient as their branded counterparts, rendering them molecularly equivalent and essentially identical in terms of therapeutic effects.[7] This “genericization” severely impacts the profitability of the original company, as new companies can offer the same medication at significantly lower prices. Consequently, pharmaceutical companies fiercely guard their intellectual property (IP) and compete aggressively to generate substantial revenues during the exclusivity window before generic competition arises
+
+Drug repurposing, defined as finding new uses for existing drugs,[8] addresses these challenges. Around 30% of Food and Drug Administration-approved drugs have been repurposed.[9] Notable examples include aspirin’s use as an antiplatelet[10] and thalidomide for multiple myeloma.[11] Repurposing reduces development time, cost, and failure risk – cutting costs from $2 billion to $300 million and duration from 10 to 15 years to 6.5 years.[11]
+
+Two repurposing strategies exist: Hard repurposing which targets different diseases (e.g., propranolol for hemangioma[12]), and soft repurposing which applies drugs within the same field (e.g., trastuzumab initially for HER2-positive breast cancer but later for gastric cancer;[13]). Identification methods include experimental (target- or drug-based[14]) and computational approaches such as molecular docking, signature mapping, genetic association studies, pathway mapping, and retrospective clinical analysis.[15]
+
+Artificial intelligence (AI) and machine learning (ML) tools are now integral to this process. ML branches include supervised, unsupervised, semi-supervised, reinforcement, and deep learning.[16] These tools enable analysis of large datasets, predict molecular interactions, and optimize formulations, reducing time and cost.[15]
+
+Cancer treatment complexity, due to drug resistance and tumor heterogeneity,[17] underscores the need for personalized approaches. With a one in two lifetime risk[18] and oncology spending set to exceed $260 billion by 2025,[1] repurposing offers an efficient alternative – especially as cancer drugs average 7.3 years and $648 million to develop.[19] The ReDO database lists 335 non-cancer drugs with anticancer potential,[20] and 190 ongoing late-stage oncology trials are investigating repurposed candidates.[21]
+
+Therefore, this paper aims to answer the question, “How does machine learning contribute to drug repurposing efforts in oncology?.” It aims to delve deeper into the applications, challenges, and future scope of incorporating ML techniques with oncological drug repurposing and evaluate them as potential means to address the larger issues the pharmaceutical industry faces. The field of oncology has attained a demonstrated global focus, with pharmaceutical companies dedicating significant resources toward optimizing the drug repurposing process for cancer therapeutics. In addition, the multi-functional aspects of ML tools hold promise to advance oncological drug repurposing, potentially addressing the obstacles faced by not only the field of oncology but the pharmaceutical industry. These factors have formed the basis of this report.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>METHODOLOGY</h3>    <p>This study followed the “research onion” framework,[22] proposed by a conceptual model that outlines the layers involved in developing a sound research methodology. Each layer represents a distinct element of research design, ensuring a logical and structured progression from philosophical stance to data collection and analysis.
+
+We adopted an interpretivist philosophy, which acknowledges the subjective nature of human experiences. This was appropriate given our aim to explore the challenges and potential of integrating ML into oncological drug repurposing from the perspectives of industry stakeholders. Interpretivism allowed us to gather in-depth insights into the realities, opinions, and lived experiences of experts working at the intersection of oncology, AI, and pharmaceutical development.
+
+The study employed an inductive approach, enabling us to collect empirical qualitative data and build a descriptive framework to explain observed phenomena.[23] This suited our objective to uncover the factors that support or hinder the adoption of ML techniques in oncological drug repurposing, without testing a predefined hypothesis.
+
+Aligned with the third and fourth layers of the research onion,[22] we adopted a multi-method strategy, combining findings from a narrative literature review (NLR) and semi-structured interviews (SSIs) [Appendix A]. This allowed us to integrate theoretical knowledge with real-world experiences. Quantitative methods were not used, as stakeholder perceptions and contextual challenges are best captured through qualitative inquiry. The cross-sectional time horizon of the study ensured that we captured insights relevant to the current state of ML integration in oncology.
+
+At the core of the research onion,[22] are the techniques and procedures used to collect and analyze data. Our qualitative data were collected through SSIs, which offered a balance between a consistent question framework and the flexibility to probe deeper into key topics. This method enabled us to explore complex themes, unlike focus groups, which risk “groupthink,”[24] or questionnaires, which often lack the depth required for exploratory studies.
+
+We used purposive sampling to select participants based on their expertise and relevance to the research aims.[25] Our sampling framework [Figure 1] identified individuals across three domains: AI, oncology, and the pharmaceutical industry. Priority was given to those operating at the intersections of these fields, particularly professionals with pharmaceutical experience. Participants were recruited through multiple media outlets and professional networks, in line with our ethics approval checklist [Appendix B].
+
+To complement purposive sampling, we also applied snowball sampling.[26] This involved asking participants to recommend others with relevant expertise. Snowballing was particularly effective given the niche nature of our topic and the limited accessibility of qualified professionals. We recognized the potential for community bias in this method, where early participants influence the direction of results.[27] To minimize this, we diversified our initial contacts by sourcing participants from various backgrounds and organizations, including small startups, large pharmaceutical companies, and academic institutions.
+
+Sample size in qualitative research is typically small due to the depth of analysis involved. According to Hennink and Kaiser, 9–17 interviews are generally sufficient.[28] Our study reached theoretical saturation – the point at which no new themes emerged – after conducting 13 interviews with individuals, including data scientists, oncologists, and pharmaceutical industry leaders [Appendix C]. This sample size ensured a wide range of views were captured while remaining manageable for thorough thematic analysis.
+
+SSIs were designed and conducted using McNamara’s 8-step framework[29] to ensure structure and consistency. Before each interview, we researched each participant’s background, allowing us to tailor questions and elicit detailed insights. Interview questions [Appendix D] were open-ended, enabling participants to express views freely and allowing us to follow up on areas of interest. The question sets were tailored to three broad interviewee categories based on professional background, ensuring relevance to the study aims.
+
+All interviews were conducted virtually via Microsoft Teams to accommodate participants’ schedules and enable automatic audio transcription. Doing this would not solely provide a trail of evidence and increase transparency but would also enable a script to be generated that we could look back on and analyze.[30] Verbal consent was obtained at the start of each session for recording and transcription. Interviews lasted approximately 45 min and began with informal conversation to build rapport. Two group members attended each session – one to conduct the interview and the other to ensure technical reliability. All interviews followed a consistent structure to support reliability and comparability of responses.
+
+Following data collection, interview transcripts were analyzed using Braun and Clarke’s 6-step framework for thematic analysis.[31] Transcripts were cleaned to remove timestamps and repetitive speech, allowing for familiarization with the material. Three team members imported the transcripts into NVivo, a qualitative analysis tool provided by Imperial College London, to begin coding. Initial codes were generated based on relevance to study objectives, then grouped into broader categories and themes through iterative discussion and refinement among all group members.
+
+This process resulted in the identification of three major themes and six sub-themes, which were reviewed and reorganized to ensure internal consistency (homogeneity) within themes and distinctiveness (heterogeneity) between them. A thematic map was developed to visually represent the findings and guide the discussion section of the report. The combination of NLR insights and interview data provided a comprehensive understanding of the challenges and opportunities in using ML for drug repurposing in oncology.
+
+To ensure research trustworthiness, we followed Lincoln and Guba’s[32] four criteria:
+
+Confirmability was reinforced through investigator triangulation, with two group members present for each interview.[25]
+
+Finally, ethical approval was obtained from the Imperial College Research Ethics Committee on January 10, 2024 [Appendix B]. Participants gave informed consent for interview recording and data use, with all data handled in accordance with our ethical protocol.
+
+A Venn diagram depicting the purposive sampling approach for interviewees</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>QUALITATIVE RESULTS</h3>    <p>Thematic analysis: Technological landscape and data infrastructure in AI-driven drug repurposing. Source: Author’s qualitative interviews (2024)
+
+Thematic analysis: Business environment — profitability and industry collaboration in drug repurposing. Source: Author’s qualitative interviews (2024)
+
+Thematic analysis: Governance of data and regulatory challenges in drug repurposing. Source: Author’s qualitative interviews (2024)</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>QUALITATIVE RESULTS › Technological landscape</h3>    <p>The technological landscape for employing ML in oncological drug repurposing encompasses real-world data (RWD) analysis, Predictive Modeling, and Data Infrastructure. Data infrastructure can be further divided into Data Quality and Accessibility [Tables 1-3].
+
+RWD analysis and Predictive Modeling discuss the concepts of screening databases to identify pertinent information to develop a predictive model. This technique can significantly cut down the time and cost by simulating the interactions between drugs and cancer cells. Interviewees pointed out significant challenges, such as poor preclinical data quality and the difficulty of accessing large quantities of relevant data within pharmaceutical companies.
+
+Data quality and accessibility are both important as they ensure that models are trained on accurate and relevant information, leading to more precise molecule identification for repurposing. Access to diverse datasets from various sources also enables a more reliable algorithm to be developed.
+
+Together, these subthemes provide a comprehensive overview of the current technological landscape and its impact on advancing drug repurposing in oncology through ML.
+
+Thematic analysis: Technological landscape and data infrastructure in AI-driven drug repurposing. Source: Author’s qualitative interviews (2024)
+
+Thematic analysis: Business environment — profitability and industry collaboration in drug repurposing. Source: Author’s qualitative interviews (2024)
+
+Thematic analysis: Governance of data and regulatory challenges in drug repurposing. Source: Author’s qualitative interviews (2024)</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>QUALITATIVE RESULTS › Regulatory landscape</h3>    <p>The regulatory landscape for utilizing ML in oncological drug repurposing contains two subthemes: Governance of Data and Regulatory Challenges.
+
+Governance of Data is a major issue in the field of repurposing with privacy and ethical issues being the major concern. It highlights the challenges related to data access, consent, and methods in which companies have utilized to address these privacy issues. Accessing and using patient data involves significant challenges related to obtaining informed consent and ensuring data security. Companies are adopting various strategies to address these issues, such as anonymizing patient data to maintain privacy. These measures are essential for maintaining a delicate balance between compliance with legal and privacy standards whilst obtaining the necessary health data for research.
+
+Regulatory Challenges focuses on obtaining commercial exclusivity and bypassing patent protections, while addressing the difficulties in advancing repurposing without original patent ownership. Navigating the regulatory framework requires addressing complexities such as IP, a topic touched on in our interviews.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>QUALITATIVE RESULTS › Business environment</h3>    <p>The business environment surrounding the integration of AI and ML in drug repurposing for oncology is multifaceted, as illuminated by various insights from industry experts.
+
+Profitability emerges as a central concern, with interviewees highlighting the cost-effectiveness of AI and ML technologies. Generic drugs, renowned for their affordability and accessibility, present distinct advantages in the market, driving discussions on sustainable economic models amid the threat of generic substitution. Furthermore, industry collaboration plays a pivotal role in harnessing the vast data reservoirs held by pharmaceutical companies.
+
+Collaborative partnerships, bridging expertise in data structuring, algorithmic coding, and domain-specific knowledge, are essential for navigating the intricate landscape of oncology drug development. However, challenges persist in consolidating disparate datasets and fostering a culture of joint discovery within the pharmaceutical industry. Amid such complexities, the business environment underscores the imperative of innovative strategies and collaborative frameworks to propel drug repurposing efforts forward in oncology.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>DISCUSSION › Technological landscape</h3>    <p>The current landscape of ML in drug repurposing is defined by two key aspects: The benefits, particularly its ability to support RWD analysis and predictive modeling, and the challenges, especially concerning data quality, quantity, and accessibility. These dimensions influence the technological landscape today and shape future developments.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>DISCUSSION › Real-world data analysis</h3>    <p>ML is increasingly pivotal in enabling the analysis of large-scale RWD. Both the literature review and SSIs affirmed ML’s ability to scan large datasets and biomedical literature, streamlining workflows and reducing costs. Senior pharmaceutical executives highlighted the value of data mining for improving resource allocation. ML’s ability to conduct literature-based text mining is increasingly important given the rapid growth in biomedical publications.
+
+Another valuable data source is electronic health records (EHRs). EHRs provide longitudinal patient data, including history and treatments, and follow structured standards, making them useful for drug repurposing. These datasets reflect real patient outcomes, contrasting with the artificial conditions of clinical trials. EHR-based ML analyses can unlock novel repurposing insights, leveraging established safety profiles to expedite discovery. The NHS Long Term Plan supports this future by emphasizing digitalization and a paperless system.[33]
+
+However, challenges remain in data access, standardization, and validation. For ML on RWD to reach its full potential, these issues must be addressed. As EHR adoption increases and quality improves, this type of evidence could transform the drug repurposing landscape.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>DISCUSSION › Predictive modeling</h3>    <p>Once data are extracted, ML is used to model it, producing predictions about drug targets and responses. Structure-based ML methods use computational chemistry to analyze three-dimensional (3D) protein structures, identifying binding sites and screening compounds through molecular docking. These approaches enhance the therapeutic value of repurposed drugs but demand high-quality data and significant computational resources.
+
+Genetic association approaches combine genomics, transcriptomics, proteomics, and metabolomics, providing a complete picture of disease biology and enabling biomarker identification. Cell activity-based methods analyze observable traits of cells, generating mechanistic insights, especially relevant in oncology, given its phenotypic plasticity.
+
+Interviewees noted that although these strategies are often seen in isolation, combining them significantly enhances ML’s impact. Integrating 3D structural data, omics profiles, and phenotypic data enables more precise predictions of drug efficacy and treatment responses. This integration could optimize repurposing strategies by identifying novel targets and personalizing therapies, though success depends on access to high-quality, well-structured datasets.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>DISCUSSION › Future scope of real-world data and predictive modeling</h3>    <p>The interviews revealed a clear shift toward personalized medicine. Using large datasets – genomic data, imaging, treatment history – ML can predict individual responses to treatments. This supports patient stratification and the design of tailored therapies, improving outcomes and minimizing side effects.
+
+Interviewee 8 introduced the concept of basket studies: Trials that assess drug efficacy across various cancers sharing a common biomarker.[34] These studies group patients by molecular profile, not cancer type, which aligns with repurposing goals. ML can analyze data from such studies to find drugs effective across multiple cancers with shared targets. These tumor-agnostic approaches, potentially leading to faster drug approvals, exemplify how ML can advance oncological drug repurposing beyond traditional disease categories.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>DISCUSSION › Data infrastructure</h3>    <p>The success of ML applications in RWD analysis and predictive modeling depends heavily on data infrastructure, particularly data quality and accessibility.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>DISCUSSION › Data quality</h3>    <p>ML models learn from training data, and poor data quality compromises their accuracy. Experts stressed that relevance, completeness, representativeness, and lack of bias are key metrics. If training data are biased or incomplete, models risk making incorrect predictions, missing promising candidates, or identifying misleading patterns.
+
+“Data cleaning” is essential – refining datasets by removing errors or gaps before training. This is especially important in proteochemometrics and graphical modeling, where data flaws undermine model reliability. However, cleaning data can contribute to overfitting, where models learn the training data too well, including irrelevant noise, impairing generalizability to new data.[35]
+
+This issue is acute in oncology, given the heterogeneity of cancers. Overfitted models may identify false-positive candidates or fail in diverse patient groups. Interviewees cited real-world examples where algorithms excluded underrepresented cancer populations, causing harm.[36] Preventing overfitting requires representative data, regularization, and cross-validation.
+
+Wider studies echo these concerns. NHS datasets suffer from documentation and curation issues, while European pharmaceutical efforts face hurdles in reusing health data. Rangineni noted that high-quality data boost ML accuracy by 25%, while poor data can reduce reliability by 30%.[36]
+
+Limited quantity of patient-level data is also a barrier, especially in rare cancers. Legislation by the National Disease Registration Service aims to overcome this by collecting such data without explicit consent, expanding availability for research.[21]</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>DISCUSSION › Data accessibility</h3>    <p>Beyond quality and quantity, accessibility poses a major hurdle. Successful ML repurposing relies on access to broad, integrated datasets on drug properties, molecular interactions, and patient outcomes.
+
+Our SSIs revealed that companies and NHS bodies often struggle to access sufficient data. NHS, despite hosting one of the largest patient datasets, is reluctant to share information. Interviewee 7 noted that even financial incentives were insufficient to persuade NHS Trusts to release data. Similarly, large pharmaceutical companies guard data closely-interviewee 6 reported firms often did not even know where certain datasets were stored. These structural barriers slow progress and lengthen development timelines.
+
+The literature echoes this: Describe limited data sharing as a widespread problem. Overcoming these issues requires not just technical improvements but structural changes in how data are governed and shared.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>DISCUSSION › Regulatory landscape</h3>    <p>Regulatory constraints are one of the most significant barriers to oncological drug repurposing. These include patient data privacy, IP protection, market exclusivity, and the need for trust-building with regulatory agencies.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>DISCUSSION › Governance of data › Patient consent</h3>    <p>UK law protects patient data under the 2018 Data Protection Act and the Common Law Duty of Confidentiality. ML development requires consent to use personal clinical data. Even with initiatives to collect data without consent, many patients remain unwilling to share due to privacy concerns or lack of understanding.
+
+Our interviews confirmed this reluctance. Interviewee 7 noted that monetary compensation alone was “not enough to pay for the data.” The challenge is not only ethical and legal but practical – without consent, companies have limited access to the datasets ML models depend on.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>DISCUSSION › Governance of data › Open datasets</h3>    <p>To bypass privacy issues and regulatory hurdles, companies often turn to open datasets, such as the UK Biobank and The Cancer Genome Atlas. These contain rich, freely accessible data. The UK Biobank, for example, includes information on approximately 500,000 individuals.[37] These resources speed up the research process and lower costs.
+
+However, access to some high-value datasets remains restricted or costly – interviewee 6 noted key data was often “locked behind paywalls.” In this context, open datasets are a practical solution, especially for smaller firms and nonprofits. Moreover, patient willingness to share data may be improving[38] found increasing public support for using clinical data in research.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Patent protection</h3>    <p>Patent law poses a barrier to repurposing. The original composition of matter patent grants exclusive rights to the first discoverer. New therapeutic uses require a “first medical use” patent, but this does not provide full commercial protection if the compound is not novel. This limits incentive for repurposing, as companies cannot block competitors once exclusivity ends.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Off-label prescribing</h3>    <p>If parent companies do not pursue new indications, others may prescribe the drug off-label, without formal approval. While scientifically justified, off-label use raises safety, legal, and ethical concerns. Interviewees noted that this lack of endorsement reduces physician and public trust, decreasing uptake. Verbaanderd highlighted the gap between research and clinical implementation caused by these regulatory hesitations.[39]</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Algorithmic intellectual property protection</h3>    <p>ML algorithms used to identify repurposing candidates must also be protected. However, algorithms cannot be patented as a whole – each step must be claimed separately.[40] This complex process is slow, often taking a year or more,[41] during which the algorithm may become outdated. These delays reduce incentives for smaller companies to invest in algorithm development.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Regulatory support</h3>    <p>Despite these challenges, recent regulatory support has emerged. NHS England’s Medicines Repurposing Programme, launched in 2021, aims to formalize repurposing and reduce reliance on off-label prescribing. Similarly, the MHRA was recognized by interviewees as crucial in increasing trust and uptake.
+
+Streamlined approval pathways that rely on existing safety data can significantly shorten time to market, reducing costs and improving patient access – particularly in rare cancers where time is critical. This synergy with ML-driven discovery models could improve both speed and success rates.</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Business environment</h3>    <p>The financial and structural dynamics of the pharmaceutical industry play a pivotal role in the feasibility and uptake of ML for oncological drug repurposing. This section explores the key business factors, focusing on profitability and collaboration.</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Profitability</h3>    <p>Funding new drug development has become increasingly difficult, resulting in unmet clinical needs, especially in oncology, where drug prices and development costs are extremely high.[42] Literature reviewed in the NLR highlights ML’s potential to reduce these costs by accelerating candidate identification. For example, Sengupta, Singh, and Kumar demonstrated ML models could predict anti-cancer compounds, streamlining the discovery of novel drug–gene interactions.[43]</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Cost of repurposing</h3>    <p>While repurposing theoretically saves time and resources due to existing safety and efficacy data, the practical reality is less straightforward. Our interviews revealed that commercial value outweighs scientific rationale for many large pharmaceutical companies. Several participants expressed skepticism about repurposing’s ability to consistently deliver strong financial returns. Interviewee 9 likened current repurposing efforts to “shooting randomly at the clouds, hoping one of them sticks.”
+
+High costs persist, especially in oncology, where additional Phase 1 or 2 trials may be needed to determine new dosing regimens. Narrow therapeutic windows and toxicity risks demand further reformulation and testing. ML methods, like molecular docking, also require extensive computing power, making them expensive to deploy at scale.
+
+The costs associated with implementation and reformulation may offset the expected savings from bypassing early-stage trials. Furthermore, rare cancers represent small markets, offering limited return on investment. This lack of financial incentive was a recurring theme across interviews, especially for large companies that focus on profitability and shareholder value.
+
+Despite these challenges, the drug repurposing market is growing, with a projected CAGR of 10.8% between 2018 and 2028.[44] Interviewee 5 also noted that altering a drug’s formulation or delivery route can lead to new patents, extending market exclusivity, and offering fresh commercial opportunities. Thus, while ML-based repurposing carries costs, it also opens new profit avenues, particularly in oncology.</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Translation into clinical practice</h3>    <p>ML tools are widely used to screen compounds and identify candidates through structural matching. However, these models provide recommendations, not validation. The transition from promising compound to accepted therapy still requires investment in cost–benefit analysis, clinical validation, and regulatory approval – all of which are expensive.
+
+In oncology, where combination therapies are common, the cost of integrating a repurposed drug into treatment protocols increases. Additional layers of testing are often required to ensure compatibility and efficacy in combination with other agents.</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Threat of generic drugs</h3>    <p>Another financial challenge is the threat from generics. Once a drug’s patent expires, generics – identical in composition but cheaper – enter the market. This reduces the profitability of repurposing efforts, especially when original developers no longer have exclusive rights.
+
+Interviewees expressed concern that investing in repurposing nearing patent expiry is risky, as generics undercut prices and shift consumer demand. With narrow margins and increased competition, companies may struggle to sustain a viable business model around a repurposed drug.
+
+From a patient perspective, repurposing has not significantly lowered treatment costs. Gonzalez-Fierro found little difference between the end prices of repurposed and traditionally discovered oncology drugs.[45] Reformulation and dosing adjustments may introduce additional regulatory and safety expenses, ultimately increasing end-user costs (interviewee 1). As a result, neither patients nor developers consistently benefit from lower prices.
+
+In summary, while ML-based repurposing offers potential cost reductions, financial viability remains uncertain, especially in oncology. The business case depends on disease prevalence, trial requirements, and IP protection, all of which vary widely.</p>
+  </section>
+  <section id="s26" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Industry collaboration</h3>    <p>Collaboration is essential for ML-driven repurposing. Our interviews consistently highlighted the need for interdisciplinary partnerships involving data scientists, AI engineers, oncologists, and clinicians. Interviewee 8 emphasized that success depends on bringing together individuals with expertise in data structuring, coding, and oncology.
+
+Clinicians, in particular, are critical. They understand real-world patient challenges and can drive clinical validation of repurposed drugs. Cross-disciplinary collaboration enables repurposing projects to progress from algorithmic insights to practical implementation.</p>
+  </section>
+  <section id="s27" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Challenges with outsourcing</h3>    <p>Many pharmaceutical companies lack internal data infrastructure and AI expertise, leading to reliance on external firms. Interviewees noted that data are often outsourced to third-party IT firms for cleaning, formatting, and analysis. This dependency stems from internal skills gaps and the technical complexity of ML tools.
+
+However, outsourcing introduces inefficiencies. Companies can face hold-up risks, where IT partners delay deliverables or demand higher fees. Interviewees also flagged pricing opacity from AI vendors, making it difficult to assess return on investment. The evolving nature of AI further complicates long-term planning.
+
+Despite these concerns, third-party AI investment in pharma has more than doubled annually,[46] suggesting ongoing confidence in these partnerships. Nonetheless, improving internal capability remains a strategic imperative for pharma companies wishing to reduce reliance on external firms.</p>
+  </section>
+  <section id="s28" class="text-unit">
+<h3>DISCUSSION › Regulatory challenges › Challenges in industry structure</h3>    <p>The pharmaceutical industry is highly consolidated, with major players like Pfizer and Novartis controlling large datasets and significant R and D resources. In Q1 2024 alone, 430 M and A deals were announced, valued at $68.8 billion.[47] This consolidation enables large firms to monopolize data, creating barriers for smaller players.
+
+Large companies often guard their proprietary datasets, limiting the diversity and quantity of data available to develop robust ML models. These constraints restrict smaller firms’ ability to compete or collaborate, despite often being more innovative and agile.
+
+The dominance of large firms also limits cross-pollination of expertise. With limited collaboration across company boundaries, opportunities for shared learning and pooled resources are lost. This fragmentation hinders industry-wide progress in ML-driven repurposing.
+
+Moreover, smaller companies face disproportionate challenges in navigating IP regulations, data governance, and compliance frameworks. These barriers reinforce the competitive advantages of large firms and restrict wider participation in repurposing initiatives.
+
+To address this, more public–private partnerships, open-access data initiatives, and collaborative platforms are needed. Regulatory bodies can play a role by incentivizing transparency and supporting knowledge-sharing networks.</p>
+  </section>
+  <section id="s29" class="text-unit">
+<h3>DISCUSSION › Limitations</h3>    <p>Limitations of the study should be considered when interpreting the findings presented in this report. Our interview sample may be susceptible to confirmation bias, as participants who agreed to be interviewed likely possessed inherent qualities, such as elevated expertise or vested interests in the topic, that could have influenced their perspectives.[48] This raises concerns about the generalisability of conclusions derived from the interview data, which may not accurately reflect the views held by the wider population.
+
+Our study relied solely on qualitative methods, without incorporating any quantitative techniques. This lack of quantitative analysis restricts our capacity to pinpoint statistically significant trends or patterns across the participant responses.[49] As a result, the quotes we have selected and analyzed from the qualitative data may unintentionally reflect some degree of unintended selection bias, risking an imbalanced or one-sided depiction of the entire dataset. The ability to objectively identify representative excerpts becomes more challenging when qualitative approaches are not complemented by quantitative measures.
+
+Furthermore, to maximize convenience and participation, all interviews were conducted virtually over Microsoft Teams. This virtual format introduces the limitation of potential data loss due to connectivity issues, as well as the loss of nonverbal cues and an increased risk of misinterpretation.[50]</p>
+  </section>
+  <section id="s30" class="text-unit">
+<h3>CONCLUSION</h3>    <p>This study aimed to understand the current landscape and future potential of using ML for drug repurposing in oncology. Through interviews with experts and a comprehensive literature review, we identified three key themes shaping this field: The technological capabilities and limitations, the regulatory landscape, and the business environment considerations.
+
+Our in-depth analysis revealed both the significant promise and substantial challenges involved. ML algorithms can rapidly screen thousands of existing drug compounds to identify potential candidates for repurposing against specific cancer targets. However, translating these computational findings into a clinical context requires rigorous testing and trials to ensure safety and efficacy. Economic incentives and IP concerns also hinder investment in repurposing older, generic drugs.
+
+Based on our findings, we recommend:
+
+Overcoming these hurdles will be critical toward fully utilizing ML to repurpose existing drugs and accelerate oncology therapeutic development.
+
+While still an emerging field, ML for drug repurposing in oncology holds immense potential to transform drug discovery, reduce costs, and rapidly translate existing knowledge into new treatments for cancer patients. Looking forward, we should embrace this technology; however, the various challenges that it brings should not be ignored.</p>
+  </section>
+  <section id="s31" class="text-unit">
+<h3>CONCLUSION › Ethics approval</h3>    <p>This study was approved by the Imperial College Research Ethics Committee on 10th January 2024.</p>
+  </section>
+  <section id="s32" class="text-unit">
+<h3>AUTHOR’S CONTRIBUTIONS</h3>    <p>“Adam Mann was responsible for developing the research concept, carrying out the interviews, conducting the analysis, and writing the majority of the report. Meer Shah provided key input into the literature review and helped interpret the interview findings. Srinivas Suresh supported the organization of the data and contributed to coding and identifying core themes. Jamie Wen assisted with transcription and background research. David Braudo reviewed the final draft and offered suggestions for clarity and structure. All authors read and approved the final version.”</p>
+  </section>
+  <section id="s33" class="text-unit">
+<h3>AUTHOR’S CONTRIBUTIONS › Conflicts of interest</h3>    <p>There are no conflicts of interest.</p>
+  </section>
+  <section id="s34" class="text-unit">
+<h3>Acknowledgments</h3>    <p>We would like to express our deepest appreciation and gratitude to our supervisor, Professor James Barlow, whose exceptional support and guidance have been truly invaluable.
+
+Finally, we are very grateful to all our industry experts for lending their time and providing us with the information to better our understanding of our research.
+
+Full interview transcripts and additional supporting materials are available from the corresponding author upon reasonable request.</p>
+  </section>
+  <section id="s35" class="text-unit">
+<h3>APPENDIXES</h3>    <p>AI/ML in drug repurposing interview guide
+
+Oncology drug repurposing interview guide
+
+General drug repurposing interview guide</p>
+  </section>
+  <section id="s36" class="text-unit">
+<h3>APPENDIXES › Appendix A</h3>    <p>AI/ML in drug repurposing interview guide
+
+Oncology drug repurposing interview guide
+
+General drug repurposing interview guide</p>
+  </section>
+  <section id="s37" class="text-unit">
+<h3>APPENDIXES › Appendix A › 1. AI/ML Specialist + Drug Repurposing +/- Pharmaceutical Industry Knowledge</h3>    <p>AI/ML in drug repurposing interview guide</p>
+  </section>
+  <section id="s38" class="text-unit">
+<h3>APPENDIXES › Appendix A › 2. Drug Repurposing in Oncology</h3>    <p>Oncology drug repurposing interview guide</p>
+  </section>
+  <section id="s39" class="text-unit">
+<h3>APPENDIXES › Appendix A › 3. People with Knowledge of drug repurposing (General)</h3>    <p>General drug repurposing interview guide</p>
+  </section>
+  <section id="s40" class="text-unit">
+<h3>Funding Statement</h3>    <p>Nil.</p>
+  </section>
+  <section id="s41" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>Beyond quality and quantity, accessibility poses a major hurdle. Successful ML repurposing relies on access to broad, integrated datasets on drug properties, molecular interactions, and patient outcomes.
+
+Our SSIs revealed that companies and NHS bodies often struggle to access sufficient data. NHS, despite hosting one of the largest patient datasets, is reluctant to share information. Interviewee 7 noted that even financial incentives were insufficient to persuade NHS Trusts to release data. Similarly, large pharmaceutical companies guard data closely-interviewee 6 reported firms often did not even know where certain datasets were stored. These structural barriers slow progress and lengthen development timelines.
+
+The literature echoes this: Describe limited data sharing as a widespread problem. Overcoming these issues requires not just technical improvements but structural changes in how data are governed and shared.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

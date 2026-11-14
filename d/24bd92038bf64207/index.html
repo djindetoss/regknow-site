@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Direct Preference Optimization: Your Language Model is Secretly a Reward Model · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Direct Preference Optimization: Your Language Model is Secretly a Reward Model</h1>
+<p class="authors">Rafael Rafailov, Archit Sharma, Eric Mitchell, Christopher D. Manning, Stefano Ermon, Chelsea Finn</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>neural information processing systems</dd>
+<dt>Published</dt><dd>2023-01-01</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Foundations of modern AI (architectures, training, foundation models)</span></dd><dt>Tags</dt><dd><span class="chip">must-read</span><span class="chip">must-read-foundations</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.52202/075280-2338">10.52202/075280-2338</a></dd><dt>Source</dt><dd><a href="https://doi.org/10.52202/075280-2338" rel="noopener">https://doi.org/10.52202/075280-2338</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>24bd92038bf64207</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>While large-scale unsupervised language models (LMs) learn broad world knowledge and some reasoning skills, achieving precise control of their behavior is difficult due to the completely unsupervised nature of their training. Existing methods for gaining such steerability collect human labels of the relative quality of model generations and fine-tune the unsupervised LM to align with these preferences, often with reinforcement learning from human feedback (RLHF). However, RLHF is a complex and often unstable procedure, first fitting a reward model that reflects the human preferences, and then fine-tuning the large unsupervised LM using reinforcement learning to maximize this estimated reward without drifting too far from the original model. In this paper we introduce a new parameterization of the reward model in RLHF that enables extraction of the corresponding optimal policy in closed form, allowing us to solve the standard RLHF problem with only a simple classification loss. The resulting algorithm, which we call Direct Preference Optimization (DPO), is stable, performant, and computationally lightweight, eliminating the need for sampling from the LM during fine-tuning or performing significant hyperparameter tuning. Our experiments show that DPO can fine-tune LMs to align with human preferences as well as or better than existing methods. Notably, fine-tuning with DPO exceeds PPO-based RLHF in ability to control sentiment of generations, and matches or improves response quality in summarization and single-turn dialogue while being substantially simpler to implement and train.</p>
+  <section class="viewer" id="viewer" data-pdf="../../files/24bd92038bf64207.pdf" data-vendor="../../vendor/pdfjs/">
+    <div class="viewer-bar">
+      <button type="button" id="prev" aria-label="Previous page">‹</button>
+      <label>Page <input id="page" type="number" min="1" value="1"> of <span id="pages">…</span></label>
+      <button type="button" id="next" aria-label="Next page">›</button>
+      <span class="spacer"></span>
+      <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+      <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+      <a href="../../files/24bd92038bf64207.pdf" download>Download PDF</a>
+    </div>
+    <div class="canvas-wrap"><canvas id="canvas"></canvas></div>
+  </section>
+</article>
+</main>
+<script type="module" src="../../static/viewer.js"></script></body>
+</html>

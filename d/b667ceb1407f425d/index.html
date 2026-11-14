@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>DeepSeek vs ChatGPT vs Claude: benchmarking large language models for clinical diagnosis using a novel ICD-10-CM-based evaluation framework · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>DeepSeek vs ChatGPT vs Claude: benchmarking large language models for clinical diagnosis using a novel ICD-10-CM-based evaluation framework</h1>
+<p class="authors">Lichen Du, Jiachen Zhong, Shirong Zheng, Liuyi Chen</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>BMC medical informatics and decision making</dd>
+<dt>Published</dt><dd>2026-05-21</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Evaluation of AI in health (frameworks, reporting guidelines, clinical validation)</span><span class="chip">Foundations of modern AI (architectures, training, foundation models)</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1186/s12911-026-03511-3">10.1186/s12911-026-03511-3</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/42168963/">42168963</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/42168963/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/42168963/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>b667ceb1407f425d</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Large language models have shown potential for supporting clinical reasoning, but their performance in open-ended diagnostic tasks remains insufficiently evaluated using clinically grounded and reproducible criteria. Many prior studies have relied on multiple-choice medical benchmarks or subjective expert ratings, which may not fully reflect the uncertainty and diagnostic complexity of real-world clinical encounters. This study aimed to benchmark state-of-the-art LLMs for open-ended clinical diagnosis using a hierarchical ICD-10-CM-based evaluation framework. We evaluated four LLMs: DeepSeek-V3, GPT-4o, GPT-4o mini, and Claude 3.5 Sonnet, on 50 real-world clinical cases from the publicly available MultiCaRe dataset. To reduce potential training-data leakage, only cases published after August 2024 were included. For each case, models generated three ranked differential diagnoses and corresponding ICD-10-CM codes. Diagnostic performance was assessed using a four-level hierarchical scoring framework based on ICD-10-CM structure, capturing both broad disease-category agreement and finer diagnostic specificity. Two independent runs were conducted per model-case pair to assess consistency. Descriptive statistics, pairwise one-tailed paired [Formula: see text]-tests, and correlation-based analyses were used to compare performance and robustness. DeepSeek-V3 achieved the highest mean diagnostic score (2.32 ± 1.53), followed by GPT-4o (2.23 ± 1.50), Claude 3.5 Sonnet (2.12 ± 1.53), and GPT-4o mini (2.10 ± 1.49). Binary adjusted diagnostic accuracy was 82% for DeepSeek-V3 and GPT-4o, 80% for GPT-4o mini, and 76% for Claude 3.5 Sonnet. Across all four models, performance was generally stronger for identifying correct disease categories than for making highly specific diagnoses. DeepSeek-V3 also showed the lowest run-to-run mean difference and the highest run-to-run correlation, indicating numerically greater stability. However, overall differences between models were modest. State-of-the-art LLMs demonstrated promising capability in open-ended clinical diagnosis, particularly for identifying clinically relevant disease categories. DeepSeek-V3 showed the strongest overall numerical performance in this benchmark, although differences across models were limited. The proposed ICD-10-CM-based hierarchical framework provides a reproducible and clinically meaningful approach for evaluating LLM diagnostic performance in open-ended settings.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractBackgroundLarge language models have shown potential for supporting clinical reasoning, but their performance in open-ended diagnostic tasks remains insufficiently evaluated using clinically grounded and reproducible criteria. Many prior studies have relied on multiple-choice medical benchmarks or subjective expert ratings, which may not fully reflect the uncertainty and diagnostic complexity of real-world clinical encounters. This study aimed to benchmark state-of-the-art LLMs for open-ended clinical diagnosis using a hierarchical ICD-10-CM-based evaluation framework.MethodsWe evaluated four LLMs: DeepSeek-V3, GPT-4o, GPT-4o mini, and Claude 3.5 Sonnet, on 50 real-world clinical cases from the publicly available MultiCaRe dataset. To reduce potential training-data leakage, only cases published after August 2024 were included. For each case, models generated three ranked differential diagnoses and corresponding ICD-10-CM codes. Diagnostic performance was assessed using a four-level hierarchical scoring framework based on ICD-10-CM structure, capturing both broad disease-category agreement and finer diagnostic specificity. Two independent runs were conducted per model-case pair to assess consistency. Descriptive statistics, pairwise one-tailed paired -tests, and correlation-based analyses were used to compare performance and robustness.ResultsDeepSeek-V3 achieved the highest mean diagnostic score (2.32 1.53), followed by GPT-4o (2.23 1.50), Claude 3.5 Sonnet (2.12 1.53), and GPT-4o mini (2.10 1.49). Binary adjusted diagnostic accuracy was 82% for DeepSeek-V3 and GPT-4o, 80% for GPT-4o mini, and 76% for Claude 3.5 Sonnet. Across all four models, performance was generally stronger for identifying correct disease categories than for making highly specific diagnoses. DeepSeek-V3 also showed the lowest run-to-run mean difference and the highest run-to-run correlation, indicating numerically greater stability. However, overall differences between models were modest.ConclusionsState-of-the-art LLMs demonstrated promising capability in open-ended clinical diagnosis, particularly for identifying clinically relevant disease categories. DeepSeek-V3 showed the strongest overall numerical performance in this benchmark, although differences across models were limited. The proposed ICD-10-CM-based hierarchical framework provides a reproducible and clinically meaningful approach for evaluating LLM diagnostic performance in open-ended settings.Keywords: Large language models, Clinical diagnosis, Artificial intelligence, Benchmark evaluation</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction › Problem background and motivation</h3>    <p>Accurate and timely diagnosis remains a major challenge in healthcare systems worldwide. Rising medical costs, long appointment wait times, and persistent physician shortages continue to limit access to early and reliable diagnosis. In the United States, the average cost of a standard outpatient visit is $446 in 2022 [1], excluding additional expenses such as laboratory tests or imaging procedures. Comprehensive Metabolic Panel cost between $47.13 and $214.20 [2], while advanced imaging studies such as MRI may exceed $1,000 per session [3]. These costs impose a substantial burden on uninsured or underinsured patients, often resulting in delayed medical care or complete avoidance of clinical visits.
+
+Access issues are further compounded by increasing wait times for specialist appointments. In 2022, the average wait time to schedule a new patient visit across 15 major U.S. metropolitan areas reached 26 days, compared to 24.1 days in 2017. Although the average wait time for family medicine decreased from 29.3 days in 2017 to 20.6 days in 2022, it remains considerably long. In contrast, most specialties experienced increases: OB/GYN (31.4 days, +19%), cardiology (26.6 days, +26%), orthopedic surgery (16.9 days, +48%), and dermatology (34.5 days, +7%) [4, 5]. Meanwhile, the healthcare workforce has undergone considerable strain. Labor expenses represent the largest cost component for hospitals, and clinical labor costs increased by nearly 40% between 2019 and early 2022 [6]. During the same period, emergency department throughput worsened. Based on publicly available CMS hospital quality data, the median time from ED arrival to departure across U.S. hospitals was approximately 163 minutes in 2023. [7]. Physician distribution also remains uneven: as of 2024, the United States averaged 2.6 active physicians per 1,000 population, while many rural regions fall below 1.8 per 1,000 [8].
+
+These structural barriers underscore the importance of scalable and cost-effective diagnostic tools that can augment medical professionals and expand access to care. In this context, artificial intelligence (AI) and Large language models (LLMs) have emerged as promising technologies capable of supporting early triage, disease classification, and preliminary diagnosis.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Introduction › From machine learning to LLMs in healthcare</h3>    <p>AI has played a growing role in clinical decision support over the past decade. Traditional machine learning methods, such as logistic regression, support vector machines, and ensemble approaches, have achieved strong performance in structured tasks like diabetes, cardiovascular, and cancer prediction. With deep learning, convolutional neural networks reached human-level accuracy in image-based diagnosis, particularly in radiology and dermatology [9, 10].
+
+The next leap came with natural language processing and the emergence of LLMs. Models such as BERT, BioGPT, and ClinicalBERT demonstrated an ability to understand clinical narratives and extract diagnosis-related features from unstructured electronic health records [11]. More recently, general-purpose LLMs such as ChatGPT and Med-PaLM have been tested on open-ended clinical reasoning tasks, demonstrating an ability to generate and justify plausible differential diagnoses [12].
+
+Several studies have already explored the real-world diagnostic potential of LLM. Med-PaLM 2, for instance, achieved accuracy comparable to board-certified physicians on U.S. Medical Licensing Examination–style questions [13]. ChatGPT has been evaluated for AI-assisted diagnosis and reasoning across diverse clinical vignettes [14], while domain-specific models such as GatorTron and ClinicalGPT have shown promise in clinical note summarization, disease classification, and radiology report interpretation [15, 16]. These examples highlight how LLMs are beginning to complement physicians in diagnostic reasoning, clinical documentation, and decision support.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Introduction › Limitations of current research</h3>    <p>Although recent studies have shown the potential of LLMs in clinical diagnosis [17, 18], several methodological limitations remain in how LLMs are evaluated for clinical diagnosis. Many studies rely on multiple-choice datasets derived from standardized medical exams such as the USMLE [13]. These benchmarks simplify evaluation but fail to capture the uncertainty and open-ended reasoning of real clinical encounters. Other studies use subjective expert ratings on Likert scales, making cross-model comparison difficult and prone to bias [19]. A more reliable evaluation method for clinical diagnosis is needed.
+
+Another concern is data leakage. Most publicly available medical benchmarks were monitored on outdated data or synthetic data and may overlap with model training corpora, making it unclear whether LLMs are reasoning or recalling memorized information [20]. Furthermore, the rapid evolution of model architectures means that recently released systems such as DeepSeek-V3 and Claude Sonnet have not been systematically evaluated in medical reasoning tasks.
+
+Recent work by Sandmann et al. benchmarked open-source DeepSeek-V3 against proprietary GPT-4o and Gemini-2.0 on 125 text-based clinical vignettes rated by clinicians on a five-point Likert scale, showing that DeepSeek models performed comparably to GPT-4o and outperformed Gemini 2 [21]. While this study demonstrated great potential of LLMs, it relied on subjective ratings and pre-2024 vignette data. In contrast, our study introduces a novel ICD-10-based hierarchical scoring framework and evaluates four modern LLMs on 50 randomly selected post-August 2024 real-world MultiCaRe cases, providing a more objective and reproducible baseline for diagnostic benchmarking.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Introduction › Contributions of this study</h3>    <p>This work aims to provide a rigorous and reproducible benchmark for assessing LLMs in open-ended clinical diagnosis. To minimize data contamination, we evaluated four recent large language models, DeepSeek-V3, GPT-4o, GPT-4o mini, and Claude Sonnet 4 on 50 clinical cases from the MultiCaRe dataset [22], all published after August 2024 to avoid the potential data leakage.
+
+We introduce an ICD-10-CM-based hierarchical scoring framework that quantifies diagnostic accuracy at multiple levels of specificity, from general disease categories to precise clinical codes. This method enables partial credit for near-correct predictions and provides a clinically interpretable measure of model performance.
+
+Using this framework, we benchmarked diagnostic accuracy and robustness across models. Overall, the study demonstrates that recent LLMs can meaningfully support preliminary diagnosis and decision support, with the proposed ICD-based evaluation method offers a standardized foundation for future model comparison.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Methods</h3>    <p>Overview of the case selection and diagnostic mapping workflow</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Methods › Ethical compliance</h3>    <p>This study uses a publicly available, anonymized clinical case dataset to compare the diagnostic performance of GPT, Claude, and DeepSeek models. Since the dataset contains no identifiable patient information, the study was exempt from institutional ethical review [22].
+
+All experiments were conducted in accordance with principles of responsible AI research. We recognize that LLMs have inherent limitations, including the potential for bias and diagnostic errors. Our work aims to benchmark these models solely and is not intended to replace clinical judgment. Any real-world medical use of such models must involve careful validation and oversight.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Methods › Dataset and preprocessing</h3>    <p>Overview of the case selection and diagnostic mapping workflow</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Methods › Dataset and preprocessing › Dataset overview</h3>    <p>In this study, we used the MultiCaRe dataset, an open-source resource containing more than 70,000 de-identified clinical case reports and over 130,000 medical images from diverse medical specialties. Each case includes detailed textual descriptions and associated metadata designed to support multimodal medical research [22, 23].
+
+For the purposes of this study, we restricted our analysis to textual clinical case reports to ensure consistent input modalities across all evaluated LLMs and to focus specifically on diagnostic reasoning based on clinical narratives.
+
+The dataset was accessed on March 10, 2025. Because most evaluated LLMs were trained on data up to mid-2024, we limited the dataset to cases published after August 2024 to reduce the risk of potential training-data leakage. The original filtered dataset contained 2,369 cases.
+
+To ensure clinically interpretable diagnostic scenarios, cases with missing essential demographic attributes (e.g., patient age or sex) were excluded. Such demographic information is routinely available in real clinical practice and often plays a critical role in differential diagnosis (for example, pediatric conditions or sex-specific diseases). In total, 115 cases (4.9%) were removed at this stage, leaving 2,253 eligible cases.
+
+From this eligible pool, 200 cases were randomly sampled for further screening and manual verification. This intermediate sampling step was adopted to maintain computational feasibility and to allow careful manual inspection and annotation before final benchmarking.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Methods › Dataset and preprocessing › Case inclusion and exclusion criteria</h3>    <p>To ensure the integrity of our benchmarking and to prevent information leakage, we adopted the following selection criteria for public cases:
+
+Applying these criteria resulted in a final set of 50 well-defined, non-overlapping, and clinically meaningful cases used for comparative experiments.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Methods › Dataset and preprocessing › Preparation of LLM inputs and reference labels</h3>    <p>For each case, we separated the content into two distinct components: the case description and the diagnosis statement. The case description contained only clinical narratives (e.g., patient history, presenting symptoms, examination findings, and laboratory results) and was used exclusively as input to the LLMs during evaluation. To avoid information leakage, all diagnostic terms or outcome labels were removed from this portion.
+
+The diagnosis statement was extracted from case metadata to serve as the basis for the ground-truth reference. To ensure the robustness of these labels and address potential subjectivity, we employed a dual-annotator validation protocol across the dataset of 50 cases. Two annotators independently mapped the diagnostic statements to ICD-10-CM codes, each utilizing a different standardized mapping tool to mitigate systematic software bias. Inter-rater reliability was quantified using Cohen’s . At the highest level of alphanumeric specificity, the clinicians achieved an initial raw agreement of 82% (41/50 cases), yielding a Cohen’s of 0.817, which denotes “almost perfect” agreement. Notably, in the 9 cases where full-code discrepancies occurred, the differences were limited to the final digits of the code; 100% consensus was reached when the codes were truncated to one decimal place. Because the study’s primary evaluation framework utilizes this one-decimal granularity, all 50 cases were retained as a verified gold-standard reference set for model evaluation.
+
+The overall case selection and filtering pipeline is illustrated in Fig. 1.
+
+Overview of the case selection and diagnostic mapping workflow</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Methods › Study design › Evaluated models</h3>    <p>To evaluate the diagnostic capabilities of advanced LLMs in clinical settings, we designed a structured study involving four advanced models: ChatGPT-4o (Released on May 2024, training data cutoff Oct 2023), ChatGPT-4o mini (Released on July 2024, training data cutoff Oct 2023), DeepSeek-V3 (Released on Dec 2024, training data cutoff July 2024), and Claude Sonnet 3.5 (Released on June 2024, training data cutoff April 2024). These models represent the most recent generation of LLMs and were selected for their strong performance across general and specialized tasks, as well as their relevance in ongoing AI healthcare research. Their respective training cutoffs range from late 2023 to early 2024, ensuring their access to the latest medical knowledge available at the time of release. Detailed descriptions of the individual models are provided in Sect. 3.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Methods › Study design › Diagnostic prompting procedure</h3>    <p>To simulate a realistic clinical workflow and elicit structured clinical reasoning, we developed a standardized diagnostic prompting procedure; the full details of this prompt are provided in the Appendix. Each model was required to perform a Clinical Reasoning Analysis, formulate a Differential Diagnosis, and provide ICD-10-CM Mapping. While the text-based clinical reasoning facilitated a “Chain of Thought” process, the quantitative evaluation was based strictly on the accuracy of the mapped ICD-10-CM codes.
+
+To ensure high-fidelity mapping and mitigate potential hallucinations, we implemented several methodological controls:
+
+In cases of discrepancy between the textual diagnosis and the alphanumeric classification, the ICD-10-CM code was treated as the model’s definitive categorization. This framework provides a reproducible evaluation structure that effectively manages minor inconsistencies between narrative reasoning and formal coding.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Methods › Study design › Experimental protocol</h3>    <p>Each of the four models was evaluated across the same set of clinical cases. To improve consistency and control for variability due to interface conditions or model response stochasticity, each model-case pair was independently executed by two annotators. The final diagnosis outputs and ICD-10 code assignments from each annotator were averaged for scoring. This dual-operator design helps mitigate experimental biases such as input formatting discrepancies, transient model behavior, and human error during prompt execution or result interpretation.
+
+Following the collection of diagnostic outputs, we applied a custom evaluation framework (described in Sect. 2.4) based on ICD-10-CM structure to score and compare model performance. This framework enables a fine-grained, objective assessment of diagnostic accuracy across models.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Methods › Evaluation framework › ICD-10-CM rationale</h3>    <p>In this study, we use the International Classification of Diseases, Tenth Revision, Clinical Modification (ICD-10-CM) [24] as the basis for evaluating diagnostic predictions generated by LLMs. The decision to use ICD-10-CM is motivated by both clinical relevance and technical practicality.
+
+Clinically, ICD-10-CM provides a standardized system for classifying and coding diseases and health conditions and is widely used in real-world healthcare settings for documentation, billing, epidemiological studies, and public health reporting [25]. Aligning our evaluation with ICD-10-CM ensures consistency with standard clinical practice. Technically, ICD-10-CM offers a structured and hierarchical format that enables graded, fine-grained comparison between predicted and actual diagnoses. Each code encodes: a chapter letter (disease category), a category number (general condition group), and optional decimal-level specificity (precise clinical presentation).
+
+For Example, the ICD-10-CM code S62.031 refers to a displaced fracture of the proximal third of the navicular (scaphoid) bone of the right wrist. It belongs to Chapter S, which covers injuries and other consequences of external causes, and the category S62 designates fractures at the wrist and hand level, and the subcategory S62.03 identifies fractures of the navicular (scaphoid) bone specifically. The final digits refine the diagnosis further: S62.031 specifies that the fracture is displaced–meaning the bone fragments are misaligned–occurs in the proximal third of the scaphoid bone (closest to the forearm, an area with limited blood supply and higher risk of poor healing), and affects the right wrist. This code thus conveys precise anatomical, laterality, and severity information about the injury.
+
+This structured format allows us to define a multi-level scoring system that can capture partial correctness by measuring how closely a predicted ICD-10 code matches the actual code across chapter, category, and decimal specificity. In summary, ICD-10-CM serves as both a clinically grounded standard and a technically versatile tool for evaluating AI-assisted diagnosis.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Methods › Evaluation framework › Hierarchical scoring algorithm</h3>    <p>For each patient case, LLMs were tasked with reporting the top three ranked disease diagnoses, each paired with the corresponding ICD-10-CM code. Diagnostic accuracy was then assessed by comparing each predicted code to the reference ICD-10 code using our newly developed hierarchical scoring framework.
+
+In our scoring system, each ICD code is decomposed into 4 levels of diagnostic detail:
+
+The comparison proceeds step by step: at each level, if the corresponding elements of the LLM’s code and the reference code match exactly, a point is awarded. For example, if both codes belong to the same chapter, one point is added; if they also share the same block, another point is added, and so on. If any level does not match, the comparison halts immediately, and no further points are awarded which ensures that only consecutive, meaningful matches contribute to the score.
+
+The total score ranges from zero (no overlap) to four (a perfect match at all levels). For each patient case, the highest score among the three candidate diagnoses was recorded as the model’s final score. This framework thus enables a transparent, reproducible way to benchmark and compare the clinical reasoning capabilities of different LLMs. It captures not only exact correctness but also degrees of partial alignment, offering a more nuanced measure of clinical reasoning accuracy than binary evaluation.
+
+For example, if the true diagnosis is S62.031 (Displaced fracture of the proximal third of the navicular [scaphoid] bone of the right wrist) and the model predicts S62.1, the two codes share several hierarchical layers. At the chapter level, both belong to Chapter S, covering injuries and other consequences of external causes. At the block level, they fall under S60–S69, representing injuries to the wrist, hand, and fingers. At the category level, both are in S62, denoting fractures at the wrist and hand level. They differ only at the subcategory level–S62.031 specifies a displaced fracture of the proximal navicular bone, while S62.1 refers to other carpal bone fractures. Thus, although the model’s prediction lacks fine anatomical precision, it correctly identifies the general injury type and region, earning a 3 similarity score in our framework. Similarly, a prediction like S60.1 matches only at the broader chapter and block levels, yielding a score of 2, while a code such as A89 shares no structural overlap and thus scores 0.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Methods › Statistical analysis</h3>    <p>We conducted quantitative comparisons across models along two key dimensions: overall performance and robustness. All analyses were implemented in Python (v3.11).</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Methods › Statistical analysis › Diagnostic performance analysis</h3>    <p>Each model was evaluated over two independent runs per case. The mean score across the two runs was used as the model’s representative score per case. Descriptive statistics (mean, interquartile range (IQR), and standard deviation) were calculated for each model. Pairwise one-tailed paired -tests were then conducted to assess statistically significant differences in mean performance across models.
+
+For diagnostic accuracy, prediction scores were classified into three categories:
+
+For binary accuracy analysis, the latter two were grouped as “Correct Predictions.” Frequencies were summarized and visualized to highlight model-level differences in diagnostic precision.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Methods › Statistical analysis › Robustness analysis</h3>    <p>Model robustness was assessed based on the variability between the two independent runs. For each case and model, the absolute difference in scores between runs was computed to quantify prediction stability. Summary statistics of these differences were reported, and pairwise one-tailed -tests were performed to compare robustness across models. Additionally, Pearson correlations between the two runs were calculated per model to evaluate consistency in response patterns.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Model</h3>    <p>In this section, we provide an overview of the four LLMs employed in our study for clinical diagnosis tasks. These models vary in architecture, training data, and specialization, offering a broad comparison between general-purpose and domain-adapted systems. The models evaluated are DeepSeek-V3, GPT-4o (OpenAI), GPT-4o mini (OpenAI), and Claude 3.5 Sonnet (Anthropic). All experiments were conducted between January and February 2025 using the officially released versions of each model available at that time. The inference was performed with temperature = 0. No few-shot examples were provided.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Model › DeepSeek-V3</h3>    <p>DeepSeek is a series of open-source large language models built on the transformer architecture [26]. In this study, we specifically evaluated DeepSeek-V3 (671B total parameters, December 2024 release). The DeepSeek family includes general-purpose models, code-oriented variants such as DeepSeek-Coder [26], and large-scale models such as DeepSeek-V3 [27]. Trained on extensive multilingual data–including high-quality web, code, and technical content–these models demonstrate strong performance in instruction-following, reasoning, and multi-turn dialogue. DeepSeek-Coder achieves leading performance among open-source code models, while DeepSeek-V3 matches competitive closed-source models in both efficiency and capability.</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Model › GPT-4o</h3>    <p>GPT-4o is OpenAI’s multimodal “omni” model released in May 2024, which processes text, images, audio, and video through a single autoregressive Transformer network. As a general-purpose, state-of-the-art LLM, GPT-4o matches or exceeds GPT-4 Turbo on English text and code, delivers lower latency and 50% lower API cost, and improves non-English, vision, and audio understanding [28]. GPT-4o can generate high-quality diagnostic hypotheses from structured patient inputs, making it a strong baseline for evaluating medical domain adaptations
+
+In our experiments, GPT-4o serves as a baseline for evaluating the effectiveness of domain adaptation and medical fine-tuning, given its widespread availability and general competence in language understanding and reasoning.</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Model › GPT-4o mini</h3>    <p>GPT-4o mini is a compact and cost-efficient variant of the GPT-4o model, released by OpenAI on July 18, 2024. Designed to enhance the accessibility of advanced AI, this model significantly reduces the computational and financial barriers to deploying large-scale language model capabilities. Despite its smaller footprint, GPT-4o mini demonstrates robust performance, surpassing its predecessor, GPT-3.5 Turbo, and other smaller-scale alternatives on key academic benchmarks, especially in reasoning and multimodal tasks. This combination of high performance and low cost makes it an ideal candidate for large-scale or budget-conscious research applications.
+
+In our experimental framework, GPT-4o mini serves as a cost-effective intermediate baseline. It provides a strong, general-purpose foundation for language understanding and generation.</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Model › Claude 3.5 Sonnet</h3>    <p>Claude 3.5 Sonnet is the cost-effective, default variant of Anthropic’s Claude 3.5 family, released June 20, 2024 [29]. It offers a hybrid reasoning mode–switching between near-instant replies and extended “thinking” within a single autoregressive Transformer–and handles text, images, and code with up to 64 K context tokens. Aligned via Constitutional AI, Sonnet 3.5 produces cautious, well-structured outputs, reducing unsafe shortcuts by 65% versus previous Claude versions and delivering state-of-the-art coding and reasoning performance in ethically sensitive domains. Available through Anthropic’s API, AWS Bedrock, Google Vertex AI, and GitHub Copilot, Claude Sonnet 3.5 serves as an essential benchmark for evaluating alignment strategies and safety–performance trade-offs.</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Results</h3>    <p>Distribution of prediction scores across models
+
+Model performance summary
+
+Pairwise one-tailed t-test results
+
+Prediction category frequency per model
+
+Prediction accuracy by model
+
+Distribution of run-to-run differences per model
+
+Model robustness summary
+
+Pairwise -tests on absolute mean differences
+
+Pairwise euclidean distance of model robustness
+
+Model prediction first run vs. Second run: regression plots with Pearson correlations
+
+Run-to-Run Spearman correlation for each model
+
+Spearman correlation between models
+
+Pairwise comparisons of run-to-run correlations using Fisher’s -to- transformation</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>Results › Performance benchmarking across models</h3>    <p>Distribution of prediction scores across models
+
+Model performance summary
+
+Pairwise one-tailed t-test results
+
+Prediction category frequency per model
+
+Prediction accuracy by model</p>
+  </section>
+  <section id="s26" class="text-unit">
+<h3>Results › Performance benchmarking across models › Score analysis across models</h3>    <p>To evaluate model performance, we computed the mean diagnostic score across two independent runs for each of the 50 clinical cases per model. The resulting distributions are visualized in Fig. 2, and summary statistics are presented in Table 1.
+
+DeepSeek-V3 achieved the highest mean score (2.32 1.53), followed closely by GPT-4o (2.23 1.50). Claude 3.5 Sonnet and GPT-4o mini showed slightly lower averages at 2.12 and 2.10, respectively. The IQRs suggest relatively consistent distributions across models, with Claude 3.5 Sonnet showing a slightly narrower spread.
+
+To assess whether these observed differences were statistically significant, we conducted pairwise one-tailed paired t-tests in Table 2. Although DeepSeek-V3 achieved the highest mean score (2.32), the magnitude of its advantage over other models was small (e.g., = 0.09 vs. GPT-4o, 0.20 vs. Claude 3.5 Sonnet, and 0.22 vs. GPT-4o mini), especially relative to the similar standard deviations across models (1.49–1.53). Consistent with these small effect sizes, no comparisons were statistically significant after Bonferroni correction (). The differences between DeepSeek-V3 and Claude 3.5 Sonnet (p = 0.0360), GPT-4o mini (p = 0.0331), and GPT-4o (p = 0.2221) were not significant. Likewise, GPT-4o did not significantly outperform Claude 3.5 Sonnet (p = 0.2251; = 0.11) or GPT-4o mini (p = 0.1186; = 0.13). No significant difference was observed between Claude 3.5 Sonnet and GPT-4o mini (p = 0.4403; = 0.02).
+
+Overall, the small mean differences and overlapping variability indicate negligible practical effect sizes, aligning with the lack of statistical significance across all pairwise comparisons.
+
+Distribution of prediction scores across models
+
+Model performance summary
+
+Pairwise one-tailed t-test results</p>
+  </section>
+  <section id="s27" class="text-unit">
+<h3>Results › Performance benchmarking across models › Accuracy analysis across models</h3>    <p>To complement the overall score-based comparison, we further categorized diagnostic predictions into three levels of accuracy, reflecting the granularity of ICD-10 code alignment:
+
+Wrong Predictions (Score = 0): No overlap with the ground truth ICD-10 code at any level.
+
+Identify Disease Category (Score = 1 or 2): The model correctly identified the disease’s general chapter or block, indicating the ability to suggest appropriate clinical departments or diagnostic categories.
+
+Identify Specific Disease (Score = 3 or 4): The model provided an ICD-10 code that closely matches the reference, either at the disease group level (code before decimal) or at the exact code level (including first decimal), reflecting precise diagnostic capability.
+
+This classification enables interpretation of model performance in a clinically meaningful way, distinguishing between general diagnostic guidance and precise disease identification.
+
+Figure 3 shows the frequency of predictions in each category across the four evaluated models. DeepSeek and GPT-4o tended to produce more high-granularity predictions (scores of 3 or 4), while GPT-4o mini and Claude exhibited a more balanced distribution across all levels. These patterns suggest varying strengths in general reasoning versus precise diagnostic mapping. This analysis supports the use of hierarchical ICD-based scoring as a nuanced evaluation method, capable of capturing both partial and complete diagnostic success.
+
+Table 3 summarizes the diagnostic accuracy of each model by grouping predictions into two clinically meaningful categories: “Correct Predictions” (score from 1 to 4, including partial correct and exact correct predictions) and “Wrong Predictions” (score = 0). Based on this classification, both DS and GPT achieved the highest accuracy (82%), correctly predicting 41 out of 50 cases. GPT-4o mini followed closely at 80%, while Claude 3.5 Sonnet yielded the lowest accuracy among the four models at 76%. These findings indicate that DeepSeek-V3 and GPT-4o demonstrate relatively stronger clinical reasoning capabilities in matching diagnostic categories and specific diseases within our experiment.
+
+Prediction category frequency per model
+
+Prediction accuracy by model</p>
+  </section>
+  <section id="s28" class="text-unit">
+<h3>Results › Stability and robustness across models</h3>    <p>Distribution of run-to-run differences per model
+
+Model robustness summary
+
+Pairwise -tests on absolute mean differences
+
+Pairwise euclidean distance of model robustness
+
+Model prediction first run vs. Second run: regression plots with Pearson correlations
+
+Run-to-Run Spearman correlation for each model
+
+Spearman correlation between models
+
+Pairwise comparisons of run-to-run correlations using Fisher’s -to- transformation</p>
+  </section>
+  <section id="s29" class="text-unit">
+<h3>Results › Stability and robustness across models › Run-to-run difference</h3>    <p>To assess the robustness of each model, we examined the absolute difference in diagnostic scores across two independent runs for each clinical case. Figure 4 illustrates the distribution of these differences for all four models.
+
+As shown in Fig. 4, DeepSeek-V3 exhibited the narrowest spread of run-to-run differences, indicating higher output stability. GPT-4o displayed more variability, with a long tail suggesting occasional larger fluctuations in predictions.
+
+Table 4 presents summary statistics for mean, IQR, and variance of the run-to-run differences. DeepSeek-V3 turns out to be the best performed model, presenting the lowest mean of difference and variance of difference.
+
+To test whether differences in robustness were statistically significant, we performed pairwise -tests on the absolute run-to-run differences. The results are summarized in Table 5.
+
+Although DeepSeek had the lowest average run-to-run difference, the differences across models were not statistically significant (p 0.0083). These findings suggest moderate but not conclusive evidence of superior stability for DeepSeek.
+
+To further visualize model-level similarity in robustness, we computed the pairwise Euclidean distance of robustness profiles (based on run-to-run difference vectors). Results are shown in Fig. 5.
+
+The heatmap reveals that GPT-4o is most dissimilar to DeepSeek in terms of robustness (distance = 0.72), whereas Claude 3.5 Sonnet and GPT-4o mini show nearly identical robustness profiles (distance = 0.053). This further supports the observation that DeepSeek-V3’s stability characteristics differ more distinctly from GPT than from the other models.
+
+Distribution of run-to-run differences per model
+
+Model robustness summary
+
+Pairwise -tests on absolute mean differences
+
+Pairwise euclidean distance of model robustness</p>
+  </section>
+  <section id="s30" class="text-unit">
+<h3>Results › Stability and robustness across models › Run-to-run correlation</h3>    <p>We also evaluated robustness in terms of prediction consistency. For each model, we computed the Pearson correlation coefficient between the two prediction runs. Results are presented in Fig. 6.
+
+DeepSeek achieved the highest run-to-run correlation (Corr = 0.8827), indicating very consistent predictions across repeated trials. Claude and GPT-4o mini followed closely, with correlations of 0.7991 and 0.7891, respectively. GPT-4o had the lowest correlation at 0.7186, suggesting relatively higher variability between runs.
+
+Overall, the results reinforce DeepSeek-V3’s robustness, both in terms of stability with lower variance and reproducibility with higher correlation, supporting its reliability for real-world diagnostic applications.
+
+Model prediction first run vs. Second run: regression plots with Pearson correlations</p>
+  </section>
+  <section id="s31" class="text-unit">
+<h3>Results › Stability and robustness across models › Run to run Spearman correlation</h3>    <p>Spearman rank correlations between two independent runs were computed to assess intra-model stability (Table 6, Fig. 7). All models showed moderately high correlations, indicating consistent case rankings, with DeepSeek-V3 achieving the highest value.
+
+Statistical significance was evaluated using Fisher’s -to- transformation (Table 7). Although DeepSeek-V3 exhibited a higher correlation than GPT-4o (p = 0.019), this difference was not significant after Bonferroni correction (). All other pairwise comparisons were also non-significant. These results suggest that, despite numerical differences, no statistically significant variation in run-to-run stability was observed across models.
+
+Run-to-Run Spearman correlation for each model
+
+Spearman correlation between models
+
+Pairwise comparisons of run-to-run correlations using Fisher’s -to- transformation</p>
+  </section>
+  <section id="s32" class="text-unit">
+<h3>Discussion › Safety and ethical considerations</h3>    <p>One critical concern in applying LLMs to clinical diagnosis is the potential for harmful or misleading outputs, especially when models are deployed in high-stakes decision-making scenarios without human oversight. While LLMs can generate medically plausible responses, they can also produce hallucinated information, outdated knowledge, or unwarrantedly confident recommendations that are not clinically validated. In some cases, incorrect or overgeneralized diagnostic suggestions may cause psychological distress, delay in appropriate care, or even promote harmful self-treatment when interpreted by patients or non-experts.
+
+A core challenge lies in the fact that most LLMs are not grounded in up-to-date clinical data and lack access to patient-specific context or recent medical guidelines. Moreover, general-purpose models such as GPT or Claude, though trained on broad corpora, are not inherently equipped with fail-safes to prevent medical misinformation.
+
+Our experiments provide concrete evidence that such risks are not merely theoretical. Across the four evaluated models, even the overall best-performing Deepseek model produced its highest-scoring diagnosis as the first-ranked output in only approximately 74% of cases (allowing ties), despite being instructed to list diagnoses in descending order of confidence. In the remaining cases, a later generation achieved a superior hierarchical match, indicating that a single model response can be an unstable estimator of the model’s best attainable hypothesis under our ICD-10-CM-based rubric. In addition, we observed cases in which all generated candidates received uniformly low (often zero) scores, reflecting complete category-level mismatch with the reference diagnosis and representing substantive failure rather than minor ranking noise. These findings suggest that apparent correctness under a hierarchical metric can sometimes arise from superficial taxonomic proximity (e.g., overly broad parent categories or near-neighbor codes). As a result, such matches may overstate clinical reliability when not accompanied by grounded reasoning. Although systematic hallucination analysis was not the primary objective of this study, these observations reveal concrete error patterns that can emerge in open-ended diagnostic generation tasks.
+
+Our experimental design also incorporated several practical safeguards intended to reduce unconstrained or hallucinated outputs. Specifically, models were required to provide structured clinical reasoning, generate three ranked differential diagnoses ordered by confidence, and map each diagnosis to an ICD-10-CM code using the official classification list. These constraints were introduced to encourage grounded reasoning and structured prediction rather than unrestricted free-text generation. To mitigate these risks in real clinical settings, it is essential to assess LLMs not only based on accuracy metrics but also through comprehensive safety evaluations. Ensuring safe deployment in healthcare will likely require: (i) evaluation protocols that go beyond correctness to characterize failure modes and potential clinical harm, (ii) expert oversight (human-in-the-loop) to validate and contextualize model outputs, (iii) domain-specific safeguards (e.g., knowledge grounding and structured constraints) to reduce hallucinations and enforce clinical validity, and (iv) transparent uncertainty communication.
+
+Together, these considerations highlight that while LLMs show reasonable diagnostic capabilities, they should be deployed as assistive tools under appropriate clinical supervision rather than substitutes for professional medical judgment.</p>
+  </section>
+  <section id="s33" class="text-unit">
+<h3>Discussion › DeepSeek: high accuracy and low variance in diagnostic performance</h3>    <p>DeepSeek demonstrates strong diagnostic performance in clinical applications, characterized by high accuracy and low output variance across multiple evaluation runs. This consistency suggests stable and reliable diagnostic reasoning capabilities, making it particularly promising for systematic clinical deployment. Recent benchmarking studies have confirmed DeepSeek’s competitive performance, achieving 92% accuracy on USMLE-style questions [30].
+
+The model employs a Mixture-of-Experts (MoE) architecture with 671 billion total parameters, activating only 37 billion per token for efficient inference [27]. Key architectural innovations include Multi-head Latent Attention for memory-efficient inference and an auxiliary-loss-free load balancing strategy. The model was pre-trained on 14.8 trillion diverse tokens, followed by supervised fine-tuning and reinforcement learning stages to enhance clinical reasoning capabilities.
+
+As an open-source model, DeepSeek offers transparency and local deployment capabilities, addressing data privacy concerns and enabling operation in resource-limited settings [31]. DeepSeek demonstrates strong multilingual proficiency, particularly in Chinese medical contexts, making it valuable for healthcare systems serving diverse linguistic populations. However, responsible clinical implementation requires robust validation frameworks and appropriate human oversight to mitigate risks associated with potential AI-generated errors [32].</p>
+  </section>
+  <section id="s34" class="text-unit">
+<h3>Discussion › Evaluation system</h3>    <p>One of the key advantages of this ICD-based evaluation system is its ability to translate complex diagnostic accuracy into an objective, granular score that reflects clinically meaningful distinctions. By aligning the comparison process with the inherent hierarchical structure of ICD codes, the framework captures both broad and fine-grained diagnostic nuances–from general disease categories to specific subtypes. This stepwise method allows partial credit for partially correct predictions, offering a transparent measure of how well an LLM understands and processes medical information. The straightforward design and reproducibility of the scoring make it easy to benchmark different models while maintaining clinical relevance, which is essential for safely integrating LLMs into healthcare workflows.</p>
+  </section>
+  <section id="s35" class="text-unit">
+<h3>Discussion › Influence on preliminary diagnosis</h3>    <p>Under this system, using a score of 2 out of 4 as a passing grade means that an LLM must at least identify the correct disease chapter and block–ensuring that its recommendation aligns with a reasonable clinical area and a related set of conditions. With this threshold, LLMs can provide meaningful guidance for preliminary diagnosis, supporting clinicians and patients quickly narrow down possible diagnoses and prioritize cases appropriately. While not a replacement for professional judgment, this level of diagnostic competence can support more reliable decision-making in preliminary assessments, remote care, or low-resource settings where timely diagnosis is critical.</p>
+  </section>
+  <section id="s36" class="text-unit">
+<h3>Future work</h3>    <p>While our preliminary study provides valuable insights into the diagnostic capabilities of LLMs, several limitations highlight directions for future research. Firstly, our current dataset may not fully capture the diversity and complexity of real-world diagnostic scenarios due to limited resources. In particular, limited sample sizes within individual disease categories prevented robust disease-stratified analyses, which are important for determining whether performance differences arise from specific clinical domains rather than overall diagnostic capability. Future work will focus on expanding the dataset to include a broader range of symptoms, disease types, and demographic variables, enabling statistically reliable disease-level evaluations, more systematic analysis of diagnostic failure patterns, and improving the robustness and generalizability of our findings.
+
+Another limitation of this study is the scope of model coverage. Due to the rapid pace of development in large language models, it is challenging for any single study to include all representative systems. Our evaluation focuses on several widely used models available at the time of experimentation. Future work will extend this benchmark to include newer and emerging models, such as the Qwen series, which may further improve diagnostic accuracy and consistency.</p>
+  </section>
+  <section id="s37" class="text-unit">
+<h3>Conclusion</h3>    <p>In this study, we conducted a comprehensive evaluation of LLMs on clinical diagnostic tasks using a structured, ICD-10-CM codes based scoring framework. Our results indicate that DeepSeek-V3 score the highest in terms of diagnostic accuracy and robustness, demonstrating consistent performance across diverse cases and repeated runs.
+
+A key contribution of this work is the development of a reproducible and clinically grounded evaluation framework that leverages the hierarchical structure of ICD-10-CM codes. By scoring predictions across multiple levels of granularity ranging from broad disease categories to specific diagnoses, we provide a more interpretable and clinically meaningful assessment of model behavior. In addition, this study provides a curated benchmark set of clinical cases derived from the MultiCaRe dataset, which may serve as a useful evaluation resource for future research on LLM-based clinical diagnosis.
+
+This approach enables a nuanced understanding of LLM performance beyond binary correctness. Importantly, it highlights that even when models do not predict exact diagnoses, many still accurately identify relevant disease categories, which can significantly enhance preliminary diagnosis, referral prioritization, and early decision support.
+
+Overall, our findings suggest that LLMs, particularly DeepSeek, have promising capabilities in assisting diagnostic reasoning, especially when evaluated with clinically relevant scoring schemes that align with real-world medical taxonomy.</p>
+  </section>
+  <section id="s38" class="text-unit">
+<h3>Acknowledgements</h3>    <p>Not applicable.</p>
+  </section>
+  <section id="s39" class="text-unit">
+<h3>Appendix › Full LLM diagnostic prompt › Role</h3>    <p>Acting as a Senior Diagnostic Physician, provide clinical reasoning for research purposes by evaluating standardized patient data. Each case includes detailed symptoms, physical examinations, and laboratory diagnostics for your analysis.</p>
+  </section>
+  <section id="s40" class="text-unit">
+<h3>Appendix › Full LLM diagnostic prompt › Task 1: Clinical reasoning analysis (max 200 words)</h3>    <p>Perform a stepwise evaluation of the case. Your rationale must include:</p>
+  </section>
+  <section id="s41" class="text-unit">
+<h3>Appendix › Full LLM diagnostic prompt › Task 2: Differential diagnosis (DDx)</h3>    <p>List the three most probable diagnoses in descending order of likelihood.</p>
+  </section>
+  <section id="s42" class="text-unit">
+<h3>Appendix › Full LLM diagnostic prompt › Task 3: ICD-10-CM mapping</h3>    <p>Using only the provided ICD-10-CM Tabular List, map each diagnosis from Task 2 to the closest ICD-10-CM code in the following format. If the diagnosis cannot be mapped using the provided ICD list, state: “ICD code cannot be confirmed.”</p>
+  </section>
+  <section id="s43" class="text-unit">
+<h3>Appendix › Full LLM diagnostic prompt › Final verification</h3>    <p>Confirm that every diagnosis corresponds to an existing medical condition and every code is directly derived from the provided ICD-10-CM list.</p>
+  </section>
+  <section id="s44" class="text-unit">
+<h3>Author contributions</h3>    <p>LD: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Resources, Data curation, Writing – original draft, Writing – review &amp; editing, Visualization, Project administration. JZ: Methodology, Validation, Formal analysis, Investigation, Resources, Data curation, Writing – original draft, Writing – review &amp; editing, Supervision, Project administration. SZ: Methodology, Software, Validation, Formal analysis, Investigation, Resources, Data curation, Writing – original draft, Writing – review &amp; editing, Visualization. LC: Conceptualization, Methodology, Validation, Investigation, Data curation, Writing – original draft, Writing – review &amp; editing. All authors contributed equally to this work and approved the final version of the manuscript.</p>
+  </section>
+  <section id="s45" class="text-unit">
+<h3>Funding</h3>    <p>This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.</p>
+  </section>
+  <section id="s46" class="text-unit">
+<h3>Data availability</h3>    <p>The data that support the findings of this study are publicly available in the MultiCaRe repository at (https://zenodo.org/records/10079370). The dataset contains de-identified clinical case reports and was accessed and used in accordance with the repository’s terms and guidelines.</p>
+  </section>
+  <section id="s47" class="text-unit">
+<h3>Declarations › Ethics approval and consent to participate</h3>    <p>This study did not involve human participants, animal subjects, or personally identifiable data.</p>
+  </section>
+  <section id="s48" class="text-unit">
+<h3>Declarations › Consent for publication</h3>    <p>Not applicable.</p>
+  </section>
+  <section id="s49" class="text-unit">
+<h3>Declarations › Competing interests</h3>    <p>The authors declare no competing interests.</p>
+  </section>
+  <section id="s50" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>The data that support the findings of this study are publicly available in the MultiCaRe repository at (https://zenodo.org/records/10079370). The dataset contains de-identified clinical case reports and was accessed and used in accordance with the repository’s terms and guidelines.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

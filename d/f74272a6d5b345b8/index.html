@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Letter to the Editor: &#34;Development and validation of a deep learning ultrasound radiomics model for predicting drug resistance in lymph node tuberculosis a multicenter study&#34; · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Letter to the Editor: &#34;Development and validation of a deep learning ultrasound radiomics model for predicting drug resistance in lymph node tuberculosis a multicenter study&#34;</h1>
+<p class="authors">Shuyi Liu, Xuewei Wu, Rui Zhang</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>International journal of surgery (London, England)</dd>
+<dt>Published</dt><dd>2025-07-23</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Evaluation of AI in health (frameworks, reporting guidelines, clinical validation)</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1097/js9.0000000000003118">10.1097/js9.0000000000003118</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40705514/">40705514</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40705514/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/40705514/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC</dd>
+    <dt>RegKnow ID</dt><dd><code>f74272a6d5b345b8</code></dd>
+  </dl>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Text</h3>    <p>To the Editor,
+
+We have read with great interest the article by Zhang et al[1]. Their study successfully demonstrates the potential of an ensemble machine learning (AdaBoost) ultrasound radiomics model to predict drug resistance in lymph node tuberculosis (LNTB) across multiple centers. The reported high diagnostic efficacy and the resulting clinical net benefit shown in the decision curve analysis represent a significant advancement toward non-invasive diagnostic strategies. However, we wish to offer comments on several methodological aspects that are vital for ensuring the clinical translatability and robustness of such models.
+
+First, we are concerned about the risk of model overfitting, which is strongly suggested by the study’s results. The authors report that 161 features were used to train a model on a cohort of only 163 patients. This high feature-to-sample ratio creates an over-parameterized model that is highly susceptible to learning spurious correlations and noise from the training data, rather than robust biological patterns. This concern is amplified by the considerable drop in AUC from the training set (0.998) to the internal (0.798) and external validation cohorts (0.831–0.846). To quantify this concern, we performed a sample size calculation using the pmsampsize package in R[2]. Assuming an optimistic C-statistic of 0.80 and an outcome prevalence of 0.40 (approximating the 64/163 drug-resistant cases), the minimum sample size required to develop a stable model with 161 predictors is estimated to be 4899 participants. While developing a high-performance model is a primary goal, it is crucial that the dataset be sufficiently large to robustly support the number of predictors included, thereby preventing overfitting and ensuring generalizability[3]. A more aggressive feature selection process aiming for a parsimonious model is essential to improve generalizability.
+
+Second, in a multicenter study, proactively addressing batch effects is crucial. Variations in ultrasound systems, acquisition parameters, and operator-dependent techniques across centers can introduce significant data heterogeneity. To ensure a model learns true biological signals over technical artifacts, we recommend first assessing the magnitude of these effects using tools like BEEx[4], followed by the application of a harmonization method, such as ComBat, to the radiomic data before model training[5]. This directly improves model robustness and its reliability across diverse clinical settings.
+
+Finally, we note two points regarding the model’s clinical application and performance assessment. A key detail—the model’s optimal cut-off value determined from the training set—was not reported. For rigorous validation, this cut-off should be fixed and applied unchanged to all test sets to mimic real-world practice and prevent optimistic bias. Furthermore, while we commend the authors for providing calibration plots, the visual agreement appears suboptimal. To provide a quantitative measure of calibration, reporting the p-value from a formal statistical test, such as the Hosmer-Lemeshow (HL) goodness-of-fit test or the Spiegelhalter Z-test, would be highly informative.
+
+In conclusion, the study by Zhang et al. is an important contribution to the non-invasive diagnosis of drug-resistant LNTB. Our comments are intended to foster discussion and highlight methodological considerations that could help future research in this field produce models with even greater clinical translatability and robustness.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Analysis of drug crystallization by evaluation of pharmaceutical solubility in various solvents by optimization of artificial intelligence models · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Analysis of drug crystallization by evaluation of pharmaceutical solubility in various solvents by optimization of artificial intelligence models</h1>
+<p class="authors">Wael A Mahdi, Adel Alhowyan, Ahmad J Obaidullah</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Scientific reports</dd>
+<dt>Published</dt><dd>2025-06-04</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Manufacturing</span><span class="chip">Evaluation of AI in drug discovery (benchmarks, validation, reproducibility)</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1038/s41598-025-03198-y">10.1038/s41598-025-03198-y</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40467664/">40467664</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40467664/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/40467664/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>af83b31374af42db</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>For analysis of crystallization, the solubility of drug in solvents should be correlated to input parameters. In this investigation, the solubility of salicylic acid as drug model in a variety of solvents is predicted through the utilization of multiple machine learning techniques. The dataset consists of 217 data points, each of which contains 15 input features, including pressure, temperature, and a variety of solvents. The novelty of the work is to maximize the performance of the model by using methods including the isolation forest for anomaly detection and the tree-structured Parzen estimator for hyperparameter fine-tuning. The bagging ensemble method was utilized on top of Bayesian ridge regression, decision tree regression (DT), and weighted least squares regression as the underlying models. The results indicate that the BAG-DT model surpasses other models with the highest R2 scores in the training, validation, and test sets, as well as the lowest error rates. The results highlight the efficacy of ensemble methods in improving predictive precision and resilience in regression assignments, especially within intricate datasets characterized by high dimensionality and noise. This investigation provides valuable perspectives on amalgamating machine learning methodologies for predicting chemical solubility, presenting a scalable strategy for forthcoming applications in analogous domains.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractFor analysis of crystallization, the solubility of drug in solvents should be correlated to input parameters. In this investigation, the solubility of salicylic acid as drug model in a variety of solvents is predicted through the utilization of multiple machine learning techniques. The dataset consists of 217 data points, each of which contains 15 input features, including pressure, temperature, and a variety of solvents. The novelty of the work is to maximize the performance of the model by using methods including the isolation forest for anomaly detection and the tree-structured Parzen estimator for hyperparameter fine-tuning. The bagging ensemble method was utilized on top of Bayesian ridge regression, decision tree regression (DT), and weighted least squares regression as the underlying models. The results indicate that the BAG-DT model surpasses other models with the highest R2 scores in the training, validation, and test sets, as well as the lowest error rates. The results highlight the efficacy of ensemble methods in improving predictive precision and resilience in regression assignments, especially within intricate datasets characterized by high dimensionality and noise. This investigation provides valuable perspectives on amalgamating machine learning methodologies for predicting chemical solubility, presenting a scalable strategy for forthcoming applications in analogous domains.Keywords: Crystallization, Solubility correlation, Machine learning, PharmaceuticsSubject terms: Chemical engineering, Chemical biology</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>For evaluation of drug crystallization, one needs to find the solubility versus temperature and solvent concentration. The concentration of a drug in solvent must be brought to supersaturation point to start crystallization. Initially, the solution is at below supersaturation, and there are different methods to bring the solution to the supersaturation area. Indeed, supersaturation creation is the key step in crystallization process1,2. Crystallizers may operate in batch or continuous model where the method of supersaturation creation is important and would have significant effects on the size, morphology, and other properties of crystals3–5. In order to bring the solution to supersaturation zone, the solubility diagram needs to be built by measuring drug solubility at different temperatures. Thermodynamic modeling of solid–liquid equilibrium can help find the supersaturation zone and build solubility diagram for crystallization of drugs6–8.
+
+Some generalized models are needed to apply for predicting solubility of a wide variety of drugs so that design space can be provided for drug crystallization. A great candidate for making such a model is data-driven approach which can deal with a large number of dataset and predicting drug solubility9. For building data-driven models, experimental data on drug solubility is needed in order to train the models. Once the model is well tested, it would be applied as a predictive tool for determination of drug solubility under different circumstances. Machine learning (ML) models can be employed for determination of drug solubility and building design space for pharmaceutical crystallization10. ML have been used and validated for determination of pharmaceutical solubility in supercritical CO211–13 and proved to be reliable in this area so that they are good candidates in optimization of crystallization by correlating drug solubility to temperature and composition. Correlation of salicylic acid solubility to some input features was studied in our previous study10,14, however more research is needed for further evaluation of drug solubility in wide range of solvents which is useful for development of pharmaceutical crystallization.
+
+A dynamic field of artificial intelligence (AI), ML creates statistical models and algorithms to let computers independently model and predict without clear programming directions. These algorithms learn from data, identify patterns, and benefit industries like engineering, healthcare, and finance15.
+
+The work employs a bagging ensemble method combining weighted least squares regression (WLS), decision tree regression (DT), and Bayesian ridge regression (BRR). The TPE approach helped to maximize the hyper-parameters of these models. These models were selected for their capacity to avoid overfitting, adjust to data changes, and properly manage non-linear correlations. While decision trees (DT) shine at identifying non-linear patterns, Bayesian ridge regression (BRR) offers a consistent form of regularization. By giving data points weights depending on their variances, weighted least squares (WLS) efficiently addresses heteroscedasticity and increases predictive precision.
+
+This study illustrates the efficacy of ensemble learning in enhancing the accuracy and resilience of solubility forecasts. Several machine learning models are used for the first time to correlate the solubility of a drug, namely salicylic acid to solvent composition, pressure, and temperature. Through the amalgamation of Bayesian ridge regression (BRR), decision trees (DT), and weighted least squares (WLS) in a bagging framework, it presents an approach to boost model effectiveness. Furthermore, the incorporation of sophisticated methodologies such as tree-structured Parzen estimator (TPE) for hyperparameter optimization and isolation forest (iForest) for anomaly detection provides a scalable resolution for akin predictive assignments.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Dataset and preprocessing</h3>    <p>The dataset employed in this study, which is identical to the one in16, included 217 data points and 15 input features. The parameters including inputs are defined and detailed in our previous studies10,14. In this study, different ML models are implemented and optimized for a broader analysis of ML capability in drug solubility prediction. The primary objective of this investigation is to find out the solubility of salicylic acid based on the input features which included pressure, temperature, and composition of solvent. Figure 1 displays a Spearman correlation heatmap, which illustrates the intensity and direction of monotonic associations among the features in the dataset. The dataset comprises 15 input features, including a range of solvents, pressure, and temperature which all have been considered in building and optimization of ML models.
+
+Spearman heatmap of the dataset.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Dataset and preprocessing › Isolation forest (iForest) for outlier removal</h3>    <p>Most outlier detection methods aim to define what constitutes “normal” behavior and then classify patterns that deviate from this norm as anomalies. However, these models often face inefficiencies in detecting anomalies, with their complexity increasing alongside the size and dimensionality of the dataset.
+
+To address these limitations, the isolation forest (iForest) method adopts a different approach by explicitly isolating anomalies rather than focusing on normality. The iForest algorithm constructs a collection of isolation trees (iTrees) and identifies outliers as points that, on average, have a lower depth within these trees. This method is computationally efficient, as it does not require complete tree construction, avoids the use of distance metrics, and demands relatively low memory resources17,18.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Machine learning methods</h3>    <p>This section describes the methodical approach used to model the solubility of salicylic acid, with a specific focus on improving and assessing different ML models. Our research employs the TPE to optimize hyperparameters, iForest for anomaly detection, and Bagging ensemble technique with 3 distinct base models for this regression task. The base models are Bayesian ridge regression (BRR), decision tree regression (DT), and weighted least squares regression (WLS). The techniques applied—including mathematical formulations, configurations, and the justification for their choice—are thoroughly explained in the next subsections.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Machine learning methods › Tree-structured Parzen estimator (TPE)</h3>    <p>A TPE is a technique for sequential model-based optimization. It builds upon a previous model and focuses on optimizing target hyperparameters. This is done by creating a grid that explores the space of hyperparameters and using loss minimization as the optimization criterion19. The hyperparameters are crucial variables that significantly influence the iterative learning process in machine learning. The configuration of these hyperparameters has a profound effect on the training of the model, which is the most formidable problem20.
+
+The TPE method can be described mathematically as follows:</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Machine learning methods › Bagging ensemble</h3>    <p>Using the strengths of several base regression models, a strong and accurate predictor is produced by the potent ensemble learning method known as bagging regression. Bagging Regression improves predictive accuracy and resilience over a spectrum of regression tasks by aggregating the forecasts of many models21.
+
+The bagging regression algorithm consists of several fundamental steps. At first, the training dataset is divided into several subsets, called bags, using a random sampling technique called bootstrap sampling. Each bag comprises a subset of the initial data, thereby introducing variability during the training phase22.
+
+Training base models on different data subsets reduces overfitting and improves handling of outliers. Because they lower bias and variability, the combined predictions of the ensemble usually reflect more accuracy than those of individual models22,23.
+
+Tunable hyper-parameters of bagging ensemble method are:
+
+Bagging regression presents a robust and adaptive method to regression tasks, making it a valuable tool for improving model accuracy and resilience across diverse applications22,24.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Machine learning methods › Base models</h3>    <p>Bayesian ridge regression (BRR) as a regression method employs a norm regularization term to enhance the model’s generalizability and regulate its size. BRR offers advantages such as constructing informative priors effectively, providing flexibility in modeling prior distributions, and enabling automated analysis with weakly informative priors when specifying priors is challenging. The main function of BRR is as follows25,26:
+
+Here, α is a random variable obtained from the data, and ω stands for characterized by a spherical Gaussian distribution as26,27:
+
+Decision trees regression splits the data into subsets in light of the input feature values, producing a tree-like structure where every leaf node predicts a value, and each internal node decides depending on a particular feature28.
+
+Weighted least squares (WLS) regression is a method that builds upon ordinary least squares (OLS) by giving varying weights to data points according to their variance. This approach is especially valuable when the assumption of homoscedasticity (constant variance of errors) in ordinary least squares (OLS) is violated. It enables more precise estimation by assigning greater significance to observations with lower variance29.
+
+WLS allocates weights to observations depending on the reciprocal of their variance, thus diminishing the influence of data points with greater variability on the model. This weighted approach can lead to improved model accuracy, especially in cases where the data exhibits heteroscedasticity. The mathematical formulation of WLS involves minimizing the weighted sum of squared residuals, which can be expressed as30:
+
+where W is a diagonal matrix of weights. WLS regression is particularly useful in real-world applications where data quality varies, such as in economic modeling or time series forecasting, where different periods or segments of data may exhibit different levels of variability31.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Results and discussion</h3>    <p>This section serves as the culmination of rigorous data analysis and model evaluation to compare their precision in the prediction of target parameter. It presents a comprehensive overview of the performance metrics and error rates for the various machine learning models employed. Through detailed tables and visualizations, the effectiveness of each model is meticulously compared, highlighting both their strengths and potential limitations. This section not only quantifies the outcomes but also offers valuable insights into the predictive accuracy and robustness of the models, setting the stage for deeper interpretation and discussion.
+
+The analysis of the three models—BAG-BRR, BAG-DT, and BAG-WLS—based on the data in Tables 1 and 2, as well as the corresponding figures, highlights clear differences in performance. BAG-DT stands out as the best model, with the highest R2 scores across all sets and the lowest error rates.
+
+In contrast, BAG-BRR and BAG-WLS show lower performance, with BAG-BRR having R2 scores of 0.84200 (train), 0.836244 (validation), and 0.795696 (test), along with higher error rates (MAE: 0.0174659, RMSE: 0.028344, Max Error: 0.106962). BAG-WLS performed similarly, with slightly lower R2 scores and marginally higher errors than BAG-BRR.
+
+Figures 2, 3 and 4 and tables demonstrate that BAG-DT is the most effective model, with superior predictive reliability and accuracy in comparison to BAG-BRR and BAG-WLS. Overall, the correlations are well fitted to the solubility dataset and no overfitting is observed in the testing portion of dataset. Indeed, the ML models are reliable for correlating solubility of salicylic acid in all solvents under various temperatures and pressures. One can interpret how soluble the drug is in various solvents which is useful for design and optimization of drug crystallizers.
+
+Using BAG-DT model as the best model Fig. 5 shows the importance of input features for prediction of the solubility of salicylic acid. The solubility of salicylic acid shows distinct patterns across different factors10,14. The most important feature is water concentration in the solvent mixture (X2) which has negative effect on the solubility of drug. In fact, it can be used as anti-solvent component for driving crystallization to achieve the supersaturation state. Ethanol content (X3) and PEG300 concentration (X5) are ranked 2 and 3, respectively for feature importance. Unlike water, increasing X3 and X5 would increase the solubility of salicylic acid as these solvents offer higher solubility for the drug which is hydrophobic. In Fig. 6, it initially increases with water concentration (X2) but stabilizes after a certain point, suggesting a saturation effect. Similarly, Fig. 7 demonstrates that ethanol concentration (X3) leads to a strong initial increase in solubility, yet reaches an optimal level where further increases result in diminishing returns14. In contrast, Fig. 8 reveals that pressure (P) has a linear relationship with solubility, consistently enhancing it without any signs of saturation. Finally, Fig. 9 indicates that temperature (T) also linearly boosts solubility, highlighting the common phenomenon where higher temperatures promote solute dissolution. The variations are quite similar to the drug solubility variations as reported in our previous works10,14.
+
+Figures 10, 11, and 12 represent 3D surface plots that depict the solubility of medicine as a function of different combinations of input features. These figures provide visual depictions of the correlation between solubility and the chosen input variables, enhancing comprehension of how these variables interact to impact solubility14. Indeed, depending on the solvent used in the process, the value of drug solubility can be determined, and supersaturation can be achieved according to the model developed in this study. Further studies should be performed to link the results obtained in this study to crystallizer and supersaturation zone determination.
+
+Coefficient of determination (R2) in train, validation, and test.
+
+Error rates of final models (test data).
+
+BAG-DT model visualized performance.
+
+BAG-WLS model visualized performance.
+
+BAG-BRR model visualized performance.
+
+Importance of features based on final BAG-DT model.
+
+Dependence of salicylic acid solubility on X2.
+
+Dependence of salicylic acid solubility on X3.
+
+Dependence of salicylic acid solubility on P(kPa).
+
+Dependence of salicylic acid solubility on T(k).
+
+3D presentation of solubility versus X2 and X3.
+
+3D presentation of solubility versus X2 and T.
+
+3D presentation of solubility versus X2 and P.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Conclusion</h3>    <p>This study successfully demonstrates the application of ensemble learning techniques, specifically through the integration of BRR, DT, and WLS within a bagging framework, to enhance the predictive accuracy and robustness in chemical solubility prediction. The case study is determination of solubility of salicylic acid in a number of chemical solvents mixtures. The ADA-DT model, in particular, showed superior performance across various metrics, highlighting the effectiveness of combining diverse models to address the complexities of high-dimensional, noisy datasets. The methodologies and findings presented provide a scalable approach for future research and applications in related fields, underlining the importance of model selection and optimization in achieving reliable and accurate predictions.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Acknowledgements</h3>    <p>The authors are thankful to the Ongoing Research Funding Program, (ORF-2025-516) at King Saud University, Riyadh, Saudi Arabia.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Author contributions</h3>    <p>W.A.M.: Writing, investigation, methodology, resources, formal analysis. A.A.: Validation, methodology, resources, formal analysis, writing. A.J.O.: Writing, investigation, methodology, software, supervision.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Funding</h3>    <p>This work was supported by the Ongoing Research Funding Program, (ORF-2025-516), King Saud University, Riyadh, Saudi Arabia.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Data availability</h3>    <p>The datasets analyzed during the current study are available from the corresponding author on reasonable request.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Declarations › Competing interests</h3>    <p>The authors declare no competing interests.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>The datasets analyzed during the current study are available from the corresponding author on reasonable request.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

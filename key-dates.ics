@@ -1,0 +1,1542 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//RegKnow//Key dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:RegKnow key dates
+X-WR-CALDESC:Dates on which EU texts in the RegKnow library enter into forc
+ e or apply
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:e708013fb5a94fee-20260421@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20260421
+DTEND;VALUE=DATE:20260422
+SUMMARY:Council Decision (EU) 2026/1080: enters into force
+DESCRIPTION:Council Decision (EU) 2026/1080 of 21 April 2026 on the conclus
+ ion\, on behalf of the European Union\, of the Council of Europe Framework
+  Convention on Artificial Intelligence and Human Rights\, Democracy and th
+ e Rule of Law\nEnters into force\nhttps://djindetoss.github.io/regknow-sit
+ e/d/e708013fb5a94fee/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/e708013fb5a94fee/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Council Decision (EU) 2026/1080: enters into force
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Council Decision (EU) 2026/1080: enters into force
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:de218e4773594b3b-20260428@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20260428
+DTEND;VALUE=DATE:20260429
+SUMMARY:Commission Implementing Regulation (EU) 2026/771: enters into force
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/771 of 7 April 20
+ 26 laying down the necessary measures for the establishment and operation 
+ of the European Health Data Space Board\nEnters into force\nhttps://djinde
+ toss.github.io/regknow-site/d/de218e4773594b3b/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/de218e4773594b3b/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/771: enters into f
+ orce
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/771: enters into f
+ orce
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:52c18e446f334955-20260526@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20260526
+DTEND;VALUE=DATE:20260527
+SUMMARY:Regulation (EU) 2017/745: Class III custom-made implantable devices
+  may be placed on the market or put into service without a notified body c
+ ertificate under Article 52(8)\, second subparagraph\, until this date.
+DESCRIPTION:Regulation (EU) 2017/745 of the European Parliament and of the 
+ Council of 5 April 2017 on medical devices\, amending Directive 2001/83/EC
+ \, Regulation (EC) No 178/2002 and Regulation (EC) No 1223/2009 and repeal
+ ing Council Directives 90/385/EEC and 93/42/EEC (Text with EEA relevance. 
+ )\nApplies from (as amended)\nClass III custom-made implantable devices ma
+ y be placed on the market or put into service without a notified body cert
+ ificate under Article 52(8)\, second subparagraph\, until this date. (Arti
+ cle 1(1)(b) (Article 120(3f) of Regulation (EU) 2017/745)\, 32023R0607)\nh
+ ttps://djindetoss.github.io/regknow-site/d/52c18e446f334955/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/52c18e446f334955/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/745: Class III custom-made implantable dev
+ ices may be placed on the market or put into service without a notified bo
+ dy certificate under Article 52(8)\, second subparagraph\, until this date
+ .
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/745: Class III custom-made implantable dev
+ ices may be placed on the market or put into service without a notified bo
+ dy certificate under Article 52(8)\, second subparagraph\, until this date
+ .
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ca6befd5c8034ab5-20260611@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20260611
+DTEND;VALUE=DATE:20260612
+SUMMARY:Regulation (EU) 2024/2847: Provisions on notification of conformity
+  assessment bodies apply (Chapter IV\, Articles 35 to 51)
+DESCRIPTION:Regulation (EU) 2024/2847 of the European Parliament and of the
+  Council of 23 October 2024 on horizontal cybersecurity requirements for p
+ roducts with digital elements and amending Regulations (EU) No 168/2013 an
+ d (EU) 2019/1020 and Directive (EU) 2020/1828 (Cyber Resilience Act) (Text
+  with EEA relevance)\nApplies from\nProvisions on notification of conformi
+ ty assessment bodies apply (Chapter IV\, Articles 35 to 51) (Article 71(2)
+ )\nhttps://djindetoss.github.io/regknow-site/d/ca6befd5c8034ab5/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ca6befd5c8034ab5/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: Provisions on notification of confor
+ mity assessment bodies apply (Chapter IV\, Articles 35 to 51)
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: Provisions on notification of confor
+ mity assessment bodies apply (Chapter IV\, Articles 35 to 51)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:7ff9af29673e4021-20260727@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20260727
+DTEND;VALUE=DATE:20260728
+SUMMARY:Regulation (EU) 2024/1689: Articles 102 to 110 apply from this date
+ .
+DESCRIPTION:Regulation (EU) 2024/1689 of the European Parliament and of the
+  Council of 13 June 2024 laying down harmonised rules on artificial intell
+ igence and amending Regulations (EC) No 300/2008\, (EU) No 167/2013\, (EU)
+  No 168/2013\, (EU) 2018/858\, (EU) 2018/1139 and (EU) 2019/2144 and Direc
+ tives 2014/90/EU\, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligen
+ ce Act) (Text with EEA relevance)\nApplies from (as amended)\nArticles 102
+  to 110 apply from this date. (Article 1(40)(c)\, 32026R1744)\nhttps://dji
+ ndetoss.github.io/regknow-site/d/7ff9af29673e4021/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/7ff9af29673e4021/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Articles 102 to 110 apply from this 
+ date.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Articles 102 to 110 apply from this 
+ date.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:08b0391691d441ca-20260727@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20260727
+DTEND;VALUE=DATE:20260728
+SUMMARY:Regulation (EU) 2026/1744: enters into force
+DESCRIPTION:Regulation (EU) 2026/1744 of the European Parliament and of the
+  Council of 8 July 2026 amending Regulations (EU) 2024/1689\, (EU) 2018/11
+ 39 and (EU) 2023/1230 as regards the simplification of the implementation 
+ of harmonised rules on artificial intelligence (Digital Omnibus on AI) (Te
+ xt with EEA relevance)\nEnters into force\nhttps://djindetoss.github.io/re
+ gknow-site/d/08b0391691d441ca/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/08b0391691d441ca/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2026/1744: enters into force
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2026/1744: enters into force
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ca6befd5c8034ab5-20260911@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20260911
+DTEND;VALUE=DATE:20260912
+SUMMARY:Regulation (EU) 2024/2847: Reporting obligations for actively explo
+ ited vulnerabilities and severe incidents apply (Article 14)
+DESCRIPTION:Regulation (EU) 2024/2847 of the European Parliament and of the
+  Council of 23 October 2024 on horizontal cybersecurity requirements for p
+ roducts with digital elements and amending Regulations (EU) No 168/2013 an
+ d (EU) 2019/1020 and Directive (EU) 2020/1828 (Cyber Resilience Act) (Text
+  with EEA relevance)\nApplies from\nReporting obligations for actively exp
+ loited vulnerabilities and severe incidents apply (Article 14) (Article 71
+ (2))\nhttps://djindetoss.github.io/regknow-site/d/ca6befd5c8034ab5/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ca6befd5c8034ab5/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: Reporting obligations for actively e
+ xploited vulnerabilities and severe incidents apply (Article 14)
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: Reporting obligations for actively e
+ xploited vulnerabilities and severe incidents apply (Article 14)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:a033e589c8f84967-20260912@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20260912
+DTEND;VALUE=DATE:20260913
+SUMMARY:Regulation (EU) 2023/2854: The obligation in Article 3(1) applies t
+ o connected products and related services placed on the market after this 
+ date.
+DESCRIPTION:Regulation (EU) 2023/2854 of the European Parliament and of the
+  Council of 13 December 2023 on harmonised rules on fair access to and us
+ e of data and amending Regulation (EU) 2017/2394 and Directive (EU) 2020
+ /1828 (Data Act) (Text with EEA relevance)\nApplies from\nThe obligation i
+ n Article 3(1) applies to connected products and related services placed o
+ n the market after this date. (Article 50\, third paragraph)\nhttps://djin
+ detoss.github.io/regknow-site/d/a033e589c8f84967/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/a033e589c8f84967/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2023/2854: The obligation in Article 3(1) appli
+ es to connected products and related services placed on the market after t
+ his date.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2023/2854: The obligation in Article 3(1) appli
+ es to connected products and related services placed on the market after t
+ his date.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:44c549a0a51d4c3a-20261011@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Commission Implementing Regulation (EU) 2026/2083: enters into forc
+ e
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083 of 18 Septem
+ ber 2026 on MyHealth@EU\nEnters into force\nhttps://djindetoss.github.io/r
+ egknow-site/d/44c549a0a51d4c3a/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/44c549a0a51d4c3a/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083: enters into 
+ force
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083: enters into 
+ force
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:900179c099e04b1e-20261011@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Commission Implementing Regulation (EU) 2026/2098: enters into forc
+ e
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098 of 18 Septem
+ ber 2026 laying down the minimum metadata elements and their characteristi
+ cs to be provided by health data holders for dataset descriptions for the 
+ secondary use of electronic health data under Article 77(4) of Regulation
+  (EU) 2025/327 establishing the European Health Data Space\nEnters into f
+ orce\nhttps://djindetoss.github.io/regknow-site/d/900179c099e04b1e/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/900179c099e04b1e/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098: enters into 
+ force
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098: enters into 
+ force
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:7ff9af29673e4021-20261202@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+SUMMARY:Regulation (EU) 2024/1689: Providers of generative AI systems place
+ d on the market before 2 August 2026 must comply with the synthetic conten
+ t marking obligation in Article 50(2) from this date.
+DESCRIPTION:Regulation (EU) 2024/1689 of the European Parliament and of the
+  Council of 13 June 2024 laying down harmonised rules on artificial intell
+ igence and amending Regulations (EC) No 300/2008\, (EU) No 167/2013\, (EU)
+  No 168/2013\, (EU) 2018/858\, (EU) 2018/1139 and (EU) 2019/2144 and Direc
+ tives 2014/90/EU\, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligen
+ ce Act) (Text with EEA relevance)\nApplies from (as amended)\nProviders of
+  generative AI systems placed on the market before 2 August 2026 must comp
+ ly with the synthetic content marking obligation in Article 50(2) from thi
+ s date. (Article 1(39)(b)\, 32026R1744)\nhttps://djindetoss.github.io/regk
+ now-site/d/7ff9af29673e4021/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/7ff9af29673e4021/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Providers of generative AI systems p
+ laced on the market before 2 August 2026 must comply with the synthetic co
+ ntent marking obligation in Article 50(2) from this date.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Providers of generative AI systems p
+ laced on the market before 2 August 2026 must comply with the synthetic co
+ ntent marking obligation in Article 50(2) from this date.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:44c549a0a51d4c3a-20270326@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:Commission Implementing Regulation (EU) 2026/2083: The whole Regula
+ tion applies from this date\, so MyHealth@EU implementing rules become app
+ licable to all Member States.
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083 of 18 Septem
+ ber 2026 on MyHealth@EU\nApplies from\nThe whole Regulation applies from t
+ his date\, so MyHealth@EU implementing rules become applicable to all Memb
+ er States. (Article 19\, second paragraph)\nhttps://djindetoss.github.io/r
+ egknow-site/d/44c549a0a51d4c3a/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/44c549a0a51d4c3a/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083: The whole Re
+ gulation applies from this date\, so MyHealth@EU implementing rules become
+  applicable to all Member States.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2083: The whole Re
+ gulation applies from this date\, so MyHealth@EU implementing rules become
+  applicable to all Member States.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ab518eedffca457d-20270326@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:Regulation (EU) 2025/327: The Regulation as a whole applies from th
+ is date\, and the Commission's implementing acts and Member State designat
+ ions (for example under Articles 15(1)\, 19(1) and 36(1)) are due by this 
+ date.
+DESCRIPTION:Regulation (EU) 2025/327 of the European Parliament and of the 
+ Council of 11 February 2025 on the European Health Data Space and amending
+  Directive 2011/24/EU and Regulation (EU) 2024/2847 (Text with EEA relevan
+ ce)\nApplies from\nThe Regulation as a whole applies from this date\, and 
+ the Commission's implementing acts and Member State designations (for exam
+ ple under Articles 15(1)\, 19(1) and 36(1)) are due by this date. (Article
+  105)\nhttps://djindetoss.github.io/regknow-site/d/ab518eedffca457d/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ab518eedffca457d/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: The Regulation as a whole applies fro
+ m this date\, and the Commission's implementing acts and Member State desi
+ gnations (for example under Articles 15(1)\, 19(1) and 36(1)) are due by t
+ his date.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: The Regulation as a whole applies fro
+ m this date\, and the Commission's implementing acts and Member State desi
+ gnations (for example under Articles 15(1)\, 19(1) and 36(1)) are due by t
+ his date.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:52c18e446f334955-20270526@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20270526
+DTEND;VALUE=DATE:20270527
+SUMMARY:Regulation (EU) 2017/745: The procedure set out in Article 78 appli
+ es from this date\, without prejudice to Article 78(14).
+DESCRIPTION:Regulation (EU) 2017/745 of the European Parliament and of the 
+ Council of 5 April 2017 on medical devices\, amending Directive 2001/83/EC
+ \, Regulation (EC) No 178/2002 and Regulation (EC) No 1223/2009 and repeal
+ ing Council Directives 90/385/EEC and 93/42/EEC (Text with EEA relevance. 
+ )\nApplies from\nThe procedure set out in Article 78 applies from this dat
+ e\, without prejudice to Article 78(14). (Article 123(3)(h))\nhttps://djin
+ detoss.github.io/regknow-site/d/52c18e446f334955/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/52c18e446f334955/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/745: The procedure set out in Article 78 a
+ pplies from this date\, without prejudice to Article 78(14).
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/745: The procedure set out in Article 78 a
+ pplies from this date\, without prejudice to Article 78(14).
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:94b605074b33404e-20270526@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20270526
+DTEND;VALUE=DATE:20270527
+SUMMARY:Regulation (EU) 2017/746: Article 24(4) applies to class A devices\
+ , and the procedure in Article 74 applies.
+DESCRIPTION:Regulation (EU) 2017/746 of the European Parliament and of the 
+ Council of 5 April 2017 on in vitro diagnostic medical devices and repeali
+ ng Directive 98/79/EC and Commission Decision 2010/227/EU (Text with EEA r
+ elevance. )\nApplies from\nArticle 24(4) applies to class A devices\, and 
+ the procedure in Article 74 applies. (Article 113(3)(e) and (g))\nhttps://
+ djindetoss.github.io/regknow-site/d/94b605074b33404e/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/94b605074b33404e/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/746: Article 24(4) applies to class A devi
+ ces\, and the procedure in Article 74 applies.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/746: Article 24(4) applies to class A devi
+ ces\, and the procedure in Article 74 applies.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:a033e589c8f84967-20270912@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Regulation (EU) 2023/2854: Chapter IV applies from this date to cer
+ tain contracts concluded on or before 12 September 2025\, namely those of 
+ indefinite duration or due to expire at least 10 years from 11 January 202
+ 4.
+DESCRIPTION:Regulation (EU) 2023/2854 of the European Parliament and of the
+  Council of 13 December 2023 on harmonised rules on fair access to and us
+ e of data and amending Regulation (EU) 2017/2394 and Directive (EU) 2020
+ /1828 (Data Act) (Text with EEA relevance)\nApplies from\nChapter IV appli
+ es from this date to certain contracts concluded on or before 12 September
+  2025\, namely those of indefinite duration or due to expire at least 10 y
+ ears from 11 January 2024. (Article 50\, fifth paragraph)\nhttps://djindet
+ oss.github.io/regknow-site/d/a033e589c8f84967/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/a033e589c8f84967/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2023/2854: Chapter IV applies from this date to
+  certain contracts concluded on or before 12 September 2025\, namely those
+  of indefinite duration or due to expire at least 10 years from 11 January
+  2024.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2023/2854: Chapter IV applies from this date to
+  certain contracts concluded on or before 12 September 2025\, namely those
+  of indefinite duration or due to expire at least 10 years from 11 January
+  2024.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:7ff9af29673e4021-20271202@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20271202
+DTEND;VALUE=DATE:20271203
+SUMMARY:Regulation (EU) 2024/1689: Chapter III Sections 1\, 2 and 3 (high-r
+ isk AI system obligations) apply from this date for AI systems classified 
+ as high-risk under Article 6(2) and Annex III\, instead of the general dat
+ e of application.
+DESCRIPTION:Regulation (EU) 2024/1689 of the European Parliament and of the
+  Council of 13 June 2024 laying down harmonised rules on artificial intell
+ igence and amending Regulations (EC) No 300/2008\, (EU) No 167/2013\, (EU)
+  No 168/2013\, (EU) 2018/858\, (EU) 2018/1139 and (EU) 2019/2144 and Direc
+ tives 2014/90/EU\, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligen
+ ce Act) (Text with EEA relevance)\nApplies from (as amended)\nChapter III 
+ Sections 1\, 2 and 3 (high-risk AI system obligations) apply from this dat
+ e for AI systems classified as high-risk under Article 6(2) and Annex III\
+ , instead of the general date of application. (Article 1(40)(b)\, 32026R17
+ 44)\nhttps://djindetoss.github.io/regknow-site/d/7ff9af29673e4021/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/7ff9af29673e4021/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Chapter III Sections 1\, 2 and 3 (hi
+ gh-risk AI system obligations) apply from this date for AI systems classif
+ ied as high-risk under Article 6(2) and Annex III\, instead of the general
+  date of application.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Chapter III Sections 1\, 2 and 3 (hi
+ gh-risk AI system obligations) apply from this date for AI systems classif
+ ied as high-risk under Article 6(2) and Annex III\, instead of the general
+  date of application.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ca6befd5c8034ab5-20271211@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20271211
+DTEND;VALUE=DATE:20271212
+SUMMARY:Regulation (EU) 2024/2847: The whole Regulation applies from this d
+ ate
+DESCRIPTION:Regulation (EU) 2024/2847 of the European Parliament and of the
+  Council of 23 October 2024 on horizontal cybersecurity requirements for p
+ roducts with digital elements and amending Regulations (EU) No 168/2013 an
+ d (EU) 2019/1020 and Directive (EU) 2020/1828 (Cyber Resilience Act) (Text
+  with EEA relevance)\nApplies from\nThe whole Regulation applies from this
+  date (Article 71(2))\nhttps://djindetoss.github.io/regknow-site/d/ca6befd
+ 5c8034ab5/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ca6befd5c8034ab5/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: The whole Regulation applies from th
+ is date
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/2847: The whole Regulation applies from th
+ is date
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:52c18e446f334955-20271231@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20271231
+DTEND;VALUE=DATE:20280101
+SUMMARY:Regulation (EU) 2017/745: Class III devices and certain class IIb i
+ mplantable devices certified under the old Directives may be placed on the
+  market or put into service until this date under Article 120(3a)(a).
+DESCRIPTION:Regulation (EU) 2017/745 of the European Parliament and of the 
+ Council of 5 April 2017 on medical devices\, amending Directive 2001/83/EC
+ \, Regulation (EC) No 178/2002 and Regulation (EC) No 1223/2009 and repeal
+ ing Council Directives 90/385/EEC and 93/42/EEC (Text with EEA relevance. 
+ )\nApplies from (as amended)\nClass III devices and certain class IIb impl
+ antable devices certified under the old Directives may be placed on the ma
+ rket or put into service until this date under Article 120(3a)(a). (Articl
+ e 1(1)(b) (Article 120(3a)(a) of Regulation (EU) 2017/745)\, 32023R0607)\n
+ https://djindetoss.github.io/regknow-site/d/52c18e446f334955/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/52c18e446f334955/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/745: Class III devices and certain class I
+ Ib implantable devices certified under the old Directives may be placed on
+  the market or put into service until this date under Article 120(3a)(a).
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/745: Class III devices and certain class I
+ Ib implantable devices certified under the old Directives may be placed on
+  the market or put into service until this date under Article 120(3a)(a).
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:7ff9af29673e4021-20280128@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20280128
+DTEND;VALUE=DATE:20280129
+SUMMARY:Regulation (EU) 2024/1689: Notified bodies notified under Section A
+  of Annex I must apply for designation under Section 4 of Chapter III by t
+ his date.
+DESCRIPTION:Regulation (EU) 2024/1689 of the European Parliament and of the
+  Council of 13 June 2024 laying down harmonised rules on artificial intell
+ igence and amending Regulations (EC) No 300/2008\, (EU) No 167/2013\, (EU)
+  No 168/2013\, (EU) 2018/858\, (EU) 2018/1139 and (EU) 2019/2144 and Direc
+ tives 2014/90/EU\, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligen
+ ce Act) (Text with EEA relevance)\nApplies from (as amended)\nNotified bod
+ ies notified under Section A of Annex I must apply for designation under S
+ ection 4 of Chapter III by this date. (Article 1(18)\, 32026R1744)\nhttps:
+ //djindetoss.github.io/regknow-site/d/7ff9af29673e4021/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/7ff9af29673e4021/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Notified bodies notified under Secti
+ on A of Annex I must apply for designation under Section 4 of Chapter III 
+ by this date.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Notified bodies notified under Secti
+ on A of Annex I must apply for designation under Section 4 of Chapter III 
+ by this date.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:7ff9af29673e4021-20280802@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20280802
+DTEND;VALUE=DATE:20280803
+SUMMARY:Regulation (EU) 2024/1689: Chapter III Sections 1\, 2 and 3 (high-r
+ isk AI system obligations) apply from this date for AI systems classified 
+ as high-risk under Article 6(1) and Annex I\, instead of the earlier date 
+ for Article 6(1) obligations.
+DESCRIPTION:Regulation (EU) 2024/1689 of the European Parliament and of the
+  Council of 13 June 2024 laying down harmonised rules on artificial intell
+ igence and amending Regulations (EC) No 300/2008\, (EU) No 167/2013\, (EU)
+  No 168/2013\, (EU) 2018/858\, (EU) 2018/1139 and (EU) 2019/2144 and Direc
+ tives 2014/90/EU\, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligen
+ ce Act) (Text with EEA relevance)\nApplies from (as amended)\nChapter III 
+ Sections 1\, 2 and 3 (high-risk AI system obligations) apply from this dat
+ e for AI systems classified as high-risk under Article 6(1) and Annex I\, 
+ instead of the earlier date for Article 6(1) obligations. (Article 1(40)(b
+ )\, 32026R1744)\nhttps://djindetoss.github.io/regknow-site/d/7ff9af29673e4
+ 021/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/7ff9af29673e4021/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Chapter III Sections 1\, 2 and 3 (hi
+ gh-risk AI system obligations) apply from this date for AI systems classif
+ ied as high-risk under Article 6(1) and Annex I\, instead of the earlier d
+ ate for Article 6(1) obligations.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Chapter III Sections 1\, 2 and 3 (hi
+ gh-risk AI system obligations) apply from this date for AI systems classif
+ ied as high-risk under Article 6(1) and Annex I\, instead of the earlier d
+ ate for Article 6(1) obligations.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:52c18e446f334955-20281231@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20281231
+DTEND;VALUE=DATE:20290101
+SUMMARY:Regulation (EU) 2017/745: Other class IIb\, class IIa and certain c
+ lass I devices certified under the old Directives may be placed on the mar
+ ket or put into service until this date under Article 120(3a)(b) and 120(3
+ b).
+DESCRIPTION:Regulation (EU) 2017/745 of the European Parliament and of the 
+ Council of 5 April 2017 on medical devices\, amending Directive 2001/83/EC
+ \, Regulation (EC) No 178/2002 and Regulation (EC) No 1223/2009 and repeal
+ ing Council Directives 90/385/EEC and 93/42/EEC (Text with EEA relevance. 
+ )\nApplies from (as amended)\nOther class IIb\, class IIa and certain clas
+ s I devices certified under the old Directives may be placed on the market
+  or put into service until this date under Article 120(3a)(b) and 120(3b).
+  (Article 1(1)(b) (Article 120(3a)(b) and 120(3b) of Regulation (EU) 2017/
+ 745)\, 32023R0607)\nhttps://djindetoss.github.io/regknow-site/d/52c18e446f
+ 334955/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/52c18e446f334955/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/745: Other class IIb\, class IIa and certa
+ in class I devices certified under the old Directives may be placed on the
+  market or put into service until this date under Article 120(3a)(b) and 1
+ 20(3b).
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/745: Other class IIb\, class IIa and certa
+ in class I devices certified under the old Directives may be placed on the
+  market or put into service until this date under Article 120(3a)(b) and 1
+ 20(3b).
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:900179c099e04b1e-20290326@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20290326
+DTEND;VALUE=DATE:20290327
+SUMMARY:Commission Implementing Regulation (EU) 2026/2098: The Regulation a
+ pplies from this date\, so health data holders must provide the minimum me
+ tadata elements for dataset descriptions as set out in Part B of the Annex
+ .
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098 of 18 Septem
+ ber 2026 laying down the minimum metadata elements and their characteristi
+ cs to be provided by health data holders for dataset descriptions for the 
+ secondary use of electronic health data under Article 77(4) of Regulation
+  (EU) 2025/327 establishing the European Health Data Space\nApplies from\
+ nThe Regulation applies from this date\, so health data holders must provi
+ de the minimum metadata elements for dataset descriptions as set out in Pa
+ rt B of the Annex. (Article 4\, second paragraph)\nhttps://djindetoss.gith
+ ub.io/regknow-site/d/900179c099e04b1e/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/900179c099e04b1e/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098: The Regulati
+ on applies from this date\, so health data holders must provide the minimu
+ m metadata elements for dataset descriptions as set out in Part B of the A
+ nnex.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Commission Implementing Regulation (EU) 2026/2098: The Regulati
+ on applies from this date\, so health data holders must provide the minimu
+ m metadata elements for dataset descriptions as set out in Part B of the A
+ nnex.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ab518eedffca457d-20290326@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20290326
+DTEND;VALUE=DATE:20290327
+SUMMARY:Regulation (EU) 2025/327: Priority categories of health data in Art
+ icle 14(1)(a)\, (b) and (c)\, and EHR systems intended to process them\, b
+ ecome subject to Articles 3 to 15 and related provisions\; Chapter IV (sec
+ ondary use) also applies from this date.
+DESCRIPTION:Regulation (EU) 2025/327 of the European Parliament and of the 
+ Council of 11 February 2025 on the European Health Data Space and amending
+  Directive 2011/24/EU and Regulation (EU) 2024/2847 (Text with EEA relevan
+ ce)\nApplies from\nPriority categories of health data in Article 14(1)(a)\
+ , (b) and (c)\, and EHR systems intended to process them\, become subject 
+ to Articles 3 to 15 and related provisions\; Chapter IV (secondary use) al
+ so applies from this date. (Article 105(a))\nhttps://djindetoss.github.io/
+ regknow-site/d/ab518eedffca457d/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ab518eedffca457d/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: Priority categories of health data in
+  Article 14(1)(a)\, (b) and (c)\, and EHR systems intended to process them
+ \, become subject to Articles 3 to 15 and related provisions\; Chapter IV 
+ (secondary use) also applies from this date.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: Priority categories of health data in
+  Article 14(1)(a)\, (b) and (c)\, and EHR systems intended to process them
+ \, become subject to Articles 3 to 15 and related provisions\; Chapter IV 
+ (secondary use) also applies from this date.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:7ff9af29673e4021-20300802@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20300802
+DTEND;VALUE=DATE:20300803
+SUMMARY:Regulation (EU) 2024/1689: Providers and deployers of high-risk AI 
+ systems intended for use by public authorities must comply with the Regula
+ tion's requirements by this date\, even for systems placed on the market b
+ efore the Chapter III application date.
+DESCRIPTION:Regulation (EU) 2024/1689 of the European Parliament and of the
+  Council of 13 June 2024 laying down harmonised rules on artificial intell
+ igence and amending Regulations (EC) No 300/2008\, (EU) No 167/2013\, (EU)
+  No 168/2013\, (EU) 2018/858\, (EU) 2018/1139 and (EU) 2019/2144 and Direc
+ tives 2014/90/EU\, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligen
+ ce Act) (Text with EEA relevance)\nApplies from (as amended)\nProviders an
+ d deployers of high-risk AI systems intended for use by public authorities
+  must comply with the Regulation's requirements by this date\, even for sy
+ stems placed on the market before the Chapter III application date. (Artic
+ le 1(39)(a)\, 32026R1744)\nhttps://djindetoss.github.io/regknow-site/d/7ff
+ 9af29673e4021/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/7ff9af29673e4021/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Providers and deployers of high-risk
+  AI systems intended for use by public authorities must comply with the Re
+ gulation's requirements by this date\, even for systems placed on the mark
+ et before the Chapter III application date.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2024/1689: Providers and deployers of high-risk
+  AI systems intended for use by public authorities must comply with the Re
+ gulation's requirements by this date\, even for systems placed on the mark
+ et before the Chapter III application date.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:94b605074b33404e-20301231@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20301231
+DTEND;VALUE=DATE:20310101
+SUMMARY:Regulation (EU) 2017/746: Replaces the 26 May 2028 date (not in the
+  list) in point (j) of the amended act's transitional provisions\, extendi
+ ng the applicable deadline to 31 December 2030.
+DESCRIPTION:Regulation (EU) 2017/746 of the European Parliament and of the 
+ Council of 5 April 2017 on in vitro diagnostic medical devices and repeali
+ ng Directive 98/79/EC and Commission Decision 2010/227/EU (Text with EEA r
+ elevance. )\nApplies from (as amended)\nReplaces the 26 May 2028 date (not
+  in the list) in point (j) of the amended act's transitional provisions\, 
+ extending the applicable deadline to 31 December 2030. (Article 2\, final 
+ point (e) (amending point (j) of the transitional provisions of Regulation
+  (EU) 2017/746)\, 32024R1860)\nhttps://djindetoss.github.io/regknow-site/d
+ /94b605074b33404e/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/94b605074b33404e/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/746: Replaces the 26 May 2028 date (not in
+  the list) in point (j) of the amended act's transitional provisions\, ext
+ ending the applicable deadline to 31 December 2030.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2017/746: Replaces the 26 May 2028 date (not in
+  the list) in point (j) of the amended act's transitional provisions\, ext
+ ending the applicable deadline to 31 December 2030.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ab518eedffca457d-20310326@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20310326
+DTEND;VALUE=DATE:20310327
+SUMMARY:Regulation (EU) 2025/327: Priority categories in Article 14(1)(d)\,
+  (e) and (f)\, and EHR systems intended to process them\, become subject t
+ o the same provisions\; Chapter III (EHR systems) applies to systems put i
+ nto service\, and Article 14 of Directive 2011/24/EU is deleted (Article 1
+ 03).
+DESCRIPTION:Regulation (EU) 2025/327 of the European Parliament and of the 
+ Council of 11 February 2025 on the European Health Data Space and amending
+  Directive 2011/24/EU and Regulation (EU) 2024/2847 (Text with EEA relevan
+ ce)\nApplies from\nPriority categories in Article 14(1)(d)\, (e) and (f)\,
+  and EHR systems intended to process them\, become subject to the same pro
+ visions\; Chapter III (EHR systems) applies to systems put into service\, 
+ and Article 14 of Directive 2011/24/EU is deleted (Article 103). (Article 
+ 105(b))\nhttps://djindetoss.github.io/regknow-site/d/ab518eedffca457d/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ab518eedffca457d/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: Priority categories in Article 14(1)(
+ d)\, (e) and (f)\, and EHR systems intended to process them\, become subje
+ ct to the same provisions\; Chapter III (EHR systems) applies to systems p
+ ut into service\, and Article 14 of Directive 2011/24/EU is deleted (Artic
+ le 103).
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: Priority categories in Article 14(1)(
+ d)\, (e) and (f)\, and EHR systems intended to process them\, become subje
+ ct to the same provisions\; Chapter III (EHR systems) applies to systems p
+ ut into service\, and Article 14 of Directive 2011/24/EU is deleted (Artic
+ le 103).
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ab518eedffca457d-20350326@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20350326
+DTEND;VALUE=DATE:20350327
+SUMMARY:Regulation (EU) 2025/327: Article 75(5) (HealthData@EU related prov
+ isions) starts to apply from this date.
+DESCRIPTION:Regulation (EU) 2025/327 of the European Parliament and of the 
+ Council of 11 February 2025 on the European Health Data Space and amending
+  Directive 2011/24/EU and Regulation (EU) 2024/2847 (Text with EEA relevan
+ ce)\nApplies from\nArticle 75(5) (HealthData@EU related provisions) starts
+  to apply from this date. (Article 105)\nhttps://djindetoss.github.io/regk
+ now-site/d/ab518eedffca457d/
+TRANSP:TRANSPARENT
+URL:https://djindetoss.github.io/regknow-site/d/ab518eedffca457d/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: Article 75(5) (HealthData@EU related 
+ provisions) starts to apply from this date.
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Regulation (EU) 2025/327: Article 75(5) (HealthData@EU related 
+ provisions) starts to apply from this date.
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:consultation-3ac93f993310c29c@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:Consultation closes: AI Continent – new cloud and AI development 
+ act
+DESCRIPTION:AI Continent – new cloud and AI development act\nhttps://ec.e
+ uropa.eu/info/law/better-regulation/have-your-say/initiatives/14628_en\nPr
+ oposal for a REGULATION OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL esta
+ blishing a framework of measures for strengthening Europe’s cloud and AI
+  ecosystem (Cloud and AI Development Act): https://ec.europa.eu/info/law/b
+ etter-regulation/api/download/090166e52e70bff3\nProposition de RÈGLEMENT 
+ DU PARLEMENT EUROPÉEN ET DU CONSEIL établissant un cadre de mesures pour
+  renforcer l’écosystème européen de l’informatique en nuage et de l
+ ’IA (règlement sur le développement : https://ec.europa.eu/info/law/be
+ tter-regulation/api/download/090166e5338e3b43\nVorschlag für eine VERORDN
+ UNG DES EUROPÄISCHEN PARLAMENTS UND DES RATES zur Schaffung eines Rahmens
+  für Maßnahmen zur Stärkung des europäischen Cloud- und KI-Ökosystems
+  (Verordnung zur Cloud- und KI-E: https://ec.europa.eu/info/law/better-reg
+ ulation/api/download/090166e5338e4daf\nПредложение за РЕГ
+ ЛАМЕНТ НА ЕВРОПЕЙСКИЯ ПАРЛАМЕНТ И НА СЪВ
+ ЕТА за създаването на рамка от мерки за у
+ крепване на европейската екосистема за 
+ изчислителни облаци и ИИ (Акт за развити
+ ето на изчислителни об: https://ec.europa.eu/info/law/b
+ etter-regulation/api/download/090166e5338e4dab\nNávrh NAŘÍZENÍ EVROPSK
+ ÉHO PARLAMENTU A RADY\, kterým se zřizuje rámec opatření pro posíle
+ ní evropského ekosystému cloudu a umělé inteligence (akt pro rozvoj c
+ loudu a umělé inteligence): https://ec.europa.eu/info/law/better-regulat
+ ion/api/download/090166e5338e3b4b\nForslag til EUROPA-PARLAMENTETS OG RÅD
+ ETS FORORDNING om en ramme for foranstaltninger til styrkelse af Europas c
+ loud- og AI-økosystem (forordningen om cloud- og AI-udvikling): https://e
+ c.europa.eu/info/law/better-regulation/api/download/090166e5338e3b47\nΠρ
+ όταση ΚΑΝΟΝΙΣΜΟΣ ΤΟΥ ΕΥΡΩΠΑΪΚΟΥ ΚΟΙΝΟΒΟ
+ ΥΛΙΟΥ ΚΑΙ ΤΟΥ ΣΥΜΒΟΥΛΙΟΥ για τη θέσπιση 
+ πλαισίου μέτρων με σκοπό την ενίσχυση το
+ υ οικοσυστήματος υπολογιστικού νέφους κ
+ αι ΤΝ της Ευρώπης (κανονισμός για την αν: 
+ https://ec.europa.eu/info/law/better-regulation/api/download/090166e5338e4
+ dac\nPropuesta de REGLAMENTO DEL PARLAMENTO EUROPEO Y DEL CONSEJO por el q
+ ue se establece un marco de medidas para reforzar el ecosistema europeo de
+  computación en la nube e inteligencia artificial (Ley de: https://ec.eur
+ opa.eu/info/law/better-regulation/api/download/090166e5338e3b44\nEttepanek
+ : EUROOPA PARLAMENDI JA NÕUKOGU MÄÄRUS\, millega kehtestatakse meetmete
+  raamistik Euroopa pilvandmetöötluse ja tehisintellekti ökosüsteemi tu
+ gevdamiseks (pilvandmetöötluse ja tehisintellekti a: https://ec.europa.e
+ u/info/law/better-regulation/api/download/090166e5338e4db6\nEhdotus EUROOP
+ AN PARLAMENTIN JA NEUVOSTON ASETUS Euroopan pilvipalvelu- ja tekoälyekosy
+ steemiä vahvistavasta toimenpidekehyksestä (pilvipalveluja ja tekoälyä
+  edistävä säädös): https://ec.europa.eu/info/law/better-regulation/ap
+ i/download/090166e5338e3b46\nTogra le haghaidh RIALACHÁN Ó PHARLAIMINT N
+ A hEORPA AGUS ÓN gCOMHAIRLE lena mbunaítear creat beart chun éiceachór
+ as néalríomhaireachta agus intleachta saorga na hEorpa a neartú (an Gn
+ íomh um Fhorbairt: https://ec.europa.eu/info/law/better-regulation/api/do
+ wnload/090166e5338e4db2\nPrijedlog UREDBE EUROPSKOG PARLAMENTA I VIJEĆA o
+  uspostavi okvira mjera za jačanje europskog ekosustava računalstva u ob
+ laku i umjetne inteligencije (Akt o razvoju računalstva u oblaku i umjetn
+ e intel: https://ec.europa.eu/info/law/better-regulation/api/download/0901
+ 66e5338e3b4a\nJavaslat AZ EURÓPAI PARLAMENT ÉS A TANÁCS RENDELETE az eu
+ rópai felhőalapú és MI-ökoszisztéma megerősítését célzó intéz
+ kedési keret létrehozásáról (a felhőszolgáltatások és a mestersé
+ ges intelligencia : https://ec.europa.eu/info/law/better-regulation/api/do
+ wnload/090166e5338e4daa\nProposta di REGOLAMENTO DEL PARLAMENTO EUROPEO E 
+ DEL CONSIGLIO che istituisce un quadro di misure per rafforzare l'ecosiste
+ ma europeo del cloud e dell'IA (regolamento sullo sviluppo del cloud e del
+ l'I: https://ec.europa.eu/info/law/better-regulation/api/download/090166e5
+ 338e4db0\nPasiūlymas EUROPOS PARLAMENTO IR TARYBOS REGLAMENTAS kuriuo nus
+ tatoma Europos debesijos ir DI ekosistemos stiprinimo priemonių sistema (
+ Debesijos ir DI plėtros aktas): https://ec.europa.eu/info/law/better-regu
+ lation/api/download/090166e5338e4db9\nPriekšlikums EIROPAS PARLAMENTA UN 
+ PADOMES REGULA\, ar ko izveido Eiropas mākoņdatošanas un MI ekosistēma
+ s stiprināšanas pasākumu satvaru (Mākoņdatošanas un MI attīstības 
+ akts): https://ec.europa.eu/info/law/better-regulation/api/download/090166
+ e5338e4db8\nProposta għal REGOLAMENT TAL-PARLAMENT EWROPEW U TAL-KUNSILL 
+ li jistabbilixxi qafas ta’ miżuri biex tissaħħaħ l-ekosistema Ewrope
+ a tal-cloud u tal-IA (l-Att dwar l-Iżvilupp tal-Cloud u tal-IA): https://
+ ec.europa.eu/info/law/better-regulation/api/download/090166e5338e3b49\nVoo
+ rstel voor een VERORDENING VAN HET EUROPEES PARLEMENT EN DE RAAD tot vasts
+ telling van een kader van maatregelen ter versterking van het Europese clo
+ ud- en AI-ecosysteem (verordening cloud- en AI-on: https://ec.europa.eu/in
+ fo/law/better-regulation/api/download/090166e5338e4dad\nWniosek ROZPORZĄD
+ ZENIE PARLAMENTU EUROPEJSKIEGO I RADY w sprawie ustanowienia ram środków
+  na rzecz wzmocnienia europejskiego ekosystemu chmury obliczeniowej i sztu
+ cznej inteligencji (akt w sprawie roz: https://ec.europa.eu/info/law/bette
+ r-regulation/api/download/090166e5338e4db1\nProposta de REGULAMENTO DO PAR
+ LAMENTO EUROPEU E DO CONSELHO que estabelece um quadro de medidas para ref
+ orçar o ecossistema europeu da computação em nuvem e da IA (Regulamento
+  Desenvolvimento da Nuvem: https://ec.europa.eu/info/law/better-regulation
+ /api/download/090166e5338e4db7\nPropunere de REGULAMENT AL PARLAMENTULUI E
+ UROPEAN ȘI AL CONSILIULUI de stabilire a unui cadru de măsuri pentru con
+ solidarea ecosistemului european al tehnologiei de tip cloud și al IA (Re
+ gulamentul pr: https://ec.europa.eu/info/law/better-regulation/api/downloa
+ d/090166e5338e3b48\nNávrh NARIADENIE EURÓPSKEHO PARLAMENTU A RADY\, ktor
+ ým sa zriaďuje rámec opatrení na posilnenie európskeho ekosystému cl
+ oudových služieb a umelej inteligencie (akt o rozvoji cloudových služi
+ eb a umelej: https://ec.europa.eu/info/law/better-regulation/api/download/
+ 090166e5338e4dae\nPredlog UREDBA EVROPSKEGA PARLAMENTA IN SVETA o vzpostav
+ itvi okvira ukrepov za krepitev evropskega ekosistema računalništva v ob
+ laku in UI (akt EU o razvoju računalništva v oblaku in UI): https://ec.e
+ uropa.eu/info/law/better-regulation/api/download/090166e5338e3b45\nFörsla
+ g till EUROPAPARLAMENTETS OCH RÅDETS FÖRORDNING om inrättande av en ram
+  med åtgärder för att stärka Europas moln- och AI-ekosystem (förordni
+ ngen om moln- och AI-utveckling): https://ec.europa.eu/info/law/better-reg
+ ulation/api/download/090166e5338e4db3\nANNEXES to the REGULATION OF THE EU
+ ROPEAN PARLIAMENT AND OF THE COUNCIL establishing a framework of measures 
+ for strenghtening Europe's cloud and AI ecosystem (Cloud and AI Developmen
+ t Act): https://ec.europa.eu/info/law/better-regulation/api/download/09016
+ 6e52e70ce62\nANNEXES du RÈGLEMENT DU PARLEMENT EUROPÉEN ET DU CONSEIL é
+ tablissant un cadre de mesures pour renforcer l’écosystème européen d
+ e l’informatique en nuage et de l’IA (règlement sur le développement
+  de l: https://ec.europa.eu/info/law/better-regulation/api/download/090166
+ e5338e4dd8\nANHÄNGE der VERORDNUNG DES EUROPÄISCHEN PARLAMENTS UND DES R
+ ATES zur Schaffung eines Rahmens für Maßnahmen zur Stärkung des europä
+ ischen Cloud- und KI-Ökosystems (Verordnung zur Cloud- und KI-Entwickl: h
+ ttps://ec.europa.eu/info/law/better-regulation/api/download/090166e5338e4d
+ e5\nПРИЛОЖЕНИЯ към РЕГЛАМЕНТ НА ЕВРОПЕЙСК
+ ИЯ ПАРЛАМЕНТ И НА СЪВЕТА за създаването 
+ на рамка от мерки за укрепване на европе
+ йската екосистема за изчислителни облац
+ и и ИИ (Акт за развитието на изчислителни
+  об: https://ec.europa.eu/info/law/better-regulation/api/download/090166
+ e5338e4ddf\nPŘÍLOHY NAŘÍZENÍ EVROPSKÉHO PARLAMENTU A RADY\, kterým 
+ se zavádí rámec opatření pro posílení evropského ekosystému cloud
+ u a umělé inteligence (akt pro rozvoj cloudu a umělé inteligence): htt
+ ps://ec.europa.eu/info/law/better-regulation/api/download/090166e5338e4de4
+ \nBILAG til EUROPA-PARLAMENTETS OG RÅDETS FORORDNING om en ramme for fora
+ nstaltninger til styrkelse af Europas cloud- og AI-økosystem (forordninge
+ n om cloud- og AI-udvikling): https://ec.europa.eu/info/law/better-regulat
+ ion/api/download/090166e5338e4ded\nΠΑΡΑΡΤΗΜΑΤΑ του ΚΑΝΟ
+ ΝΙΣΜΟΥ ΤΟΥ ΕΥΡΩΠΑΪΚΟΥ ΚΟΙΝΟΒΟΥΛΙΟΥ ΚΑΙ 
+ ΤΟΥ ΣΥΜΒΟΥΛΙΟΥ για τη θέσπιση πλαισίου μ
+ έτρων με σκοπό την ενίσχυση του οικοσυστ
+ ήματος υπολογιστικού νέφους και ΤΝ της Ε
+ υρώπης (κανονισμός γι: https://ec.europa.eu/info/law/bet
+ ter-regulation/api/download/090166e5338e4de3\nANEXOS de la Propuesta de RE
+ GLAMENTO DEL PARLAMENTO EUROPEO Y DEL CONSEJO por el que se establece un m
+ arco de medidas para reforzar el ecosistema europeo de computación en la 
+ nube e inteligencia artif: https://ec.europa.eu/info/law/better-regulation
+ /api/download/090166e5338e4de9\nLISAD järgmise dokumendi juurde: EUROOPA 
+ PARLAMENDI JA NÕUKOGU MÄÄRUS\, millega kehtestatakse meetmete raamistik
+  Euroopa pilvandmetöötluse ja tehisintellekti ökosüsteemi tugevdamisek
+ s (pilvandmetöötlus: https://ec.europa.eu/info/law/better-regulation/api
+ /download/090166e5338e4de6\nLIITTEET asiakirjaan EUROOPAN PARLAMENTIN JA N
+ EUVOSTON ASETUS Euroopan pilvipalvelu- ja tekoälyekosysteemiä vahvistava
+ sta toimenpidekehyksestä (pilvipalveluja ja tekoälyä edistävä sääd
+ ös): https://ec.europa.eu/info/law/better-regulation/api/download/090166e
+ 5338e4de2\nIARSCRÍBHINNÍ a ghabhann leis an RIALACHÁN Ó PHARLAIMINT NA
+  hEORPA AGUS ÓN gCOMHAIRLE lena mbunaítear creat beart chun éiceachóra
+ s néalríomhaireachta agus intleachta saorga na hEorpa a neartú (an Gní
+ o: https://ec.europa.eu/info/law/better-regulation/api/download/090166e533
+ 8e4df0\nPRILOZI UREDBI EUROPSKOG PARLAMENTA I VIJEĆA o uspostavi okvira m
+ jera za jačanje europskog ekosustava računalstva u oblaku i umjetne inte
+ ligencije (Akt o razvoju računalstva u oblaku i umjetne intelig: https://
+ ec.europa.eu/info/law/better-regulation/api/download/090166e5338e4dde\nMEL
+ LÉKLETEK a következőhöz: AZ EURÓPAI PARLAMENT ÉS A TANÁCS RENDELETE
+  az európai felhőalapú és MI-ökoszisztéma megerősítését célzó 
+ intézkedési keret létrehozásáról (a felhőszolgáltatások és a mes
+ ters: https://ec.europa.eu/info/law/better-regulation/api/download/090166e
+ 5338e4de7\nALLEGATI del REGOLAMENTO DEL PARLAMENTO EUROPEO E DEL CONSIGLIO
+  che istituisce un quadro di misure per rafforzare l'ecosistema europeo de
+ l cloud e dell'IA (regolamento sullo sviluppo del cloud e dell': https://e
+ c.europa.eu/info/law/better-regulation/api/download/090166e5338e4deb\nPRIE
+ DAI prie EUROPOS PARLAMENTO IR TARYBOS REGLAMENTO kuriuo nustatoma Europos
+  debesijos ir DI ekosistemos stiprinimo priemonių sistema\, (Debesijos ir
+  DI plėtros aktas): https://ec.europa.eu/info/law/better-regulation/api/d
+ ownload/090166e5338e4de1\nPIELIKUMI dokumentam EIROPAS PARLAMENTA UN PADOM
+ ES REGULA\, ar ko izveido Eiropas mākoņdatošanas un MI ekosistēmas sti
+ prināšanas pasākumu satvaru (Mākoņdatošanas un MI attīstības akts)
+ : https://ec.europa.eu/info/law/better-regulation/api/download/090166e5338
+ e4dea\nANNESSI tar- REGOLAMENT TAL-PARLAMENT EWROPEW U TAL-KUNSILL li jist
+ abbilixxi qafas ta’ miżuri biex tissaħħaħ l-ekosistema Ewropea tal-c
+ loud u tal-IA (l-Att dwar l-Iżvilupp tal-Cloud u tal-IA): https://ec.euro
+ pa.eu/info/law/better-regulation/api/download/090166e5338e4de0\nBIJLAGEN b
+ ij VERORDENING VAN HET EUROPEES PARLEMENT EN DE RAAD tot vaststelling van 
+ een kader van maatregelen ter versterking van het Europese cloud- en AI-ec
+ osysteem (verordening cloud- en AI-ontwikk: https://ec.europa.eu/info/law/
+ better-regulation/api/download/090166e5338e4dda\nZAŁĄCZNIKI do ROZPORZĄ
+ DZENIA PARLAMENTU EUROPEJSKIEGO I RADY w sprawie ustanowienia ram środkó
+ w na rzecz wzmocnienia europejskiego ekosystemu chmury obliczeniowej i szt
+ ucznej inteligencji (akt w spraw: https://ec.europa.eu/info/law/better-reg
+ ulation/api/download/090166e5338e4ddc\nANEXOS do REGULAMENTO DO PARLAMENTO
+  EUROPEU E DO CONSELHO que estabelece um quadro de medidas para reforçar 
+ o ecossistema europeu da computação em nuvem e da IA (Regulamento Desenv
+ olvimento da Nuvem e: https://ec.europa.eu/info/law/better-regulation/api/
+ download/090166e5338e4ddd\nANEXE la REGULAMENTUL PARLAMENTULUI EUROPEAN Ș
+ I AL CONSILIULUI de stabilire a unui cadru de măsuri pentru consolidarea 
+ ecosistemului european al tehnologiei de tip cloud și al IA (Regulamentul
+  privind: https://ec.europa.eu/info/law/better-regulation/api/download/090
+ 166e5338e4dd9\nPRÍLOHY k NARIADENIU EURÓPSKEHO PARLAMENTU A RADY\, ktor
+ ým sa zriaďuje rámec opatrení na posilnenie európskeho ekosystému cl
+ oudových služieb a umelej inteligencie (akt o rozvoji cloudových služi
+ eb a um: https://ec.europa.eu/info/law/better-regulation/api/download/0901
+ 66e5338e4ddb\nPRILOGE k UREDBI EVROPSKEGA PARLAMENTA IN SVETA o vzpostavit
+ vi okvira ukrepov za krepitev evropskega ekosistema računalništva v obla
+ ku in UI (akt EU o razvoju računalništva v oblaku in UI): https://ec.eur
+ opa.eu/info/law/better-regulation/api/download/090166e5338e4de8\nBILAGOR t
+ ill EUROPAPARLAMENTETS OCH RÅDETS FÖRORDNING om inrättande av en ram me
+ d åtgärder för att stärka Europas moln- och AI-ekosystem (förordninge
+ n om moln- och AI-utveckling): https://ec.europa.eu/info/law/better-regula
+ tion/api/download/090166e5338e4dec\nOpinion of the Regulatory Scrutiny Boa
+ rd: https://ec.europa.eu/info/law/better-regulation/api/download/090166e52
+ e70bff0\nCOMMISSION STAFF WORKING DOCUMENT IMPACT ASSESSMENT REPORT Accomp
+ anying the document Proposal for a REGULATION OF THE EUROPEAN PARLIAMENT A
+ ND OF THE COUNCIL establishing a framework of measures for st: https://ec.
+ europa.eu/info/law/better-regulation/api/download/090166e52e70ce65\nCOMMIS
+ SION STAFF WORKING DOCUMENT IMPACT ASSESSMENT REPORT Accompanying the docu
+ ment Proposal for a REGULATION OF THE EUROPEAN PARLIAMENT AND OF THE COUNC
+ IL establishing a framework of measures for st: https://ec.europa.eu/info/
+ law/better-regulation/api/download/090166e52e70ce67\nCOMMISSION STAFF WORK
+ ING DOCUMENT EXECUTIVE SUMMARY OF THE IMPACT ASSESSMENT REPORT Accompanyin
+ g the document Proposal for a REGULATION OF THE EUROPEAN PARLIAMENT AND OF
+  THE COUNCIL establishing a fra: https://ec.europa.eu/info/law/better-regu
+ lation/api/download/090166e52e70ce69\nDOCUMENT DE TRAVAIL DES SERVICES DE 
+ LA COMMISSION RÉSUMÉ DU RAPPORT D'ANALYSE D'IMPACT accompagnant le docum
+ ent: Proposition de RÈGLEMENT DU PARLEMENT EUROPÉEN ET DU CONSEIL établ
+ issant un cadre de me: https://ec.europa.eu/info/law/better-regulation/api
+ /download/090166e5338e4e0b\nARBEITSUNTERLAGE DER KOMMISSIONSDIENSTSTELLEN 
+ BERICHT ÜBER DIE FOLGENABSCHÄTZUNG (ZUSAMMENFASSUNG) Begleitunterlage zu
+ m Vorschlag für eine VERORDNUNG DES EUROPÄISCHEN PARLAMENTS UND DES RATE
+ S zur Scha: https://ec.europa.eu/info/law/better-regulation/api/download/0
+ 90166e5338e4e25\nРАБОТЕН ДОКУМЕНТ НА СЛУЖБИТЕ Н
+ А КОМИСИЯТА РЕЗЮМЕ НА ДОКЛАДА ЗА ОЦЕНКАТ
+ А НА ВЪЗДЕЙСТВИЕТО\, […] придружаващ РЕГЛ
+ АМЕНТ НА ЕВРОПЕЙСКИЯ ПАРЛАМЕНТ И НА СЪВЕ
+ ТА за създаването на рамка от мерки за ук
+ репване н: https://ec.europa.eu/info/law/better-regulation/api/dow
+ nload/090166e5338e4e14\nPRACOVNÍ DOKUMENT ÚTVARŮ KOMISE SOUHRN ZPRÁVY 
+ O POSOUZENÍ DOPADŮ Průvodní dokument k NAŘÍZENÍ EVROPSKÉHO PARLAME
+ NTU A RADY\, kterým se zavádí rámec opatření pro posílení evropsk
+ ého ekosystému cloudu a : https://ec.europa.eu/info/law/better-regulatio
+ n/api/download/090166e5338e4e0f\nARBEJDSDOKUMENT FRA KOMMISSIONENS TJENEST
+ EGRENE RESUMÉ AF RAPPORTEN OM KONSEKVENSANALYSEN Ledsagedokument til Fors
+ lag til EUROPA-PARLAMENTETS OG RÅDETS FORORDNING om en ramme for foransta
+ ltninger til : https://ec.europa.eu/info/law/better-regulation/api/downloa
+ d/090166e5338e4e27\nΕΓΓΡΑΦΟ ΕΡΓΑΣΙΑΣ ΤΩΝ ΥΠΗΡΕΣΙ
+ ΩΝ ΤΗΣ ΕΠΙΤΡΟΠΗΣ ΣΥΝΟΠΤΙΚΗ ΠΑΡΟΥΣΙΑΣΗ Τ
+ ΗΣ ΕΚΘΕΣΗΣ ΕΚΤΙΜΗΣΗΣ ΕΠΙΠΤΩΣΕΩΝ […] που 
+ συνοδεύει το έγγραφο Πρόταση ΚΑΝΟΝΙΣΜΟΥ
+  ΤΟΥ ΕΥΡΩΠΑΪΚΟΥ ΚΟΙΝΟΒΟΥΛΙΟΥ ΚΑΙ ΤΟΥ ΣΥΜ
+ ΒΟΥΛΙΟΥ για τη: https://ec.europa.eu/info/law/better-regulatio
+ n/api/download/090166e5338e4e17\nDOCUMENTO DE TRABAJO DE LOS SERVICIOS DE 
+ LA COMISIÓN RESUMEN DEL INFORME DE LA EVALUACIÓN DE IMPACTO que acompañ
+ a al documento Propuesta de REGLAMENTO DEL PARLAMENTO EUROPEO Y DEL CONSEJ
+ O por el que s: https://ec.europa.eu/info/law/better-regulation/api/downlo
+ ad/090166e5338e4e16\nKOMISJONI TALITUSTE TÖÖDOKUMENT MÕJU HINDAMISE ARU
+ ANDE KOMMENTEERITUD KOKKUVÕTE Lisatud dokumendile: Ettepanek: EUROOPA PAR
+ LAMENDI JA NÕUKOGU MÄÄRUS\, millega kehtestatakse meetmete raamistik Eu
+ roopa p: https://ec.europa.eu/info/law/better-regulation/api/download/0901
+ 66e5338e4e0d\nKOMISSION YKSIKÖIDEN VALMISTELUASIAKIRJA TIIVISTELMÄ VAIKU
+ TUSTENARVIOINNISTA Oheisasiakirja ehdotukseen EUROOPAN PARLAMENTIN JA NEUV
+ OSTON ASETUKSEKSI Euroopan pilvipalvelu- ja tekoälyekosysteemiä vahv: ht
+ tps://ec.europa.eu/info/law/better-regulation/api/download/090166e5338e4e1
+ 9\nDOICIMÉAD INMHEÁNACH OIBRE DE CHUID AN CHOIMISIÚIN ACHOIMRE FEIDHMI
+ ÚCHÁIN AR AN TUARASCÁIL AR AN MEASÚNÚ TIONCHAIR a ghabhann leis an do
+ iciméad Togra le haghaidh RIALACHÁN Ó PHARLAIMINT NA hEORPA AGUS: https
+ ://ec.europa.eu/info/law/better-regulation/api/download/090166e5338e4e11\n
+ RADNI DOKUMENT SLUŽBI KOMISIJE SAŽETAK IZVJEŠĆA O PROCJENI UČINKA [
+ …] priložen dokumentu Prijedlog UREDBE EUROPSKOG PARLAMENTA I VIJEĆA o
+  uspostavi okvira mjera za jačanje europskog ekosustava računal: https:/
+ /ec.europa.eu/info/law/better-regulation/api/download/090166e5338e4e13\nBI
+ ZOTTSÁGI SZOLGÁLATI MUNKADOKUMENTUM A HATÁSVIZSGÁLATI JELENTÉS VEZET
+ ŐI ÖSSZEFOGLALÓJA amely a következő dokumentumot kíséri Javaslat AZ
+  EURÓPAI PARLAMENT ÉS A TANÁCS RENDELETE az európai felhőalapú : htt
+ ps://ec.europa.eu/info/law/better-regulation/api/download/090166e5338e4e20
+ \nDOCUMENTO DI LAVORO DEI SERVIZI DELLA COMMISSIONE SINTESI DELLA RELAZION
+ E SULLA VALUTAZIONE D'IMPATTO […] che accompagna il documento Proposta d
+ i REGOLAMENTO DEL PARLAMENTO EUROPEO E DEL CONSIGLIO che: https://ec.europ
+ a.eu/info/law/better-regulation/api/download/090166e5338e4e12\nKOMISIJOS T
+ ARNYBŲ DARBINIS DOKUMENTAS POVEIKIO VERTINIMO ATASKAITOS SANTRAUKA prided
+ amas prie Pasiūlymo dėl EUROPOS PARLAMENTO IR TARYBOS REGLAMENTO kuriuo 
+ nustatoma Europos debesijos ir DI ekosistemo: https://ec.europa.eu/info/la
+ w/better-regulation/api/download/090166e5338e4e23\nKOMISIJAS DIENESTU DARB
+ A DOKUMENTS IETEKMES NOVĒRTĒJUMA KOPSAVILKUMA ZIŅOJUMS Pavaddokuments d
+ okumentam Priekšlikums EIROPAS PARLAMENTA UN PADOMES REGULAI\, ar ko izve
+ ido Eiropas mākoņdatošanas un MI e: https://ec.europa.eu/info/law/bette
+ r-regulation/api/download/090166e5338e4e21\nDOKUMENT TA’ ĦIDMA TAL-PERS
+ UNAL TAL-KUMMISSJONI SOMMARJU EŻEKUTTIV TAR-RAPPORT TAL-VALUTAZZJONI TAL-
+ IMPATT […] Li jakkumpanja d-dokument Proposta għal REGOLAMENT TAL-PARLA
+ MENT EWROPEW U TAL-KUNSILL li: https://ec.europa.eu/info/law/better-regula
+ tion/api/download/090166e5338e4e18\nWERKDOCUMENT VAN DE DIENSTEN VAN DE CO
+ MMISSIE SAMENVATTING VAN HET EFFECTBEOORDELINGSVERSLAG bij Voorstel voor e
+ en VERORDENING VAN HET EUROPEES PARLEMENT EN DE RAAD tot vaststelling van 
+ een kader van : https://ec.europa.eu/info/law/better-regulation/api/downlo
+ ad/090166e5338e4e0c\nDOKUMENT ROBOCZY SŁUŻB KOMISJI STRESZCZENIE SPRAWOZ
+ DANIA Z OCENY SKUTKÓW […] Towarzyszący dokumentowi: wniosek dotyczący
+  ROZPORZĄDZENIA PARLEMENTU EUROPEJSKIEGO I RADY w sprawie ustanowienia ra
+ m środk: https://ec.europa.eu/info/law/better-regulation/api/download/090
+ 166e5338e4e26\nDOCUMENTO DE TRABALHO DOS SERVIÇOS DA COMISSÃO RESUMO DO 
+ RELATÓRIO DA AVALIAÇÃO DE IMPACTO que acompanha o documento Proposta de
+  REGULAMENTO DO PARLAMENTO EUROPEU E DO CONSELHO que estabelece um quadr: 
+ https://ec.europa.eu/info/law/better-regulation/api/download/090166e5338e4
+ e22\nDOCUMENT DE LUCRU AL SERVICIILOR COMISIEI REZUMAT AL RAPORTULUI PRIVI
+ ND EVALUAREA IMPACTULUI care însoţeşte documentul Propunere de REGULAME
+ NT AL PARLAMENTULUI EUROPEAN ȘI AL CONSILIULUI de stabilire : https://ec.
+ europa.eu/info/law/better-regulation/api/download/090166e5338e4e10\nPRACOV
+ NÝ DOKUMENT ÚTVAROV KOMISIE ZHRNUTIE SPRÁVY O POSÚDENÍ VPLYVU Sprievo
+ dný dokument k návrhu NARIADENIA EURÓPSKEHO PARLAMENTU A RADY\, ktorým
+  sa zriaďuje rámec opatrení na posilnenie európskeho eko: https://ec.e
+ uropa.eu/info/law/better-regulation/api/download/090166e5338e4e0e\nDELOVNI
+  DOKUMENT SLUŽB KOMISIJE POVZETEK POROČILA O OCENI UČINKA Spremni dokum
+ ent k Predlogu UREDBE EVROPSKEGA PARLAMENTA IN SVETA o vzpostavitvi okvira
+  ukrepov za krepitev evropskega ekosistema račun: https://ec.europa.eu/in
+ fo/law/better-regulation/api/download/090166e5338e4e24\nARBETSDOKUMENT FR
+ ÅN KOMMISSIONENS AVDELNINGAR SAMMANFATTNING AV KONSEKVENSBEDÖMNINGSRAPPO
+ RTEN Följedokument till Förslag till EUROPAPARLAMENTETS OCH RÅDETS FÖR
+ ORDNING om inrättande av en ram med åtgär: https://ec.europa.eu/info/la
+ w/better-regulation/api/download/090166e5338e4e15
+URL:https://ec.europa.eu/info/law/better-regulation/have-your-say/initiativ
+ es/14628_en
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: AI Continent – new cloud and AI developm
+ ent act
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: AI Continent – new cloud and AI developm
+ ent act
+TRIGGER:-P2D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:consultation-aa5cecdd2c54aa11@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+SUMMARY:Consultation closes: Batteries – access rights to certain parts o
+ f the battery passport
+DESCRIPTION:Batteries – access rights to certain parts of the battery pas
+ sport\nhttps://ec.europa.eu/info/law/better-regulation/have-your-say/initi
+ atives/16473_en\nCOMMISSION IMPLEMENTING REGULATION (EU) …/... laying do
+ wn rules for the application of Regulation (EU) 2023/1542 of the European 
+ Parliament and of the Council as regards access to and use of certain i: h
+ ttps://ec.europa.eu/info/law/better-regulation/api/download/090166e5356723
+ d0
+URL:https://ec.europa.eu/info/law/better-regulation/have-your-say/initiativ
+ es/16473_en
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: Batteries – access rights to certain par
+ ts of the battery passport
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: Batteries – access rights to certain par
+ ts of the battery passport
+TRIGGER:-P2D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:consultation-564d8bbff382bee9@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:Consultation closes: European Health Data Space – Templates for s
+ econdary use of electronic health data
+DESCRIPTION:European Health Data Space – Templates for secondary use of e
+ lectronic health data\nhttps://ec.europa.eu/info/law/better-regulation/hav
+ e-your-say/initiatives/16712_en\nCOMMISSION IMPLEMENTING REGULATION (EU) 
+ …/... laying down templates for the application of Regulation (EU) 2025/
+ 327 of the European Parliament and of the Council as regards procedures su
+ pporting acces: https://ec.europa.eu/info/law/better-regulation/api/downlo
+ ad/090166e535516da1\nANNEXES to the COMMISSION IMPLEMENTING REGULATION (EU
+ ) .../... laying down templates for the application of Regulation (EU) 202
+ 5/327 of the European Parliament and of the Council as regards procedures:
+  https://ec.europa.eu/info/law/better-regulation/api/download/090166e53551
+ 6d9f
+URL:https://ec.europa.eu/info/law/better-regulation/have-your-say/initiativ
+ es/16712_en
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: European Health Data Space – Templates f
+ or secondary use of electronic health data
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: European Health Data Space – Templates f
+ or secondary use of electronic health data
+TRIGGER:-P2D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:consultation-99329f6ccd0cc52c@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+SUMMARY:Consultation closes: Internal market information system (IMI) – r
+ evision of EU rules
+DESCRIPTION:Internal market information system (IMI) – revision of EU rul
+ es\nhttps://ec.europa.eu/info/law/better-regulation/have-your-say/initiati
+ ves/18452_en\nRevision of Regulation (EU) No 1024/2012 of the European Par
+ liament and of the Council of 25 October 2012 on administrative cooperatio
+ n through the Internal Market Information System and repealing Com: https:
+ //ec.europa.eu/info/law/better-regulation/api/download/090166e53569db31\nR
+ evision of Regulation (EU) No 1024/2012 of the European Parliament and of 
+ the Council of 25 October 2012 on administrative cooperation through the I
+ nternal Market Information System and repealing Com: https://ec.europa.eu/
+ info/law/better-regulation/api/download/090166e53569db34\nRevision of Regu
+ lation (EU) No 1024/2012 of the European Parliament and of the Council of 
+ 25 October 2012 on administrative cooperation through the Internal Market 
+ Information System and repealing Com: https://ec.europa.eu/info/law/better
+ -regulation/api/download/090166e53569e6a0\nRevision of Regulation (EU) No 
+ 1024/2012 of the European Parliament and of the Council of 25 October 2012
+  on administrative cooperation through the Internal Market Information Sys
+ tem and repealing Com: https://ec.europa.eu/info/law/better-regulation/api
+ /download/090166e53569db33\nRevision of Regulation (EU) No 1024/2012 of th
+ e European Parliament and of the Council of 25 October 2012 on administrat
+ ive cooperation through the Internal Market Information System and repeali
+ ng Com: https://ec.europa.eu/info/law/better-regulation/api/download/09016
+ 6e53569e6a4\nRevision of Regulation (EU) No 1024/2012 of the European Parl
+ iament and of the Council of 25 October 2012 on administrative cooperation
+  through the Internal Market Information System and repealing Com: https:/
+ /ec.europa.eu/info/law/better-regulation/api/download/090166e53569e696\nRe
+ vision of Regulation (EU) No 1024/2012 of the European Parliament and of t
+ he Council of 25 October 2012 on administrative cooperation through the In
+ ternal Market Information System and repealing Com: https://ec.europa.eu/i
+ nfo/law/better-regulation/api/download/090166e53569e69e\nRevision of Regul
+ ation (EU) No 1024/2012 of the European Parliament and of the Council of 2
+ 5 October 2012 on administrative cooperation through the Internal Market I
+ nformation System and repealing Com: https://ec.europa.eu/info/law/better-
+ regulation/api/download/090166e53569e6a3\nRevision of Regulation (EU) No 1
+ 024/2012 of the European Parliament and of the Council of 25 October 2012 
+ on administrative cooperation through the Internal Market Information Syst
+ em and repealing Com: https://ec.europa.eu/info/law/better-regulation/api/
+ download/090166e53569e6a1\nRevision of Regulation (EU) No 1024/2012 of the
+  European Parliament and of the Council of 25 October 2012 on administrati
+ ve cooperation through the Internal Market Information System and repealin
+ g Com: https://ec.europa.eu/info/law/better-regulation/api/download/090166
+ e53569db32\nRevision of Regulation (EU) No 1024/2012 of the European Parli
+ ament and of the Council of 25 October 2012 on administrative cooperation 
+ through the Internal Market Information System and repealing Com: https://
+ ec.europa.eu/info/law/better-regulation/api/download/090166e53569e69f\nRev
+ ision of Regulation (EU) No 1024/2012 of the European Parliament and of th
+ e Council of 25 October 2012 on administrative cooperation through the Int
+ ernal Market Information System and repealing Com: https://ec.europa.eu/in
+ fo/law/better-regulation/api/download/090166e53569db35\nRevision of Regula
+ tion (EU) No 1024/2012 of the European Parliament and of the Council of 25
+  October 2012 on administrative cooperation through the Internal Market In
+ formation System and repealing Com: https://ec.europa.eu/info/law/better-r
+ egulation/api/download/090166e53569e6a6\nRevision of Regulation (EU) No 10
+ 24/2012 of the European Parliament and of the Council of 25 October 2012 o
+ n administrative cooperation through the Internal Market Information Syste
+ m and repealing Com: https://ec.europa.eu/info/law/better-regulation/api/d
+ ownload/090166e53569e69d\nRevision of Regulation (EU) No 1024/2012 of the 
+ European Parliament and of the Council of 25 October 2012 on administrativ
+ e cooperation through the Internal Market Information System and repealing
+  Com: https://ec.europa.eu/info/law/better-regulation/api/download/090166e
+ 53569e6a5\nRevision of Regulation (EU) No 1024/2012 of the European Parlia
+ ment and of the Council of 25 October 2012 on administrative cooperation t
+ hrough the Internal Market Information System and repealing Com: https://e
+ c.europa.eu/info/law/better-regulation/api/download/090166e53569e69c\nRevi
+ sion of Regulation (EU) No 1024/2012 of the European Parliament and of the
+  Council of 25 October 2012 on administrative cooperation through the Inte
+ rnal Market Information System and repealing Com: https://ec.europa.eu/inf
+ o/law/better-regulation/api/download/090166e53569e69b\nRevision of Regulat
+ ion (EU) No 1024/2012 of the European Parliament and of the Council of 25 
+ October 2012 on administrative cooperation through the Internal Market Inf
+ ormation System and repealing Com: https://ec.europa.eu/info/law/better-re
+ gulation/api/download/090166e53569e695\nRevision of Regulation (EU) No 102
+ 4/2012 of the European Parliament and of the Council of 25 October 2012 on
+  administrative cooperation through the Internal Market Information System
+  and repealing Com: https://ec.europa.eu/info/law/better-regulation/api/do
+ wnload/090166e53569e69a\nRevision of Regulation (EU) No 1024/2012 of the E
+ uropean Parliament and of the Council of 25 October 2012 on administrative
+  cooperation through the Internal Market Information System and repealing 
+ Com: https://ec.europa.eu/info/law/better-regulation/api/download/090166e5
+ 3569e699\nRevision of Regulation (EU) No 1024/2012 of the European Parliam
+ ent and of the Council of 25 October 2012 on administrative cooperation th
+ rough the Internal Market Information System and repealing Com: https://ec
+ .europa.eu/info/law/better-regulation/api/download/090166e53569e694\nRevis
+ ion of Regulation (EU) No 1024/2012 of the European Parliament and of the 
+ Council of 25 October 2012 on administrative cooperation through the Inter
+ nal Market Information System and repealing Com: https://ec.europa.eu/info
+ /law/better-regulation/api/download/090166e53569e6a2\nRevision of Regulati
+ on (EU) No 1024/2012 of the European Parliament and of the Council of 25 O
+ ctober 2012 on administrative cooperation through the Internal Market Info
+ rmation System and repealing Com: https://ec.europa.eu/info/law/better-reg
+ ulation/api/download/090166e53569e698\nRevision of Regulation (EU) No 1024
+ /2012 of the European Parliament and of the Council of 25 October 2012 on 
+ administrative cooperation through the Internal Market Information System 
+ and repealing Com: https://ec.europa.eu/info/law/better-regulation/api/dow
+ nload/090166e53569db36
+URL:https://ec.europa.eu/info/law/better-regulation/have-your-say/initiativ
+ es/18452_en
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: Internal market information system (IMI) 
+ – revision of EU rules
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: Internal market information system (IMI) 
+ – revision of EU rules
+TRIGGER:-P2D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:consultation-c676b6c6b6ad55fa@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:Consultation closes: AI Act Implementing Act – Articles 75c-75d
+DESCRIPTION:AI Act Implementing Act – Articles 75c-75d\nhttps://ec.europa
+ .eu/info/law/better-regulation/have-your-say/initiatives/19292_en\nCOMMISS
+ ION IMPLEMENTING REGULATION (EU) …/... on practical and specific arrange
+ ments for the conduct of certain proceedings by the Commission pursuant to
+  Article 75c and Article 75d of Regulation (EU): https://ec.europa.eu/info
+ /law/better-regulation/api/download/090166e534f8b82e
+URL:https://ec.europa.eu/info/law/better-regulation/have-your-say/initiativ
+ es/19292_en
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: AI Act Implementing Act – Articles 75c-7
+ 5d
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: AI Act Implementing Act – Articles 75c-7
+ 5d
+TRIGGER:-P2D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:consultation-04fc3f8d59442c5b@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261215
+SUMMARY:Consultation closes: Draft Data Quality Framework (DQF) for EU medi
+ cines regulation: application to collection\, management and submission of
+  Adverse Drug Reaction reports
+DESCRIPTION:Draft Data Quality Framework (DQF) for EU medicines regulation:
+  application to collection\, management and submission of Adverse Drug Rea
+ ction reports\nhttps://www.ema.europa.eu/en/documents/regulatory-procedura
+ l-guideline/draft-data-quality-framework-dqf-eu-medicines-regulation-appli
+ cation-collection-management-submission-adverse-drug-reaction-reports_en.p
+ df\nDraft Data Quality Framework (DQF) for EU medicines regulation: applic
+ ation to collection\, management and submission of Adverse Drug Reaction r
+ eports: https://www.ema.europa.eu/en/documents/regulatory-procedural-guide
+ line/draft-data-quality-framework-dqf-eu-medicines-regulation-application-
+ collection-management-submission-adverse-drug-reaction-reports_en.pdf
+URL:https://www.ema.europa.eu/en/documents/regulatory-procedural-guideline/
+ draft-data-quality-framework-dqf-eu-medicines-regulation-application-colle
+ ction-management-submission-adverse-drug-reaction-reports_en.pdf
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: Draft Data Quality Framework (DQF) for EU 
+ medicines regulation: application to collection\, management and submissio
+ n of Adverse Drug Reaction reports
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: Draft Data Quality Framework (DQF) for EU 
+ medicines regulation: application to collection\, management and submissio
+ n of Adverse Drug Reaction reports
+TRIGGER:-P2D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:consultation-9ac72cf59b3ec7c4@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20270331
+DTEND;VALUE=DATE:20270401
+SUMMARY:Consultation closes: Draft guideline on predictive biomarker assays
+  in the context of medicinal product lifecycle
+DESCRIPTION:Draft guideline on predictive biomarker assays in the context o
+ f medicinal product lifecycle\nhttps://www.ema.europa.eu/en/documents/scie
+ ntific-guideline/draft-guideline-predictive-biomarker-assays-context-medic
+ inal-product-lifecycle_en.pdf\nDraft guideline on predictive biomarker ass
+ ays in the context of medicinal product lifecycle: https://www.ema.europa.
+ eu/en/documents/scientific-guideline/draft-guideline-predictive-biomarker-
+ assays-context-medicinal-product-lifecycle_en.pdf
+URL:https://www.ema.europa.eu/en/documents/scientific-guideline/draft-guide
+ line-predictive-biomarker-assays-context-medicinal-product-lifecycle_en.pd
+ f
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: Draft guideline on predictive biomarker as
+ says in the context of medicinal product lifecycle
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: Draft guideline on predictive biomarker as
+ says in the context of medicinal product lifecycle
+TRIGGER:-P2D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:consultation-2cdaa677dd7de72e@regknow
+DTSTAMP:20261114T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Consultation closes: Reflection paper on methodological aspects in 
+ confirmatory platform trials
+DESCRIPTION:Reflection paper on methodological aspects in confirmatory plat
+ form trials\nhttps://www.ema.europa.eu/en/documents/scientific-guideline/r
+ eflection-paper-methodological-aspects-confirmatory-platform-trials_en.pdf
+ \nReflection paper on methodological aspects in confirmatory platform tria
+ ls: https://www.ema.europa.eu/en/documents/scientific-guideline/reflection
+ -paper-methodological-aspects-confirmatory-platform-trials_en.pdf
+URL:https://www.ema.europa.eu/en/documents/scientific-guideline/reflection-
+ paper-methodological-aspects-confirmatory-platform-trials_en.pdf
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: Reflection paper on methodological aspects
+  in confirmatory platform trials
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Consultation closes: Reflection paper on methodological aspects
+  in confirmatory platform trials
+TRIGGER:-P2D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

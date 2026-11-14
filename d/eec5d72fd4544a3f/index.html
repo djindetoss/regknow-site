@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Evaluating Use of Artificial Intelligence for Drug Exposure and Effect Prediction · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Evaluating Use of Artificial Intelligence for Drug Exposure and Effect Prediction</h1>
+<p class="authors">Olivier Le Tilly, Jean-Baptiste Woillard</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Kidney international reports</dd>
+<dt>Published</dt><dd>2023-11-11</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Model-informed drug development and PK/PD</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1016/j.ekir.2023.11.006">10.1016/j.ekir.2023.11.006</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/38312781/">38312781</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/38312781/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/38312781/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>eec5d72fd4544a3f</code></dd>
+  </dl>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Text</h3>    <p>See Clinical Research on Page 134
+
+Rituximab is a monoclonal antibody targeting CD20-positive cells, that is, B cells, with both antibody-dependent cellular cytotoxicity and complement-dependent cytotoxicity. It is thus commonly used to treat antibody-mediated autoimmune diseases such as membranous nephropathy (MN).1 However, this off-label use raises the question of inadequate dosing regimens. Indeed, an increased clearance of rituximab is expected in patients with proteinuria, leading to lower drug levels, which can be more immunogenic, with neutralizing antidrug antibodies also reducing the drug levels and its efficacy. Rituximab underdosing and irreversible chronic glomerular injuries are associated with rituximab-refractory MN, with nonquantifiable rituximab levels after 3 months of treatment as a risk factor for treatment failure (i.e., levels below 2 mg/l in papers studying this relationship).2 However, therapeutic drug monitoring (TDM) of rituximab might be difficult to set up in some centers, leading some researchers to try to identify patients at risk of refractory disease early.
+
+Destere et al.3 developed a machine-learning algorithm based on polynomial support vector machine in a cohort of 73 patients with primary MN to predict whether a given patient would be at low, moderate, or high risk of rituximab underdosing 3 months after the first infusion. This prediction was based on easily collected patients’ baseline and 15-day characteristics (age, gender, body surface area, anti-PLA2R1 antibody titer, serum albumin at baseline and day 15, and serum creatinine at baseline and day 15). Surprisingly, proteinuria at baseline or day 15 did not improve the accuracy of the model, although it is a major cause of rituximab underdosing. The algorithm performed well in the validation set, with an accuracy of 75% (well-classified patients), a sensitivity of 78.7%, and a specificity of 81%. The authors showed that their model performed better than a random model. The methodology used in this article for the analysis is strong, and the results were well-evaluated. The implications of this algorithm were then evaluated on a relatively small number of patients, and the results were promising. Indeed, the algorithm could be used to identify patients at high risk of rituximab underdosing, which could improve treatment outcomes for patients with primary MN.
+
+By extension, applications of artificial intelligence (AI) in routine TDM and model-informed precision dosing have a promising future, but the path forward is challenging. Some of the challenges and opportunities have been recently reviewed.4
+
+In a standard statistical or mechanistic approach, the type of model is chosen based on physiological or biological mechanisms, and the data are used in addition to the model to predict some results. Machine learning (ML) algorithms, even though they are based on statistical and mathematical principles, follow a different paradigm: there is no explicitly defined model, and a large number of parameters (or hyperparameters, corresponding to parameters that cannot be estimated from the data) must be estimated. The algorithm is built by feeding data and results into an algorithm that will build a model to minimize the error between observations and predictions using a loss function. No prior knowledge of the underlying biological mechanism is required, leading to the term “data-driven.” It is very important to have representative data to develop such algorithms and to use a robust approach, such as the one used by the authors in the present paper.
+
+Some examples of AI applications in drug individualization in renal transplantation, especially for immunosuppressant drugs, have shown improved estimation of drug exposure with fewer samples required.5 In addition, recent examples of hybrid algorithms combining mechanistic models and data-driven models have shown improved prediction of drug exposure6 or drug toxicity7 compared to ML or mechanistic models used alone. Finally, some recent work by a leading group in the field has shown that it is possible to incorporate expert knowledge through mechanistic ordinary differential equation models into complex deep learning neural networks,8 allowing for the development of more plausible and explainable algorithms. This last point is particularly important, because an algorithm without a way to use it is nothing more than another publication. Therefore, it is essential to develop tools to use the algorithm, such as the shiny app developed by the authors for demonstration (https://lecteurs.shinyapps.io/Rituximab/). This also allows us to “get out of the black box,” as ML algorithms are often called.
+
+Although AI and ML hold promise as novel patients profiling tools, it might be detrimental to focus AI research on using them as surrogates to TDM, which is itself a surrogate to predict a clinical outcome. TDM of biologics is still lacking in nephrology because proteinuria adds another layer of complexity to the dose-concentration-response relationship. Furthermore, the management of primary MN relying on TDM may also depend on antidrug antibody detection,2 which varies significantly depending on assays, especially since some assays only detect free antidrug antibody and are “drug-sensitive,” leading to false negative results if drug levels are quantifiable.9 Therefore, using a combination of both ML and TDM data could be more promising to predict the patients’ fate more accurately than employing a single isolated approach (Figure 1).Figure 1Although machine learning can be used as an novel alternative to pharmacometric modeling and model-informed precision dosing (a), it can also be used conjointly with “traditional” modeling approaches for (hopefully) better performances for precision dosing and precision medicine (b). The figure was made using BioRender (app.biorender.com). PK-PD, pharmacokinetic-pharmacodynamic.
+
+In conclusion, the introduction of AI to drug exposure and effect prediction is rapidly expanding; however, it should be evaluated prospectively and carefully in clinical trials using the dedicated CONSORT AI guidelines. This is what the authors propose as future work in their manuscript.</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Disclosure</h3>    <p>All the authors declared no competing interests.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>
