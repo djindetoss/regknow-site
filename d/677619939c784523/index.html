@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The Power of Scale for Parameter-Efficient Prompt Tuning · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>The Power of Scale for Parameter-Efficient Prompt Tuning</h1>
+<p class="authors">Brian Lester, Rami Al‐Rfou, Noah Constant</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Conference on Empirical Methods in Natural Language Processing (EMNLP)</dd>
+<dt>Published</dt><dd>2021-01-01</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Foundations of modern AI (architectures, training, foundation models)</span></dd><dt>Tags</dt><dd><span class="chip">must-read</span><span class="chip">must-read-foundations</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.18653/v1/2021.emnlp-main.243">10.18653/v1/2021.emnlp-main.243</a></dd><dt>Source</dt><dd><a href="https://doi.org/10.18653/v1/2021.emnlp-main.243" rel="noopener">https://doi.org/10.18653/v1/2021.emnlp-main.243</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>677619939c784523</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>In this work, we explore &#34;prompt tuning,&#34; a simple yet effective mechanism for learning &#34;soft prompts&#34; to condition frozen language models to perform specific downstream tasks.Unlike the discrete text prompts used by GPT-3, soft prompts are learned through backpropagation and can be tuned to incorporate signals from any number of labeled examples.Our end-to-end learned approach outperforms GPT-3&#39;s few-shot learning by a large margin.More remarkably, through ablations on model size using T5, we show that prompt tuning becomes more competitive with scale: as models exceed billions of parameters, our method &#34;closes the gap&#34; and matches the strong performance of model tuning (where all model weights are tuned).This finding is especially relevant because large models are costly to share and serve and the ability to reuse one frozen model for multiple downstream tasks can ease this burden.Our method can be seen as a simplification of the recently proposed &#34;prefix tuning&#34; of Li and Liang (2021) and we provide a comparison to this and other similar approaches.Finally, we show that conditioning a frozen model with soft prompts confers benefits in robustness to domain transfer and enables efficient &#34;prompt ensembling.&#34;We release code and model checkpoints to reproduce our experiments.1</p>
+  <section class="viewer" id="viewer" data-pdf="../../files/677619939c784523.pdf" data-vendor="../../vendor/pdfjs/">
+    <div class="viewer-bar">
+      <button type="button" id="prev" aria-label="Previous page">‹</button>
+      <label>Page <input id="page" type="number" min="1" value="1"> of <span id="pages">…</span></label>
+      <button type="button" id="next" aria-label="Next page">›</button>
+      <span class="spacer"></span>
+      <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+      <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+      <a href="../../files/677619939c784523.pdf" download>Download PDF</a>
+    </div>
+    <div class="canvas-wrap"><canvas id="canvas"></canvas></div>
+  </section>
+</article>
+</main>
+<script type="module" src="../../static/viewer.js"></script></body>
+</html>

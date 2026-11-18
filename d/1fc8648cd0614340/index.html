@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Generative Models Should at Least Be Able to Design Molecules That Dock Well: A New Benchmark · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Generative Models Should at Least Be Able to Design Molecules That Dock Well: A New Benchmark</h1>
+<p class="authors">Tobiasz Ciepliński, Tomasz Danel, Sabina Podlewska, Stanisław Jastrzȩbski</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Journal of chemical information and modeling</dd>
+<dt>Published</dt><dd>2023-05-24</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Molecular design and generation</span><span class="chip">Evaluation of AI in drug discovery (benchmarks, validation, reproducibility)</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1021/acs.jcim.2c01355">10.1021/acs.jcim.2c01355</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/37224003/">37224003</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/37224003/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/37224003/</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>1fc8648cd0614340</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Designing compounds with desired properties is a key element of the drug discovery process. However, measuring progress in the field has been challenging due to the lack of realistic retrospective benchmarks, and the large cost of prospective validation. To close this gap, we propose a benchmark based on docking, a widely used computational method for assessing molecule binding to a protein. Concretely, the goal is to generate drug-like molecules that are scored highly by SMINA, a popular docking software. We observe that various graph-based generative models fail to propose molecules with a high docking score when trained using a realistically sized training set. This suggests a limitation of the current incarnation of models for de novo drug design. Finally, we also include simpler tasks in the benchmark based on a simpler scoring function. We release the benchmark as an easy to use package available at https://github.com/cieplinski-tobiasz/smina-docking-benchmark. We hope that our benchmark will serve as a stepping stone toward the goal of automatically generating promising drug candidates.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractDesigning compounds with desired properties is a key element of the drug discovery process. However, measuring progress in the field has been challenging due to the lack of realistic retrospective benchmarks, and the large cost of prospective validation. To close this gap, we propose a benchmark based on docking, a widely used computational method for assessing molecule binding to a protein. Concretely, the goal is to generate drug-like molecules that are scored highly by SMINA, a popular docking software. We observe that various graph-based generative models fail to propose molecules with a high docking score when trained using a realistically sized training set. This suggests a limitation of the current incarnation of models for de novo drug design. Finally, we also include simpler tasks in the benchmark based on a simpler scoring function. We release the benchmark as an easy to use package available at https://github.com/cieplinski-tobiasz/smina-docking-benchmark. We hope that our benchmark will serve as a stepping stone toward the goal of automatically generating promising drug candidates.</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Designing compounds with some desired chemical properties is the central challenge in the drug discovery process.1,2De novo drug design is one of the most successful computational approaches that involves generating new potential ligands from scratch, which avoids enumerating explicitly the vast space of possible structures. Recently, deep learning has unlocked new progress in drug design. Promising results using deep generative models have been shown in generating soluble,3 bioactive,4 and drug-like5 molecules. The history of de novo compound design dates back to the 1980s.6 Since then, numerous other approaches emerged, from both ligand- and structure-based path.7,8 Despite existing cheminformatic approaches to new compounds generation, it was the introduction of machine learning (ML) into the field of the computer-aided drug design that revolutionized also the task of de novo ligand design. In recent years, the combination of ML with the information on the target is gaining significant popularity.
+
+A key challenge in the field of drug design is the lack of realistic benchmarks.2 Ideally, the generated molecule by a de novo method should be tested in the wet lab for the desired property. In practice, typically, a proxy is used. For example, the octanol–water partition coefficient or bioactivity is predicted using a computational model.3,4 However, these models are often too simplistic.2 This is aptly summarized by Coley et al.10 who notice that the current generative model benchmarks fail to capture the complexity of real discovery problems. In contrast to drug design, more realistic benchmarks have been used in the design of photovoltaics11 or in the design of molecules with certain excitation energies,12 where a physical calculation was carried out both to train models and to evaluate generated compounds. A huge step toward unifying chemical benchmark was made by Huang et al.13 who introduced an open-source benchmark, Therapeutics Data Commons, and showed that current algorithms are yet not primed to solve all the key therapeutic challenges. Despite this, the recent advances in deep learning have already led to numerous successful applications in drug discovery projects.14
+
+Recently, an increasing number of methods adopts molecular docking as a means of evaluation for generative models in drug design.15−17 More specifically, in computer-aided drug discovery pipelines, docking scores are often used to preliminarily assess proposed drug candidates before reaching for costly laboratory experiments.18−20 With an advent of geometric deep learning for molecular graphs, the structure-based generative models, often employing roto-translationally equivariant neural networks, began to develop rapidly.21−24 Many of these methods use molecular docking to guide the generative process, so the docking scores are the most natural way of the compound evaluation.
+
+Our main contribution is a realistic benchmark for de novo drug design (Figure 1). We base our benchmark on docking, a popular computational method for predicting molecule binding to a protein. Concretely, the goal is to generate molecules that are scored highly by SMINA.25 We picked Koes et al.25 due to its popularity and being available under a free license. While we focus on de novo drug design, our methodology can be extended to evaluate retrospectively other approaches to designing molecules. Code to reproduce results and evaluate new models is available online at https://github.com/cieplinski-tobiasz/smina-docking-benchmark. Notably, our benchmark26 was already adopted by Nigam et al.27 to demonstrate the effectiveness of their genetic algorithm for molecular design.
+
+Our second contribution is exposing the limitation of currently popular de novo drug design methods for generating bioactive molecules. When trained using a few thousands compounds, a typical training set size, the tested methods fail to generate highly active structures according to the docking software. The highest scoring molecules in most cases did not outperform the top 10% molecules found in either the ZINC database or the training set. This suggests we should exercise caution when applying them in drug discovery pipelines, where we seldom have a larger number of known ligands. We hope our benchmark will serve as a stepping stone to further improve these promising models.
+
+The paper is organized as follows. We first discuss prior work and introduce our benchmark. Next, we use our benchmark to evaluate two popular models for de novo drug design. Finally, we analyze why the tested models fail on the most difficult version of the benchmark.
+
+Visualization of the proposed docking-based benchmark for de novo drug design methods. First, the generative model is trained for a selected drug target and generates 250 ligand proposals. The model score is a combination of the mean docking score (or single docking score component, e.g., repulsion or hydrogen bonding) of the generated compounds and their diversity. As a reference value, we use the scores of the top K% of a random ZINC subset (depicted on the right side).</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Docking-Based Benchmark</h3>    <p>We begin by briefly discussing prior work and motivation. Next, we introduce our benchmark.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Docking-Based Benchmark › Why Do We Need Yet Another Benchmark?</h3>    <p>Standardized benchmarks are critical to measure progress in any field. Development of large-scale benchmarks such as the ImageNet was critical for the recent developments in artificial intelligence.28,29 Many new methods for de novo drug design are conceived every year, which motivates the need for a systematic and efficient way to compare them.30
+
+De novo drug design methods are typically evaluated using proxy tasks that circumvent the need to test the generated compounds experimentally.3,5,31−33 Optimizing the octanol–water partition coefficient (log P) is a common example. The log P coefficient is commonly computed using an atom-based method that involves summing contribution of individual atoms,5,34 which is available in the RDKit package.35 Due to the fact that it is easy to optimize the atom-based method by producing unrealistic molecules,36 a version that heuristically penalizes hard to synthesize compounds is used in practice.5 This example illustrates the need to develop more realistic ways to benchmark these methods. Another example is QED score,37 which is designed to capture the drug likeliness of a compound. Finally, some approaches use a model (e.g., a neural network) to predict bioactivity of the generated compounds.4 Similarly to log P, these two tasks are also possible to optimize while producing unrealistic molecules. This is aptly summarized in Coley et al.10 as
+
+Interestingly, besides the aforementioned proxy tasks, more realistic proxy tasks are rarely used in the context of evaluating de novo drug design methods. This is in contrast to evaluation of generative models for generating photovoltaics11 or molecules with certain excitation energies.12 One notable exception is Aumentado-Armstrong38 who try to generate compounds that are active according to the DrugScore39 and then evaluate the generated compounds using rDock.40 This lack of the overall diversity and realism in the typically used evaluation methods motivates us to propose our benchmark, which uses molecular docking as a more realistic proxy task.
+
+Arguably, docking-based scoring of compounds has serious limitations,41 and similarity-based models36 are often chosen in commercial projects over molecular docking.42 However, the idea of our benchmark is that docking, even if simplistic, proves to be challenging for generative models. Our setup aims to imitate real drug discovery scenarios by employing this simple docking proxy.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Docking-Based Benchmark › Docking-Based Benchmark</h3>    <p>Our docking-based benchmark is defined by (1) docking software that computes for a generated compound its pose in the binding site, (2) a function that scores the pose, and (3) a training set of compounds with an already computed docking score.
+
+The goal is to generate 250 molecules that achieve the maximum possible docking score. We find this number of compounds large enough to make the optimization of diversity nontrivial, but small enough to make testing feasible in practice (in terms of either computational resources or the cost of ordering compounds for wet lab experiments). For the sake of simplicity, we do not impose limits on the distance of the proposed compounds to the training set. Thus, a simple baseline is to return the training set. Finding similar compounds that have a higher docking score is already prohibitively challenging for current state-of-the-art methods. As the field progresses, our benchmark can be easily extended to account for the similarity between the generated compounds and the training set.
+
+Finally, we would like to stress that the benchmark is not limited to de novo methods. The benchmark is applicable to any other approaches such as virtual screening. The only limitation required for a fair comparison is that docking is performed only on the supplied training set.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Docking-Based Benchmark › Instantiation</h3>    <p>As a concrete instantiation of our docking-based benchmark, we use SMINA v. 2017.11.925 due to its widespread use and its being offered under a free license. To create the training set, we download from the ChEMBL43 database molecules tested against selected drug targets: 5-HT1B, 5-HT2B, ACM2, and CYP2D6. In the extended variant of our benchmark, we include four additional drug targets: ADRB1, MOR, A2A, and D2. For instance, the final 5-HT1B data set consists in 1,878 molecules, out of which 1,139 are active (Ki &lt; 100 nM) and 739 are inactive molecules (Ki &gt; 1,000 nM). Only molecules that dock successfully are retained. We list the resulting data set sizes in Table 1.
+
+We dock each molecule using default settings in SMINA to a manually selected binding site coordinate. Protein structures were downloaded from the Protein Data Bank, cleaned and prepared for docking using Schrödinger modeling package. The resulting protein structures are provided in our code repository. We describe further details on the preparation of the data sets in the Supporting Information.
+
+Starting from the above, we define the following three variants of the benchmark. In the first variant (Docking Score Function), the goal is to propose molecules that achieve the smallest Vinardo docking score44 (based on the Vina docking score45) used in the score_only mode of the SMINA package, defined as follows:
+
+where all terms are computed based on the final docking pose. The first three terms measure the steric interaction between ligand and the protein. The fourth and the fifth terms look for hydrophobic and hydrogen bonds between the ligand and the protein. We include a detailed description of all the terms in the Supporting Information.
+
+Next, we propose two simpler variants of the benchmark based on individual terms in the Vinardo scoring function. We select optimization targets that have clear interpretations: repulsion that minimizes clashes with protein and hydrogen bonding that maximizes interactions stabilizing the compound pose in the binding site. In the Repulsion task, the goal is to only minimize the repulsion component, which is defined as
+
+where ddiff(a1, a2) is the distance between the atoms minus the sum of their van der Waals radii. The distance unit is Angstrom (10–10 m).
+
+The third task, Hydrogen Bonding, is to maximize the non_dir_h_bond term:
+
+To make the results more stable, we average the score over the top 5 best-scoring binding poses. Finally, to make the benchmark more realistic, we filter the generated compounds using the Lipinski rule and discard molecules with molecular weights lower than 100.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>ZINC Baseline</h3>    <p>The premise behind de novo drug discovery is that it enables access to structurally novel and potent molecules. To contextualize results in the benchmark, we included as the baseline sampling from the subset of ZINC database containing 9,204,719 molecules.46 We selected molecules having the following properties: 3D representation, standard reactivity, in-stock purchasability, ref pH, charges from −2 to +2 inclusive, and a used drug-like preferred subset. For each protein we have sampled a set of molecules from aforementioned ZINC subset of the protein’s training set size. In each task, we compare to the mean value of the top 50%, 10%, and 1% of scores.
+
+t-SNE maps of compound fingerprints (ECFP) for each protein. Each point is a molecule, and the distances between points are proportional to the dissimilarity of compounds. The training set is marked with red dots, and the compounds generated by REINVENT by enhancing different optimization targets are colored in blue (Docking Score Function), orange (Hydrogen Bonding), and green (Repulsion).</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>ZINC Baseline › Diversity</h3>    <p>To better understand the performance of each model, besides the mean score, we also evaluate the diversity of the proposed molecules. Concretely, we compute the mean Tanimoto distance between all pairs of molecules in the generated sample. We use the 1024-bit ECFP representation47 with radius 2. The diversity score is reported in the benchmark along with the docking score results. We observe that the optimized models narrow down to a less diverse subspace of compounds that are dissimilar to the training set. This can also be observed in the t-SNE plots of the generated compounds compared to the training set (Figure 2). In this figure, compounds are grouped together based on their structural similarity. The small focused clouds of compounds generated using different optimization targets always concentrate at one side of the map. This suggests that there is similar bias of the model independent of the optimization target, which can be the ChEMBL prior to the REINVENT model48 (described below as one of the compared generative models). The separation between the optimized compounds and the training set suggests that these are novel molecules (similar structures are rarely present in the training set). Besides that observation, we note that the generated compounds are less diverse, creating one dense blob instead of multiple clusters, where all compounds are similar to each other inside one optimization target.
+
+t-SNE maps of compound fingerprints (ECFP) for each protein. Each point is a molecule, and the distances between points are proportional to the dissimilarity of compounds. The training set is marked with red dots, and the compounds generated by REINVENT by enhancing different optimization targets are colored in blue (Docking Score Function), orange (Hydrogen Bonding), and green (Repulsion).</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>ZINC Baseline › When Is a Task Solved?</h3>    <p>In the experiments, we compare to two baselines: (i) random compounds from ZINC as the baseline and (ii) compounds from the training set. In each case we report the mean score, the top 10% of scores, and the top 1% of scores. We also report diversity of the results.
+
+Roughly speaking, we consider a given optimization task solved by a generative model if the molecules generated by this model achieve a mean score that exceeds the score of top 1% compounds in the ZINC subset (the values provided in theResultssection), while achieving at least the same diversity as observed in the training set of activity data extracted from ChEMBL (also provided below for each protein). This criterion is necessarily arbitrary. It is inspired by a natural baseline—comparing against a random sample of several thousands of drug-like compounds from the ZINC database.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>ZINC Baseline › Model Evaluation Workflow</h3>    <p>Below, we summarize all the steps necessary to evaluate a generative model and compare it with our benchmark. A general overview of this workflow is depicted in Figure 1, and the step-by-step evaluation procedure is shared in our code repository in the Python notebook named getting-started.ipynb.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Results and Discussion</h3>    <p>In this section, we evaluate three popular models for de novo drug design on our docking-based benchmark.
+
+Best scoring molecules generated by REINVENT in each of the three tasks composing the benchmark.
+
+Best scoring molecules generated by CVAE in each of the three tasks composing the benchmark. Missing compounds correspond to the failed optimizations.
+
+Best scoring molecules generated by GVAE in each of the three tasks composing the benchmark. Missing compounds correspond to the failed optimizations.
+
+Correlation between docking score and molecular weight. The training set is marked with red dots, and the compounds generated by REINVENT by enhancing different optimization targets are colored in blue (Docking Score Function), orange (Hydrogen Bonding), and green (Repulsion).
+
+Correlation between docking score and the number of rotatable bonds. The training set is marked with red dots, and the compounds generated by REINVENT by enhancing different optimization targets are colored in blue (Docking Score Function), orange (Hydrogen Bonding), and green (Repulsion).</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Results and Discussion › Models</h3>    <p>We compare three popular models for de novo drug design. Chemical Variational Autoencoder (CVAE)49 applies Variational Autoencoder50 by representing molecules as strings of characters (using SMILES encoding). This approach was later extended by Grammar Variational Autoencoder (GVAE),3 which ensures that generated compounds are grammatically correct. The third model, REINVENT,48 is a recurrent neural network that generates SMILES strings. It is first trained in a supervised manner to produce correct drug-like compounds similar to the ChEMBL data set (prior). Next, it is trained using reinforcement learning to optimize docking scores, which are provided as a training reward.
+
+We note that CVAE and GVAE were not designed for small sample sizes, so they may not fully exploit their potential in our benchmark since they are used out of context. On the other hand, it was shown that REINVENT is a representative method in terms of achieving high sample efficiency.51</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Results and Discussion › Experimental Details</h3>    <p>To generate active compounds, we follow an approach similar to the one in Jin et al.,5 disregarding the penalty for insufficient similarity. Analogous methods using the sparse Gaussian Process instead of a multilayer perceptron are also employed in Gómez-Bombarelli et al.49 and Kusner et al.3 The exact algorithm for training our generative models is described below.
+
+First, we fine-tune a given generative model for 5 epochs on the training set ligands, starting from weights made available by the authors. All hyperparameters are set to default values used in Gómez-Bombarelli et al.49 and Kusner et al.3 Additionally, we use the provided scores to train a multilayer perceptron (MLP) to predict the optimization target (e.g., the SMINA scoring function) based on the latent space representation of the molecule.
+
+For CVAE and GVAE, to generate compounds, we first take a random sample from the latent space by sampling from a Gaussian distribution with the standard deviation of 1 and the mean of 0. Starting from this point in the latent space, we take 50 gradient steps to optimize the output of the MLP. Based on this approach we generate 250 compounds from the model.
+
+For the REINVENT model, we use pretrained weights on the ChEMBL database provided by Olivecrona et al.48 As there is no latent space in this model, we train a random forest model to predict the optimization target directly from the molecule structure. We use the ECFP fingerprint to encode the molecule.47 The reward is computed based on the random forest prediction multiplied by the QED score calculated using RDKit.
+
+The key limitation of all the generative methods above is the use of an ML model, either an MLP or a random forest, to predict docking scores. This is an important design decision in this study. Our benchmark aims to simulate a setting in which a drug discovery campaign involves designing a small batch of compounds to be tested for biological activity based on prior biological data. This is different from searching for a highly docking compound, in which case a reasonable approach would be to compute docking scores for a large number of test compounds.
+
+All other experimental details, including hyperparameter values used in the experiments, can be found in the appendix.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Results and Discussion › Optimization of Docking Objectives</h3>    <p>Tables 2 and 3 summarize the results on all three tasks. Recall that we generally consider a given task solved if the generated molecules exceed the top 1% score found in the ZINC database, while achieving at least the same diversity as in the training set. Below we make several observations.
+
+Best scoring molecules generated by REINVENT in each of the three tasks composing the benchmark.
+
+Best scoring molecules generated by CVAE in each of the three tasks composing the benchmark. Missing compounds correspond to the failed optimizations.
+
+Best scoring molecules generated by GVAE in each of the three tasks composing the benchmark. Missing compounds correspond to the failed optimizations.
+
+Correlation between docking score and molecular weight. The training set is marked with red dots, and the compounds generated by REINVENT by enhancing different optimization targets are colored in blue (Docking Score Function), orange (Hydrogen Bonding), and green (Repulsion).
+
+Correlation between docking score and the number of rotatable bonds. The training set is marked with red dots, and the compounds generated by REINVENT by enhancing different optimization targets are colored in blue (Docking Score Function), orange (Hydrogen Bonding), and green (Repulsion).</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Results and Discussion › Optimization of Docking Objectives › Docking Score Function Task</h3>    <p>The key task in the benchmark is Docking Score Function. We observe that CVAE and GVAE models fail to generate compounds that achieve a higher docking score compared to the mean docking score in the ZINC data set (−8.785 for 5-HT1B compared to −4.647 and −4.955 achieved by CVAE and GVAE, respectively). The REINVENT model achieves much better performance (−9.774 for 5-HT1B). However, while docking scores attained by the molecules generated by REINVENT generally outperform the mean docking in the ZINC data set and the training set, they fall short of outperforming the top 10% molecules found in ZINC (−9.894 for 5-HT1B, with the exception of ACM2). We also draw attention to the fact that the generated molecules by REINVENT are markedly less diverse than the diversity of the training set (0.506 mean Tanimoto distance compared to 0.787 in the training set).
+
+These results suggest that generative models applied to de novo drug discovery might require substantial more data to generate well-binding compounds than is typically available for training. In the key Docking Score Function task, models generally fail to outperform the top 10% from the ZINC database. It should worry us that optimizing for the docking score, which seems to be a simpler optimization target than true biological binding affinity, is already challenging given realistically sized training sets (between 1,193 and 10,225 molecules).</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Results and Discussion › Optimization of Docking Objectives › Repulsion Task</h3>    <p>Interestingly, REINVENT performs significantly worse than GVAE and CVAE on the Repulsion task. All models fail to outperform the top 10% found in the ZINC data set. We observe markedly lower diversity of molecules generated by REINVENT compared to the training set.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Results and Discussion › Optimization of Docking Objectives › Hydrogen Bonding Task</h3>    <p>The Hydrogen Bonding task is the simplest, and both GVAE and REINVENT generate molecules that almost match the top 1% molecules found in the ZINC database and the training set. We again observe relatively low diversity of molecules generated by REINVENT.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Results and Discussion › Optimization of Docking Objectives › Generated Molecules</h3>    <p>Figure 3 shows the best scoring molecules generated by REINVENT. We observe that optimizing each objective promotes different structural motifs. For example, the best scoring molecules in the Repulsion task are small, which intuitively enables them to easily fit into the binding pocket, achieving lower repulsion values than the top 1% molecules in the training set.
+
+Similarly, there are clear patterns visible in the top molecules of CVAE and GVAE (Figures 4 and 5). For example, CVAE generates macrocycles in the task of docking score optimization, while GVAE generates long chains with no cycles when optimizing the same objective. These models also create oxygen or nitrogen chains when optimizing Hydrogen Bonding, and very small molecules (often less than 3 heavy atoms) for the Repulsion task.
+
+We noticed a moderately strong correlation between docking scores and the number of rotatable bonds or molecular weight. Figures 6 and 7 show that, with the increasing number of rotatable bonds or molecular weight, the docking scores improve. For the number of rotatable bonds, the generated compounds are well mixed with the training data marginal distribution. On the other hand, the distribution of generated compounds is shifted toward better docking scores and smaller molecular weights in the case of the weight-to-docking-score relation. In other words, molecules achieve better docking scores at the same molecular weight after the optimization. The correlations are weaker for CYP2D6, which may be caused by a bigger binding site of this enzyme. However, the last observation about molecular weights holds.
+
+From the chemical point of view, REINVENT produced the most consistent ligands with the highest possibility of desired biological activity. When different optimization approaches are considered, the best results were produced during the docking score optimization. Nondir h-bond optimization produced compounds with sometimes a high number of moieties able to produce a hydrogen bond. In the repulsion task, the produced compounds are correct from the chemical point of view. The drug-likeliness of compounds produced by CVAE and GVAE is lower (although they still meet criteria included in the Lipiski Rule of Five), but they still can be used in the docking benchmark task. The poor quality of the generated compounds is not surprising, as this issue was previously observed for other unrestricted de novo generative models.36
+
+Best scoring molecules generated by REINVENT in each of the three tasks composing the benchmark.
+
+Best scoring molecules generated by CVAE in each of the three tasks composing the benchmark. Missing compounds correspond to the failed optimizations.
+
+Best scoring molecules generated by GVAE in each of the three tasks composing the benchmark. Missing compounds correspond to the failed optimizations.
+
+Correlation between docking score and molecular weight. The training set is marked with red dots, and the compounds generated by REINVENT by enhancing different optimization targets are colored in blue (Docking Score Function), orange (Hydrogen Bonding), and green (Repulsion).
+
+Correlation between docking score and the number of rotatable bonds. The training set is marked with red dots, and the compounds generated by REINVENT by enhancing different optimization targets are colored in blue (Docking Score Function), orange (Hydrogen Bonding), and green (Repulsion).</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Conclusion</h3>    <p>As concluded by Coley et al.,10 “the current evaluations for generative models do not reflect the complexity of real discovery problems”. Motivated by this, we proposed a new, more realistic, benchmark tailored to de novo drug design, using docking score as the optimization target. Code to evaluate new models is available at https://github.com/cieplinski-tobiasz/smina-docking-benchmark.
+
+Our results suggest that generative models applied to de novo drug discovery pipelines might require substantially more data to generate realistic compounds than is typically available for training. Despite using over 1,000 compounds for training (between 1,074 and 3,780), the best docking scores generally do not outperform the top 10% docking scores in the ZINC data set. The docking score is only a simple proxy of the actual binding affinity, and as such, it should worry us that it is already challenging to optimize.
+
+On a more optimistic note, the tested models achieved much better performance on the simplest task in the benchmark, which is to optimize a single term in the SMINA scoring function involving the number of hydrogen bonds to the binding site. This suggests that producing compounds that optimize the docking score based on the provided data set is an attainable, albeit challenging, task. We hope our benchmark better reflects the complexity of real discovery problems and will serve as a stepping stone toward developing better de novo models for drug discovery.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Acknowledgments</h3>    <p>The work of Tomasz Danel is supported by National Centre of Science (Poland) Grant No. 2020/37/N/ST6/02728. Stanisław Jastrzȩbski thanks FNP START stipend and IPUB project at Jagiellonian University for supporting this work.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Data Availability Statement</h3>    <p>The data and code used in this project are available at https://github.com/cieplinski-tobiasz/smina-docking-benchmark.</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Supporting Information Available</h3>    <p>The Supporting Information is available free of charge at https://pubs.acs.org/doi/10.1021/acs.jcim.2c01355.</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Text</h3>    <p>The authors declare no competing financial interest.</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Supplementary Material</h3>    <p>ci2c01355_si_001.pdf</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Associated Data</h3>    <p>ci2c01355_si_001.pdf</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>Associated Data › Supplementary Materials</h3>    <p>ci2c01355_si_001.pdf</p>
+  </section>
+  <section id="s26" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>The data and code used in this project are available at https://github.com/cieplinski-tobiasz/smina-docking-benchmark.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Deep-Learning: An Emerging Tool to Support Model-Informed Drug Development · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Deep-Learning: An Emerging Tool to Support Model-Informed Drug Development</h1>
+<p class="authors">Roberto Gomeni, Françoise Bressolle-Gomeni</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Clinical and translational science</dd>
+<dt>Published</dt><dd>2026-08-01</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Model-informed drug development and PK/PD</span><span class="chip">Evaluation of AI in drug discovery (benchmarks, validation, reproducibility)</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1111/cts.70691">10.1111/cts.70691</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/42549621/">42549621</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/42549621/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/42549621/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>691058b4bd2245ae</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Traditional Model-Informed Drug Development (MIDD) primarily relies on hypothesis-driven (HD) models based on biological, physiological, and physicochemical principles. While these mechanistic models have been instrumental in drug development and regulatory decision-making, they may be limited in capturing complex nonlinear relationships. Deep learning (DL) provides a complementary, data-driven approach capable of learning these relationships directly from data without requiring predefined model structures or mechanistic assumptions. In this work, the DL methodology was implemented using an artificial neural network, supported by the universal approximation theorem, which states that a feed-forward neural network with a sufficient number of neurons can approximate any continuous function to arbitrary accuracy. Two independent datasets were used to compare the performance of DL and HD, with the objective of evaluating whether DL can complement, rather than replace, conventional mechanistic modeling. To assess the robustness and generalizability of the DL model, train/test validation and bootstrap analyses were performed together with a comprehensive set of diagnostic evaluations. These included assessments of prediction stability and precision, residual analyses based on the distribution of conditional weighted residuals, goodness-of-fit diagnostics, and visual predictive checks. Collectively, these analyses demonstrated that the DL model exhibited robust predictive performance and reliability comparable to established HD approaches while requiring substantially fewer a priori assumptions regarding the underlying system. These findings indicate that mechanistic HD models and data-driven DL models are complementary. Integrating both approaches within the MIDD framework has the potential to leverage the biological interpretability of mechanistic models together with the predictive flexibility of deep learning.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>ABSTRACTTraditional Model‐Informed Drug Development (MIDD) primarily relies on hypothesis‐driven (HD) models based on biological, physiological, and physicochemical principles. While these mechanistic models have been instrumental in drug development and regulatory decision‐making, they may be limited in capturing complex nonlinear relationships. Deep learning (DL) provides a complementary, data‐driven approach capable of learning these relationships directly from data without requiring predefined model structures or mechanistic assumptions. In this work, the DL methodology was implemented using an artificial neural network, supported by the universal approximation theorem, which states that a feed‐forward neural network with a sufficient number of neurons can approximate any continuous function to arbitrary accuracy. Two independent datasets were used to compare the performance of DL and HD, with the objective of evaluating whether DL can complement, rather than replace, conventional mechanistic modeling. To assess the robustness and generalizability of the DL model, train/test validation and bootstrap analyses were performed together with a comprehensive set of diagnostic evaluations. These included assessments of prediction stability and precision, residual analyses based on the distribution of conditional weighted residuals, goodness‐of‐fit diagnostics, and visual predictive checks. Collectively, these analyses demonstrated that the DL model exhibited robust predictive performance and reliability comparable to established HD approaches while requiring substantially fewer a priori assumptions regarding the underlying system. These findings indicate that mechanistic HD models and data‐driven DL models are complementary. Integrating both approaches within the MIDD framework has the potential to leverage the biological interpretability of mechanistic models together with the predictive flexibility of deep learning.Keywords: artificial intelligence, deep learning, model‐informed drug development, neural network</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Traditional nonlinear mixed‐effects (NLME) modeling remains the gold‐standard methodology for population pharmacokinetic (PK) and pharmacodynamic (PD) analyses and is a cornerstone of Model‐Informed Drug Development (MIDD). This hypothesis‐driven (HD) approach incorporates mechanistic, biological, and physicochemical knowledge to characterize drug disposition, variability, and exposure–response relationships. Despite its widespread acceptance, development of NLME models is often time‐intensive, requires substantial pharmacometric expertise, and may be limited in its ability to accommodate large numbers of covariates or highly complex nonlinear relationships.
+
+Recent advances in artificial intelligence (AI), particularly machine learning (ML) and deep learning (DL), have generated considerable interest as complementary approaches for MIDD [1]. These data‐driven methods have the potential to improve predictive performance, reduce model development time, and efficiently incorporate high‐dimensional patient information that may be difficult to accommodate using conventional pharmacometric approaches [2].
+
+Several ML algorithms have demonstrated predictive performance comparable to or exceeding that of traditional NLME models [3, 4, 5]. Neural networks, in particular, are capable of learning complex nonlinear relationships between drug concentrations and patient‐specific characteristics from routinely collected sparse PK data, making them attractive tools for population PK analyses [6]. Furthermore, neural network‐based models have been successfully applied to characterize drug disposition, elimination, and complex absorption processes that are challenging to describe using conventional modeling approaches [7].
+
+More recently, deep learning architectures have been shown to predict complete concentration–time profiles directly from chemical structure by learning the parameters underlying mechanistic compartmental models. These approaches enable simulation of both single‐ and multiple‐dose PK profiles and estimation of conventional PK parameters, including clearance, volume of distribution, and elimination half‐life, with performance comparable to that of traditional pharmacometric models [8, 9].
+
+Among emerging DL methodologies, neural ordinary differential equations (NODEs) represent a continuous‐time extension of conventional deep neural networks [1, 10, 11]. Rather than propagating information through a finite sequence of discrete layers, NODEs model the evolution of hidden states as continuous dynamical systems governed by ordinary differential equations. Model predictions are obtained by numerically integrating the learned differential equations over time. Although this framework naturally accommodates continuous‐time processes, implementation requires repeated numerical integration during model training and prediction, resulting in greater computational complexity than conventional feedforward neural networks.
+
+More recently, a data‐driven DL methodology based on an artificial neural network (ANN) was proposed to account for the confounding effects of placebo response in clinical trial analyses [12]. This approach employs an optimized feedforward ANN designed to maximize predictive performance while maintaining architectural simplicity. Consistent with the universal approximation theorem, which states that a feedforward neural network with a single hidden layer can approximate any continuous function given a sufficient number of neurons [13], a parsimonious architecture consisting of a single hidden layer was selected.
+
+The present study extends the evaluation of this ANN‐based DL methodology to population PK modeling using real clinical datasets. Specifically, we investigated whether the DL approach could (i) identify relationships between plasma drug concentrations and patient‐related covariates, (ii) adequately characterize complex multi‐peak absorption profiles, and (iii) support repeated‐dose simulations for prediction of steady‐state drug exposure.
+
+The predictive performance of the DL methodology was compared with that of a conventional HD reference model developed using the NONMEM NLME framework. Two independent clinical datasets were analyzed. Study 1 comprised Phase IIa PK data from 60 subjects receiving three dose levels and included demographic information to evaluate covariate effects. Study 2 consisted of methylphenidate PK data collected at three dose levels and exhibited a complex multi‐peak absorption profile. Model‐based simulations were subsequently performed to predict steady‐state exposure and quantify the influence of demographic covariates on drug exposure.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Methods</h3>    <p>(a) Schematic of the deep learning‐driven methodology implemented using a feedforward error‐backpropagation neural network approach, (b) Schematic comparing the DL and the HD analysis framework.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Methods › Data</h3>    <p>Two datasets were used for developing and comparing the performance of the HD and DL models. The first dataset (Study 1) included 60 surgical patients (20 patients per dose) in a phase IIA study receiving a single dose of 1 mg, 2 mg, or 4 mg of an anesthetic over a 5‐h constant‐rate intravenous infusion. This dataset was a simulated case study initially developed to demonstrate population pharmacokinetic modeling concepts using NONMEM. For each individual, plasma samples were obtained at four time points after the start of the infusion (1, 5, 12, and 24 h post‐initiation). The dataset included men (47%) and women (53%), with a mean age of 51 years (range: 25–75 years) and a mean body weight of 77 kg (range: 50–123 kg) [14]. These demographic characteristics were assessed as potential covariates influencing pharmacokinetic exposure. The data were initially fit using the HD approach to a one‐compartment linear model with first‐order rate constant parameters [14].
+
+The second dataset (Study 2) included plasma methylphenidate (MPH) concentrations observed following a single oral administration of Concerta at doses of 18 mg, 36 mg, and 54 mg. Concerta is a long‐acting stimulant medication indicated for the treatment of attention‐deficit/hyperactivity disorder that utilizes an osmotic controlled‐release oral delivery system to provide extended drug release [15]. The dataset, extracted from eight published studies as previously reported, comprised five mean MPH concentration–time profiles at the 18 mg dose, four at the 36 mg dose, and four at the 54 mg dose [16].
+
+Additional details on Cocerta can be found in the FDA prescribing Information document [17]. The data were initially analyzed using the HD modeling approach with a convolution‐based model incorporating a dual Weibull function to characterize the biphasic absorption profile and a first‐order process to characterize the disposition and elimination [16].</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Methods › HD Model Development</h3>    <p>The HD models were analyzed using a nonlinear mixed‐effects approach as implemented in the NONMEM software (version 7.5.1, ICON Development Solutions). The first‐order conditional estimation with interaction method (FOCE‐I) was used, and the individual concentrations were estimated using the empirical Bayes estimates. The equations used for the implementation of the HD models are provided in the Figure S1.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Methods › Deep‐Learning Model Development</h3>    <p>The methodology used for implementing the DL model was based on an artificial neural network (ANN) architecture. The ANN is a subset of machine learning methodology that utilizes multilayered neural networks, called deep neural networks, to imitate the complex decision‐making power of human brains. It is based on an artificial neural network architecture that employs layers of interconnected nodes known as neurons working together to process and learn from input data.
+
+The basic operational principle of an ANN model lies in selecting an appropriate set of connection weights for each node in the network to optimize predictive performance. Two key processes are associated with neural networks: Feed‐forward and back‐propagation.
+
+Feed‐forward consists of layers of neurons through which information moves in one direction only (forward) from the input layer, through one or more hidden layers, to the output layer. The second process, commonly referred to as back‐propagation, is a learning algorithm used to train neural networks by optimizing the weights of the connections between neurons. Back‐propagation minimizes the error between the actual output and the predicted output by iteratively adjusting the connection weights.
+
+Feed‐forward and back‐propagation operate sequentially and iteratively during the training phase of a neural network. Initially, the network generates predictions through the feed‐forward process. These predictions are then compared with the actual target values to compute the error. Back‐propagation subsequently updates the weights of the interconnected nodes to minimize this error, thereby improving predictive accuracy.
+
+In the current analysis, a supervised learning methodology was employed, along with the resilient back‐propagation algorithm, to enhance convergence efficiency and stability during model training [18]. A schematic of a feedforward error‐backpropagation neural network with n nodes in the input layer, m nodes in the hidden layer, and r nodes in the output layer is presented in Figure 1a. A schematic comparing the DL and the HD analysis framework is presented in Figure 1b. The optimal number of hidden‐layer nodes was determined using a systematic grid‐search procedure. The initial search range was arbitrarily defined as 10–30 nodes. If the optimal configuration was identified at or beyond either boundary of this range, the search space was expanded or adjusted accordingly, and the grid search was repeated. This iterative procedure continued until the optimal number of hidden nodes was identified within the predefined lower and upper bounds. The final configuration corresponded to the number of nodes that maximized the predictive performance of the ANN model.
+
+The model performance was estimated using information‐theory criteria to balance model fit performance and complexity of the model using the Akaike Information Criterion (AIC) and the Bayesian Information Criterion (BIC) [19, 20].
+
+In the ANN analysis, the sum of squared errors (SSE) was used as the error function. Minimization of SSE is equivalent to maximum‐likelihood estimation under the assumption that residuals are independent and normally distributed with constant variance [18]. Accordingly, the model log‐likelihood was estimated as follows:
+
+where n is the number of observations and σ^2=SSE/n is the maximum‐likelihood estimate of the residual variance. The estimated log‐likelihood was then used to calculate Akaike&#39;s Information Criterion (AIC) and the Bayesian Information Criterion (BIC) according to:
+
+where k represents the total number of estimated network parameters (weights). Models with lower AIC and BIC values were considered to demonstrate a superior trade‐off between goodness‐of‐fit and model complexity.
+
+Lower AIC and BIC values indicate a better model. A difference of 2 or less is generally considered negligible, while differences larger than 10 provide strong evidence in favor of the model with the lower AIC and BIC values. The threshold of 10 should be regarded only as a heuristic guideline not supported by any formal statistical evidence.
+
+In the HD analysis, the AIC and BIC criteria were computed using the log‐likelihood estimated using the objective function value provided by NONMEM. In addition to the AIC, the BIC values and goodness of fit plots were provided to assess the model performance.
+
+(a) Schematic of the deep learning‐driven methodology implemented using a feedforward error‐backpropagation neural network approach, (b) Schematic comparing the DL and the HD analysis framework.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Methods › Deep Learning Implementation Details</h3>    <p>No formal procedures were implemented to handle missing data due to the very limited number of missing values. Therefore, a complete‐case analysis was performed, and only subjects with complete data for all variables included in the analysis were retained.
+
+No normalization or standardization procedures were applied, as the input variables used in the case studies (i.e., drug concentration, time, and dose) were already appropriately scaled and free of significant outliers. Consequently, additional preprocessing was considered unnecessary. Nevertheless, normalization or standardization is often recommended in ANN analyses because neural networks generally learn more effectively when input features are on comparable scales. Without appropriate scaling, variables with larger numerical ranges may dominate the learning process, potentially resulting in slower convergence, reduced training stability, and lower predictive accuracy.
+
+A fixed random seed value was used in all runs to ensure reproducibility.
+
+The ANN analysis was conducted using the ‘neuralnet’ library available in the statistical software R Version 4.4.1 for Windows (R project, http://www.r‐project.org/). This analysis used a supervised learning methodology, along with the resilient back‐propagation algorithm, to enhance convergence efficiency and stability during model training [18]. Convergence was controlled using two optimization parameters: The threshold, which specifies the maximum allowable absolute partial derivative of the error function (fixed at 0.01), and stepmax, which defines the maximum number of optimization iterations. Optimization terminated when either the gradient threshold was met or the maximum number of iterations was reached. Preliminary analyses showed that a smaller value of stepmax occasionally resulted in premature termination before convergence. Therefore, a value of 1×1012 was adopted to effectively remove the iteration limit while allowing convergence to be governed primarily by the gradient criterion.
+
+The weights in the ANN network were randomly initialized before training began. Random initialization prevents all neurons from learning the same features. If every weight started at the same value (e.g., zero), all hidden neurons would receive identical gradients and remain identical throughout training.
+
+The analyses were conducted on a workstation running Microsoft Windows 11 Pro (64‐bit operating system) equipped with a 12th Generation Intel Core i9‐12900H processor (2.50 GHz, x64‐based architecture).
+
+Using this software and hardware platform, the typical computational times for ANN training and prediction were approximately 1 min for Study 1 and 7 min for Study 2. Despite the relatively short computation times, the seven‐fold increase observed for Study 2 is attributable to its more complex longitudinal PK time‐course and to the increased number of observations per subject than in Study 1.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Methods › Data Splitting Procedure for DL Model Validation</h3>    <p>A formal procedure was implemented for the development and validation of the ANN models. The original datasets were randomly split into two subsets: (1) a training dataset comprising 75% of the observations, which was used for ANN model development, and (2) a test dataset comprising the remaining 25% of the observations, which was reserved exclusively for model validation. Model validation was performed by comparing the predictions generated by the ANN models developed using the training dataset with the observed values in the independent test dataset. This approach enabled the assessment of the models&#39; predictive performance on data that were not used during the model development process.
+
+Finally, because the performance of artificial neural networks can vary due to random weight initialization and the stochastic nature of the optimization process, k‐fold cross‐validation was performed to evaluate the impact of multiple independent training runs with different random seeds on model performance. This analysis was conducted using 10 independent randomly selected training datasets. Performance was assessed using three complementary metrics: Root mean squared error (RMSE), mean absolute error (MAE), and the coefficient of determination (R2). RMSE represents the square root of the mean squared prediction error and places greater emphasis on larger prediction errors. In contrast, MAE quantifies the average absolute difference between predicted and observed values, assigning equal weight to all prediction errors and therefore being less sensitive to outliers than RMSE. Both RMSE and MAE are expressed in the same units as the outcome variable. The coefficient of determination (R2) measures the proportion of variability in the observed data explained by the model and provides a scale‐independent measure of goodness of fit. To assess the robustness and reproducibility of the ANN, the distribution of each performance metric across independent training runs was summarized using the mean, coefficient of variation (CV), and 95% confidence interval (CI).</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Methods › Assessment of Covariate Effect in the Deep‐Learning Model</h3>    <p>Covariate selection in the DL model was conducted using a stepwise procedure. The reference model was initially defined as the model resulting from the analysis conducted without accounting for any covariate. Pre‐specified covariates for the analysis of Study 1 were body weight, age, and sex. For Study 2, there were no pre‐specified covariates. Covariate selection was performed using a forward inclusion followed by backward elimination approach, if appropriate. In the forward inclusion, each covariate effect was tested individually. A covariate was retained in the model if the inclusion of this covariate resulted in a significant improvement of the AIC and BIC criteria. The differences in AIC or BIC values (ΔAIC or ΔBIC) from the reference to the current model provide a quantitative measure of model performance. A difference of 2 or less was considered negligible, indicating that the models are effectively equivalent in predictive performance. Differences exceeding 10 were interpreted as strong evidence favoring the model with the lower AIC or BIC value, while intermediate differences (4–7) indicate moderate evidence against the model with the higher value [21, 22]. Covariates were added sequentially, beginning with the relationship producing the largest reduction in AIC and BIC. The process was repeated until no additional covariates met the inclusion criterion. After completion of forward inclusion, all retained covariates were evaluated simultaneously in a backward elimination step. Each covariate was removed individually from the full model. Covariates whose removal resulted in a significant increase in AIC or BIC were retained in the final model.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Methods › Assessing the Performance of DL Models</h3>    <p>Conventional regression diagnostic methods are not directly applicable for evaluating artificial neural network (ANN) model outputs because ANNs are nonparametric models that do not rely on the distributional assumptions required by traditional nonlinear mixed‐effects models, including the assumption on the distribution of random effects. Therefore, alternative approaches were used to assess ANN model performance. Since the ANN model generates only point predictions and does not directly provide measures of uncertainty on the predictions, the precision of the estimated predictions, reported as percentage coefficient of variation (%CV) and confidence intervals, was evaluated using bootstrap resampling. This approach enables empirical estimation of prediction variability and confidence intervals without imposing parametric assumptions on the underlying distributions. The results of the bootstrap and VPC analyses are reported in the Figure S1.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Methods › Comparing the Performances of HD and DL Models</h3>    <p>The comparison of the performance of the HD and DL modeling approaches was conducted using three criteria: The root mean squared error, the mean absolute error, and the coefficient of determination. Precision and bias were also evaluated relative to the observed concentrations using percent absolute error (%AE) and percent prediction error (%PE), respectively.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Methods › Bootstrap Analysis</h3>    <p>A bootstrap resampling method was used to evaluate the stability and robustness of the ANN model. One hundred bootstrap datasets were generated by sampling with replacement from the original dataset, and the ANN model was refitted to each bootstrap replicate. The median and 95% confidence intervals of the resulting model predictions were used to assess model stability and precision.
+
+The variance of the predictions was estimated using conditional weighted residuals (CWRES) obtained through bootstrap resampling. For each observation i, the CWRES value incorporated both residual variability and uncertainty in the model predictions. The bootstrap‐based CWRES was calculated according to:
+
+where yi are the observed values and y^i are the model‐predicted values.
+
+The results of the bootstrap analysis are presented in the Figure S1.
+
+Tables S2 and S3 present the descriptive statistics for the distributions of CWRES and CV% by study.
+
+For Study 1, the goodness‐of‐fit plots, including observations vs. individual and population predictions and CWRES vs. time and model predictions, are presented in Figure S3. The visual predictive check (VPC) plots stratified by dose are presented in Figure S4.
+
+For Study 2, the goodness‐of‐fit plots, including observations vs. individual and population predictions and CWRES vs. time and model predictions, are presented in Figure S5. The VPC plots stratified by dose are presented in Figure S6.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Methods › Repeated Dosing Prediction</h3>    <p>Concentration–time profiles following repeated dose administration were predicted using model‐independent superposition methodology as implemented in the R package PKNCA [23]. This approach assumes linear, time‐invariant pharmacokinetics, such that drug exposure after multiple dosing can be estimated by summing appropriately time‐shifted single‐dose concentration–time data. Under these conditions, accumulation and steady‐state exposure are determined by the dosing interval and the single‐dose disposition profile. Concentration values derived from the single‐dose data using the DL methodology were used as inputs to the superposition procedure to predict blood or plasma concentrations under repeated dosing conditions.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Results</h3>    <p>The plots of the individual observed concentrations vs. time by dose level in Studies 1 and 2 are presented in Figure S1 in the supplemental material.
+
+The results of the DL modeling are summarized in Table 1. Comparison of the AIC and BIC values indicated that body weight was retained as the only relevant covariate in the analysis of Study 1. These findings are fully consistent with the outcomes of the covariate analysis conducted using the HD approach implemented in NONMEM. Specifically, this analysis demonstrated that body weight significantly influenced drug clearance and volume of distribution, whereas sex and age did not show any clinically significant effects [14].
+
+The plots of the individual observed and model‐predicted concentrations with the LOESS smoothing curves and the 95% confidence intervals are presented in Figure 2 for Studies 1 and 2. The LOESS smoothing is a non‐parametric regression technique that constructs a smooth curve through data by fitting locally weighted low‐degree polynomials around each point, without assuming a global parametric model. The reported data for the DL model are the values estimated using the final model accounting for the individual body weight as a covariate.
+
+The comparison of the individual observed and model‐predicted drug concentrations by NONMEM in the HD and DL analyses is presented in Figure 3 for 8 selected subjects in Studies 1 and 2. These plots indicated similar performances of the HD and DL models.
+
+In addition, the comparison of the HD and DL model performances in the analysis of Studies 1 and 2 was initially conducted using the plots of observed vs. model‐predicted concentrations relative to the reference identity line, together with plots showing the frequency distribution of the differences between individual predicted and observed concentrations (Figure 4). The summary table comparing all parameters used to evaluate the performance of the HD and DL models (i.e., RMSE, MAE, R2, %AE, and %PE) is presented in Table 2. The results presented in Table 2 indicate that both approaches achieved similar predictive performance, although the DL model demonstrated slightly higher numerical performance than the HD model for the %AE and %PE criteria.
+
+The predictive performances of the ANN models were assessed by comparing the relationship between model‐observed and model‐predicted values in the training and test datasets using a correlation analysis as presented in Figure S2 of the supplemental material. The parameters describing the correlation between observations and model predictions in the training and test datasets for Studies 1 and 2 are presented in Table S1 of the supplemental material. The unitary slope observed in the correlation plots of the test datasets indicated the strong predictive performance of the ANN models. The accurate prediction of data not used during model development provides further evidence supporting the validity and robustness of the developed models.
+
+The results of the 10‐fold cross‐validation of the final ANN model are presented in Table S4 of the supplemental material file. The comparison of the descriptive statistics for the estimated performance metrics (i.e., RMSE, MAE, and R2) indicates that the ANN model demonstrated strong predictive performance and good stability across the validation folds.
+
+Different simulation scenarios were evaluated as a case study to illustrate the performance of the DL methodology, as shown in Figure 5. First, using the data from Study 1, simulations were conducted to explore the impact of body weight (identified as a relevant covariate in the DL model) ranging from 40 to 100 kg on drug exposure.
+
+The effect of including body weight as a covariate in the ANN model for Study 1 was evaluated by comparing the between‐subject variability of the base model (without covariates) with that of the final model. Between‐subject variability was quantified using the percentage deviation between predicted and observed values relative to the observed data (%Dev). The reduction in variability after inclusion of body weight was used to assess the covariate&#39;s explanatory power.
+
+The %Dev statistics indicated that incorporating body weight as a covariate substantially reduced between‐subject variability, in agreement with the conclusions drawn from the AIC and BIC analyses. For the base model, the mean percentage deviation was −1.55% (95% CI: −3.52% to 0.42%) with a coefficient of variation (%CV) of 6.45%. After inclusion of body weight, the mean percentage deviation decreased in magnitude to −0.10% (95% CI: −0.50% to 0.30%), while the %CV decreased markedly to 1.31%. These results suggest that body weight explains a substantial proportion of the observed between‐subject variability and improves the predictive performance of the model. The inclusion of body weight reduced the %CV from 6.45% to 1.31%, corresponding to an approximately 80% reduction in unexplained between‐subject variability.
+
+In Study 2, the methylphenidate concentrations predicted by the DL model from the single‐dose data (54 mg) were used as inputs for the superposition procedure to predict blood or plasma concentrations under repeated dosing conditions (i.e., 54 mg/day for 7 days).
+
+The evaluation of between‐subject variability in model predictions was performed using the same approach as in Study 1. Between‐subject variability was quantified as the percentage deviation between predicted and observed values relative to the observed data. The mean percentage deviation was −1.01% (95% CI: −2.92% to 0.90%), with a coefficient of variation of 6.94%, indicating low inter‐individual variability in model prediction performance. These findings are consistent with those observed in Study 1.
+
+Overall, the objective of the simulations was to demonstrate the potential of the DL methodology rather than to establish criteria for the external validation of predictive performance.
+
+Results of the DL modeling with the assessment of the covariate effect. the nodes variable represents the optimal number of nodes selected by the grid search algorithm.
+
+Plots of the individual observed and model‐predicted concentrations with the LOESS smoothing curves (solid line) and the 95% confidence intervals (shaded area) for Studies 1 and 2.
+
+Top panels 1 &amp; 2: Comparison of the individual observed (dots) and model‐predicted drug concentrations by NONMEM (solid blue lines) and deep‐learning (solid red lines) in selected subjects in Study 1. Bottom panels 2 &amp; 3: Comparison of the individual observed and model‐predicted drug concentrations by NONMEM (solid blue lines) and deep‐learning (solid red lines) in selected subjects in Study 2.
+
+PK modeling results for Study 1 (upper panels) and Study 2 (lower panels). Left panel: Plot of individual observed concentrations (dots) with the individual predicted concentrations with the reference identity lines (gray dotted lines) for the HD and the DL models. Right panel: Distribution of the residuals (i.e., the difference between individual predicted and individual observed concentrations) with the estimated %PE and %AE values.
+
+Comparison of the performances of the HD and DL models using the RMSE, MAE, r2, %AE, and %PE criteria.
+
+Bottom panels Study 1. Plots of the individual simulated exposure (gray lines) at the dose of 2 mg in subjects with body weight of 40 kg, 70 kg, and 100 kg with the LOESS smoothing curves (solid red lines) and the 95% confidence intervals (shaded area). Top panels Study 2. Left panel Individual observed (dots) and model‐predicted concentrations (gray lines) with the LOESS smoothing curves (solid blue line) and the 95% confidence intervals at the single dose of 54 mg. Right panel—Simulated exposure resulting from the dose of 54 mg/day during 7 days.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Discussion</h3>    <p>According to the ICH M15 Harmonized Guideline on General Principles for Model‐Informed Drug Development (MIDD), MIDD is defined as the strategic use of computational modeling and simulation methods that integrate nonclinical and clinical data, prior information, and knowledge (e.g., drug and disease characteristics) to generate evidence to inform drug development and decision‐making by drug developers, regulatory authorities, and other stakeholders [24].
+
+Traditionally, MIDD is implemented using mechanistic models, such as pharmacokinetic/pharmacodynamic (PK/PD), physiologically based pharmacokinetic (PBPK), and quantitative systems pharmacology (QSP) models that are built on established biological and physiological knowledge and use mathematical equations to describe drug behavior and disease processes. These models are highly interpretable and can extrapolate predictions to new populations or dosing scenarios, which makes them valuable for regulatory decision‐making and clinical trial design.
+
+In recent years, deep learning, a subset of machine learning (ML) methodologies based on artificial neural networks, has emerged as a powerful tool capable of learning complex, nonlinear relationships from data without requiring the explicit specification of predefined model structures or assumptions. Comparative analysis of the performances of traditional and ML‐based methodologies indicated that ML often outperforms traditional HD models, with variations in performance depending on model type and data characteristics [1]. Consequently, DL based approaches can improve both predictive performance and computational efficiency. Integrating deep learning techniques into MIDD workflows creates opportunities to enhance predictive accuracy, automate data analysis, and accelerate drug development [1, 25].
+
+Several studies have reported that mechanistic PK/PD models match or outperform ML approaches when training data are sparse, heterogeneous, or derived from small clinical cohorts—conditions that are common in early‐phase drug development. Data‐hungry DL architectures are particularly prone to overfitting in pharmacokinetic contexts where sample sizes rarely exceed a few hundred individuals, and their performance advantage may not hold across all therapeutic areas or study designs.
+
+In this study, we compared a conventional HD approach with a DL modeling approach using two datasets, chosen to evaluate predictive performance and modeling capabilities in two typical scenarios. The first scenario involved the analysis of population pharmacokinetic data to assess the potential impact of covariates on the population PK response. The second scenario was focused on evaluating the ability of DL models to characterize complex drug absorption profiles, such as those observed with osmotic controlled‐release oral delivery systems.
+
+Both the DL and HD models exhibited acceptable predictive performance, as indicated by percent absolute error (%AE) and percent prediction error (%PE). Notably, the DL model showed numerically superior precision and lower estimation bias compared with the HD model. It should be noted, however, that these performance differences were evaluated on internal datasets without independent external validation cohorts. DL models are known to exhibit optimistic performance metrics on training or cross‐validation sets, with substantially degraded predictive accuracy when applied to new populations or different dosing regimens. The generalizability of the observed performance advantage therefore remains to be confirmed prospectively. These findings suggest that the MIDD paradigm could be strengthened through the complementary integration of DL approaches with established hypothesis‐driven, mechanistic models, considering that the HD and DL models represent two complementary and not alternative approaches.
+
+Despite the potential interest, the application of DL methodology in pharmacokinetics presents several challenges regarding model interpretability and uncertainties surrounding regulatory acceptance. While DL models excel at capturing complex nonlinear patterns, they often operate as “black boxes,” offering limited interpretability and uncertain extrapolation capabilities. In contrast, mechanistic models, such as PK/PD or systems biology models, explicitly encode established biological relationships but struggle to represent unknown or data‐driven effects. Beyond interpretability, DL models in pharmacokinetics have been specifically criticized for their inability to reliably enforce physiological constraints—such as mass balance, dose linearity, or biologically plausible parameter ranges—without architectural modifications. Studies applying neural ODEs or physics‐informed neural networks to PK data have shown that unconstrained networks can produce pharmacokinetically implausible predictions, particularly during extrapolation to untested dose levels or special populations such as pediatric or renally impaired patients. This is a critical limitation for regulatory submissions, where mechanistic justification of model behavior is expected. The key challenge in developing novel methodologies lies in designing hybrid deep learning frameworks that combine the expressiveness of deep networks with the interpretability and theoretical grounding of mechanistic models. Such integration is expected to yield models that are both scientifically consistent and empirically powerful.
+
+As the landscape of pharmaceutical research continues to evolve, the future of MIDD lies in the integration of advanced methodologies such as artificial intelligence, machine learning, and real‐world data across the entire drug development continuum [26]. In this context, recent FDA draft guidance underscores the potential of AI and ML in regulatory decision‐making, reflecting an increasing openness from regulatory agencies to adopt and leverage these transformative technologies [27].
+
+Nonetheless, regulatory acceptance of purely data‐driven DL models for pharmacokinetic applications remains limited in practice. The FDA draft guidance itself emphasizes that AI/ML tools must demonstrate transparency, reproducibility, and bias assessment before supporting labeling claims. Similarly, the EMA&#39;s reflection paper on machine learning cautions that black‐box models are unlikely to meet current standards of evidence for dose selection or labeling without substantial mechanistic justification. To date, no DL‐based population PK model has served as the primary basis for a regulatory submission, underscoring the gap between methodological advances and regulatory implementation.
+
+Recently, hybrid deep learning frameworks have emerged as a new generation of modeling paradigms that integrate data‐driven neural architectures with mechanistic, physical, or knowledge‐based models [28]. By combining the strengths of data‐driven inference with established scientific knowledge, these approaches achieve both high predictive accuracy and enhanced biological interpretability. The high potential of this approach has been highlighted in a recent review indicating that this approach offers a promising alternative in pharmacometrics, particularly for uncovering complex dependencies and capturing the indirect influence of predictors [29].
+
+Despite their theoretical promise, hybrid deep learning frameworks face practical barriers including increased model complexity, greater computational resource requirements, and the need for large, high‐quality datasets to realize their potential advantages. The evidence base supporting their superiority over well‐specified nonlinear mixed‐effects (NLME) models in real regulatory or clinical decision‐making contexts remains sparse. Most published evaluations are proof‐of‐concept studies conducted on simulated or single‐institution datasets, and head‐to‐head comparisons with state‐of‐the‐art mechanistic models under realistic data conditions—particularly in sparse‐sampling scenarios typical of late‐phase clinical trials—are still lacking.
+
+The key considerations in interpreting the comparative results are that the HD model and DL represent fundamentally different modeling paradigms. The HD model is a parsimonious mechanistic nonlinear mixed‐effects framework whose parameters have explicit physiological meaning, whereas the DL model is a highly flexible nonlinear function approximator with numerous latent parameters that generally lack direct biological interpretation.
+
+Although DL demonstrated competitive predictive accuracy, predictive performance does not by itself establish methodological superiority in pharmacometrics applications. Additional criteria—including mechanistic interpretability, biological plausibility, extrapolation capability beyond the training domain, parameter identifiability, uncertainty quantification, and regulatory acceptability—are also important when assessing model utility. Mechanistic HD models provide physiologically meaningful parameter estimates that can be linked to underlying biological processes, facilitating scientific understanding, hypothesis generation, and clinical interpretation. In contrast, DL models currently offer limited insight into the biological mechanisms governing system behavior and may be more difficult to interpret in a regulatory context.
+
+Therefore, the findings should be viewed as demonstrating differences in predictive capability under the evaluated conditions rather than establishing the overall superiority of one modeling approach. The choice between HD and DL approaches ultimately depends on the intended application, with mechanistic models offering advantages in interpretability and physiological insight, while data‐driven approaches may provide greater flexibility for capturing complex nonlinear relationships.
+
+Mechanistic models offer several advantages beyond predictive performance, including parameter estimates with direct physiological interpretation, explicit quantification of between‐subject variability and parameter uncertainty, and well‐established capabilities for extrapolation across doses, populations, and clinical scenarios. These characteristics make them particularly valuable in model‐informed drug development and regulatory decision‐making. In contrast, deep learning models are primarily designed to maximize predictive accuracy and often provide limited interpretability, less transparent uncertainty quantification, and weaker extrapolation outside the range of the training data.
+
+In summary, the analyses conducted were designed to evaluate the predictive accuracy and model adequacy of the deep learning (DL) model, thereby supporting the validity of the DL‐based approach. Predictive accuracy was assessed by examining agreement between model‐predicted and observed concentrations. Evaluation metrics included root mean square error, mean absolute error, visual predictive checks (VPCs), and plots of individual and population predictions (IPRED and PRED, respectively) vs. observed concentrations.
+
+Model adequacy was evaluated to determine whether the model structure appropriately represented the underlying pharmacokinetic process. This assessment included goodness‐of‐fit diagnostics, particularly conditional weighted residuals (CWRES) vs. time to identify potential systematic residual trends; information criteria, including the Akaike information criterion (AIC) and Bayesian information criterion (BIC); and reductions in between‐subject variability after incorporating covariate effects into the DL model.
+
+Together, the predictive accuracy and model adequacy assessments yielded convincing results, suggesting that the model‐informed drug development paradigm could be strengthened through complementary integration of DL approaches.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Author Contributions</h3>    <p>R.G. and F.B.‐G. wrote the manuscript; R.G. designed the research; R.G. and F.B.‐G. performed the research and analyzed the data.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Funding</h3>    <p>The authors have nothing to report.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Ethics Statement</h3>    <p>Ethics approval was not required.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Conflicts of Interest</h3>    <p>R.G. and F.B.‐G. were paid consultants to Mapi pharma, Otsuka pharmaceutical, Auitifony Therapeutics; Tris Pharma; Orexia Therapeutics; Sunovion Pharmaceuticals; Chemopharma; Supernus Pharmaceuticals; Ironshore Pharmaceutical; Exeltis Pharma; UCB Pharma; Universal Pharma; Teva Pharmaceuticals; 4SC AG; Alfasigma; Recordati; CeNeRx BioPharma; GlaxoSmithKline; ViiV Healthcare; Hoffman‐LaRoche; Indivior; Johnson &amp; Johnson Pharmaceutical Research &amp; Development; Reckitt Benckiser; Relmada Therapeutics Inc.; KYE Pharmaceuticals; Orphan Europe; Singapore Agency for Science, Technology and Research (A*STAR); Amgen Inc.; Allecra Therapeutics; NDA Regulatory Service AB; Gilead Science Inc.; Theravance Biopharma; Sensorion SA; AstraZeneca.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Supporting information</h3>    <p>Figure S1: Observed data (dots) by dose level in Study‐1 (upper panels) and in Study‐2 (lower panels).
+
+Figure S2: Comparison of the relationship between model‐observed and model‐predicted values in the training and test datasets using a correlation analysis.
+
+Table S1: Parameters describing the correlation analysis between observations and model predictions in the training and test datasets for Studies 1 and 2.
+
+Table S4: Summary results of the 10‐fold cross‐validation of the final ANN model using the RMSE, MAE, and R2criteria.
+
+Figure S3: Study 1: Goodness of fit plots. Lines of identity and zero lines are overlaid where appropriate.
+
+Table S2: Study 1: Descriptive statistics on the distribution of CWRES and CV%.
+
+Figure S4: Study 1: VPCs stratified by dose. Points are observed concentrations, solid blue lines represent the median predicted values, and the shaded areas represent the 95% prediction intervals.
+
+Figure S5: Study 2: Goodness of fit plots. Lines of identity and zero lines are overlaid where appropriate.
+
+Table S3: Study 2: Descriptive statistics on the distribution of CWRES and CV%.
+
+Figure S6: Study 2: VPCs stratified by dose. Points are observed concentrations, solid blue lines represent the median predicted values, and the shaded areas represent the 95% prediction intervals.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Associated Data</h3>    <p>Figure S1: Observed data (dots) by dose level in Study‐1 (upper panels) and in Study‐2 (lower panels).
+
+Figure S2: Comparison of the relationship between model‐observed and model‐predicted values in the training and test datasets using a correlation analysis.
+
+Table S1: Parameters describing the correlation analysis between observations and model predictions in the training and test datasets for Studies 1 and 2.
+
+Table S4: Summary results of the 10‐fold cross‐validation of the final ANN model using the RMSE, MAE, and R2criteria.
+
+Figure S3: Study 1: Goodness of fit plots. Lines of identity and zero lines are overlaid where appropriate.
+
+Table S2: Study 1: Descriptive statistics on the distribution of CWRES and CV%.
+
+Figure S4: Study 1: VPCs stratified by dose. Points are observed concentrations, solid blue lines represent the median predicted values, and the shaded areas represent the 95% prediction intervals.
+
+Figure S5: Study 2: Goodness of fit plots. Lines of identity and zero lines are overlaid where appropriate.
+
+Table S3: Study 2: Descriptive statistics on the distribution of CWRES and CV%.
+
+Figure S6: Study 2: VPCs stratified by dose. Points are observed concentrations, solid blue lines represent the median predicted values, and the shaded areas represent the 95% prediction intervals.</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Associated Data › Supplementary Materials</h3>    <p>Figure S1: Observed data (dots) by dose level in Study‐1 (upper panels) and in Study‐2 (lower panels).
+
+Figure S2: Comparison of the relationship between model‐observed and model‐predicted values in the training and test datasets using a correlation analysis.
+
+Table S1: Parameters describing the correlation analysis between observations and model predictions in the training and test datasets for Studies 1 and 2.
+
+Table S4: Summary results of the 10‐fold cross‐validation of the final ANN model using the RMSE, MAE, and R2criteria.
+
+Figure S3: Study 1: Goodness of fit plots. Lines of identity and zero lines are overlaid where appropriate.
+
+Table S2: Study 1: Descriptive statistics on the distribution of CWRES and CV%.
+
+Figure S4: Study 1: VPCs stratified by dose. Points are observed concentrations, solid blue lines represent the median predicted values, and the shaded areas represent the 95% prediction intervals.
+
+Figure S5: Study 2: Goodness of fit plots. Lines of identity and zero lines are overlaid where appropriate.
+
+Table S3: Study 2: Descriptive statistics on the distribution of CWRES and CV%.
+
+Figure S6: Study 2: VPCs stratified by dose. Points are observed concentrations, solid blue lines represent the median predicted values, and the shaded areas represent the 95% prediction intervals.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

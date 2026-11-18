@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Novel Big Data-Driven Machine Learning Models for Drug Discovery Application · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Novel Big Data-Driven Machine Learning Models for Drug Discovery Application</h1>
+<p class="authors">Vishnu Sripriya Akondi, Vineetha Menon, Jerome Baudry, Jana Whittle</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Molecules (Basel, Switzerland)</dd>
+<dt>Published</dt><dd>2022-01-18</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Virtual screening and binding prediction</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.3390/molecules27030594">10.3390/molecules27030594</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/35163865/">35163865</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/35163865/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/35163865/</a></dd>    <dt>Licence</dt><dd>CC-BY</dd>
+    <dt>RegKnow ID</dt><dd><code>c7002771553840dc</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Most contemporary drug discovery projects start with a &#39;hit discovery&#39; phase where small chemicals are identified that have the capacity to interact, in a chemical sense, with a protein target involved in a given disease. To assist and accelerate this initial drug discovery process, &#39;virtual docking calculations&#39; are routinely performed, where computational models of proteins and computational models of small chemicals are evaluated for their capacities to bind together. In cutting-edge, contemporary implementations of this process, several conformations of protein targets are independently assayed in parallel &#39;ensemble docking&#39; calculations. Some of these protein conformations, a minority of them, will be capable of binding many chemicals, while other protein conformations, the majority of them, will not be able to do so. This fact that only some of the conformations accessible to a protein will be &#39;selected&#39; by chemicals is known as &#39;conformational selection&#39; process in biology. This work describes a machine learning approach to characterize and identify the properties of protein conformations that will be selected (i.e., bind to) chemicals, and classified as potential binding drug candidates, unlike the remaining non-binding drug candidate protein conformations. This work also addresses the class imbalance problem through advanced machine learning techniques that maximize the prediction rate of potential protein molecular conformations for the test case proteins ADORA2A (Adenosine A2a Receptor) and OPRK1 (Opioid Receptor Kappa 1), and subsequently reduces the failure rates and hastens the drug discovery process.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractMost contemporary drug discovery projects start with a ‘hit discovery’ phase where small chemicals are identified that have the capacity to interact, in a chemical sense, with a protein target involved in a given disease. To assist and accelerate this initial drug discovery process, ’virtual docking calculations’ are routinely performed, where computational models of proteins and computational models of small chemicals are evaluated for their capacities to bind together. In cutting-edge, contemporary implementations of this process, several conformations of protein targets are independently assayed in parallel ‘ensemble docking’ calculations. Some of these protein conformations, a minority of them, will be capable of binding many chemicals, while other protein conformations, the majority of them, will not be able to do so. This fact that only some of the conformations accessible to a protein will be ’selected’ by chemicals is known as ’conformational selection’ process in biology. This work describes a machine learning approach to characterize and identify the properties of protein conformations that will be selected (i.e., bind to) chemicals, and classified as potential binding drug candidates, unlike the remaining non-binding drug candidate protein conformations. This work also addresses the class imbalance problem through advanced machine learning techniques that maximize the prediction rate of potential protein molecular conformations for the test case proteins ADORA2A (Adenosine A2a Receptor) and OPRK1 (Opioid Receptor Kappa 1), and subsequently reduces the failure rates and hastens the drug discovery process.Keywords: drug discovery, class imbalance, machine learning, protein conformation selecton, drug candidates, ADORA2A, OPRK1</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>1. Introduction</h3>    <p>The core concept of any drug discovery application involves, in most cases, a protein biological target which binds with a chemical (known as ’ligand’) to achieve a biological function. The ligand is most often, although not always, a small organic chemical that binds to the protein target and modulates its function in a way that achieves a therapeutic benefit to the patient. Indeed, drug discovery can be inferred as the process of identification of small molecules that will bind selectively and safely to specific protein targets that are responsible for diseases.
+
+The modern-day drug discovery and development timeline is a complex process that starts with protein target identification and ends with an FDA approval, and that takes an average of 12–15 years and costs more than $1 billion until the launch of the finished product. These time and cost issues are mostly due to (i) the time it takes in the early stage to identify drug candidates effective against a protein target, and (ii) the inflated failure rates of over 90% during later clinical trial stages, where the identified potential drug candidate proteins fail to succeed during various stages of developmental clinical trials. The prominent cause of these late-stage failures is that the potential drug candidates often have a tendency to bind off-target proteins, instead of only binding to their intended protein targets. This off-target drug binding can lead to a spectrum of adverse effects ranging from lack of potency and selectivity to more serious issues of drug toxicity [1].
+
+A popular and efficient approach to identify in silico chemicals that have the potential to bind to specific proteins is called docking. In docking, computational models of chemicals are used together with computational models of the protein of interest to compute their respective binding free energies. These chemicals that are predicted to bind strongly to the protein of interest would be prioritized for further experimental testing. This approach has been historically used in many early-scale drug discovery projects. Thanks to the availability of supercomputers, this process is now beginning to be applied to the prediction of later-stage clinical trial outcomes, predicting not only of the chemicals of interest can bind to the protein of interest, but also if they can bind to several proteins known to be responsible for many clinical trial failures because of off-target binding [1].
+
+A recent major development of this docking approach is the use of ensemble docking [2]. In ensemble-docking, more than one computational model of the protein target is used, combinatorially, to predicted the binding affinities of chemicals against the protein. The idea behind ensemble-docking is that, in the living cells, proteins are not static objects, but they undergo constant conformational dynamics that change their shapes to a significant extent at the atomistic level, and hence the binding affinities of chemicals. We have shown that in the many conformations that a protein can adopt, some, a small minority, will be much better at binding chemicals than others, confirming the chemical concept of conformational selection of protein conformations by their ligands [1]. In order to describe the range of conformations that the target proteins can adopt, various approaches such as molecular dynamics (MD) simulations Monte Carlo or Markov-State models are often employed [3]. However, the use of MD simulations to emulate the protein-ligand docking process has its own share of challenges beyond the knowledge of the structure of both the target protein and ligands [3]. In the context of ensemble docking, the most important challenge is how to identify, among a large number of conformational variations of a protein structure, the few ones that will end up being selected by the drugs for binding [1]. This work aims at addressing this important question by looking at physical and data properties of protein conformations that are associated with conformational selection. MD simulations do not provide data-driven insights into the identification of data-patterns such as the biophysical or chemical properties of ligand at-large that enables the selection of specific target protein conformations over the others. These problems highlight the need for advanced machine learning (ML) techniques that can analytically determine a precise binding with the least amount of time, cost expended with minimal pre-clinical lab trials and reduced failure rates at much early-stages in the drug discovery pipeline.
+
+In literature, commonly used ML techniques based on characterizing protein conformational selection include root mean squared deviation (RMSD) clustering, Perron cluster analysis (PCCA+), and Markov-clustering (MCL) methods [4]. RMSD is a least squares approach that computes protein conformational RMSD values to generate clusters or protein conformational states based on a user-defined threshold. PCCA+ is a fuzzy clustering algorithm that performs clustering on the eigenvalues of the protein conformational transitions. MCL is a graph based clustering algorithm that uses the probability of a random walker to transition to a particular sequence of states. Strecker and Meyer performed clustering methods such as K-Means and hierarchical clustering (with average linkage) analysis on the cluster representatives to measure the docking performance in terms of binding pose prediction, screening utility and scoring accuracy [5]. Other mutual information based methods [6,7] and dimensionality reduction methods have also been proposed for information extraction [8].
+
+However, the current ML methods do not address the caveats of statistically ill-conditioned and limited real-world data availability scenarios. This brings us to the class imbalance problem, where the detection of smaller sample-size potential drug-binding protein conformations is dominated by the larger population of non-drug-binding protein conformations. Consequently, most of the ML techniques employed for data-learning on such a biased population dataset will result in a high risk that the smaller population of potential drug candidate protein conformations (minority class samples) will be misclassified/ misidentified as the non-drug candidate protein conformations. In practice, this class imbalance problem could lead to serious effects where the researchers arrive at erroneous conclusions on the probable subset of proteins that will generate, from docking, a correct and useful list of chemicals predicted to bind to the protein targets, thereby drastically reducing the impact and reliability of analytical solutions for drug discovery applications. Therefore, to address the challenges in drug discovery domain, this paper introduces a two-stage sampling-based classifier drug discovery system. This system uses sampling strategies to study the class imbalance problem, to maximize the detection of potential drug-candidate conformations and recommend them to the biologists/pharmacologists during in vitro analysis. It also suggests the non-drug candidate protein conformations that could be discarded during the clinical trials, thus reducing the substantial investment of resources.
+
+The novel contributions of this work are outlined as below:
+
+The rest of the paper is organized as follows: background and related work is discussed in Section 2 followed by the proposed two-stage sampling based ML classification framework in Section 3. In Section 4, we experimentally demonstrate and validate the efficacy of the two-stage sampling based ML classification framework in identification of potential drug candidate protein conformations. Finally, we summarize the effectiveness of our proposed automated ML-based models for prediction of potential drug candidate protein conformational selection in Section 5.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>2. Background and Related Work</h3>    <p>Protein descriptors for ADORA2A and OPRK1 datasets.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>2. Background and Related Work › 2.1. Class Imbalance Problem</h3>    <p>In real-world drug discovery applications, most of the biomedical datasets observed are imbalanced in nature. The training phase of a supervised classifier constitutes data-learning performed on the given unequal distribution of representative samples from the imbalanced dataset. Here, the classifier aims to achieve a good classification/prediction performance without any consideration for the data distribution of each class. Hence, the resultant decision-making process tends to be more biased towards the majority class (which in the present case would be protein conformations that will not bind drugs), thereby leading to the misclassification of minority class samples (which in the present case would be protein conformations that will bind the drugs) [9]. Thus, the penalty cost of misclassification of minority samples is higher than the majority samples for a class imbalance problem [10]. Especially in drug discovery application, the class imbalance problem is of great consequence, since it leads to a higher risk of discarding the smaller population of protein conformations that can successfully bind to drugs due to them being misclassified as non-drug-binding protein conformations. In drug discovery literature, ensemble learning techniques have been proposed as a solution to handle the within- and between-class imbalance problem for prediction of drug–target interaction [11]. The main difference between our approach and other approaches is that, in our work, we tackle the class imbalance problem and also introduce a new perspective to maximize the detection of both potential drug candidate conformations and non-drug candidate conformations via the proposed two-stage sampling-based classifier system. The remainder of this paper discusses more about the proposed method, design of the two-stage sampling-based classifier system, and its experimental efficacy.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>2. Background and Related Work › 2.2. Sampling Strategies</h3>    <p>The two broad categories of sampling strategies often employed are: (1) Undersampling approach: where sampling is performed by removal of additional data instances from the majority class samples and (2) Oversampling approach: where sampling is performed by the addition of artificial data instances to the minority class samples [10]. One of the most popular undersampling techniques is a random undersampling approach, wherein N samples are selected at random from the majority class to be included as part of a new smaller training set that consists of equal distribution (same N number of samples) of minority class samples. The main drawback of the undersampling approach is that it entails a substantial risk of loss of important information due to elimination of a large amount of original data samples from the new training phase [10,12,13], whereas the oversampling approach has no loss of information involved since all the original data samples are retained in the training phase. The oversampling approach generates artificial data samples of the minority class and adds them to the new training dataset to obtain the desired well-balanced data, which consists of equal distribution of majority and minority class data samples [10]. A synthetic minority oversampling technique (SMOTE) proposed by Chawla [14] creates new synthetic data samples of the minority class and adds them to the new training data set, thus reducing the overfitting problem that arises due to data replication. For this, SMOTE identifies K nearest neighbors for each data sample belonging to the minority class and then performs regression to fit the data samples to a line in order to generate the new synthetic data samples for the minority class [14]. The only problem with oversampling approach is that, for larger datasets, the increase in training data size also implies a corresponding increase in time-complexity of the data-learning phase. In the remainder of this paper, we will discuss several existing supervised ML techniques and introduce our novel ML approaches that leverage the sampling strategies to alleviate the class imbalance problem and maximize detection of potential drug-candidate molecular conformations for proteins ADORA2A and OPRK1.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>2. Background and Related Work › 2.3. Datasets Description</h3>    <p>In this work, proteins ADORA2A (Adenosine A2a Receptor) and OPRK1 (Opioid Receptor Kappa 1) are considered for case study and experimental validation of the proposed method. The conformations of these two proteins have been extensively characterized, and the protein conformations that (i) will bind ligands and (ii) will not bind ligands are known and have been documented and published [1]. The conformations of the proteins were collected from 0.6 microsecond molecular dynamics simulations using full protein, membrane, and hydration environments on the Moldyn High Performance Cluster, and the docking was performed on the Titan Supercomputer at the Oak Ridge National Laboratory in Oak Ridge, TN, USA and on the Newton Supercomputer at the University of Tennessee, using the VinaMPI docking engine as described in Evangelista et al. The protein conformations that were docking the protein ligands with a high score were identified as described in [1]. Each protein MD trajectory consisted of 3000 protein conformations.
+
+ADORA2A: This gene encodes a member of the guanine nucleotide-binding protein (G protein)-coupled receptor (GPCR) superfamily, which is subdivided into classes and subtypes. The given dataset consists of 50 attributes with 3000 molecular conformations among which 850 conformations have the potential to bind with the protein and 2147 conformations do not bind with the protein. Here, the imbalance ratio is 3:1 i.e., or every datasample belonging to minority class, there are three data samples belonging to the majority class.
+
+OPRK1: This gene encodes an opioid receptor, and is a member of the 7 transmembrane spanning GPCR family.This is a Protein Coding gene. The given dataset consists of 50 attributes with 2999 molecular conformations among which 137 conformations have the potential to bind with the protein and 2862 conformations do not bind with the protein. Here, the imbalance ratio is 20:1 i.e., for every datasample belonging to minority class, there are 20 datasamples belonging to the majority class.
+
+For each of the conformations of the ADORA2A and OPRK1 proteins described in Table 1, the molecular descriptors were calculated using the protein descriptors of the program MOE [15]. These descriptors are used to quantify various physical and chemical properties of the protein conformations. These descriptors are mostly based on the whole protein conformations, i.e., they are not limited to the small part of the protein where the ligands do bind. These descriptors have been found useful to characterize proteins and their conformations in ways that can distinguish them from other proteins or conformations [16].
+
+The goal is to identify the maximum number of molecular conformations related to the ADORA2A and OPRK1 proteins to recommend the identified smaller subset of potential drug candidate conformations for more efficient docking calculations.The datasets have an active binding feature as the “dependent variable” which has 2 classes labeled as either 0 or 1 to indicate the binding outcome. Class 0 describes that known ligands do not bind well to the given protein conformation, and class 1 conveys that known ligands bind well to the given protein conformation. In this work, we have explored seven supervised ML classification models: Methodology 1 classification using LR, Methodology 2 classification using GB and KNN, re-balance the dataset using SMOTE followed by Methodology 2 classification techniques: SMOTE-GB, and SMOTE-KNN, and decision fusion using LR+SMOTE-GB and LR+SMOTE-KNN techniques. Their performance evaluation was conducted on 10%, 20% and 30% of training data sizes, where the training samples were randomly chosen from the original dataset. This training set range was chosen because, in reality, there are only a smaller number of conformations available for data-learning and training the supervised classifier. The LR classifier hyperparameter was empirically chosen as C=5. In the context of protein conformational selection for drug discovery application, a confusion matrix presents the summary of prediction/classification results of a given protein conformation as belonging to one of the below four cases:
+
+Protein descriptors for ADORA2A and OPRK1 datasets.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>2. Background and Related Work › 2.4. Logistic Regression</h3>    <p>Logistic regression (LR) is one of the popular ML techniques that is used to perform predictive analysis of data, when the data are categorical or has binary classes. The goal of LR is to determine the best fitting model that describes the relationship between one dependent binary variable against a group of independent variables [17]. LR models the transformed probability as a linear relationship of independent variables. Let y be the binary outcome indicating failure/success (not belong to the class/belongs to the class) with 0/1, respectively, and p be the probability of y=1 as p=prob(y=1). Conversely, y=0 can be expressed as 1−p. Then, LR models the outcome y based on linear combination of the independent data variables x1,x2,…,xk and their respective parameter/weight values β1, β2, …, βk via maximum likelihood method as given by:
+
+For an accurate LR model with minimum error, we determine the cost function J(θ) such that the square error between the actual values of y and its predicted values y^ is minimized. Thus, using mean squared error formulation for LR makes the cost function J(θ) non-convex with multiple local minima. Therefore, we use cross entropy based LR formulation, where cross entropy H is defined as the dissimilarity measure between the probability p corresponding to actual values y and predicted probability p^ corresponding to the predicted values y^ can be calculated as:
+
+From Equation (2), the new cross entropy based LR cost function is formulated as:</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>2. Background and Related Work › 2.5. Gaussian Naive Bayes Classifier</h3>    <p>Naive Bayes classifier is another commonly used ML supervised technique for data classification purposes. It follows the principle of maximum a posteriori probability (MAP) estimation for a probabilistic classification of data. Let y∈{0,1} be the binary class outcome for a given new data point x. According to Bayes theorem, the posterior probability P(y|x) can be expressed in terms of prior probability P(y) and likelihood P(y|x) as described by:
+
+where
+
+Therefore, the posterior probability for different classes can be calculated from Equation (4). The class with highest probability is chosen for classifying the new data point x. This strategy is called the MAP estimation as formulated below:
+
+Gaussian Naive Bayes (GB) classifier is used when the features have continuous values and follow Gaussian or normal distribution [18]. The likelihood of features is assumed to be Gaussian and is given by
+
+where μy denotes the mean of class y and σy2 gives the variance of class y. The standard normal distribution N(μ,σ) is a bell shaped density described by its mean μ=0 and standard deviation σ=1.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>2. Background and Related Work › 2.6. K-Nearest Neighbor Classifier</h3>    <p>K-nearest neighbor (KNN) classifier is a widely used ML technique for its easy interpretation and low calculation time for both classification and regression problems. Given a new data point x which has to be assigned to one of the classes y∈{0,1}, the KNN algorithm performs the classification task as described by the following steps [19]:</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>2. Background and Related Work › 2.7. SMOTE Algorithm</h3>    <p>SMOTE is a popular oversampling technique which creates new synthetic data points rather than by oversampling with replacement or redundant samples of the minority class data [9]. SMOTE algorithm is detailed below [12,14,20]:</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>3. Proposed Methodologies</h3>    <p>Among several classifiers applied to the training phase of the dataset, it was experimentally found that LR had excellent classification performance in detection of maximum non-drug conformations and GB classifier provided better detection of potential binding drug candidate conformations compared to other classifiers from our previous work [21]. For classification purposes, we denote the non-drug molecular conformation samples that have inactive binding to target proteins as belonging to class 0 and potential drug candidate molecular conformations that have active binding to target proteins as class 1 samples. Thus, this is a binary classification problem. We use this as a basis to design our comprehensive drug-candidate conformation detection system that leverages the detection of both potential drug- and non-drug conformations for expedited clinical trials. This system comprises of two stages:
+
+Flowchart of the proposed two-stage sampling-based classifier.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>3. Proposed Methodologies › Two-Stage Sampling-Based Classifier Algorithm</h3>    <p>The motivation behind using methodology 1 is to identify the maximum number of non-drug protein conformations, whereas methodology 2 is used to provide an additional layer of security to reconfirm the potential-drug conformations identified by the methodology 1 along with the identification of new potential-drug conformations through decision fusion strategy. This form of two-stage tailored binary classification system ensures maximum detection of both potential drug candidate- and non-drug protein conformations at each step. Consequently, it aims to reduce the failure rates incurred during the clinical trials involved in the drug development process. The identified protein conformations can considered by the clinicians for informed decision-making to discard the non-drug candidate protein conformations and retain only the potential drug-candidate protein conformations for in vitro experimental approaches, thus reducing the substantial investment of resources that include time, cost, and rigorous lab testing trials.
+
+Flowchart of the proposed two-stage sampling-based classifier.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>4. Results and Discussion</h3>    <p>Number of class 0 samples and class 1 samples in the original training dataset.
+
+Classification performance of Methodology 1-LR on the original training dataset.
+
+Classification performance of Methodology 2—GB and KNN on the original training dataset.
+
+Number of class 0 samples and class 1 samples in the new training dataset.
+
+Classification performance of SMOTE-GB and SMOTE-KNN on the new training dataset.
+
+Reconfirmation and identification of new TP by Methodology 2—SMOTE-GB and SMOTE-KNN.
+
+Decision fusion of Methodology 1 and Methodology 2: LR+SMOTE-GB and LR+SMOTE-KNN.
+
+Plot of overall classification accuracies across varying training sizes for case 1, case 2, and decision fusion for protein ADORA2A.
+
+Plot of TP accuracies across varying training sizes for case 1, case 2, and decision fusion for protein ADORA2A.
+
+Plot of TN accuracies across varying training sizes for case 1, case 2, and decision fusion for protein ADORA2A.
+
+Number of class 0 samples and class 1 samples in the original training dataset.
+
+Classification performance of Methodology 1-LR on the original training dataset.
+
+Classification performance of Methodology 2—GB and KNN on the original training dataset.
+
+Number of class 0 samples and class 1 samples in the new training dataset.
+
+Classification performance of SMOTE-GB and SMOTE-KNN on the new training dataset.
+
+Reconfirmation and identification of new TP by Methodology 2—SMOTE-GB and SMOTE-KNN.
+
+Decision fusion of Methodology 1 and Methodology 2: LR+SMOTE-GB and LR+SMOTE-KNN.
+
+Plot of overall classification accuracies across varying training sizes for case 1, case 2, and decision fusion for protein OPRK1.
+
+Plot of TP accuracies across varying training sizes for case 1, case 2, and decision fusion for protein OPRK1.
+
+Plot of TN accuracies across varying training sizes for case 1, case 2, and decision fusion for protein OPRK1.
+
+Plot of ROC curve for ADORA2A protein for a training size of 30%.
+
+AUC Score and F1 Score of the proposed ML methodologies for ADORA2A.
+
+Plot of ROC curve for OPRK1 protein for a training size of 30%.
+
+AUC Score and F1 score of the proposed ML methodologies for OPRK1.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>4. Results and Discussion › 4.1. Datasets Description</h3>    <p>In our initial experiments, several ML classifiers such as support vector machines (SVMs), GB, LR, and KNN classifiers were explored. Most of them yielded a good classification performance with a high detection of non-drug conformations/TNs, but a very low detection of drug candidate conformations/TPs. This was mainly because of the class imbalance problem, due to which the performance of ML classification models was more biased towards the majority class; (i.e., class 0 samples). This prompted us to design a system specifically to tackle the class imbalance problem and maximize the detection of TPs and TNs, and evaluate the performance of our proposed methods through the standard classification metrics that adequately represent the model performance.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>4. Results and Discussion › 4.2. Performance Evaluation</h3>    <p>This section comprises of three test cases, namely, Case 1: Training set with biased population of class 0 samples. Case 2: Training set with biased population of class 1 samples. Finally Case 3: Decision fusion strategy. The quantitative performance analysis of the proposed classification techniques for each of the test cases are conducted using the measures as defined below:
+
+Classification Accuracy (Acc): The accuracy of a test is defined as the ability to differentiate the “Active Binding” and “Inactive Binding” cases correctly. Mathematically, it is given by
+
+where
+
+Sensitivity (Se): The sensitivity of a test is defined as the ability to determine the “Active Binding” cases correctly. Mathematically, it is given by
+
+Specificity (Sp): The specificity of a test is defined as the ability to determine the “Inactive Binding” cases correctly. Mathematically, it is given by
+
+Performance Evaluation using AUC-ROC Curve: ROC curve (or receiver operating characteristic curve) is a plot that summarizes the performance of a binary classification model on the positive class and the area under the curve (AUC) represents degree or measure of separability. It measures the capability of the model to distinguish between the classes. AUC can be calculated to give a single score for a classifier model across all threshold values. Higher AUC represents better prediction or classification capabilities of the model. The ROC curve is plotted with True Positive Rate (TPR) against the False Positive Rate(FPR) where TPR is on y-axis and FPR is on the x-axis.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>4. Results and Discussion › 4.3. Computational Evaluation on the ADORA2A Dataset</h3>    <p>Case 1: Training set biased population of class 0 samples: Table 2 gives the per-class samples present in accordance with the various training sizes considered.
+
+From Table 3, it can be noted that LR identified 151 TPs from 579 samples of class 1 and 1313 TNs from 1519 samples of class 0 for a training size of 30%. Thus, the observed results across all cases validate our argument that LR has the best classification performance for detection of TNs or non-drug conformations.
+
+From Table 4, it can be seen that GB identified 279 TPs from 579 samples of class 1 and 1059 TNs from 1519 samples of class 0. Similarly, KNN identified 149 TPs from 579 samples of class 1 and 1245 TNs from 1519 samples of class 0 for training size of 30%. Thus, it can be noted that overall GB had the best classification performance in methodology 2 and gave better detection rates of TPs or potential drug candidate conformations over the KNN classifier.
+
+Case 2: New training set with biased population of class 1 samples: This case studies the effects of induced class imbalance on the prediction rates of molecular conformations. The goal here is to maximize the detection of TPs identified by methodology 2 via the two stage sampling based approach in order to improve the model performance. For this, we perform SMOTE oversampling of class 1 samples and undersampling of class 0 samples, such that the new training data size is consistent with the original training data size. Methodology 2 is then employed for data-learning on the resultant new training set. Table 5 gives the per-class distribution in the new training dataset. From Table 5 results, we observe that the size of the new training dataset is the same as that of the original training dataset. For instance, the original training dataset had 628 class 0 samples and 271 class 1 samples for training size of 30%. The new training dataset has the same number of class 0 samples = 271 and number of class 1 samples = 628 for 30% training size.
+
+Table 6 describes the overall improved classification performance of the proposed two-stage classification system and the effects of induced class imbalance of class 1 data population. From Table 6, SMOTE-GB identified 384 TPs, which is more than the 279 TPs identified using the original training dataset in Table 4 for training size of 30%. In particular, the SMOTE-KNN classifier had the best methodology 2 classification performance, wherein it identified 504 TPs, which is more than the 149 TPs identified using the original training dataset in Table 4 for training size of 30%. The affable effects of induced class imbalance are evident from the boost in classification performance of methodology 2 techniques. In particular, the SMOTE-KNN technique works on the concept of nearest neighbor algorithm and more induced neighbors via oversampling of class 1 samples implies better statistical conclusion of the underlying population distribution of the potential drug candidate conformations.
+
+Table 7 describes the overall TPs and TNs reconfirmed and identified, including the unique TPs identified by Methodology 2. For the training size of 30%, SMOTE-GB reconfirmed on 134 TPs identified by methodology 1 apart from identifying 250 new TPs. Thus, in total, it identified 384 TPs using the new training dataset. The SMOTE-KNN classifier reconfirmed the 140 TPs identified by methodology 1 classifier aside from identifying 364 new TPs. Thus, in total, 504 TPs were identified using the new training dataset. Thereby, Table 7 further demonstrates the effectiveness of the proposed two-stage sampling-based classification approach.
+
+Case 3: Decision Fusion: This case explores a decision fusion strategy via a majority voting scheme as a means to assimilate the classification conclusions from methodology 1—LR with the results from the methodology 2 system: SMOTE-GB and SMOTE-KNN techniques to arrive at a global consensus of the overall identified molecular conformations that possess active binding property. The quantitative performance of proposed decision fusion method is determined in terms of the below measures:
+
+where Ntest represents the total number of class 1 and class 0 samples in the test set.
+
+where Ntest1 represents the total number of class 1 samples in the test set.
+
+where Ntest0 represents the total number of class 0 samples in the test set.
+
+Table 8 demonstrates the overall classification performance of the proposed decision fusion case. From Table 8 and Figure 2, Figure 3 and Figure 4, it can be inferred that the overall classification performance of the proposed methods: LR+SMOTE-GB and LR+SMOTE-KNN techniques were significantly superior to individual classification performance of LR, GB, and KNN classifiers as given in Table 3 and Table 4. From Figure 2, Figure 3 and Figure 4, especially, LR+SMOTE-KNN had excellent classification performance for identification of the molecular conformations for protein ADORA2A in terms of overall classification accuracy and TP accuracy measures.
+
+Number of class 0 samples and class 1 samples in the original training dataset.
+
+Classification performance of Methodology 1-LR on the original training dataset.
+
+Classification performance of Methodology 2—GB and KNN on the original training dataset.
+
+Number of class 0 samples and class 1 samples in the new training dataset.
+
+Classification performance of SMOTE-GB and SMOTE-KNN on the new training dataset.
+
+Reconfirmation and identification of new TP by Methodology 2—SMOTE-GB and SMOTE-KNN.
+
+Decision fusion of Methodology 1 and Methodology 2: LR+SMOTE-GB and LR+SMOTE-KNN.
+
+Plot of overall classification accuracies across varying training sizes for case 1, case 2, and decision fusion for protein ADORA2A.
+
+Plot of TP accuracies across varying training sizes for case 1, case 2, and decision fusion for protein ADORA2A.
+
+Plot of TN accuracies across varying training sizes for case 1, case 2, and decision fusion for protein ADORA2A.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>4. Results and Discussion › 4.4. Computational Evaluation on the OPRK1 Dataset</h3>    <p>Case 1: Training set biased population of class 0 samples: Table 9 gives the per-class distribution in accordance with the various training sizes considered.
+
+From Table 10, the observed results across all cases validate our argument that LR has the best classification performance for detection of TNs or non-drug conformations due to the class imbalance problem.
+
+From Table 11, it can be seen that GB identified 51 TPs from 96 samples of class 1 and 804 TNs from 2004 samples of class 0 for a training size of 30%. Similarly, KNN could not identify any TPs from 96 samples of class 1 but identified 100% of TNs of class 0 samples for a training size of 30% due to the class imbalance problem. Thus, it can be noted that overall GB had the best classification performance as in Methodology 2 with better detection rates of TPs or potential drug candidate conformations over the KNN classifier.
+
+Case 2: New training set with biased population of class 1 samples: Table 12 gives the per-class distribution in the new training dataset. From Table 12, it can be noted that the size of new and original training datasets are the same. From Table 13, SMOTE-GB identified 61 TPs and SMOTE-KNN identified 93 TPs, which is more than the TPs identified using the original training dataset in Table 11 for the training size of 30%. The effects of induced class imbalance are evident from the boost in classification performance of both of the methodology 2 classifiers. From Table 14 for the training size of 30%, methodology 1 could not identify any TP, but methodology 2 classifiers—SMOTE-GB identified 61 new TPs and the SMOTE-KNN classifier identified 93 new TPs.
+
+Case 3: Decision Fusion: Table 15 demonstrates the overall classification performance of the proposed decision fusion case. From Table 15 and Figure 5, Figure 6 and Figure 7, LR+SMOTE-KNN had excellent classification performance for identification of the molecular conformations for protein OPRK1 in terms of overall classification accuracy and TP accuracy measures. Therefore, it can be surmised that this work presents a new avenue that successfully leverages the class imbalance problem to design a novel and effective drug conformation detection system for efficient clinical trials in drug discovery application.
+
+Performance evaluation using ROC curves, AUC, and F1 scores: To further quantitatively validate the efficacy of our proposed methodologies, statistical measures such as ROC curves, F1, and AUC scores were computed. Figure 8 presents the ROC curves and Table 16 gives the AUC scores and F1 scores for the proposed ML methodologies for protein ADORA2A. It can be noted that the proposed LR+SMOTE-GB approach has the best performance in terms of AUC score = 0.638, whereas the other proposed method LR+SMOTE-KNN had better F1 score = 0.792 for protein ADORA2A. Similarly, Figure 9 illustrates the ROC curves for the proposed ML methodologies and Table 17 gives the AUC scores obtained for protein OPRK1. It can be noted that both LR+SMOTE-GB and LR+SMOTE-KNN had performed well and has the best area under the curve with an AUC score of 0.475 and 0.470 respectively. Similarly, the proposed method LR+SMOTE-KNN had the best F1 score = 0.968 than the LR+SMOTE-GB method with F1 score = 0.770. These results corroborate our argument that it is highly beneficial to look into a comprehensive drug discovery system that maximizes detection of both the potential drug and non-drug protein conformations for efficient drug discovery process.
+
+Number of class 0 samples and class 1 samples in the original training dataset.
+
+Classification performance of Methodology 1-LR on the original training dataset.
+
+Classification performance of Methodology 2—GB and KNN on the original training dataset.
+
+Number of class 0 samples and class 1 samples in the new training dataset.
+
+Classification performance of SMOTE-GB and SMOTE-KNN on the new training dataset.
+
+Reconfirmation and identification of new TP by Methodology 2—SMOTE-GB and SMOTE-KNN.
+
+Decision fusion of Methodology 1 and Methodology 2: LR+SMOTE-GB and LR+SMOTE-KNN.
+
+Plot of overall classification accuracies across varying training sizes for case 1, case 2, and decision fusion for protein OPRK1.
+
+Plot of TP accuracies across varying training sizes for case 1, case 2, and decision fusion for protein OPRK1.
+
+Plot of TN accuracies across varying training sizes for case 1, case 2, and decision fusion for protein OPRK1.
+
+Plot of ROC curve for ADORA2A protein for a training size of 30%.
+
+AUC Score and F1 Score of the proposed ML methodologies for ADORA2A.
+
+Plot of ROC curve for OPRK1 protein for a training size of 30%.
+
+AUC Score and F1 score of the proposed ML methodologies for OPRK1.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>5. Conclusions</h3>    <p>In this paper, we introduced a novel two-stage sampling-based ML classification techniques to overcome the class imbalance problem and maximize the prediction of non-drug-binding and potential drug-binding molecular conformations for the target proteins ADORA2A and OPRK1. The motivation of this work is to accelerate the drug discovery process. Applied to novel protein targets, this approach will lead to reducing of the failure rates in clinical trials for an efficient drug development process, as it will allow for identifying the drug-binding conformations of frequent off-target proteins. It was experimentally evaluated that the proposed decision fusion techniques: LR+SMOTE-GB and LR+SMOTE-KNN demonstrated superior classification performance compared to the individual classifier ML models: LR, GB, and KNN. In particular, LR+SMOTE-KNN outperformed other methods and gave the maximum prediction rate of molecular conformations for proteins ADORA2A and OPRK1 with a total accuracy of 87.6% and 99.7% for training size 30%. This work further highlights the need and advantages of ML techniques to hasten the drug discovery process.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>6. Future Scope</h3>    <p>Random undersampling could lead to a high probability of important information loss pertinent to non-drug molecular conformations. Hence, as a future endeavor, this work will be a foundation for improved drug discovery system design that will preserve the information present in both potential drug- and non-drug conformations.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Acknowledgments</h3>    <p>This research work was supported by an Early Career Research Fellowship from the Gulf Research Program of the National Academies of Sciences, Engineering, and Medicine for supporting this work. DISCLAIMER: “The content is solely the responsibility of the authors and does not necessarily represent the official views of the Gulf Research Program of the National Academies of Sciences, Engineering, and Medicine”.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Author Contributions</h3>    <p>Conceptualization, V.S.A., V.M. and J.B.; methodology, V.S.A. and V.M.; software, and validation, V.S.A. and V.M.; formal analysis, investigation, V.S.A., V.M. and J.B.; resources, data curation, J.W. and J.B.; writing—original draft preparation, review and editing, V.S.A., V.M. and J.B.; visualization, V.S.A. and J.W.; supervision, V.M. and J.B.; project administration, V.M. and J.B.; funding acquisition, V.M. All authors have read and agreed to the published version of the manuscript.</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Funding</h3>    <p>Publication costs were supported by an Early Career Research Fellowship from the Gulf Research Program of the National Academies of Sciences, Engineering, and Medicine.</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Institutional Review Board Statement</h3>    <p>Not applicable.</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Informed Consent Statement</h3>    <p>Not applicable.</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Data Availability Statement</h3>    <p>Statistical and computational models used are fully detailed in the main text. Data will be made available upon personal requests to authors.</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>Conflicts of Interest</h3>    <p>The authors declare no conflict of interest.</p>
+  </section>
+  <section id="s26" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>Statistical and computational models used are fully detailed in the main text. Data will be made available upon personal requests to authors.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

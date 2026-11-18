@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Identifying molecular subtypes and tumor microenvironment infiltration signatures in kidney renal clear cell carcinoma based on stemness-associated disulfidptosis genes by integrating machine learning, single-cell analyses and experimental validation · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>Identifying molecular subtypes and tumor microenvironment infiltration signatures in kidney renal clear cell carcinoma based on stemness-associated disulfidptosis genes by integrating machine learning, single-cell analyses and experimental validation</h1>
+<p class="authors">Hongquan Liu, Xiaoqing Liang, Gonglin Tang, Xiaofeng Wang, Zhen Wang, Leijie Tong, Qiancheng Mao, Jian Ma, Jitao Wu</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>Heliyon</dd>
+<dt>Published</dt><dd>2024-02-13</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Biomarkers and omics</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1016/j.heliyon.2024.e26094">10.1016/j.heliyon.2024.e26094</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/38390172/">38390172</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/38390172/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/38390172/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>118501f221bf4356</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Clear cell renal cell carcinoma (ccRCC) is an aggressive malignant tumor. Disulfidptosis is a new programmed cell death mechanism, which is characterized by the abnormal accumulation of intracellular disulfides that are highly toxic to cells. However, the contribution of disulfidptosis to ccRCC progression has not been fully clarified. In this study, two different molecular subtypes related to disulfidptosis were identified in ccRCC patients by the non-negative matrix factorization (NMF) algorithm. The cluster 1 was characterized by a worse prognosis and higher mRNAsi levels. Then, difference analysis and weighted gene co-expression network analysis (WGCNA) were conducted to search modular genes that are highly associated with tumor stemness and tumor microenvironment. Subsequently, a SADG signature containing nine genes was constructed stepwise by WGCNA and least absolute shrinkage and selection operator (LASSO) Cox regression analysis. The high-risk score group had a worse outcome, and immune regulation and metabolic signatures might be responsible for cancer progression in the high-risk group. After that, a predictive nomogram was constructed, and the predicting power of the risk model was verified using inter and three independent external validation datasets. Nine SADGs were shown to significantly correlate with immune infiltration, tumor mutation burden (TMB), microsatellite instability (MSI) and immune checkpoint. In addition, based on the single-cell RNA sequencing dataset (GSE139555), the distribution and expression of nine hub genes in various types of immune cells were analyzed. Finally, the expression level of the nine genes was verified in clinical samples by qRT-PCR.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>Clear cell renal cell carcinoma (ccRCC) is an aggressive malignant tumor. Disulfidptosis is a new programmed cell death mechanism, which is characterized by the abnormal accumulation of intracellular disulfides that are highly toxic to cells. However, the contribution of disulfidptosis to ccRCC progression has not been fully clarified. In this study, two different molecular subtypes related to disulfidptosis were identified in ccRCC patients by the non-negative matrix factorization (NMF) algorithm. The cluster 1 was characterized by a worse prognosis and higher mRNAsi levels. Then, difference analysis and weighted gene co-expression network analysis (WGCNA) were conducted to search modular genes that are highly associated with tumor stemness and tumor microenvironment. Subsequently, a SADG signature containing nine genes was constructed stepwise by WGCNA and least absolute shrinkage and selection operator (LASSO) Cox regression analysis. The high-risk score group had a worse outcome, and immune regulation and metabolic signatures might be responsible for cancer progression in the high-risk group. After that, a predictive nomogram was constructed, and the predicting power of the risk model was verified using inter and three independent external validation datasets. Nine SADGs were shown to significantly correlate with immune infiltration, tumor mutation burden (TMB), microsatellite instability (MSI) and immune checkpoint. In addition, based on the single-cell RNA sequencing dataset (GSE139555), the distribution and expression of nine hub genes in various types of immune cells were analyzed. Finally, the expression level of the nine genes was verified in clinical samples by qRT-PCR.</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>Renal cell carcinoma (RCC) is a malignant solid tumor with a high prevalence. In 2023, it is estimated that more than 70,000 new cases of RCC will be diagnosed, along with 13,780 deaths, according to the survey of US statistics [1]. RCC consists of three important histological subtypes—clear cell RCC (ccRCC), papillary RCC, and chromophobe RCC. Among these, ccRCC accounts for more than 70% of RCC incidence [2,3]. Surgery remains the primary therapy for early-stage localized ccRCC patients, yet more than 30% of them suffer from post-surgery recurrence or develop metastases [4,5]. Radiotherapy and chemotherapy are not effective enough in treating advanced metastatic renal cancer, so the clinical management for those patients is extremely limited with a 5-year survival rate of 13% [6]. Recently, targeted therapy and immunotherapy have brought encouraging hope for advanced-stage ccRCC. Current treatments, however, lack specificity, and drug resistance often occurs. Traditional targeted treatment and immunotherapy remain to be ineffective for some patients, leading to generally poor prognoses [7,8]. Thus, exploring the mechanism and prognostic markers of ccRCC is a promising direction for further kidney cancer research.
+
+Tumorigenesis and progression are regulated by the active and controlled cell death process known as programmed cell death (PCD), which is driven by genes [9]. Disulfidptosis, a novel mechanism of cell death, is mediated by the susceptibility of the actin cytoskeleton to disulfide stress, which occurs with the unusual accumulation of disulfides and can be harmful to cells, inhibiting the survival and proliferation of cancer cells [10]. In glucose-starved cells with overexpressed SLC7A11, disulfidptosis is triggered by the accumulation of intracellular disulfides. Liu et al. found that increased SLC7A11 expression in renal cancer cells under glucose deprivation promotes the depletion of nicotinamide adenine dinucleotide phosphate (NADPH) in the cytoplasm [11]. NADPH often offers reducing power to combat disulfide stress and keep cells in a state of equilibrium. However, in the absence of glucose, the pentose phosphate pathway (PPP)&#39;s ability to produce NADPH from glucose is constrained. High rates of cystine uptake mediated by overexpressed SLC7A11 further depletes intracellular NADPH, causing its depletion, which induces multiple intermolecular disulfide-bond formation between actin cytoskeleton proteins and filament (F-actin) contraction, inducing disulfide stress and triggering disulfidptosis, which is toxic to cells [12]. These studies illustrated the significance of disulfidptosis to tumor progression, which may be a focus of cancer immunotherapy in the future. Besides, one of the most important characteristics influencing cancer metastasis is cancer stemness. A particularly promising strategy for cancer treatment is to target cancer stemness [13]. Meanwhile, the development and proliferation of malignant tumors are related to features of the tumor microenvironment, and systemic therapy responses may be impacted by these characteristics [14].
+
+As a new cell death, disulfidptosis holds importance in exploring potentially powerful therapeutic strategies for cancer. The relationship between disulfidptosis and ccRCC patients remains unknown. In our study, we sought to thoroughly explore the molecular characteristics of disulfidptosis-related genes (DRGs) in renal cancer. This study demonstrates the significance of DRGs in the progression of renal cancer and establishes a basis for the therapeutic application of disulfidptosis regulators in kidney cancer. We established and validated a stemness-associated disulfidptosis gene (SADG) signature, which demonstrated high accuracy in estimating the long-term survival of ccRCC patients and response to immunotherapy with independent cohorts. This study holds great potential to provide a unique understanding of the significance of SADG in ccRCC progression and paves the way for the therapeutic application of disulfidptosis regulators in renal cancer.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Materials and methods</h3>    <p>External cohorts used for model validation.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Materials and methods › Data download and processing</h3>    <p>The RNA-seq and clinical data of TCGA-KIRC patients were downloaded from the cancer genome atlas (TCGA) website (https://portal.gdc.cancer.gov/). External validation datasets were downloaded from IMVIGOR210 (http://research-pub.gene.com/), ICGC-RECA (https://dcc.icgc.org/) and E-MTAB-1980 (https://www.ebi.ac.uk/biostudies/). The characteristics of eligible ccRCC patients included in this study were summarized in Supplementary Table 1. Single-cell sequencing data of ccRCC comes from the GEO database (https://www.ncbi.nlm.nih.gov/geo/, GSE139555). Before analysis, all TCGA RNA-seq data was normalized into transcripts per million (TPM) data. The patients with incomplete clinical survival information and expression were excluded from our study. A total of 88 disulfidptosis-related genes were obtained based on published literature (Supplementary Table 2) [11]. Genetic mutation data, including single-nucleotide variants (SNVs) and copy number variation (CNV), was downloaded from the UCSC Xena database (https://xena.ucsc.edu/).</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Materials and methods › NMF clustering and survival analysis</h3>    <p>Using the R package “coxph” to conduct univariate Cox analysis to find prognosis-related genes (p &lt; 0.05). The non-negative matrix factorization (NMF) clustering was conducted based on expression data of 44 disulfidptosis-related genes (DRGs) to clustering TCGA-RCC samples (rank = 2:10, method = “brunet, nrun = 10”). After considering indicators such as cophenetic, dispersion, and silhouette, the best K value (K = 2) was determined. Kaplan-Meier (KM) survival analysis was conducted to identify the Overall survival (OS) difference between different NMF clusters.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Materials and methods › Prognostic risk model construction</h3>    <p>All differential expression analysis was performed using the R package “DEseq2” with the following thresholds: adjusted p-value &lt;0.01, |log2 fold change |&gt; 1. The study initially conducted a difference analysis between two groups, NMF-cluster C1 and C2. Subsequently, the researchers employed weighted gene co-expression network analysis (WGCNA) to identify the co-expression module correlated with tumor stemness and tumor microenvironment [15]. Candidate module genes were identified by intersecting the key module genes obtained through WGCNA analysis with the differential genes of cancer and para-cancer in ccRCC patients. Subsequently, genes associated with ccRCC patients&#39; overall survival were screened using univariate analysis. Finally, a stemness-associated disulfidptosis gene (SADG) signature for ccRCC patients was built using the Least Absolute Shrinkage and Operator (LASSO) Cox regression analysis. The risk score is evaluated according to the following formula:
+
+Riskscore = ∑i=xnCoe(genei)*Exp(genei).
+
+Coe(genei): the coefficient of each gene in the SADG signature.
+
+Exp (genei): the relative expression level of each gene in this study.
+
+After that, ccRCC patients were divided into high- and low-risk groups based on the optimal cut-off value for risk score. Kaplan-Meier analysis was conducted to compare the survival rate between high- and low-risk score groups. A nomogram was developed after LASSO and multivariate Cox regression analysis, which integrated the SADG signature and clinicopathological characteristics to predict survival probability. Next, using the R package “ggDCA” to draw decision curve analysis (DCA) and evaluate the predicting power and clinical benefit of the nomogram.</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Materials and methods › Internal and external validation of the prognostic model</h3>    <p>Patients with ccRCC from the TCGA were randomly allocated to training and test cohorts at a 7:3 ratio. In our study, in order to compare the overall survival (OS) and progression-free survival (PFS) in low- and high-risk cohorts, we conducted the survival analysis using the R packages &#34;survminer&#34; and &#34;survival&#34;. Furthermore, clinical information correlated with the prognosis of patients was combined with riskscore to draw forest charts. Additionally, external datasets were used to validate the SADG signature. As shown in Table 1, three independent external cohorts were used for validating the SADG model.Table 1External cohorts used for model validation.Table 1NameWebsiteIMVIGOR210http://research-pub.gene.com/ICGC-RECAhttps://dcc.icgc.org/E-MTAB-1980https://www.ebi.ac.uk/biostudies/According to the same standards mentioned above, patients in the external cohorts were divided into high- and low-risk score groups. Survival analysis and ROC curve were drawn in these three validation cohorts.
+
+External cohorts used for model validation.</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Materials and methods › Functional enrichment analysis of differentially expressed genes</h3>    <p>The R package “ClusterProfiler” was utilized to conduct GSEA analysis between high- and low-risk score groups. The annotation files were downloaded from MSigDB (https://www.gsea-msigdb.org/gsea/msigdb) and ConsensusPathDB (http://cpdb.molgen.mpg.de/) database.</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Materials and methods › Immune infiltration analysis</h3>    <p>In this study, the R package “ESTIMATE” was utilized for the estimation of tumor purity and stromal components in the tumor microenvironment (TME) between NMF-cluster C1 and C2 [16]. Moreover, we identified the different infiltrated immune cells between the high- and low-risk score groups based on the CIBERSORT algorithm (https://cibersort.stanford.edu/).</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Materials and methods › Exploring of hub genes by single-cell sequencing</h3>    <p>The Tumor Immune Single-Cell Hub (TISCH) (http://tisch.comp-genomics.org) is a scRNA-seq database that attempts to characterize TME at single-cell resolution. With corresponding clinical data, TISCH has more than 70 high-quality single-cell transcriptome datasets of 27 cancers. Based on this database, we analyzed the GSE139555 dataset to explore the heterogeneous expression pattern of nine prognostic genes in ccRCC cells and different immune cells at the single-cell level [17].</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Materials and methods › Validation of nine SADGs by GEPIA</h3>    <p>The Gene Expression Profiling Interactive Analysis (GEPIA) database (http://gepia2.cancer-pku.cn/index.html) was utilized for further validation and survival analysis. Based on the TCGA and GTEx databases, the information of gene expression for ccRCC and normal samples was gathered. Survival analysis was conducted based on the survival data of the TCGA database.</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Materials and methods › Collection of human tissue specimens and quantitative real-time polymerase chain reaction (qRT-PCR)</h3>    <p>Authorized by the ethics committee of the affiliated Yantai Yuhuangding Hospital of Qingdao University (No.2023-314), ccRCC tissues and adjacent normal samples from eight patients who underwent radical or partial nephrectomy were gathered. Two different pathologists independently verified the pathological specimens. Using SteadyPure Quick RNA Extraction Kit (Accurate Biology, China), we extracted total RNA from clinical samples. Subsequently, The SYBR Green Premix Pro Taq HS qPCR Kit and Rox Reference Dye (Accurate Biology, China) were used for the qRT-PCR procedure. Based on the 2®−ΔΔCT calculation method, we calculated the mRNA expression of core genes. For each experiment, three multiple holes were set. The primer sequences used can be found in Supplementary Table 3.</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Materials and methods › Statistics</h3>    <p>All of the bioinformatics analyses were conducted using the software R version 4.2.0. For comparisons between two independent samples and comparisons among multiple samples for non-parametric data, respectively, we utilized the Wilcoxon test and the Kruskal–Wallis test. For parametric data, t-tests and one-way ANOVA were utilized. We conducted the survival study using the Kaplan-Meier method and the log-rank test. For each analysis, p &lt; 0.05 was considered statistically significant.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Results</h3>    <p>Workflow of this study.
+
+Identification of disulfidptosis -related genes related NMF-cluster.
+
+(A) TCGA-KIRC patients were divided into two distinct gene cluster by using non-negative matrix factorization (NMF) based on disulfidptosis -related genes.
+
+(B) Survial analysis of OS between NMF-cluster 1 and NMF-cluster 2 in TCGA-KIRC patients.
+
+(C) Expression profile of disulfidptosis-related genes and the relationship with clinical information shaped by NMF-cluster 1 and NMF-cluster 2.
+
+(D) The mDNAsi and EREG-mDNAsi difference between NMF-cluster 1 and NMF-cluster 2.
+
+(E) The mRNAsi and EREG-mRNAsi difference between NMF-cluster 1 and NMF-cluster 2.
+
+(F) The stromal score, immune score and ESTIMATE score difference between NMF-cluster 1 and NMF-cluster 2.
+
+Construction of the stemness-associated disulfidptosis gene (SADG) signature.
+
+(A) Difference expressed genes between NMF-cluster C1 and NMF-cluster C2.
+
+(B) Module-trait associations based on the WGCNA.
+
+(C) The relationship between WGCNA gene modules with stemness index and tumor microenvironment.
+
+(D) Volcano plot showed the DEGs between cancer and para-cancer tissue in TCGA-KIRC patients.
+
+(E) Venn plot showed intersection of gene lists between up-expressed genes in tumor tissue and hub genes in WGCNA.
+
+(F) Forest map showed univariate Cox regression analysis result of 71 cell stemness and TME associated disulfidptosis-related DEGs.
+
+(G, H) Least absolute shrinkage and selection operator (LASSO) regression analysis.
+
+The coefficient of each gene in SADG signature.
+
+Kaplan-Meier analysis of PFS and OS between low- and high-risk score subgroup in the entire, internal training sets and validation sets.
+
+(A) K-M plot of PFS of entire TCGA-KIRC set.
+
+(B) K-M plot of OS of entire TCGA-KIRC set.
+
+(C) K-M plot of PFS of TCGA-KIRC test set.
+
+(D) K-M plot of OS of TCGA-KIRC test set.
+
+(E) K-M plot of PFS of TCGA-KIRC training set.
+
+(F) K-M plot of OS of TCGA-KIRC training set.
+
+(K–M: Kaplan-Meier analysis, OS: overall survival, PFS: progression-free survival).
+
+Kaplan-Meier analysis of OS between low- and high-risk score subgroup in the external validation sets.
+
+(A) Survival curve for OS in the IMvigor210.
+
+(B) 1-,3-,5-year ROC curves of SADG signature in the IMvigor210.
+
+(C) Survival curve for OS in the ICGC-RECA.
+
+(D) 1-,3-,5-year ROC curves of SADG signature in the ICGC-RECA.
+
+(E) Survival curve for OS in the E-MTAB-1980.
+
+(F) 1-,3-,5-year ROC curves of SADG signature in the E-MTAB-1980.
+
+Development of a clinical practicability nomogram.
+
+(A) Development of a nomogram based on TNM stage, gender, age, stage and riskscore in internal training dataset.
+
+(B) Calibration curves for 1-, 3-, and 5-year survival rates in the internal training dataset.
+
+(C) DCA curves of the internal training dataset.
+
+(D) The nomogram based on TNM stage, gender, age, stage and riskscore in internal test dataset.
+
+(E) Calibration curves for 1-, 3-, and 5-year survival rates in the internal test dataset.
+
+(F) DCA curves of the internal test dataset.
+
+(DCA: decision curve analysis, (*p-value &lt;0.05; **p-value &lt;0.01; ***p-value &lt;0.001).
+
+Univariate and multivariate Cox analyses of SADG and clinical factors.
+
+(A) Univariate Cox analysis of SADG and clinical factors (Age, gender and stage).
+
+(B) Multivariate Cox analysis of SADG and clinical factors (Age, gender and stage).
+
+(C, D, E) The ROC curves for 1-, 3-, and 5-year prediction of the nomogram, and AUC values are calculated.
+
+Immune infiltration analysis associated with SADG signature.
+
+(A) Immune checkpoints expression profile shaped by SADGs in TCGA-KIRC patients.
+
+(B) Box plot showed tumor immune subtype influenced by SADGs.
+
+(C, D, E) The difference of Immune score, stromal score and tumor purity between low- and high-riskscore group in TCGA-KIRC patients.
+
+Immune infiltration analysis associated with SADG signature.
+
+(A) Box plot display the ssGSEA analysis result of SADG in TCGA-KIRC patients.
+
+(B) Immune cell infiltration difference between low- and high-risk score group.
+
+Gene set enrichment analysis result.
+
+(A) GSEA functional enrichment analysis of high-risk group.
+
+(B) GSEA functional enrichment analysis of low-risk group.
+
+Expression patterns of nine key SADGs in single-cell RNA sequencing of ccRCC.
+
+(A) Clusters for ccRCC cases.
+
+(B) UMAP plot of 11 predominant cell types in the ccRCC tumor microenvironment. (C)Visualization of percentage of cell number distribution of each cell type in all ccRCC cases.
+
+(D) The distribution of cells in each ccRCC case in GSE139555.
+
+(E) UMAP plots for visualizing the distribution of nine DRGs in various types of cells.
+
+(F) Violin plot for displaying the expression levels of nine DRGs in each cell types.
+
+The expression of nine SADGs at the single-cell level after stratification based on stage. The expression of (A) MYO1F, (B) FMNL1, (C) FCGR1B, (D) TNFAIP8L2, (E) CYTH4, (F) NCF4, (G) TNFSF13B, (H) POU2F2 and (I) SLAMF1 at the single-cell level after stratification based on stage.
+
+Somatic mutation landscape.
+
+(A) The waterfall plot showed the top 15 most mutated genes individually in high-risk group.
+
+(B) The waterfall plot showed the top 15 most mutated genes individually in low-risk group.
+
+(C) Scatter diagram showed the relationship between risk score and tumor Mutations burden.
+
+(D–E) Association between risk score and MSI (D) as well as TIDE (E).
+
+Expression pattern validation and the relationship between the expression of the nine SADGs and the prognosis of ccRCC patients.
+
+(A) Expression levels of the nine SADGs in ccRCC and normal tissues from the GEPIA database.
+
+(B) The prognostic value of the nine SADGs expression ccRCC overall survival (OS).
+
+The relative expression levels of the nine SADGs in ccRCC tumor tissues and para-cancerous tissues. The relative expression levels of (A) MYO1F, (B) FMNL1, (C) FCGR1B, (D) TNFAIP8L2, (E) CYTH4, (F) NCF4, (G) TNFSF13B, (H) POU2F2 and (I) SLAMF1 in ccRCC tumor tissues and para-cancerous tissues.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Results › NMF clustering based on disulfidptosis-related genes (DRGs) in patients with ccRCC</h3>    <p>The whole workflow of our study is presented in Fig. 1. Firstly, the “coxph” function in the R package “survival” was performed to conduct univariate Cox regression analysis, and 44 OS-related DRGs were found (p &lt; 0.05). Next, using NMF clustering, we discovered two ccRCC subtypes associated with DRGs according to the filter standard (Fig. 2A and Supplementary Fig. 1). The KM curves showed that the OS of patients in cluster 1 was better than in cluster 2 (Fig. 2B). The DRGs expression profile of ccRCC patients is divided into two clusters (Fig. 2C).Fig. 1Workflow of this study.Fig. 1Fig. 2Identification of disulfidptosis -related genes related NMF-cluster.(A) TCGA-KIRC patients were divided into two distinct gene cluster by using non-negative matrix factorization (NMF) based on disulfidptosis -related genes.(B) Survial analysis of OS between NMF-cluster 1 and NMF-cluster 2 in TCGA-KIRC patients.(C) Expression profile of disulfidptosis-related genes and the relationship with clinical information shaped by NMF-cluster 1 and NMF-cluster 2.(D) The mDNAsi and EREG-mDNAsi difference between NMF-cluster 1 and NMF-cluster 2.(E) The mRNAsi and EREG-mRNAsi difference between NMF-cluster 1 and NMF-cluster 2.(F) The stromal score, immune score and ESTIMATE score difference between NMF-cluster 1 and NMF-cluster 2.Fig. 2
+
+During cancer progression, cancer cells lose their differentiated phenotype and acquisition of characteristics similar to progenitor cells and stem cells. Tumor stem cells undergo a loss of their various differentiation phenotypes while simultaneously acquiring the ability of self-renewal and differentiation [18,19]. The stemness index (SI) is a commonly used metric in stemness research, and tumor stem cell-like features (mRNAsi) were used to describe it based on the mRNA expression file [18]. EREG-mRNAsi is a stemness index that is created through the use of a panel of genes that are associated with stemness and regulated by epigenetics. Upon comparing the two NMF-clusters, it was observed that cluster-c2 had higher mDNAsi, ERGE-mDNSsi, and EREG-mRNAsi, whereas cluster 1 exhibited higher mRNAsi levels (as illustrated in Fig. 2D and E). The TME represents a complex ecosystem and is comprised of stromal cells, endothelial cells, pericytes, and innate and adaptive immune cells [20]. Illustrating the interactions between cancer cells and TME will help improve therapeutic targets since contact-dependent communication may promote immune evasion and tumor progression [21,22]. In this study, the TME score (comprised of stromal score, immune score and ESTIMATE score) was compared between NMF-cluster 1 and NMF-cluster 2. The cluster 1 showed a lower stromal score but a higher immune score and ESTIMATE score, indicating that the patients in cluster 1 got more immunosuppressive cells and had a relatively worse prognostic outcome (Fig. 2F).
+
+Workflow of this study.
+
+Identification of disulfidptosis -related genes related NMF-cluster.
+
+(A) TCGA-KIRC patients were divided into two distinct gene cluster by using non-negative matrix factorization (NMF) based on disulfidptosis -related genes.
+
+(B) Survial analysis of OS between NMF-cluster 1 and NMF-cluster 2 in TCGA-KIRC patients.
+
+(C) Expression profile of disulfidptosis-related genes and the relationship with clinical information shaped by NMF-cluster 1 and NMF-cluster 2.
+
+(D) The mDNAsi and EREG-mDNAsi difference between NMF-cluster 1 and NMF-cluster 2.
+
+(E) The mRNAsi and EREG-mRNAsi difference between NMF-cluster 1 and NMF-cluster 2.
+
+(F) The stromal score, immune score and ESTIMATE score difference between NMF-cluster 1 and NMF-cluster 2.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Results › Identification and vilification of SADG signature</h3>    <p>Firstly, differentially expressed genes (DEGs) analysis was conducted between NMF-cluster 1 and NMF-cluster 2, and 11509 DEGs were obtained (Fig. 3A, Supplementary Table 4). WGCNA is a systems biology method used to describe gene association patterns between different samples, which can be used to identify gene sets with highly synergistic changes and to identify candidate organisms based on the interconnection of gene sets and the relationship between gene sets and phenotypes marker genes or therapeutic targets. In our study, we used WCGNA to screen the DEGs related to cell stemness and TME by obtaining the most relevant modules (Fig. 3B). As shown in Fig. 3C, the co-expression pink module was significantly positively associated with cell stemness and TME (Supplementary Table 5). Next, differentially expressed analysis was carried out in cancer and para-cancer tissues in TCGA-KIRC transcriptome data (Fig. 3D). By taking the intersection of the up-expressed genes in tumor tissues and hubgenes from WGCNA, we obtained 71 stemness and TME associated disulfidptosis-related DEGs. After that, we screened genes that were closely correlated with OS based on univariate Cox regression analysis (Fig. 3E and F). Finally, LASSO and multiCox analysis identified nine signature genes: MYO1F, FMNL1, FCGR1B, TNFAIP8L2, CYTH4, NCF4, TNFSF13B, POU2F2 and SLAMF1 (Fig. 3G and H). The coefficient of each gene in the prognostic signature is shown in Table 2.Fig. 3Construction of the stemness-associated disulfidptosis gene (SADG) signature.(A) Difference expressed genes between NMF-cluster C1 and NMF-cluster C2.(B) Module-trait associations based on the WGCNA.(C) The relationship between WGCNA gene modules with stemness index and tumor microenvironment.(D) Volcano plot showed the DEGs between cancer and para-cancer tissue in TCGA-KIRC patients.(E) Venn plot showed intersection of gene lists between up-expressed genes in tumor tissue and hub genes in WGCNA.(F) Forest map showed univariate Cox regression analysis result of 71 cell stemness and TME associated disulfidptosis-related DEGs.(G, H) Least absolute shrinkage and selection operator (LASSO) regression analysis.Fig. 3Table 2The coefficient of each gene in SADG signature.Table 2Gene idEnsemble idcoefficientHazard ratioMYO1FENSG00000142347−0.83801.245(1.002–1.548)FMNL1ENSG000001849220.81041.488(1.171–1.890)FCGR1BENSG000002911350.35801.407(1.155–1.713)TNFAIP8L2ENSG00000163154−0.45911.245(1.001–1.549)CYTH4ENSG00000100055−0.51841.275(1.023–1.589)NCF4ENSG000001003650.49041.374(1.093–1.726)TNFSF13BENSG000001025240.29881.386(1.144–1.681)POU2F2ENSG000000282770.56201.486(1.214–1.819)SLAMF1ENSG00000117090−0.28111.216(1.016–1.455)Riskscore = (−0.8380 * exp MYO1F) + (0.8104 * exp FMNL1) + (0.3580 * exp FCGR1B) + (−0.4591 * exp TNFAIP8L2) + (−0.5184* exp CYTH4) + (0.4904 * exp NCF4) + (0.2988 * exp TNFSF13B) + (0.5620 * exp POU2F2) + (−0.2811 * exp SLAMF1).
+
+In the end, we divided the patients from the TCGA-KIRC cohort into high- and low-risk groups based on the median of the riskscore. Longer OS and PFS were found in the low-risk group in the entire TCGA-KIRC set, internal training set and test set (Fig. 4A–F). The prognosis evaluation of the risk model was verified in external validation datasets IMVIGOR210, ICGC-RECA and E-MTAB-1980 (Fig. 5A–F).Fig. 4Kaplan-Meier analysis of PFS and OS between low- and high-risk score subgroup in the entire, internal training sets and validation sets.(A) K-M plot of PFS of entire TCGA-KIRC set.(B) K-M plot of OS of entire TCGA-KIRC set.(C) K-M plot of PFS of TCGA-KIRC test set.(D) K-M plot of OS of TCGA-KIRC test set.(E) K-M plot of PFS of TCGA-KIRC training set.(F) K-M plot of OS of TCGA-KIRC training set.(K–M: Kaplan-Meier analysis, OS: overall survival, PFS: progression-free survival).Fig. 4Fig. 5Kaplan-Meier analysis of OS between low- and high-risk score subgroup in the external validation sets.(A) Survival curve for OS in the IMvigor210.(B) 1-,3-,5-year ROC curves of SADG signature in the IMvigor210.(C) Survival curve for OS in the ICGC-RECA.(D) 1-,3-,5-year ROC curves of SADG signature in the ICGC-RECA.(E) Survival curve for OS in the E-MTAB-1980.(F) 1-,3-,5-year ROC curves of SADG signature in the E-MTAB-1980.Fig. 5
+
+Construction of the stemness-associated disulfidptosis gene (SADG) signature.
+
+(A) Difference expressed genes between NMF-cluster C1 and NMF-cluster C2.
+
+(B) Module-trait associations based on the WGCNA.
+
+(C) The relationship between WGCNA gene modules with stemness index and tumor microenvironment.
+
+(D) Volcano plot showed the DEGs between cancer and para-cancer tissue in TCGA-KIRC patients.
+
+(E) Venn plot showed intersection of gene lists between up-expressed genes in tumor tissue and hub genes in WGCNA.
+
+(F) Forest map showed univariate Cox regression analysis result of 71 cell stemness and TME associated disulfidptosis-related DEGs.
+
+(G, H) Least absolute shrinkage and selection operator (LASSO) regression analysis.
+
+The coefficient of each gene in SADG signature.
+
+Kaplan-Meier analysis of PFS and OS between low- and high-risk score subgroup in the entire, internal training sets and validation sets.
+
+(A) K-M plot of PFS of entire TCGA-KIRC set.
+
+(B) K-M plot of OS of entire TCGA-KIRC set.
+
+(C) K-M plot of PFS of TCGA-KIRC test set.
+
+(D) K-M plot of OS of TCGA-KIRC test set.
+
+(E) K-M plot of PFS of TCGA-KIRC training set.
+
+(F) K-M plot of OS of TCGA-KIRC training set.
+
+(K–M: Kaplan-Meier analysis, OS: overall survival, PFS: progression-free survival).
+
+Kaplan-Meier analysis of OS between low- and high-risk score subgroup in the external validation sets.
+
+(A) Survival curve for OS in the IMvigor210.
+
+(B) 1-,3-,5-year ROC curves of SADG signature in the IMvigor210.
+
+(C) Survival curve for OS in the ICGC-RECA.
+
+(D) 1-,3-,5-year ROC curves of SADG signature in the ICGC-RECA.
+
+(E) Survival curve for OS in the E-MTAB-1980.
+
+(F) 1-,3-,5-year ROC curves of SADG signature in the E-MTAB-1980.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Results › Nomogram construction and clinicopathological characteristic based on SADG prognostic signature</h3>    <p>We constructed a clinical utility nomogram to explore the relationship between SADG and the clinicopathological characteristics of ccRCC patients. Clinical factors and riskscore were incorporated in the nomogram in the internal training set and test set (Fig. 6A–D). The prediction power of the nomogram was close to the ideal curve (Fig. 6B–E). The nomogram in this study has outstanding performance in predicting 1-,3- and 5- year OS, as shown in DCA curves (Fig. 6C–F). Using univariate and multivariate Cox analysis, we can find that the riskscore has independent predicting power in ccRCC patients (Fig. 7A and B). As shown in the receiver operating characteristic (ROC) curve (Fig. 7C–E), this nomogram that combined riskscore and clinicopathological characteristics has better predictive effectiveness in predicting 1-,3- and 5-yeas OS in patients with ccRCC than riskscore alone.Fig. 6Development of a clinical practicability nomogram.(A) Development of a nomogram based on TNM stage, gender, age, stage and riskscore in internal training dataset.(B) Calibration curves for 1-, 3-, and 5-year survival rates in the internal training dataset.(C) DCA curves of the internal training dataset.(D) The nomogram based on TNM stage, gender, age, stage and riskscore in internal test dataset.(E) Calibration curves for 1-, 3-, and 5-year survival rates in the internal test dataset.(F) DCA curves of the internal test dataset.(DCA: decision curve analysis, (*p-value &lt;0.05; **p-value &lt;0.01; ***p-value &lt;0.001).Fig. 6Fig. 7Univariate and multivariate Cox analyses of SADG and clinical factors.(A) Univariate Cox analysis of SADG and clinical factors (Age, gender and stage).(B) Multivariate Cox analysis of SADG and clinical factors (Age, gender and stage).(C, D, E) The ROC curves for 1-, 3-, and 5-year prediction of the nomogram, and AUC values are calculated.Fig. 7
+
+Development of a clinical practicability nomogram.
+
+(A) Development of a nomogram based on TNM stage, gender, age, stage and riskscore in internal training dataset.
+
+(B) Calibration curves for 1-, 3-, and 5-year survival rates in the internal training dataset.
+
+(C) DCA curves of the internal training dataset.
+
+(D) The nomogram based on TNM stage, gender, age, stage and riskscore in internal test dataset.
+
+(E) Calibration curves for 1-, 3-, and 5-year survival rates in the internal test dataset.
+
+(F) DCA curves of the internal test dataset.
+
+(DCA: decision curve analysis, (*p-value &lt;0.05; **p-value &lt;0.01; ***p-value &lt;0.001).
+
+Univariate and multivariate Cox analyses of SADG and clinical factors.
+
+(A) Univariate Cox analysis of SADG and clinical factors (Age, gender and stage).
+
+(B) Multivariate Cox analysis of SADG and clinical factors (Age, gender and stage).
+
+(C, D, E) The ROC curves for 1-, 3-, and 5-year prediction of the nomogram, and AUC values are calculated.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Results › Immune infiltration analysis associated with SADG signature</h3>    <p>Shaped by SADGs, patients in the low- and high-risk groups showed different expression patterns of immune checkpoints. In the high-risk score subgroup, IFNG, PTPRC, LAG3, CD86, TNFRSF9, LGALS9, CD8A, CD40LG, TNFSF9, IL23A and CD80 are highly expressed (Fig. 8A). Previous studies have analyzed tumor samples in TCGA and identified six immune subtypes to characterize the immune landscape. Six immune subtypes were clustered, namely C1 (wound healing), C2 (IFN-g dominant), C3 (inflammatory), C4 (lymphocyte depleted), C5 (immunologically quiet) and C6 (TGF-β dominant) [23]. Among the six tumor immune subtypes, subtype C1 got the highest risk score (Fig. 8B). Furthermore, the high-risk subgroup had a higher immune score and stromal score but lower tumor purity (Fig. 8C–E). In addition, ssGSEA analysis showed that the high-risk score subgroup had a higher score in Inflammation−promoting, Tfh and Inflammation−promoting (Fig. 9A). The high-risk score group had more infiltration of CD8 cells, Treg cells, T cells CD4 memory resting and NK cells resting, which mainly conducted anti-tumor immunity (Fig. 9B).Fig. 8Immune infiltration analysis associated with SADG signature.(A) Immune checkpoints expression profile shaped by SADGs in TCGA-KIRC patients.(B) Box plot showed tumor immune subtype influenced by SADGs.(C, D, E) The difference of Immune score, stromal score and tumor purity between low- and high-riskscore group in TCGA-KIRC patients.Fig. 8Fig. 9Immune infiltration analysis associated with SADG signature.(A) Box plot display the ssGSEA analysis result of SADG in TCGA-KIRC patients.(B) Immune cell infiltration difference between low- and high-risk score group.Fig. 9
+
+Immune infiltration analysis associated with SADG signature.
+
+(A) Immune checkpoints expression profile shaped by SADGs in TCGA-KIRC patients.
+
+(B) Box plot showed tumor immune subtype influenced by SADGs.
+
+(C, D, E) The difference of Immune score, stromal score and tumor purity between low- and high-riskscore group in TCGA-KIRC patients.
+
+Immune infiltration analysis associated with SADG signature.
+
+(A) Box plot display the ssGSEA analysis result of SADG in TCGA-KIRC patients.
+
+(B) Immune cell infiltration difference between low- and high-risk score group.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Results › SADGs-associated different functional pathways</h3>    <p>In order to quest potential biological processes influenced by the SADGs, we used GSEA to explore the significant signaling pathway that high- and low-risk patients enriched in. As shown in Fig. 10A and B, high-risk patients were correlated with immune-associated processes, such as the chemokine signaling pathway, Nod-like receptor signaling pathway and primary immunodeficiency, etc. Meanwhile, the low-risk group was mainly enriched in the fatty acid metabolism, oxidative phosphorylation, PPAR signaling pathway, etc.Fig. 10Gene set enrichment analysis result.(A) GSEA functional enrichment analysis of high-risk group.(B) GSEA functional enrichment analysis of low-risk group.Fig. 10
+
+Gene set enrichment analysis result.
+
+(A) GSEA functional enrichment analysis of high-risk group.
+
+(B) GSEA functional enrichment analysis of low-risk group.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Results › Correlation between hub genes and tumor immune microenvironment of ccRCC</h3>    <p>The cellular heterogeneity of tumors and their surroundings are essentially mapped by single-cell RNA-sequencing (scRNA-seq), which offers transcript abundance of individual cells with high sensitivity. In the study, we analyzed the ccRCC data (GSE139555) using the TISCH database. UMAP-based cell clustering results in the identification of 25 significant clusters after dimensionality reduction (Fig. 11A). These clusters were designated as B cells, conventional CD4+ T cells (CD4Tconv), CD8 T+ cells, exhausted CD8+ T cells (CD8Tex), Dendritic Cells (DC), Mast Cells, endothelial cells, monocytes or macrophages (Mono/Macro), Natural Killer Cells (NK), plasmocytes, and Tprolif cells based on the lineage markers (Fig. 11B). As shown in Fig. 11 C, D, we visualized the proportion of cell numbers in all patients of GSE139555 and the distribution of cells in each case. Of the nine genes in our constructed model, MYO1F was mainly distributed in monocytes/macrophages, NK cells and DC cells. FMNL1 and TNFAIP8L2 were mainly expressed in monocytes/macrophages, DC cells and Tprolif cells. FCGR1B was mainly enriched in monocytes/macrophages and Tprolif cells. CYTH4 and TNFSF13B were mainly expressed in monocytes/macrophages and DC cells. NCF4 was mainly distributed in plasmocytes, Mast Cells, monocytes/macrophages, DC cells and B cells. POU2F2 was mainly enriched in monocytes/macrophages and B cells. SLAMF1 was mainly distributed in plasmocytes (Fig. 11E and F). Furthermore, we compared the expression of nine DRGs in various immune cell types of ccRCC patients stratified based on the TNM stage, and we found the expression of these hub genes in specific immune cells was statistically different in patients with different stages. As shown in Fig. 12A, the expression of MYO1F in conventional CD4+ T cells, CD8 T+ cells, exhausted CD8+ T cells, and NK cells was statistically different in patients with different TNM stages. FMNL1 expression was shown to be statistically different in B cells, conventional CD4+ T cells and monocytes/macrophages (Fig. 12B). No statistical difference was discovered in FCGR1B expression in immune cell types was discovered (Fig. 12C). There were statistically different TNFAIP8L2 expression levels in B cells, conventional CD4+ T cells, and monocytes/macrophages (Fig. 12D). And we discovered that the CYTH4 expression in various immune cell types was statistically significant, such as in conventional CD4+ T cells, CD8 T+ cells, exhausted CD8+ T cells, NK cells and Tprolif cells (Fig. 12E). NCF4 expression in DC cells, monocytes/macrophages, and Tprolif cells was different (Fig. 12F). Likewise, the expression level of TNFSF13B expression in plasmocytes and Tprolif cells was significantly different (Fig. 12G). POU2F2 expression was shown to be statistically different in B cells, conventional CD4+ T cells, exhausted CD8+ T cells, monocytes/macrophages and Tprolif cells (Fig. 12H). And we found that the expression of SLAMF1 in B cells, conventional CD4+ T cells and monocytes/macrophages was statistically different (Fig. 12I). Overall, the findings showed that the nine SADGs were highly related to the tumor immune microenvironment.Fig. 11Expression patterns of nine key SADGs in single-cell RNA sequencing of ccRCC.(A) Clusters for ccRCC cases.(B) UMAP plot of 11 predominant cell types in the ccRCC tumor microenvironment. (C)Visualization of percentage of cell number distribution of each cell type in all ccRCC cases.(D) The distribution of cells in each ccRCC case in GSE139555.(E) UMAP plots for visualizing the distribution of nine DRGs in various types of cells.(F) Violin plot for displaying the expression levels of nine DRGs in each cell types.Fig. 11Fig. 12The expression of nine SADGs at the single-cell level after stratification based on stage. The expression of (A) MYO1F, (B) FMNL1, (C) FCGR1B, (D) TNFAIP8L2, (E) CYTH4, (F) NCF4, (G) TNFSF13B, (H) POU2F2 and (I) SLAMF1 at the single-cell level after stratification based on stage.Fig. 12
+
+Expression patterns of nine key SADGs in single-cell RNA sequencing of ccRCC.
+
+(A) Clusters for ccRCC cases.
+
+(B) UMAP plot of 11 predominant cell types in the ccRCC tumor microenvironment. (C)Visualization of percentage of cell number distribution of each cell type in all ccRCC cases.
+
+(D) The distribution of cells in each ccRCC case in GSE139555.
+
+(E) UMAP plots for visualizing the distribution of nine DRGs in various types of cells.
+
+(F) Violin plot for displaying the expression levels of nine DRGs in each cell types.
+
+The expression of nine SADGs at the single-cell level after stratification based on stage. The expression of (A) MYO1F, (B) FMNL1, (C) FCGR1B, (D) TNFAIP8L2, (E) CYTH4, (F) NCF4, (G) TNFSF13B, (H) POU2F2 and (I) SLAMF1 at the single-cell level after stratification based on stage.</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Results › SADG signature influenced somatic mutation landscape of ccRCC patients</h3>    <p>We conducted somatic mutation analysis between the two groups in TCGA-KIRC patients. There was a difference in the frequency of mutations. The mutation frequency of gene VHL, PBRM1, SETD2, BAP1 and MTOR was higher in the high-risk group, which mainly were missense mutations (Fig. 13A and B). Then, we found that the tumor mutation burden increased with the increasing risk score (Fig. 13C). Furthermore, the high-risk score group had higher microsatellite instability (MSI) (Fig. 13D). The predictive markers and mechanisms of immunotherapy resistance are the focus of current research. TIDE (Tumor Immune Dysfunction and Exclusion) analysis is usually used to estimate the effectiveness of immune checkpoint blocking (anti-PD-1/anti-CTLA-4) therapy. A higher TIDE score means a higher likelihood of immune surveillance evasion and a lower immunotherapy success rate. In this study, the high-risk group in the SADG signature showed a higher TIDE score, which indicates the SADG signature has good performance in predicting the immunotherapy response [24] (Fig. 13E).Fig. 13Somatic mutation landscape.(A) The waterfall plot showed the top 15 most mutated genes individually in high-risk group.(B) The waterfall plot showed the top 15 most mutated genes individually in low-risk group.(C) Scatter diagram showed the relationship between risk score and tumor Mutations burden.(D–E) Association between risk score and MSI (D) as well as TIDE (E).Fig. 13
+
+Somatic mutation landscape.
+
+(A) The waterfall plot showed the top 15 most mutated genes individually in high-risk group.
+
+(B) The waterfall plot showed the top 15 most mutated genes individually in low-risk group.
+
+(C) Scatter diagram showed the relationship between risk score and tumor Mutations burden.
+
+(D–E) Association between risk score and MSI (D) as well as TIDE (E).</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Results › Expression verification of nine SADGs between ccRCC samples and normal samples and survival analysis by GEPIA</h3>    <p>In our study, the GEPIA database was utilized to confirm the differential expression of nine SADGs between ccRCC and normal samples. As shown in Fig. 14A, in comparison to normal samples, mRNA expression levels of MYO1F, FMNL1, FCGR1B, TNFAIP8L2, CYTH4, NCF4, TNFSF13B and POU2F2 were significantly higher in ccRCC. Although not significantly, SLAMF1 was also highly expressed in ccRCC compared with para-cancer samples. Furthermore, utilizing the GEPIA online database, a survival analysis was also carried out. Patients were grouped based on the median gene expression levels. High expression of FMNL1 (P = 0.048, HR = 1.4), NCF4 (P = 0.0053, HR = 1.5), TNFSF13B (P = 0.0097, HR = 1.5) and POU2F2 (P = 0.024, HR = 1.4) was related to poor prognosis (Fig. 14B).Fig. 14Expression pattern validation and the relationship between the expression of the nine SADGs and the prognosis of ccRCC patients.(A) Expression levels of the nine SADGs in ccRCC and normal tissues from the GEPIA database.(B) The prognostic value of the nine SADGs expression ccRCC overall survival (OS).Fig. 14
+
+Expression pattern validation and the relationship between the expression of the nine SADGs and the prognosis of ccRCC patients.
+
+(A) Expression levels of the nine SADGs in ccRCC and normal tissues from the GEPIA database.
+
+(B) The prognostic value of the nine SADGs expression ccRCC overall survival (OS).</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Results › Experimental verification of the expression of nine SADGs in clinical samples</h3>    <p>To verify the reliability of the nine SADGs that made up the risk model, eight paired tissues of cancer and adjacent normal tissues from ccRCC patients were used to explore the expression level of 9 SADGs by qRT-PCR. As shown in Fig. 15, high expression of FMNL1, TNFAIP8L2, CYTH4, NCF4, TNFSF13B and POU2F2 was found in ccRCC based on the qRT-PCR analysis. Besides, there was a trend of upregulation of MYO1F, FCGR1B and SLAMF1 in tumor tissues, but it was not statistically significant, which may be attributed to the small sample size and excessive individual differences.Fig. 15The relative expression levels of the nine SADGs in ccRCC tumor tissues and para-cancerous tissues. The relative expression levels of (A) MYO1F, (B) FMNL1, (C) FCGR1B, (D) TNFAIP8L2, (E) CYTH4, (F) NCF4, (G) TNFSF13B, (H) POU2F2 and (I) SLAMF1 in ccRCC tumor tissues and para-cancerous tissues.Fig. 15
+
+The relative expression levels of the nine SADGs in ccRCC tumor tissues and para-cancerous tissues. The relative expression levels of (A) MYO1F, (B) FMNL1, (C) FCGR1B, (D) TNFAIP8L2, (E) CYTH4, (F) NCF4, (G) TNFSF13B, (H) POU2F2 and (I) SLAMF1 in ccRCC tumor tissues and para-cancerous tissues.</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Discussion</h3>    <p>As the most common subtype of all renal cancers, ccRCC is highly aggressive [25]. Immune blockade and targeted therapy have shown remarkable outcomes. However, not all patients respond well to such therapies [26,27]. Therefore, it is crucial to explore novel therapeutic targets or adjuvants to enhance immune therapy for renal cancer. The occurrence of tumors is a dynamic process influenced by a wide range of factors, multiple stages and multiple genes. And the dysregulation of programmed cell death is closely correlated with the occurrence and prognosis of tumors [28]. Disulfidptosis exhibits an unusual accumulation of intracellular disulfides, which sets it apart from other forms of PCD processes. In the condition of high SLC7A11 expression, limiting NADPH synthesis from the PPP by glucose deprivation results in a significant buildup of small molecule disulfides, a number of redox abnormalities, as well as rapid cell death [11,29]. That&#39;s to say, disulfidptosis has the potential to be applied to a novel effective therapy method for ccRCC patients. Besides, a subgroup of tumor cells known as cancer stem cells (CSCs) has the ability to initiate tumors and trigger relapses. Due to the primary characteristics of cancer stem cells, it is claimed that cancer stemness is the primary reason for metastasis and tumor relapse following conventional therapy. In addition to genetic modification, TME may play a role in facilitating the acquisition of stemness characteristics [30,31].
+
+Currently, there is limited research on the impact of disulfidoptosis-related genes on the prognosis of ccRCC. In our study, we collected 88 DRGs. Using univariate Cox regression analysis, we obtained 44 prognostic genes in ccRCC. Then, we discovered two ccRCC subtypes associated with DRG from the TCGA through the NMF algorithm. Compared to the C1 subtype, ccRCC patients in cluster 2 had a better clinical outcome, which confirmed the significance of DRGs in ccRCC prognosis. Next, differential genes related to cell stemness and TME were obtained through WGCNA analysis with the differential genes between the two clusters. And we obtained 71 cell stemness and TME associated disulfidptosis-related DEGs by taking the intersection up-expressed genes in tumor samples and hub genes in WGCNA. After univariate Cox analysis, we used LASSO regression analysis based on the expression matrix of genes highly related to outcome (p &lt; 0.05) to establish a prognostic signature including nine genes (MYO1F, FMNL1, FCGR1B, TNFAIP8L2, CYTH4, NCF4, TNFSF13B, POU2F2 and SLAMF1) from the training set, which shown great efficiency in predicting survival outcome and immunotherapeutic response. Additionally, the disulfidptosis risk score was identified as an independent prognostic factor in ccRCC patients. Subsequently, a nomogram was developed, integrating the risk score and clinical features, to predict the survival outcome of ccRCC patients.
+
+Of the nine genes in our constructed model, MYO1F is associated with the mitochondrial network and promotes tumor growth in thyroid cancer [32]. Low expression of FMNL1 may prevent the proliferation of kidney cancer cells, which is a potential KIRC-specific neoantigen candidate for KIRC mRNA vaccine development. FCGR1B is the Fc fragment of immunoglobulin G and is related to the poor prognostic of ccRCC patients [33]. TNFAIP8L2 is highly expressed in various tumors and is related to the process of immunological homeostasis [34]. According to a recent study, TNFAIP8 may be correlated with tumor-associated microbiota in colorectal cancer [35]. CYTH4 belongs to the PSCD family, regulating protein sorting and membrane dynamics. In glioma, the overexpression of CYTH4 is a biomarker for predicting a poor prognosis by affecting pyroptosis [36]. NCF4 is a component of the NAPDH complex, correlated with immune activation and immunological regulation [37]. TNFSF13B, commonly known as BAFF, is a member of the tumor necrosis factor (TNF) ligand family. It could serve as a crucial communication channel between the tumor cell and the tumor microenvironment for KIRC [38]. As a marker of prognosis in cancer, POU2F2 is highly expressed in various solid tumors. POU2F2 has been implicated in promoting the glycolysis and progression of glioblastoma by the activation the AKT pathway [[39], [40], [41], [42]]. SLAMF1 has been described as a vital molecule in regulating autophagy in chronic lymphocytic leukemia cells. In choriocarcinoma, SLAMF1 promotes resistance to MTX by activating autophagy-related pathways [43]. These key genes&#39; differential expression was strongly correlated with the prognosis of tumors. Further research on these molecules may provide a reference for exploring novel therapeutics and prognostic indicators for renal cancer.
+
+TME is a dynamic system and is characterized by various components, including immune cells, stromal cells and cytokines, which is not only closely correlated with the occurrence, growth and metastasis of tumors, but also vital to the treatment of tumors [44,45]. TME plays a crucial part in malignant progression, immune escape and treatment resistance. TME relies largely on CD8 T cells, which are essential for recognising and eliminating tumor cells [46]. Besides, neutrophils play a crucial role as a significant component of immune cells infiltrating the TME. Recent research has revealed that the infiltration of neutrophils plays a role in promoting lymphangiogenesis and lymph node metastasis, which was associated with poor prognosis [47,48]. Both CD8 T cell and Treg cell expression were found to be significantly higher in the high-risk group of our study. A significant number of immunosuppressive substances may be present in TME, inhibiting the antitumor activity of CD8 T cells, which may explain why the high-risk group with poor prognosis showed an abundant infiltration of CD8 T cells. Tregs are a unique subgroup of T cells, which have the function of suppressing the immune response, thereby maintaining homeostasis and self-tolerance. Inhibiting T cell growth and cytokine production, as shown by studies, is one way that Tregs help to avoid autoimmunity [49]. High Tregs infiltration was significantly correlated with shorter OS of renal cancer and breast cancer [50,51]. This may explain why we found a negative correlation between the infiltration of Tregs and prognosis in the high-risk group. M1 macrophages are considered as tumor-killing macrophages [52], and the infiltration of M1 macrophages was significantly increased in the low-risk group in our analysis. In the microenvironment of solid malignant tumors, various inflammatory cells contribute to innate and acquired immune responses. Among these cells, neutrophils constitute a significant portion. Recent evidence suggests that tumor-associated neutrophils (TAN) may exhibit either a N1 anti-tumor or N2 pro-tumor phenotype. Neutrophils can undergo a transformation into tumor-promoting cells in the microenvironment. Apart from their cytotoxic effects, they have the ability to facilitate tumor cell dissemination by releasing elastase and matrix metalloproteinases. Moreover, T cell-mediated anti-tumor immune responses are restricted by the tumor-promoting state&#39;s regulation of immunosuppression through the secretion of arginase-1 and reactive oxygen species. Targeting these tumor-promoting effects could hold promise for cancer therapy. Neutrophils also contribute to tumor promotion through the formation of neutrophil extracellular traps (NETs) within the tumor, a process called NETosis. Existing evidence predominantly supports the tumor-promoting role of neutrophils, with the degree of neutrophil infiltration correlating with a poorer prognosis. In our study, we observed higher levels of neutrophil infiltration in the high-risk group. Notably, the depletion of neutrophils is related to the significant reduction in lung carcinogenesis. These findings suggest that the SADG-related risk score model may have the potential to guide personalized immunotherapy for patients with ccRCC [[53], [54], [55], [56]].
+
+Immune checkpoint inhibitors (ICIs) are gradually being suggested as first-line adjuvant treatment for diverse tumors due to their impressive therapeutic outcomes [26,57,58]. The immune checkpoint-associated genes were also found to be substantially different between the two risk groupings and to be more strongly expressed in the high-risk group, suggesting that high-risk patients may respond to ICI immunotherapy better. The TIDE approach has been applied to forecast the ICB response in ccRCC patients. TIDE score predicts the likelihood of immune evasion. According to our findings, patients in the high-risk group may be more likely to experience an immunological escape since their TIDE scores were higher than those of the low-risk group. Overall, the findings imply that the patients&#39; different immunological states may have contributed to the differences in prognosis between the high- and low-risk groups.
+
+Although this study performed a genomics analysis of disulfidptosis, and this SADG-related risk score model showed great capacity to predict the prognosis of patients with ccRCC, several limitations should be noted. First, although the expression of nine core genes was verified in TCGA and a small number of clinical samples collected by us, prospective studies with a significant sample size and prognostic information are essential for further verification. Second, the results were obtained by bioinformatics analyses from public databases, which need to be validated by further biological evidence from experimental studies. Furthermore, the underlying mechanisms between the SADGs and the immune microenvironment in ccRCC deserve further research.</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Conclusion</h3>    <p>In conclusion, we thoroughly explored the differences among biological processes, the immune states and the survival outcomes between the two molecular subtypes of disulfidoptosis. Furthermore, we established a novel signature based on nine stemness-associated disulfidptosis genes with excellent validity and potential clinical applications. This study will improve our understanding of the function of disulfidptosis in ccRCC, which offers a new reference for identifying prognostic markers and contributes to the improvement of therapeutic approaches.</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>Data availability statement</h3>    <p>The datasets researched in this study are available in online repositories. The names of the repositories and accession numbers can be found in the article.</p>
+  </section>
+  <section id="s26" class="text-unit">
+<h3>Ethics statement</h3>    <p>This study was authorized by the ethics committee of the affiliated Yantai Yuhuangding Hospital of Qingdao University (No. 2023-314), and all patients signed relevant informed consent forms during their hospitalization.</p>
+  </section>
+  <section id="s27" class="text-unit">
+<h3>Funding</h3>    <p>This work was supported by grants from the National Nature Science Foundation of China (Nos. 82370690 and Nos. 82073131) and the Taishan Scholars Program of Shandong Province (No. tsqn201909199).</p>
+  </section>
+  <section id="s28" class="text-unit">
+<h3>CRediT authorship contribution statement</h3>    <p>Hongquan Liu: Writing – original draft, Formal analysis, Data curation. Xiaoqing Liang: Writing – original draft, Formal analysis, Data curation. Gonglin Tang: Writing – original draft, Visualization, Supervision, Methodology, Data curation. Xiaofeng Wang: Writing – original draft, Visualization, Supervision, Methodology, Data curation. Zhen Wang: Visualization, Supervision, Methodology, Data curation. Leijie Tong: Writing – original draft, Visualization, Supervision, Methodology, Conceptualization. Qiancheng Mao: Writing – review &amp; editing, Visualization, Validation, Methodology, Data curation. Jian Ma: Writing – review &amp; editing, Visualization, Formal analysis. Jitao Wu: Writing – review &amp; editing, Project administration, Methodology, Funding acquisition, Conceptualization.</p>
+  </section>
+  <section id="s29" class="text-unit">
+<h3>Declaration of competing interest</h3>    <p>The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>

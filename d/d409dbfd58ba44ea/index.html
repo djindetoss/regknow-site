@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>A framework to assess clinical safety and hallucination rates of LLMs for medical text summarisation · RegKnow</title>
+<link rel="stylesheet" href="../../static/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="../../index.html">RegKnow</a>
+  <nav><a href="../../index.html">Search</a><a href="../../dates.html">Key dates</a><a href="../../dashboard.html">Dashboard</a><a href="../../about.html">About</a></nav>
+</header>
+<main><article class="document">
+  <p class="eyebrow">Scientific article</p>
+  <h1>A framework to assess clinical safety and hallucination rates of LLMs for medical text summarisation</h1>
+<p class="authors">Elham Asgari, Nina Montaña-Brown, Magda Dubois, Saleh Khalil, Jasmine Balloch, Joshua Au Yeung, Dominic Pimenta</p>  <dl class="facts">
+    <dt>Issuer</dt><dd>NPJ digital medicine</dd>
+<dt>Published</dt><dd>2025-05-13</dd><dt>Language</dt><dd>English</dd><dt>Topics</dt><dd><span class="chip">Evaluation of AI in health (frameworks, reporting guidelines, clinical validation)</span><span class="chip">LLMs and generative AI</span></dd><dt>DOI</dt><dd><a href="https://doi.org/10.1038/s41746-025-01670-7">10.1038/s41746-025-01670-7</a></dd><dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40360677/">40360677</a></dd><dt>Source</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/40360677/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/40360677/</a></dd>    <dt>Licence</dt><dd>CC-BY-NC-ND</dd>
+    <dt>RegKnow ID</dt><dd><code>d409dbfd58ba44ea</code></dd>
+  </dl>
+  <h2>Abstract</h2>
+  <p>Integrating large language models (LLMs) into healthcare can enhance workflow efficiency and patient care by automating tasks such as summarising consultations. However, the fidelity between LLM outputs and ground truth information is vital to prevent miscommunication that could lead to compromise in patient safety. We propose a framework comprising (1) an error taxonomy for classifying LLM outputs, (2) an experimental structure for iterative comparisons in our LLM document generation pipeline, (3) a clinical safety framework to evaluate the harms of errors, and (4) a graphical user interface, CREOLA, to facilitate these processes. Our clinical error metrics were derived from 18 experimental configurations involving LLMs for clinical note generation, consisting of 12,999 clinician-annotated sentences. We observed a 1.47% hallucination rate and a 3.45% omission rate. By refining prompts and workflows, we successfully reduced major errors below previously reported human note-taking rates, highlighting the framework&#39;s potential for safer clinical documentation.</p>
+  <h2>Text</h2>
+  <section id="s0" class="text-unit">
+<h3>Abstract</h3>    <p>AbstractIntegrating large language models (LLMs) into healthcare can enhance workflow efficiency and patient care by automating tasks such as summarising consultations. However, the fidelity between LLM outputs and ground truth information is vital to prevent miscommunication that could lead to compromise in patient safety. We propose a framework comprising (1) an error taxonomy for classifying LLM outputs, (2) an experimental structure for iterative comparisons in our LLM document generation pipeline, (3) a clinical safety framework to evaluate the harms of errors, and (4) a graphical user interface, CREOLA, to facilitate these processes. Our clinical error metrics were derived from 18 experimental configurations involving LLMs for clinical note generation, consisting of 12,999 clinician-annotated sentences. We observed a 1.47% hallucination rate and a 3.45% omission rate. By refining prompts and workflows, we successfully reduced major errors below previously reported human note-taking rates, highlighting the framework’s potential for safer clinical documentation.Subject terms: Risk factors, Outcomes research, Health care</p>
+  </section>
+  <section id="s1" class="text-unit">
+<h3>Introduction</h3>    <p>One of the most appealing applications of LLMs in healthcare is for administrative tasks1. Clinicians devote a substantial amount of time to documentation2, and prolonged interaction with electronic health records, where clinical documentation is logged, has been demonstrated to raise cognitive load and lead to burnout3. In fact, the use of LLMs for clinical documentation, especially clinical note generation4 or consultation summarisation5,6, is an active area of research.
+
+However, LLMs are known to produce errors in many settings, from document summarisation7, to general reasoning tasks as well as more clinically relevant tasks8. These errors can be categorised as “hallucinations”9: known as an event where LLMs generate information that is not present in the input data, or omissions: the event where LLMs miss relevant information from the original document. Errors in clinical documentation generation can lead to inaccurate recording and communication of facts10,11. Inaccuracies in the document summarisation task can introduce misleading details8 into transcribed conversations or summaries, potentially delaying diagnoses12 and causing unnecessary patient anxiety.
+
+The problem of hallucinations poses a significant challenge to date1,13. The occurrence of hallucinations has previously been attributed to the data quality during model training14,15, the type of model training methodology16 and prompting strategies17.
+
+Recent work has established that hallucination may be an intrinsic, theoretical property of all LLMs9. Consequently, there is a growing body of work focused on the technical evaluation of LLM accuracy and the detection and mitigation of hallucinations in LLMs18. However, the prevalence, causation, and evaluation of hallucinations in a clinical context, as well as their subsequent impact on clinical safety, remains an open question.
+
+Clinical documentation can be variable in quality19,20, and studies estimate that human-generated clinical notes have, on average, at least 1 error and 4 omissions21. Given the increased usage of LLMs for clinical documentation22,23, several methods have been proposed for evaluating clinical documentation generated using LLMs.
+
+Relevant clinical evaluation frameworks typically include categorising clinical errors for downstream analysis. Typically, these differ from traditional natural language processing (NLP) taxonomies16, which have separated hallucination types into distinct categories, for example, into “intrinsic” and “extrinsic”24, “factuality” and “faithfulness”16, “factual mirage” and “silver lining”25 errors. The differences between general and clinical taxonomies arise from the necessity of increased granularity of clinical error types, which are not captured by the broader, general methods.
+
+For example, Tierney et al.26 propose using a modified version of the Physician Documentation Quality Instrument-9, accounting for hallucinations and bias, while Abacha et al.23 propose evaluating clinical note quality using automated metrics. However, these relevant clinical categorisations have not assessed the implications of the mistakes for downstream harm.
+
+Automated metrics, such as Recall-oriented Understudy for Gisting Evaluation (ROUGE)27, Bilingual Evaluation Understudy (BLEU)28 and Bidirectional Encoder Representations from Transformers (BERT)-score29, while useful for comparing model-generated text with expert-written examples, exhibit significant limitations when applied to the evaluation of healthcare-related content. These metrics, primarily focused on surface-level textual similarity, fail to capture the semantic nuances, contextual dependencies, and domain-specific knowledge crucial for accurate medical discourse30. This deficiency is particularly problematic in healthcare settings, where understanding complex medical concepts (e.g., symptoms, diagnoses, treatments) and their interrelationships is paramount for patient well-being and effective decision-making.
+
+Despite the exponential growth in benchmarks for model reasoning abilities31, the evaluation of LLMs on clinical tasks has typically been carried out via “question-answering” (QA) benchmarks5,8,32. These tasks assess models’ accuracy over various clinical questions, typically derived from licensing exams. While these methods offer insights into the factual knowledge and reasoning abilities of LLMs, they do not assess clinical or medical capabilities such as medical text summarisation.
+
+Singhal et al.33 have outlined the challenges of evaluating LLMs in various medical contexts, including medical exams, research and consumer queries. They have proposed a human evaluation model for the answers provided by different LLMs that checks on factuality, precision, possible harm and bias. Other evaluation factors such as fairness, transparency, trustworthiness and accountability have been suggested in using LLMs in healthcare34. In a more recent study, Tang et al. assessed human evaluation based on metrics such as coherence, factual consistency, comprehensiveness and potential harm. Interestingly, they assessed the clinician’s preference for different outputs35. More recently, Tam et al.36 have introduced QUEST as a framework for human evaluation of LLMs in healthcare following a comprehensive literature review on the topic. QUEST includes five principles for human evaluation of LLMs, including Quality of information, Understanding and reasoning, Expression style and persona, Safety and harm, and Trust and confidence.
+
+Multiple benchmarks have been proposed to evaluate model summarisation capabilities in the biomedical domain, including over biomedical literature37–40, medical forum conversations41, and radiology reports22,42. However, these benchmarks do not capture the nuances of patient-facing clinical interactions, where LLM-documentation holds most promise.
+
+Recently, Umapathi et al.43 have assessed models’ tendency towards hallucination. They reported that LLMs were significantly variable in their accuracy depending on the prompts used. However, the MedHALT benchmark is limited to assessing LLM’s reasoning capabilities over the medical domain in a QA format. Most relevantly, Moramarco et al.21 benchmark BART models on the PriMock dataset and find that they produce 3.9 errors and 6.6 omissions on average per note. However, they did not assess the model’s impact or human errors on patient safety as part of their study.
+
+This study aims to contribute to the ongoing effort to ensure clinical safety in using LLMs for note generation by introducing a framework which has four components: (1) a clinically and technically-informed error taxonomy to classify LLM outputs, (2) an experiment structure to comprehensively and iteratively compare outputs within our LLM document generation pipeline, (3) a clinical safety framework to assess potential harms of errors in LLM outputs, and (4) an encompassing graphical user interface (GUI), CREOLA, to perform and assess all previous steps. Figure 1 shows our workflow based on the framework. We present our findings and insights from applying our framework, which, to our knowledge, represents the largest manual evaluation of LLM clinical note generation to date.
+
+Our objective is to promote the efficient, reliable, and confident use of LLMs for clinical documentation, thus supporting healthcare providers in delivering high-quality care and overall reducing the administrative workload for clinicians.
+
+This diagram illustrates the process we followed using the available dataset for various experiments, including the input from clinicians for labelling and consolidating reviews, followed by a safety analysis.</p>
+  </section>
+  <section id="s2" class="text-unit">
+<h3>Results</h3>    <p>The figure illustrates the occurrence of hallucinations in the generated sentences based on different prompts (a) and their corresponding percentages (b). It also highlights the type and clinical severity of hallucinations (c) and the specific sections of the note where they appeared (d).
+
+The figure illustrates the number of omitted sentences using different prompts (a) and their respective percentage (b).
+
+We assessed the clinical risk resulting from major hallucinations based on our suggested framework.
+
+We have categorised the clinician severity of hallucination risks based on their type (a) and the section of the clinical notes where they occurred (b).
+
+This figure illustrates the clinical risk severity due to major omissions (a) and indicates the sections of the notes where they are most likely to occur (b).
+
+Comparing omissions (a) and hallucinations (b) using the base prompt from Experiment 1 and the updated style prompt from Experiment 8. Each connected dot represents the change in hallucinations or omissions for a given document.
+
+Prompt changes that led to decreased hallucinations and omissions
+
+The figure shows the changes in the counts of hallucinations (a) and omissions (b) between Experiments 3 and 8 which have resulted from the changes in the prompts.
+
+Comparing omissions (a) and hallucinations (b) in our base experiment (Experiment 1) with Experiment 5 where the transcript was broken down into concise facts before being passed to the LLM for note generation. Each connected dot represents the change in hallucinations or omissions for a given document.
+
+The figure compares the number of hallucinations (a) and omissions (b) between Experiment 3, where the standard note generation step was used, and experiment 5, where data extraction was performed before note generation.
+
+Prompts used in experiments 6, 9, 10 and 11
+
+This figure illustrates how the change in prompts within the function call experiments can change the number of major and minor hallucinations and omissions in the output.
+
+The figures illustrate the type and severity of clinical risk resulting from major hallucinations in Experiments 8 (a) and 11 (c) and the section of the notes they occur (b and d).
+
+The figure illustrates the clinical risk from major omissions in Experiment 8 and the section of the clinical notes where it has occurred.</p>
+  </section>
+  <section id="s3" class="text-unit">
+<h3>Results › Dataset</h3>    <p>We conducted a series of 18 experiments, each consisting of 25 primary care consultation transcripts from the PriMock dataset44 For each transcript, we generated paired clinical documentation using an LLM, resulting in 450 consultation transcript-note pairs. This was a total of 49,590 transcript sentences and 12,999 clinical note sentences that were manually evaluated and labelled for any hallucinations or omissions.</p>
+  </section>
+  <section id="s4" class="text-unit">
+<h3>Results › Experiments</h3>    <p>Our experiments were guided by our framework, which provides a systematic approach to evaluate LLM outputs quantitatively. Using a baseline LLM prompt and workflow, we generated 25 transcript-note pairs. We recruited 50 medical doctors for manual evaluation. For each paired transcript-note, we had two clinician reviewers evaluate each sentence in the clinical note to ensure it was evidenced in the transcript; sentences that were not evidenced were labelled as hallucinations. We also highlighted each sentence in the transcript for review, checking if it was present in the output note if it was clinically relevant; and if not, they were labelled as an omission. If the hallucination or omission could change the diagnosis or management of the patient (if left uncorrected), it was marked as ‘Major’, otherwise, they would be labelled as ‘minor’. In cases of discrepancy between the two reviewers, consolidation was performed by a senior clinician with over 20 years of clinical experience.
+
+We additionally identified the specific sections of the notes where the hallucinations occur (main history, examination, discussion, symptoms assessment, and plan). The result of each experiment informed our subsequent experiment approach to analyse how prompt/ workflow/ engineering changes affect the hallucinatory potential for clinical note generation.
+
+All experiments were conducted on CREOLA, our in-house platform, designed to allow clinicians to identify and label relevant hallucinations and omissions in clinical text. Using this platform, we were able to implement our framework to quantify and track changes in our prompts and model configurations and iteratively modify our approach to ensure the safe integration of LLM-generated summaries into clinical practice.</p>
+  </section>
+  <section id="s5" class="text-unit">
+<h3>Results › Hallucinations</h3>    <p>Of 12,999 sentences in 450 clinical notes, 191 sentences had hallucinations (1.47%), of which 84 sentences (44%) were major (could impact patient diagnosis and management if left uncorrected). Of the hallucination types, 82 (43%) were fabricated, 56 (30%) were negations, 33 (17%) were contextual, and 20 (10%) were related to causality.
+
+Major hallucinations occurred in all sections, but most commonly in Plan (21%), Assessment (10.5%), and Symptoms (5.2%) sections. The most common hallucination type were fabrications and primarily appeared in the planning section of the clinic note (Fig. 2). Examples of the various hallucination types are available in supplementary materials.
+
+The figure illustrates the occurrence of hallucinations in the generated sentences based on different prompts (a) and their corresponding percentages (b). It also highlights the type and clinical severity of hallucinations (c) and the specific sections of the note where they appeared (d).</p>
+  </section>
+  <section id="s6" class="text-unit">
+<h3>Results › Omissions</h3>    <p>Of the 49,590 sentences from our consultation transcripts, 1712 sentences were omitted (3.45%), of which 286 (16.7%) of which were classified as major and 1426 (83.3%) as minor. Figure 3 shows the number of omissions and the percentage of omitted sentences based on different prompts.
+
+The figure illustrates the number of omitted sentences using different prompts (a) and their respective percentage (b).</p>
+  </section>
+  <section id="s7" class="text-unit">
+<h3>Results › Grading hallucinations and omissions by clinical safety impact</h3>    <p>Inspired by protocols in medical device certifications, we applied the clinical safety assessment of our framework described in the methods section. We classified the clinical risk (Major or Minor) and evaluated the risk severity of all identified major hallucinations as depicted in Fig. 4. We also determined the risk of hallucinations based on their type and where in the sentence they occurred (Fig. 5).
+
+We assessed the clinical risk resulting from major hallucinations based on our suggested framework inspired by protocols in medical device certifications.
+
+We conducted the risk assessment on the omissions (Fig. 6a) and detailed the note section that would likely have been affected (Fig. 6b). Major omissions were most common in current issues, followed by PMFS, and Info and Plan sections (55%, 35%, and 10%, respectively).
+
+Examples of hallucinations and omissions are available in the supplementary materials.
+
+We assessed the clinical risk resulting from major hallucinations based on our suggested framework.
+
+We have categorised the clinician severity of hallucination risks based on their type (a) and the section of the clinical notes where they occurred (b).
+
+This figure illustrates the clinical risk severity due to major omissions (a) and indicates the sections of the notes where they are most likely to occur (b).</p>
+  </section>
+  <section id="s8" class="text-unit">
+<h3>Results › Iterative experiments can significantly reduce hallucination and omission rates in LLM-generated clinical notes</h3>    <p>Through a series of 18 iterative experiments, we tested a combination of prompting and workflow strategies, including structured prompting, atomisation, function calls and JSON-based outputs, an additional LLM revision step, and templating (SOAP -Subjective, Objective, Assessment, plan- note), which are explained in more detail in the methods section.
+
+Modifying the prompt from the baseline used in Experiment 1 to include a style update used in Experiment 8, resulted in a reduction of both major and minor omissions. Although there was a slight increase in hallucinations in Experiment 8, these were mostly minor. Figure 7 illustrates the number of hallucinations and omissions recorded in Experiments 1 and 8.
+
+We then compared the outputs using various structured prompts in Experiments 3 and 8 illustrated in Table 1.
+
+The change in the prompt from Experiments 3 to 8 reduced the incidence of major hallucinations by 75% (from 4 to 1), major omissions by 58% (24 to 10), and minor omissions by 35% (114 to 74) (Fig. 8). By following structured prompting, including a style update and instructing the model to output the status “unknown” for instances where information was missing from the transcript, we significantly improved performance.
+
+In a subsequent experiment (Experiment 5), we found that incorporating a chain-of-thought prompt (Table 1, supplementary material), to extract facts from the transcript—a process referred to as atomisation—before generating the clinical note, led to an increase in major hallucinations and omissions. Figure 9 shows the comparison between omissions and hallucinations between this experiment and our base Experiment (Experiment 1).
+
+We also compared the output of Experiment 5 to Experiment 3, which used structured prompts. We found that major hallucinations increased from 4 to 25, minor hallucinations from 5 to 29, major omissions from 24 to 47, and minor omissions from 114 to 188 (Fig. 10). This result precluded the new change from being evaluated for clinical safety, as the increase in hallucinations and omissions was considered too large to be considered useful.
+
+We found that using prompts with function calling was useful in ensuring that the outputs adhered to a specific structure required for different electronic health records. Utilising our framework, we iteratively improved the performance of the structured notes across several experiments (6, 9, 10, and 11). From the first to the last iteration (Experiments 6 to 11), we made meaningful improvements to the prompts, including instructions on adherence to subheadings and the addition of a writing style guidance (e.g., a list of writing rules to follow). Table 2 shows the prompts used in the four function call experiments.
+
+As a result of these changes, we eliminated major omissions completely, decreasing them from 61 to 0, and reduced minor omissions by 58%, from 130 to 54. Additionally, we lowered the total number of hallucinations by 25%, reducing them from 4 to 3 (Fig. 11).
+
+We then examined the two best-performing experiments with the fewest hallucinations and omissions (Experiments 8 and 11) for the type of hallucinations they produced and where they were more likely to appear in the sentence (Fig. 12).
+
+Experiment 11 did not have any major omissions, and the risk assessment of major omissions for Experiment 8 is shown in Fig. 13.
+
+Comparing omissions (a) and hallucinations (b) using the base prompt from Experiment 1 and the updated style prompt from Experiment 8. Each connected dot represents the change in hallucinations or omissions for a given document.
+
+Prompt changes that led to decreased hallucinations and omissions
+
+The figure shows the changes in the counts of hallucinations (a) and omissions (b) between Experiments 3 and 8 which have resulted from the changes in the prompts.
+
+Comparing omissions (a) and hallucinations (b) in our base experiment (Experiment 1) with Experiment 5 where the transcript was broken down into concise facts before being passed to the LLM for note generation. Each connected dot represents the change in hallucinations or omissions for a given document.
+
+The figure compares the number of hallucinations (a) and omissions (b) between Experiment 3, where the standard note generation step was used, and experiment 5, where data extraction was performed before note generation.
+
+Prompts used in experiments 6, 9, 10 and 11
+
+This figure illustrates how the change in prompts within the function call experiments can change the number of major and minor hallucinations and omissions in the output.
+
+The figures illustrate the type and severity of clinical risk resulting from major hallucinations in Experiments 8 (a) and 11 (c) and the section of the notes they occur (b and d).
+
+The figure illustrates the clinical risk from major omissions in Experiment 8 and the section of the clinical notes where it has occurred.</p>
+  </section>
+  <section id="s9" class="text-unit">
+<h3>Discussion</h3>    <p>Our study supported that hallucinations and omissions may be intrinsic theoretical properties of current LLMs9. LLMs can output unfactual or unfaithful text with high degrees of confidence45 which can be particularly dangerous in a high-stakes environment such as healthcare. Our framework quantifies the clinical impact and implications that LLM omissions and hallucinations may lead to if unchecked or uncorrected; only then can clinical safety be meaningfully addressed. Once LLM errors are identified and quantified, we can make iterations on LLM prompts, workflows or engineering design to reduce or eliminate these errors. By concentrating on minimising errors that could significantly impact patient care, we can align LLMs with clinical safety standards and regulations.
+
+To our knowledge, we have conducted the largest manual evaluation on the task of LLM clinical note generation to date. To implement our framework at scale we built CREOLA, an in-house platform, designed to enable clinicians to identify and label relevant hallucinations and omissions in clinical text and inform future experiments. However, similar publicly available platforms (e.g. labelbox, explosion AI, autoblocks etc.) may be used for this task. Experiments within CREOLA can validate or discredit architectures and prompt approaches in a safe sandbox environment before clinical deployment.
+
+Our experiment results show that omissions are more common than hallucinations (3.45% to 1.47%, respectively). However, hallucinations were much more likely to be classified as a “major” error compared to omissions (44% to 16.7%, respectively). This means that hallucinations are more likely to lead to downstream harm and impact clinical care if left uncorrected. Hallucinations occurred in all sections, but most commonly (20%) in the Plan section of the clinical note. This is an important finding as this section often contains direct instructions or actions to colleagues or patients that can impact clinical safety. The most concerning hallucinations were the negation type (30% of total hallucinations). These mostly appeared in the planning section and contradicted what was said during the consultation. Negation hallucinations can lead to significant confusion and harm, and without the full context of the consultation, readers may struggle to discern which negation is true and which is false.
+
+By designing prompts that addressed specific aspects of the notes (base, template and style), we were able to focus our iterations to achieve the best results. However, it is important to note that summarisation tasks require the ablation of certain data from the original text to make it a concise, relevant, and useful summary artefact. Optimal omission rates depend significantly on the context, the quality of input and the reviewer receiving output. Our framework allows us to focus on the clinical impact of omissions and hallucinations quantitatively. Overall, our hallucination rates are similar to those reported in the literature for generalist tasks46. For the clinical summarisation task, Experiment 8 achieved 1 major hallucination and 10 major omissions, whilst experiment 11 achieved 2 major hallucinations and 0 major omissions over 25 notes. These results are highly encouraging, as our iterative experiment process has resulted in fewer errors per note than those reported in the clinical literature. Moramarco et al.21 reported 3.9 errors and 6.6 omissions per note as produced by a BART model and 1 error and 4 omissions per human-written note. This improvement is likely due to the large parameter sizes of modern large language models in combination with our framework. Although this rate is subject to change depending on the text and experiment, our results suggest that we can achieve state-of-the-art, sub-human clinical error rates by carefully engineering and subsequently validating LLMs to produce safe outputs.
+
+Our study is limited in several ways. Firstly, the sample size of medical transcripts used was relatively small; the sample size was chosen to balance the trade-off of annotation volume required for the comparison of different experiments against sample size and number of experiments performed. Additionally, we only evaluated one LLM (GPT-4), selected due to its established performance in text summarisation at the time of our experiments. The ongoing development and enhancement of open-source large language models (LLMs) are likely to boost their application in medicine47. Recently, Zhang et al. reviewed how fine-tuning open-source LLMs such as PRIMERA, LongT5, and Llama-2 can enhance their ability to summarise medical evidence effectively48. Furthermore, our experiments use a direct prompting scheme (Supplementary Data 1). Newer methods such as (but not limited to) Retrieval-Augmented Generation (RAG)49, Chain of Thought (CoT)50, or the use of knowledge graphs51 have recently been used to enhance the performance of LLMs. For example, by equipping LLMs with domain-specific knowledge, RAG enables the models to generate more precise and pertinent results52,53, whilst CoT generally enhances model reasoning abilities. A straightforward extension of this work is using this framework over different experimental configurations, such as using different models or prompting techniques, and comparing the impact on reported performance to clinical safety metrics.
+
+Finally, using human annotators to evaluate large amounts of data is expensive and unsustainable. In the long run, the automated evaluation of model output54 is a consequential future direction which will enable the scalable assessment of a larger volume of information, with clinicians remaining in the loop by “supervising” evaluator models via the inspection of a sub-sample of the outputs. ‘LLM-as-a-Judge’, which refers to an LLM tasked with evaluating, scoring, or assessing the quality, correctness, or appropriateness of outputs, has recently been described55 and its applicability has been discussed56. Utilising the capabilities of LLMs for initial screening can significantly reduce the time and resource demands on human evaluators. This can make the CREOLA framework more scalable and efficient over time. This hybrid approach aligns with ongoing advancements in AI and has the potential to maintain rigorous oversight while ensuring scalability.
+
+In this work, we present a framework for the clinical safety assessment of LLMs in clinical documentation scenarios. Using the CREOLA platform, we analyse the impact of prompting techniques on the safety of LLM outputs. Our iterative modification process allows us to reach new low hallucination and omission rates - our best-performing experiments outperform previously reported model and human error rates - facilitating confident deployment of our solutions to end clinical users. Additionally, CREOLA provides a sandbox environment which buffers users and patients from harm in case the iteration leads to higher clinical error rates. The addition of clinical safety assessment to prompt evaluation creates a valuable framework for implementing note summarisation tools in clinical practice. We propose that our suggested framework, which combines the assessment of hallucinations and omissions with an evaluation of their impact on clinical safety, can serve as a governance and clinical safety assessment template for various organisations. This approach aims to empower clinicians to become key stakeholders in the deployment of large LLMs in clinical settings.</p>
+  </section>
+  <section id="s10" class="text-unit">
+<h3>Methods</h3>    <p>We propose a multi-component framework to evaluate hallucinations and omissions in clinical documentation generated by LLMs. Central to our approach is the concept of “clinician in the loop”. Given their expertise, clinicians are uniquely positioned to identify clinical errors made by the models, making their involvement essential. A specialised annotation platform (CREOLA) was developed to facilitate clinician labelling for each experimental dataset.
+
+Experimental design: Our experiments systematically assessed how various prompting techniques and workflow structures influenced the accuracy and reliability of clinical notes derived from primary care consultation transcripts. Typical parameters varied in our experiments included the complexity and specificity of prompts (such as the addition of structured sections, negations, or perspective changes), as well as the number of LLM calls, such as introducing an additional revision step through a secondary LLM call. For consistency and reproducibility, we used OpenAI’s GPT-4 (GPT-4-32k-0613), setting the seed to 210, temperature to 0, and a top-p value of 0.95 to accommodate clinical language complexities.
+
+All prompts used are detailed in Supplementary Materials, Table 4. To achieve a meaningful clinical comparison of efficacy and safety in a data-driven way, our framework relies on the definition of a ‘baseline’ experiment against which to compare results. The baseline experiment must use the same input data points as the new experiment. To clearly attribute an experiment’s results to a specific change, we aim only to alter one parameter from the baseline experiment configuration at a time.
+
+We used different methodologies to assess and improve model output as described below:
+
+Model Improvements: This outlines modifications to individual LLM calls within our workflow while preserving the same overall structure. Common modifications include the prompt, the model used for the call, or the model hyperparameters, such as maximum output tokens (Table 1).
+
+Workflow Improvements: We implemented changes to explore new methods for generating a specific type of output. For instance, in our clinical note generation based on a transcript, we decided to extract a list of facts from the transcript before making a single call to the LLM for the final note (Supplementary Table 1). We then evaluated how this approach affected the frequency of hallucinations and omissions (Figs. 9 and 10). Additionally, we included an extra LLM call in some experiments to improve the quality of the output (Supplementary Fig. 1).
+
+Clinician vs LLM generated notes: Several members of our clinical team were tasked with creating notes based on consultation transcripts. We then utilised the framework to identify any hallucinations and omissions in these notes, which allowed us to compare the clinician-created notes with those generated by the language model. Results shown in supplementary Fig. 3, Experiment 17.
+
+Guidance for assessing the level of harm
+
+The likelihood of a hazard occurring
+
+This figure illustrates the scoring of clinical risk based on the likelihood of an incident occurring and the severity of harm it may cause.
+
+Calculating the likelihood of an error occurring in the text output
+
+To facilitate clinician review, the closest sentence matches (highlighted in yellow) for each portion of the text under review were extracted from the counterpart document. In the case of hallucinations, portions of text in the note were compared to the consultation (a), whereas for omissions, portions of the transcript were compared against the note (b).</p>
+  </section>
+  <section id="s11" class="text-unit">
+<h3>Methods › Summary of experimental approaches in LLM-based note summarisation</h3>    <p>Our study evaluated various approaches to prompt design and output structuring for LLM-based clinical notes. The experiments were designed to iteratively refine the model’s ability to produce accurate, structured, and clinically relevant summaries. The key methodological approaches across our 18 experiments are summarised below:
+
+The likelihood of a hazard occurring
+
+This figure illustrates the scoring of clinical risk based on the likelihood of an incident occurring and the severity of harm it may cause.
+
+Calculating the likelihood of an error occurring in the text output
+
+To facilitate clinician review, the closest sentence matches (highlighted in yellow) for each portion of the text under review were extracted from the counterpart document. In the case of hallucinations, portions of text in the note were compared to the consultation (a), whereas for omissions, portions of the transcript were compared against the note (b).</p>
+  </section>
+  <section id="s12" class="text-unit">
+<h3>Methods › Summary of experimental approaches in LLM-based note summarisation › Baseline prompts (Experiments 1 and 2)</h3>    <p>These were the initial prompts we had in our product prior to adopting the framework. We used these as a benchmark against which the later prompts were compared.</p>
+  </section>
+  <section id="s13" class="text-unit">
+<h3>Methods › Summary of experimental approaches in LLM-based note summarisation › Structured prompts (Experiments 3, 7, 8, and 4)</h3>    <p>Prompts were organised into three components: base (context and goal setting), template (content and structure), and style (formatting). Experiment 3 was a customisation experiment to test a new prompt structure (base, template, style preferences) for generating custom notes based on a transcript. Experiment 7 introduced a first-person perspective in generated notes. Experiment 8 refined the style section by incorporating negations and an “unknown” category for problems not explicitly mentioned in transcripts. Experiment 4 tested an enhancement to the baseline SOAP (Subjective, Objective, Assessment, Plan) note by improving medication record representation.</p>
+  </section>
+  <section id="s14" class="text-unit">
+<h3>Methods › Summary of experimental approaches in LLM-based note summarisation › Atomisation (Experiment 5)</h3>    <p>This method used a chain-of-thought prompt to extract atomic facts from transcripts to ensure the precise organisation of clinical details. The approach facilitated structured extraction, breaking down information into fundamental components.</p>
+  </section>
+  <section id="s15" class="text-unit">
+<h3>Methods › Summary of experimental approaches in LLM-based note summarisation › Function calls &amp; JSON-based output (Experiments 6, 9, 10, 11)</h3>    <p>LLMs were instructed to generate responses in structured JSON format instead of free text. This structured format was optimised for integration with primary care electronic health record systems. Successive experiments refined style handling, negation accuracy, and clinical specificity, progressively reducing hallucinations.</p>
+  </section>
+  <section id="s16" class="text-unit">
+<h3>Methods › Summary of experimental approaches in LLM-based note summarisation › Structured prompt + LLM revision step (Experiments 14 and 15)</h3>    <p>We added a second LLM pass to review and refine outputs based on structured prompting. Experiment 14 built on Experiment 11 with a revision step to improve SOAP notes and introduce an “unknown” option for missing details. Experiment 15 applied this process to a ‘Bad SOAP’ note, containing hallucinations and omissions, to evaluate how well errors could be mitigated.</p>
+  </section>
+  <section id="s17" class="text-unit">
+<h3>Methods › Summary of experimental approaches in LLM-based note summarisation › New note generation approach (Experiment 16)</h3>    <p>A novel template-driven method was introduced for generating customised outputs. However, comparison with baseline results (Experiment 8) revealed an increase in major hallucinations and minor omissions, highlighting potential trade-offs.</p>
+  </section>
+  <section id="s18" class="text-unit">
+<h3>Methods › Summary of experimental approaches in LLM-based note summarisation › Clinician vs. LLM comparison (Experiment 17)</h3>    <p>In this experiment, clinicians manually created notes based on medical transcripts. These notes were then assessed for hallucinations and omissions, providing a benchmark against LLM-generated content. Interestingly, findings suggested slightly more hallucinations in clinician-written notes but fewer omissions, highlighting key differences in human vs. LLM-generated summaries.</p>
+  </section>
+  <section id="s19" class="text-unit">
+<h3>Methods › Summary of experimental approaches in LLM-based note summarisation › Experiment 18</h3>    <p>In this experiment, we assessed the performance of the notes within the publicly available ACI Bench dataset.
+
+Hallucination and Omission Taxonomy: We follow the conventional AI literature and taxonomise LLM errors into two types 1) hallucinations, which are instances of text unsupported by the associated clinical documentation, and 2) omissions21, which are instances where relevant details are missed in the supporting evidence. Furthermore, inspired by protocols in medical device certifications57,58, we categorise errors as either ‘major’ or ‘minor’, where major errors can impact on the diagnosis or the management of the patient if not corrected.
+
+To make our categories more granular, we propose to divide hallucinations into four categories: (1) fabrication, occurring when the model produced information that was not evidenced in the text, (2) negation, occurring when the model output negates a clinically relevant fact, (3) causality, occurring when a model speculates the cause of a given condition without explicit support from the text, and (4) contextual, occurring when the model mixes topics otherwise not related to the given context.
+
+In the case of omissions, we further divide them into sections: (1) current issues, occurring when details about the current presentation were omitted, (2) PMFS (past medical history, medication history, family and social history), occurring when details about the past medical history, medications including allergies, family and social history, including drinking and smoking, were omitted, and 3) information and plan: when discussions and explanations of the condition and management plans were omitted. Examples of each of the sub-categories are provided in the Supplementary Materials.
+
+Experimental Structure and Annotation Protocol: Here, we define a process to assess how model parameters affect the model outputs and clinical safety. To do this, we define “experiments”, which are parametrised by (1) the number of data points processed by the LLM, (2) the type of data the LLM will ingest, (3) the model configuration (type of model, random seed, temperature,…), (4) the prompt used to obtain an LLM output, and (5) the number of clinicians which must review the data point for clinical errors.
+
+Given an experiment configuration, we extract model outputs from the input data and store the results in a database with the associated experiment metadata. We task annotators to classify whether given sub-sections of the output contain hallucinations or omissions according to our taxonomy, and explain in free text the reason for classification. The annotators were volunteer doctors who were paid £5 per note for annotations. Recognising the subjectivity inherent in annotation, we require annotation by at least two clinicians for each input-output pair. This step is followed by a consolidation step, i.e. a detailed review by our internal team of senior clinicians, ensuring a consistent evaluation of all annotations.
+
+Clinical Safety Assessment: Recognising that safety assessment is a crucial part of using any medical technology, we designed a safety evaluation framework of the LLM outputs based on the framework used for evaluating a medical device57,58. Overall, this assessment involves estimating the likelihood of an error happening (Table 3) in conjunction with the potential impact of the error on the clinical outcome if it does occur. Table 4 shows the classification of the level of harm, and Fig. 14 presents the estimation of risk based on the likelihood and consequences of an event.
+
+To maintain consistency in assessing the likelihood of hallucinations and omissions in each experiment, we created a percentage-based metric for their occurrence across experiments, as detailed in Supplementary data 1. ‘Very High’ likelihood represents scenarios where errors were very common (&gt;90%), whereas ‘Very Low’ likelihood was associated with situations where errors were rare (&lt;1%). For the ‘Medium’ likelihood category, which covers 10–60%, we used a broader range to accommodate the output variability and the understanding that some errors may be less predictable or depend on context (Table 5).
+
+CREOLA, Clinical Review of LLMs and AI: We combine the experiment design, hallucination and omission taxonomy, and clinical safety evaluation in a platform we denote CREOLA, short for Clinical Review of LLMs and A1 (pays tribute to Creola Katherine Johnson59, a pioneering human computer at NASA. Just as human computers were integral to the safe landing of Apollo moon missions, clinicians play a vital role in safely integrating AI technologies into clinical practice).
+
+The platform is used to identify resultant changes in generated clinical documentation arising from changes to processes in LLM architecture. As illustrated in the “experimental structure”, these changes could involve—but are not limited to—the type of model used or prompts used to obtain outputs. The platform was hosted as a Streamlit web application (https://creola.tortus.ai/); the annotation user interface is displayed in Fig. 15.
+
+Annotator recruitment: As outlined earlier, our framework requires annotators to review model outputs. Clinicians are uniquely skilled in critically assessing the veracity of clinical facts in the text. Therefore, we ask clinicians to annotate errors for our experiments. Annotators could register to contribute to the annotation through the CREOLA platform. To ensure annotators had a good understanding of the process, one-to-one tuition was initially provided by the study team. As the number of annotators grew, a short online course was developed to explain the annotation process, followed by a questionnaire to ensure a comprehensive understanding of the material. The annotators were only able to participate if they completed the questionnaire correctly. The annotators could contact the study teams with any questions through the CREOLA platform in order to ensure any problems in the platform were dealt with promptly.
+
+The likelihood of a hazard occurring
+
+This figure illustrates the scoring of clinical risk based on the likelihood of an incident occurring and the severity of harm it may cause.
+
+Calculating the likelihood of an error occurring in the text output
+
+To facilitate clinician review, the closest sentence matches (highlighted in yellow) for each portion of the text under review were extracted from the counterpart document. In the case of hallucinations, portions of text in the note were compared to the consultation (a), whereas for omissions, portions of the transcript were compared against the note (b).</p>
+  </section>
+  <section id="s20" class="text-unit">
+<h3>Date availability</h3>    <p>We have used data from Primock and ACI bench which are publicly available clinical transcripts and notes (references in the main text)</p>
+  </section>
+  <section id="s21" class="text-unit">
+<h3>Supplementary information</h3>    <p>Supplementary Materials
+
+Supplementary Data 1</p>
+  </section>
+  <section id="s22" class="text-unit">
+<h3>Acknowledgements</h3>    <p>The authors would like to thank the many physicians who helped with our CREOLA experiments and the annotation of the clinical transcripts and notes. No funding has been received for this study.</p>
+  </section>
+  <section id="s23" class="text-unit">
+<h3>Author contributions</h3>    <p>D.P., E.A., M.D., N.M., S.K. and J.B. contributed to the concept, design and execution of the study. M.D. and S.K. built the CREOLA platform and with NM designed the various prompts and experiments. MD analysed all the results and prepared the figures. E.A. and N.M. wrote, reviewed and revised the paper. E.A. and D.P. designed the clinical safety framework, reviewed all the annotations and scored the impact of errors on clinical safety. JAY provided expert advice on paper writing and direction and contributed to significant paper revision and rewriting. E.A., J.A.Y., M.D., N.M., S.K., J.B. and D.P. contributed to the review and revision of the paper.</p>
+  </section>
+  <section id="s24" class="text-unit">
+<h3>Code availability</h3>    <p>We have added all our prompts used in the supplementary materials of the article. As explained in the methods section, we used OpenAI’s GPT-4 (GPT-4-32k-0613) as the LLM for all our experiments.</p>
+  </section>
+  <section id="s25" class="text-unit">
+<h3>Competing interests</h3>    <p>D.M. is the CEO of the company Tortus AI and all authors were employees of Tortus AI at the time of the writing the paper (M.D., N.M., S.K. and J.B. as full time and E.A. part time, J.A.Y. full time employee at the time of revision). The authors declare no competing interests.</p>
+  </section>
+  <section id="s26" class="text-unit">
+<h3>Supplementary information</h3>    <p>The online version contains supplementary material available at 10.1038/s41746-025-01670-7.</p>
+  </section>
+  <section id="s27" class="text-unit">
+<h3>Associated Data</h3>    <p>Supplementary Materials
+
+Supplementary Data 1</p>
+  </section>
+  <section id="s28" class="text-unit">
+<h3>Associated Data › Supplementary Materials</h3>    <p>Supplementary Materials
+
+Supplementary Data 1</p>
+  </section>
+  <section id="s29" class="text-unit">
+<h3>Associated Data › Data Availability Statement</h3>    <p>We have added all our prompts used in the supplementary materials of the article. As explained in the methods section, we used OpenAI’s GPT-4 (GPT-4-32k-0613) as the LLM for all our experiments.</p>
+  </section>
+</article>
+</main>
+</body>
+</html>
